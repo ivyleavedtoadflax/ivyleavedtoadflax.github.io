@@ -49,7 +49,7 @@ house_prices %>% head
 ## 6 1985       4 299900
 {% endhighlight %}
  
-So we have to $x$'s: `size` and `n_rooms`
+So we have two $x$'s: `size` and `n_rooms`
  
 Let's also plot it out of interest:
  
@@ -100,7 +100,7 @@ and in the file featureNormalize.m provided with the course material, we get:
 > to perform the normalization separately for 
 > each feature. 
  
-Ok so I'll have a go at implementing that in R.
+I'll have a go at implementing that in R.
  
 
 {% highlight r %}
@@ -287,8 +287,6 @@ grad <- function(alpha, j, X, y, theta) {
   }
 {% endhighlight %}
  
-```
- 
 Here I use the `grad()` gradient descent function I defined in my post about [linear regression with gradient descent](http://ivyleavedtoadflax.github.io//linear_regression/).
  
 First set up the inputs:
@@ -398,7 +396,7 @@ coef(model)
 ##  89597.9095    139.2107  -8738.0191
 {% endhighlight %}
  
-Ok so the parameters don't match, but this is because we have scaled the features. The output from the two models will be the same. Here I check by combining the two predictions into the `house_prices` dataframe, and comparing them with `identical()`.
+The parameters don't match, but this is because we have scaled the features. The output from the two models will be the same. Here I check by combining the two predictions into the `house_prices` dataframe, and comparing them with `identical()`.
  
  
 
@@ -440,7 +438,7 @@ Ok not identical, how come?
 ## [1] 3.244767e-10
 {% endhighlight %}
  
-Ok so they differ by a pretty small amount. Try the comparison more sensibly:
+So they differ by a pretty small amount. Try the comparison more sensibly:
  
 
 {% highlight r %}
@@ -480,5 +478,5 @@ house_prices %>%
 
 ![plot of chunk plot_multiple_regression_predictions](/figures/plot_multiple_regression_predictions-1.png) 
  
-So pretty close to single regression model, but you can see that there are slightly different slopes for each number of rooms.
+Pretty close to a single regression model, but you can see that there are slightly different slopes for each number of rooms.
  

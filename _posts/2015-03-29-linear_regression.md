@@ -206,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.027
+##   0.000   0.000   0.022
 {% endhighlight %}
 
 
@@ -325,7 +325,8 @@ grad <- function(alpha, j, X, y, theta) {
     
     if (i > 1) {
       
-      # Here I define a function to calculate when we have roughly reached convergence.
+      # Here I define a function to calculate when we have roughly reached
+      # convergence.
       
       if (
         isTRUE(
