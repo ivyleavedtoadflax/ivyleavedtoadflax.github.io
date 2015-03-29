@@ -1,7 +1,7 @@
 ---
-title: "Machine learning - Gradient descent"
+title: "Gradient descent in R"
 date: "29/03/2015"
-excerpt: Linear regression the machine learning way
+excerpt: "Implementing gradient decsent in R"
 output: pdf_document
 layout: post
 published: true
