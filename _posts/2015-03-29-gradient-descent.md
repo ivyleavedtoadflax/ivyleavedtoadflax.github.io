@@ -26,17 +26,7 @@ library(ggplot2)
 ex1data1 <- "ex1data1.txt" %>%
   read.csv %>% 
   set_colnames(c("profit","population")) 
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in file(file, "rt"): cannot open the connection
-{% endhighlight %}
-
-
-
-{% highlight r %}
+ 
 plot(
   x = ex1data1$profit,
   y = ex1data1$population,
@@ -46,11 +36,7 @@ plot(
   )
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Error in plot(x = ex1data1$profit, y = ex1data1$population, ylab = "Profit ($10,000s)", : object 'ex1data1' not found
-{% endhighlight %}
+![plot of chunk plot_linear_regression_data](/figures/plot_linear_regression_data-1.png) 
  
 ### Gradient descent
  

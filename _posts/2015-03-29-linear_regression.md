@@ -16,6 +16,19 @@ For the implementation of gradient descent for linear regression I draw from [Di
  
 Andrew Ng defines gradient descent for linear regression as:
  
+$$
+\begin{multline}
+\text{repeat until convergence} \{
+ 
+\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})
+ 
+\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{i}
+ 
+\}
+\end{multline}
+$$
+ 
+ 
 repeat until convergence {
  
 $$\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})$$
@@ -32,7 +45,7 @@ Digithead's implementation of this is quite slick, and it took me a while to get
 {% highlight r %}
 # Start by loading the data and splitting into vectors
  
-"_rmd/ex1data1.txt" %>% 
+"ex1data1.txt" %>% 
   read.csv(header =  FALSE) %>%
   set_colnames(c("x","y")) -> ex1data1
  
@@ -198,7 +211,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.025
+##   0.000   0.000   0.026
 {% endhighlight %}
 
 
@@ -228,7 +241,7 @@ model <- lm(ex1data1$y~ex1data1$x)
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.002
+##   0.000   0.000   0.001
 {% endhighlight %}
 
 
