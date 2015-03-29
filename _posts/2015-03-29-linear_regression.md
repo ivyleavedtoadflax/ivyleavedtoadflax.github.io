@@ -32,7 +32,7 @@ Digithead's implementation of this is quite slick, and it took me a while to get
 {% highlight r %}
 # Start by loading the data and splitting into vectors
  
-"_rmd/ex1data1.txt" %>% 
+"ex1data1.txt" %>% 
   read.csv(header =  FALSE) %>%
   set_colnames(c("x","y")) -> ex1data1
  
@@ -198,7 +198,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.025
+##   0.000   0.000   0.033
 {% endhighlight %}
 
 

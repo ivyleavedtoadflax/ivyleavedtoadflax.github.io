@@ -41,7 +41,7 @@ Digithead's implementation of this is quite slick, and it took me a while to get
 
 # Start by loading the data and splitting into vectors
 
-"_rmd/ex1data1.txt" %>% 
+"ex1data1.txt" %>% 
   read.csv(header =  FALSE) %>%
   set_colnames(c("x","y")) -> ex1data1
 
