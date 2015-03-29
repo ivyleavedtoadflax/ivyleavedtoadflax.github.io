@@ -1,7 +1,7 @@
 ---
-title: "Linear regression with gradient descent"
+title: "Multiple linear regression"
 date: "30/03/2015"
-excerpt: Linear regression the machine learning way
+excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
 published: true
@@ -45,13 +45,7 @@ house_prices %>% head
 
 
 {% highlight text %}
-##   size n_rooms  price vector_pred     pred
-## 1 2104       3 399900    356283.1 356283.1
-## 2 1600       3 329900    286120.9 286120.9
-## 3 2400       3 369000    397489.5 397489.5
-## 4 1416       2 232000    269244.2 269244.2
-## 5 3000       4 539900    472277.9 472277.9
-## 6 1985       4 299900    330979.0 330979.0
+## Error in eval(expr, envir, enclos): object 'house_prices' not found
 {% endhighlight %}
  
 Let's also plot it out of interest:
@@ -77,7 +71,11 @@ house_prices %>%
     )
 {% endhighlight %}
 
-![plot of chunk plot_multiple_regression](/figures/plot_multiple_regression-1.png) 
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): object 'house_prices' not found
+{% endhighlight %}
  
 ## 3.1 Feature normalisation/scaling
  
@@ -146,14 +144,24 @@ feature_scale <- function(x) {
   }
  
 scaled_features <- feature_scale(house_prices[,-3])
- 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in ncol(x): object 'house_prices' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
 range(scaled_features[[3]][,1])
 {% endhighlight %}
 
 
 
 {% highlight text %}
-## [1] -1.445423  3.117292
+## Error in eval(expr, envir, enclos): object 'scaled_features' not found
 {% endhighlight %}
 
 
@@ -165,7 +173,7 @@ range(scaled_features[[3]][,2])
 
 
 {% highlight text %}
-## [1] -2.851859  2.404508
+## Error in eval(expr, envir, enclos): object 'scaled_features' not found
 {% endhighlight %}
  
  
@@ -198,9 +206,42 @@ $$
 
 {% highlight r %}
 X <- matrix(ncol=ncol(house_prices)-1,nrow=nrow(house_prices))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in nrow(house_prices): object 'house_prices' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
 X[,1:2] <- cbind(house_prices$size,house_prices$n_rooms)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in cbind(house_prices$size, house_prices$n_rooms): object 'house_prices' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
 X <- cbind(1,X)
 y <- matrix(house_prices$price,ncol=1) 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in matrix(house_prices$price, ncol = 1): object 'house_prices' not found
+{% endhighlight %}
+
+
+
+{% highlight r %}
 theta <- matrix(rep(0,3),ncol=1)
  
  
@@ -217,19 +258,23 @@ multi_lin_reg <- grad(
 
 
 {% highlight text %}
-## Error in X %*% theta: non-conformable arguments
+## $theta
+##      [,1]
+## [1,]  NaN
+## [2,]  NaN
+## [3,]  NaN
+## 
+## $cost
+## [1] NaN
+## 
+## $iterations
+## [1] 356
 {% endhighlight %}
 
 
 
 {% highlight r %}
 plot(theta_history[,4],type="l")
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Error in plot.window(...): need finite 'ylim' values
 {% endhighlight %}
 
 ![plot of chunk unnamed-chunk-5](/figures/unnamed-chunk-5-1.png) 
@@ -249,7 +294,17 @@ multi_lin_reg <- grad(
 
 
 {% highlight text %}
-## Error in X %*% theta: non-conformable arguments
+## $theta
+##      [,1]
+## [1,]  NaN
+## [2,]  NaN
+## [3,]  NaN
+## 
+## $cost
+## [1] NaN
+## 
+## $iterations
+## [1] 2
 {% endhighlight %}
 
 
@@ -263,8 +318,10 @@ plot(theta_history[,4],type="l")
 {% highlight text %}
 ## Error in plot.window(...): need finite 'ylim' values
 {% endhighlight %}
+
+![plot of chunk unnamed-chunk-5](/figures/unnamed-chunk-5-2.png) 
  
-Great, convergence after 389 iterations. Now a multiple linear regression the traditional way:
+Great, convergence after 2 iterations. Now a multiple linear regression the traditional way:
  
 
 {% highlight r %}
@@ -277,7 +334,7 @@ model <- lm(
 
 
 {% highlight text %}
-## Error: data_frames can only contain 1d atomic vectors and lists
+## Error in eval(expr, envir, enclos): object 'house_prices' not found
 {% endhighlight %}
 
 
@@ -289,8 +346,8 @@ coef(model)
 
 
 {% highlight text %}
-## (Intercept)        size     n_rooms 
-##  89597.9095    139.2107  -8738.0191
+## (Intercept)  ex1data1$x 
+##   -3.895781    1.193034
 {% endhighlight %}
  
 Ok So the parameters don't match, but this is because we have scaled the features. The output from the two models will be exactly the same:
@@ -307,7 +364,7 @@ house_prices %<>%
 
 
 {% highlight text %}
-## Error: data_frames can only contain 1d atomic vectors and lists
+## Error in eval(expr, envir, enclos): object 'house_prices' not found
 {% endhighlight %}
 
 
@@ -322,7 +379,7 @@ identical(
 
 
 {% highlight text %}
-## [1] FALSE
+## Error in identical(c(house_prices$vector_pred), c(house_prices$pred)): object 'house_prices' not found
 {% endhighlight %}
  
 Ok not identical, how come?
@@ -335,7 +392,7 @@ mean(house_prices$pred - house_prices$vector_pred)
 
 
 {% highlight text %}
-## [1] 3.244767e-10
+## Error in mean(house_prices$pred - house_prices$vector_pred): object 'house_prices' not found
 {% endhighlight %}
  
 Ok so they differ by a pretty small amount, try again:
@@ -351,7 +408,7 @@ all.equal(
 
 
 {% highlight text %}
-## [1] TRUE
+## Error in all.equal(c(house_prices$vector_pred), c(house_prices$pred)): object 'house_prices' not found
 {% endhighlight %}
  
 And now let's plot the actual data with predictions from the multiple regression.
@@ -376,7 +433,13 @@ house_prices %>%
     )
 {% endhighlight %}
 
-![plot of chunk plot_multiple_regression_predictions](/figures/plot_multiple_regression_predictions-1.png) 
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): object 'house_prices' not found
+{% endhighlight %}
+
+
 
 {% highlight r %}
 theta <- matrix(c(1,2,3),ncol=1)

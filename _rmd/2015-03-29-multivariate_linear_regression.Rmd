@@ -1,7 +1,7 @@
 ---
-title: "Linear regression with gradient descent"
+title: "Multiple linear regression"
 date: "30/03/2015"
-excerpt: Linear regression the machine learning way
+excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
 published: no
