@@ -108,7 +108,7 @@ rmd2md <- function( path_site = getwd(),
     # The URL of an image is always base.url + fig.path"
     # https://groups.google.com/forum/#!topic/knitr/18aXpOmsumQ
     
-    #opts_knit$set(base.url = "")
+    opts_knit$set(base.url = "/")
     opts_chunk$set(fig.path = url_images)                     
     
     # andy I could try to make figures bigger
