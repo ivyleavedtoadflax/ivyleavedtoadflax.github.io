@@ -18,11 +18,11 @@ Andrew Ng defines gradient descent for linear regression as:
  
 $$
 \begin{multline}
-\text{repeat until convergence} \{
+\text{repeat until convergence} \{\\
  
-\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})
+\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\\
  
-\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{i}
+\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{i}\\
  
 \}
 \end{multline}
