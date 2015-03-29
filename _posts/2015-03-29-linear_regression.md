@@ -206,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.024
+##   0.000   0.000   0.027
 {% endhighlight %}
 
 
@@ -352,7 +352,12 @@ grad <- function(alpha, j, X, y, theta) {
     )
   
   }
+{% endhighlight %}
  
+So we define $\theta$ and then save it out to the object `out`, this time specifying many more iterations.
+ 
+
+{% highlight r %}
 theta <- matrix(c(0,0), nrow = 2)
 out <- grad(0.02, 3000, X, y, theta) %>% print
 {% endhighlight %}
@@ -372,7 +377,7 @@ out <- grad(0.02, 3000, X, y, theta) %>% print
 ## [1] 1656
 {% endhighlight %}
  
-Now let's run it, along with $J(\theta_0,\theta_1)$.
+Now let's plot it, along with $J(\theta_0,\theta_1)$.
  
 
 {% highlight r %}
@@ -392,4 +397,4 @@ plot(
 
 ![plot of chunk plot_convergence2](/figures/plot_convergence2-1.png) 
  
-So this time we get a much better fit, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.
+So this time it appears to converge, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.

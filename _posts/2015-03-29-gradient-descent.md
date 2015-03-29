@@ -122,8 +122,6 @@ Pretty simple! Now I use the plotting function to produce plots, and populate th
  
 
 {% highlight r %}
-par(mfrow=c(1,3))
- 
 create_plot(expression(Low~alpha))
  
 with(
@@ -139,7 +137,11 @@ with(
     col = "green"
     )
   )
- 
+{% endhighlight %}
+
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
+
+{% highlight r %}
 create_plot(expression(alpha~just~right))
  
 with(
@@ -155,8 +157,11 @@ with(
     col = "blue"
     )
   )
- 
- 
+{% endhighlight %}
+
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-2.png) 
+
+{% highlight r %}
 create_plot(expression(High~alpha))
  
 with(
@@ -174,7 +179,7 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-3.png) 
  
 Another way to look at the rate of convergence is to plot the number of iterations against the output of $f(x)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
  

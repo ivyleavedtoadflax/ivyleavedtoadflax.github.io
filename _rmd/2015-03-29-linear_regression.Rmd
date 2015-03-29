@@ -4,7 +4,7 @@ date: "2015-03-29"
 excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post
-published: no
+published: yes
 status: process
 comments: yes
 ---
@@ -317,12 +317,19 @@ grad <- function(alpha, j, X, y, theta) {
   
   }
 
+
+```
+
+So we define $\theta$ and then save it out to the object `out`, this time specifying many more iterations.
+
+```{r}
+
 theta <- matrix(c(0,0), nrow = 2)
 out <- grad(0.02, 3000, X, y, theta) %>% print
 
 ```
 
-Now let's run it, along with $J(\theta_0,\theta_1)$.
+Now let's plot it, along with $J(\theta_0,\theta_1)$.
 
 ```{r plot_convergence2}
 
@@ -342,4 +349,4 @@ plot(
 
 ```
 
-So this time we get a much better fit, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.
+So this time it appears to converge, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.

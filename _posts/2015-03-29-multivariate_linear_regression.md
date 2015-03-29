@@ -1,5 +1,5 @@
 ---
-title: "Multiple linear regression"
+title: "Multivariate linear regression"
 date: "2015-03-30"
 excerpt: "Feature scaling and gradient descent"
 output: pdf_document
@@ -12,14 +12,18 @@ comments: yes
 
  
  
-# 3 Linear regression with multiple variables
+So this time I'm going to implement a vectorised gradient descent for multivariate linear regression, but also using feature scaling. I'm using teh dataset provided in the machine learning course, which describes the cost of houses based on two parameters: the size in square feet, and the number of rooms, and giving prices in dollars.
  
 
  
-Load the data dn produce some summaries:
+First I'll load the data and take a look at it.
  
 
 {% highlight r %}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+ 
 "ex1data2.txt" %>% 
   read.csv(
     header = FALSE, 
@@ -45,13 +49,13 @@ house_prices %>% head
 ## 6 1985       4 299900
 {% endhighlight %}
  
+So we have to $x$'s: `size` and `n_rooms`
+ 
 Let's also plot it out of interest:
  
 
 {% highlight r %}
-library(ggplot2)
- 
-house_prices %>%
+p <- house_prices %>%
   ggplot(
     aes(
       x = size,
@@ -66,11 +70,13 @@ house_prices %>%
     breaks = seq(2e+05,7e+05,1e+05), 
     labels = seq(20,70,10)
     )
+ 
+p
 {% endhighlight %}
 
 ![plot of chunk plot_multiple_regression](/figures/plot_multiple_regression-1.png) 
  
-## 3.1 Feature normalisation/scaling
+### Feature normalisation/scaling
  
 To copy the exercise document:
  
@@ -80,7 +86,7 @@ To copy the exercise document:
 > * After subtracting the mean, additionally scale (divide) the feature values
 > by their respective “standard deviations.”
  
-and in the file deatureNormalize.m, we get:
+and in the file featureNormalize.m provided with the course material, we get:
  
 > First, for each feature dimension, compute the mean
 > of the feature and subtract it from the dataset,
@@ -93,6 +99,8 @@ and in the file deatureNormalize.m, we get:
 > feature and each row is an example. You need 
 > to perform the normalization separately for 
 > each feature. 
+ 
+Ok so I'll have a go at implementing that in R.
  
 
 {% highlight r %}
@@ -107,14 +115,14 @@ feature_scale <- function(x) {
   
   # Set up matrices to take outputs
   
-  mu <- matrix(nrow=1,ncol=ncol(x))
-  sigma <- matrix(nrow=1,ncol=ncol(x))
-  scaled <- matrix(nrow=nrow(x),ncol=ncol(x))
+  mu <- matrix(nrow = 1, ncol = ncol(x))
+  sigma <- matrix(nrow = 1, ncol = ncol(x))
+  scaled <- matrix(nrow = nrow(x), ncol = ncol(x))
   
   # Define feature scaling function
   
   scale <- function(feature) {
-    (feature - mean(feature))/sd(feature)
+    (feature - mean(feature)) / sd(feature)
     }
   
   # Run this for each of the features
@@ -135,10 +143,48 @@ feature_scale <- function(x) {
     scaled = scaled
     )  
   }
+{% endhighlight %}
  
+Ok so let's try this on our features in the housing dataset.
+ 
+
+{% highlight r %}
 scaled_features <- feature_scale(house_prices[,-3])
+{% endhighlight %}
  
-range(scaled_features[[3]][,1])
+We can have a look to see what this has done to our values. Originally the ranges for the features were: 
+ 
+
+{% highlight r %}
+house_prices %$% size %>% range
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1]  852 4478
+{% endhighlight %}
+ 
+and 
+ 
+
+{% highlight r %}
+house_prices %$% n_rooms %>% as.character %>% as.numeric %>% range  
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1] 1 5
+{% endhighlight %}
+ 
+...so quite a difference. 
+ 
+After feature scaling these ranges are:
+ 
+
+{% highlight r %}
+scaled_features %$% scaled %>% extract(,1) %>% range
 {% endhighlight %}
 
 
@@ -146,11 +192,12 @@ range(scaled_features[[3]][,1])
 {% highlight text %}
 ## [1] -1.445423  3.117292
 {% endhighlight %}
-
-
+ 
+and
+ 
 
 {% highlight r %}
-range(scaled_features[[3]][,2])
+scaled_features %$% scaled %>% extract(,2) %>% range  
 {% endhighlight %}
 
 
@@ -159,10 +206,10 @@ range(scaled_features[[3]][,2])
 ## [1] -2.851859  2.404508
 {% endhighlight %}
  
+...so now much closer.
  
-## 3.2 Gradient descent
  
-Implementation note:
+### Gradient descent
  
 In the multivariate case, the cost function can also be written in the vectorised form:
  
@@ -187,15 +234,78 @@ y^{(m)}
 $$
  
 
+
 {% highlight r %}
-X <- matrix(ncol=ncol(house_prices)-1,nrow=nrow(house_prices))
-X[,1:2] <- cbind(house_prices$size,house_prices$n_rooms)
-X <- cbind(1,X)
-y <- matrix(house_prices$price,ncol=1) 
-theta <- matrix(rep(0,3),ncol=1)
+grad <- function(alpha, j, X, y, theta) {
+  
+#   J <- function(X, y, theta) {
+#     sum( (X %*% theta - y)^2 ) / (2*length(y))
+#     }
+  
+  # The cost function vectorises to:
+  
+  J <- function(X, y, theta) {
+    (1/2*length(y)) * t((X %*% theta - y)) %*% (X %*% theta - y)
+    }
+  
+  theta_history <<- matrix(nrow = j, ncol = ncol(X) + 1)
+  
+  for (i in 1:j) {  
+    error <- (X %*% theta - y)
+    delta <- t(X) %*% error / length(y)
+    theta <- theta - alpha * delta
+    theta_history[i,] <<- c(theta,J(X, y, theta))
+    
+    if (i > 1) {
+      
+      # Here I define a function to calculate when we have roughly reached convergence.
+      
+      if (
+        isTRUE(
+          all.equal(
+            theta_history[i,3],
+            theta_history[i-1,3]
+            #tolerance = # can set a tolerance here if required.
+              )
+          )
+        ) {
+        
+        theta_history <<- theta_history[1:i,]
+        break
+        
+        }
+      }
+    
+    }
+  
+  list(
+    theta = theta,
+    cost = theta_history[i,3],
+    iterations = i
+    )
+  
+  }
+{% endhighlight %}
  
+```
  
+Here I use the `grad()` gradient descent function I defined in my post about [linear regression with gradient descent](http://ivyleavedtoadflax.github.io//linear_regression/).
  
+First set up the inputs:
+ 
+
+{% highlight r %}
+X <- matrix(ncol = ncol(house_prices)-1,nrow = nrow(house_prices))
+X[,1:2] <- cbind(house_prices$size, house_prices$n_rooms)
+X <- cbind(1, X)
+y <- matrix(house_prices$price, ncol = 1) 
+theta <- matrix(rep(0,3), ncol = 1)
+{% endhighlight %}
+ 
+And simply apply the function, but on the raw data *without* feature scaling.
+ 
+
+{% highlight r %}
 multi_lin_reg <- grad(
   alpha = 0.1,
   j = 1000,
@@ -220,14 +330,18 @@ multi_lin_reg <- grad(
 ## $iterations
 ## [1] 57
 {% endhighlight %}
-
-
+ 
+Hmm ok so that didn't seem to work. Just out of interest, let's plot the history:
+ 
 
 {% highlight r %}
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-5](/figures/unnamed-chunk-5-1.png) 
+![plot of chunk plot_theta_history](/figures/plot_theta_history-1.png) 
+ 
+Definitely something not working there. Ok so now I'll try it *with* feature scaling.
+ 
 
 {% highlight r %}
 X[,2:3] <- feature_scale(X[,2:3])[[3]]
@@ -256,16 +370,17 @@ multi_lin_reg <- grad(
 ## $iterations
 ## [1] 389
 {% endhighlight %}
-
-
+ 
+And to plot it:
+ 
 
 {% highlight r %}
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-5](/figures/unnamed-chunk-5-2.png) 
+![plot of chunk plot_theta_history1](/figures/plot_theta_history1-1.png) 
  
-Great, convergence after 389 iterations. Now a multiple linear regression the traditional way:
+Great, convergence after 389 iterations. All seems well, but I want to compare this with a multiple linear regression the traditional way:
  
 
 {% highlight r %}
@@ -283,13 +398,20 @@ coef(model)
 ##  89597.9095    139.2107  -8738.0191
 {% endhighlight %}
  
-Ok So the parameters don't match, but this is because we have scaled the features. The output from the two models will be exactly the same:
+Ok so the parameters don't match, but this is because we have scaled the features. The output from the two models will be the same. Here I check by combining the two predictions into the `house_prices` dataframe, and comparing them with `identical()`.
+ 
  
 
 {% highlight r %}
 house_prices %<>%
   dplyr::mutate(
+    
+    # Vectorised method of theta transpose X
+    
     vector_pred = (X %*% multi_lin_reg$theta),
+    
+    # Traditional statistical method of y = a + bx + cx
+    
     pred = coef(model)[1] + (coef(model)[2] * size) + (coef(model)[3]*as.integer(n_rooms))
     )
  
@@ -309,7 +431,7 @@ Ok not identical, how come?
  
 
 {% highlight r %}
-mean(house_prices$pred - house_prices$vector_pred)
+(house_prices$pred - house_prices$vector_pred) %>% mean
 {% endhighlight %}
 
 
@@ -318,7 +440,7 @@ mean(house_prices$pred - house_prices$vector_pred)
 ## [1] 3.244767e-10
 {% endhighlight %}
  
-Ok so they differ by a pretty small amount, try again:
+Ok so they differ by a pretty small amount. Try the comparison more sensibly:
  
 
 {% highlight r %}
@@ -345,8 +467,8 @@ house_prices %>%
       y = price,
       colour = n_rooms
       )
-    )+
-  geom_point()+
+    ) +
+  geom_point() +
   geom_point(
     aes(
       x = size,
@@ -357,9 +479,6 @@ house_prices %>%
 {% endhighlight %}
 
 ![plot of chunk plot_multiple_regression_predictions](/figures/plot_multiple_regression_predictions-1.png) 
-
-{% highlight r %}
-theta <- matrix(c(1,2,3),ncol=1)
-{% endhighlight %}
  
+So pretty close to single regression model, but you can see that there are slightly different slopes for each number of rooms.
  
