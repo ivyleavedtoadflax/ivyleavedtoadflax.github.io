@@ -11,7 +11,7 @@ comments: yes
  
 
  
-# Linear regression with one variable
+## Gradient decsent with one variable
  
 I'm currently working on the excellent Machine Learning course by Andrew Ng available on [coursera](http://www.coursera.org). I've been working through the exercises using `R`, not matlab or octave as is requried in the course. This is the first programming exercise - implementing linear regression using the gradient descent algorithm rather than the normal equation method.
  
@@ -52,23 +52,20 @@ plot(
 ## Error in plot(x = ex1data1$profit, y = ex1data1$population, ylab = "Profit ($10,000s)", : object 'ex1data1' not found
 {% endhighlight %}
  
-## Gradient descent
+### Gradient descent
  
 Rather than calculating the optimal solution for the linear regression with a single algorithm, in this exercise we use gradient descent to iteratively find a solution. To get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
  
-<<<<<<< HEAD
 In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function:
  
 $$h_{\theta}=1.2(x-2)^2 + 3.2$$
  
 So we can state our objective to minimise $\theta_1$ with respect of $J(\theta_1)$ with a real number, or put mathetically $\min\limits_{\theta_1}J(\theta_1)$ and $\theta_1\in\mathbb{R}$
-=======
-In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function $h_{\theta}=1.2(x-2)^2 + 3.2$. So we can state our objective to minimise $\theta_1$ with respect of $J(\theta_1)$ with a real number, or put mathetically $\min\limits_{\theta_1}J(\theta_1)$ and $\theta_1\in\mathbb{R}$
->>>>>>> 2438863d2575a07cc1f4a3d40e0eec74e74631b9
  
 We define the cost function $J(\theta_1)$ using calculus as $J(\theta)=2.4(x-2)$ (see [Matt's blog](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html)).
  
 Gradient descent is defined by Andrew Ng as:
+ 
  
  
 repeat until convergence {
@@ -84,8 +81,6 @@ Here I define a function to plot the results of gradient descent graphically so 
  
 
 {% highlight r %}
-par(mfrow=c(1,3))
- 
 xs <- seq(0,4,len=100) # create some values
  
 # define the function we want to optimize
@@ -157,6 +152,8 @@ Pretty simple! Now I use the plotting function to produce plots, and populate th
  
 
 {% highlight r %}
+par(mfrow=c(1,3))
+ 
 create_plot(expression(Low~alpha))
  
 with(
@@ -172,11 +169,7 @@ with(
     col = "green"
     )
   )
-{% endhighlight %}
-
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
-
-{% highlight r %}
+ 
 create_plot(expression(alpha~just~right))
  
 with(
@@ -192,11 +185,8 @@ with(
     col = "blue"
     )
   )
-{% endhighlight %}
-
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-2.png) 
-
-{% highlight r %}
+ 
+ 
 create_plot(expression(High~alpha))
  
 with(
@@ -214,28 +204,20 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-3.png) 
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
  
 Another way to look at the rate of convergence is to plot the number of iterations against the output of (what is essentially) $J(\theta)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
  
 
 {% highlight r %}
+par(mfrow=c(1,3))
+ 
 plot(alpha_too_low$x,type="l",col="green")
 abline(v=(round(alpha_too_low$x,4)!=2) %>% which %>% length)
-{% endhighlight %}
-
-![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png) 
-
-{% highlight r %}
 plot(alpha_just_right$x,type="l",col="blue")
 abline(v=(round(alpha_just_right$x,4)!=2) %>% which %>% length)
-{% endhighlight %}
-
-![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-2.png) 
-
-{% highlight r %}
 plot(alpha_too_high$x,type="l",col="red")
 abline(v=(round(alpha_too_high$x,4)!=2) %>% which %>% length)
 {% endhighlight %}
 
-![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-3.png) 
+![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png) 
