@@ -11,34 +11,11 @@ comments: yes
  
 
  
-## Gradient decsent with one variable
+ 
  
 I'm currently working on the excellent Machine Learning course by Andrew Ng available on [coursera](http://www.coursera.org). I've been working through the exercises using `R`, not matlab or octave as is requried in the course. This is the first programming exercise - implementing linear regression using the gradient descent algorithm rather than the normal equation method.
  
-Let's start by having a look at the data that we will be using.
- 
-
-{% highlight r %}
-library(dplyr)
-library(magrittr)
-library(ggplot2)
- 
-ex1data1 <- "ex1data1.txt" %>%
-  read.csv %>% 
-  set_colnames(c("profit","population")) 
- 
-plot(
-  x = ex1data1$profit,
-  y = ex1data1$population,
-  ylab = "Profit ($10,000s)",
-  xlab = "Population of City (10,000s)",
-  col = "red"
-  )
-{% endhighlight %}
-
-![plot of chunk plot_linear_regression_data](/figures/plot_linear_regression_data-1.png) 
- 
-### Gradient descent
+### Gradient descent for a function with one parameter
  
 Rather than calculating the optimal solution for the linear regression with a single algorithm, in this exercise we use gradient descent to iteratively find a solution. To get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
  
@@ -48,17 +25,21 @@ $$h_{\theta}=1.2(x-2)^2 + 3.2$$
  
 So we can state our objective to minimise $\theta_1$ with respect of $J(\theta_1)$ with a real number, or put mathetically $\min\limits_{\theta_1}J(\theta_1)$ and $\theta_1\in\mathbb{R}$
  
+### Cost function
+ 
 We define the cost function $J(\theta_1)$ using calculus as $J(\theta)=2.4(x-2)$ (see [Matt's blog](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html)).
  
 Gradient descent is defined by Andrew Ng as:
  
+$$
+\begin{multline}
+\text{repeat until convergence} \{\\
  
+\theta_1:=\theta_1 - \alpha\frac{d}{d\theta_1}J(\theta_1)\\
  
-repeat until convergence {
- 
-$\theta_1:=\theta_1 - \alpha\frac{d}{d\theta_1}J(\theta_1)$
- 
-}
+\}
+\end{multline}
+$$
  
 * where $\alpha$ is the learning rate governing the size of the step take with each iteration.
  
@@ -67,7 +48,12 @@ Here I define a function to plot the results of gradient descent graphically so 
  
 
 {% highlight r %}
-xs <- seq(0,4,len=100) # create some values
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+ 
+ 
+xs <- seq(0,4,len = 100) # create some values
  
 # define the function we want to optimize
  
@@ -83,8 +69,8 @@ create_plot <- function(title) {
     x = xs,
     y = f(xs), 
     type = "l", 
+    ylab = expression(1.2(x-2)^2 + 3.2),
     xlab = "x",
-    ylab = expression(1.2(x-2)^2 +3.2),
     main = title
     )
   
@@ -97,13 +83,11 @@ create_plot <- function(title) {
   
 }
  
-cost <- function(x){
-  1.2*2*(x-2)
-}
+# J(theta)
  
-# df/dx = 2.4(x-2), if x = 2 then 2.4(2-2) = 0
-# The actual solution we will approximate with gradient descent
-# is  x = 2 as depicted in the plot below
+cost <- function(x){
+  1.2 * 2 * (x-2)
+}
 {% endhighlight %}
  
 Below is the actual implementation of gradient descent.
@@ -112,7 +96,7 @@ Below is the actual implementation of gradient descent.
 {% highlight r %}
 # gradient descent implementation
  
-grad <- function(x=0.1,alpha=0.6,j=1000) {
+grad <- function(x = 0.1, alpha = 0.6, j = 1000) {
   
   xtrace <- x
   ftrace <- f(x)
@@ -192,18 +176,20 @@ with(
 
 ![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
  
-Another way to look at the rate of convergence is to plot the number of iterations against the output of (what is essentially) $J(\theta)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
+Another way to look at the rate of convergence is to plot the number of iterations against the output of $f(x)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
  
 
 {% highlight r %}
 par(mfrow=c(1,3))
  
-plot(alpha_too_low$x,type="l",col="green")
-abline(v=(round(alpha_too_low$x,4)!=2) %>% which %>% length)
-plot(alpha_just_right$x,type="l",col="blue")
-abline(v=(round(alpha_just_right$x,4)!=2) %>% which %>% length)
-plot(alpha_too_high$x,type="l",col="red")
-abline(v=(round(alpha_too_high$x,4)!=2) %>% which %>% length)
+plot(alpha_too_low$x, type = "l",col = "green")
+abline(v = (round(alpha_too_low$x,4) != 2) %>% which %>% length)
+ 
+plot(alpha_just_right$x, type = "l",col = "blue")
+abline(v = (round(alpha_just_right$x,4) != 2) %>% which %>% length)
+ 
+plot(alpha_too_high$x, type = "l", col = "red")
+abline(v = (round(alpha_too_high$x,4) != 2) %>% which %>% length)
 {% endhighlight %}
 
 ![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png) 

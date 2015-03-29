@@ -45,7 +45,7 @@ X <- cbind(1,matrix(ex1data1$x))
 y <- ex1data1$y
 {% endhighlight %}
  
-To run linear regression as a matrix multiplication it is necessary to add a column of ones, so that $x_0 = 1$. This means that when matrix $X$ is multiplied by the parameter matrx $\theta$, the intercept $\theta_0=\theta_0\times1$. i.e.:
+To run linear regression as a matrix multiplication it is necessary to add a column of ones, so that $x_0 = 1$. This means that when matrix $X$ is multiplied by the parameter matrix $\theta$, the intercept $\theta_0=\theta_0\times1$. i.e.:
  
 $$
 \begin{bmatrix}
@@ -101,7 +101,7 @@ The coefficients for regression are initialised to zero
  
 
 {% highlight r %}
-theta <- matrix(c(0,0), nrow=2)
+theta <- matrix(c(0,0), nrow = 2)
 {% endhighlight %}
  
 Finally, the gradient descent is implemented as a for loop:
@@ -206,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.023
+##   0.000   0.000   0.024
 {% endhighlight %}
 
 
@@ -257,7 +257,7 @@ print(model)
 ##      -3.896        1.193
 {% endhighlight %}
  
-So interestingly this shows us that the gradient decsent run for 1000 iterations has stopped short of finding the correct answer, and also took 7 times longer. This may mean that $\alpha$ is too small, or that there were not enough iterations. The answer is close, but still not quite the same as the answer derived from the noraml equation:
+So interestingly this shows us that the gradient decsent run for 1000 iterations has stopped short of finding the correct answer, and also took much longer. This may mean that $\alpha$ is too small, or that there were not enough iterations. The answer is close, but still not quite the same as the answer derived from the noraml equation:
  
 
 {% highlight r %}
@@ -272,7 +272,7 @@ Plotting $J(\theta_0,\theta_1)$ for each iteration would indicate that we had no
  
 
 {% highlight r %}
-par(mfrow=c(1,2))
+par(mfrow = c(1,2))
  
 plot(
   cost_history, 
@@ -293,6 +293,8 @@ plot(
 
 ![plot of chunk plot_convergence](/figures/plot_convergence-1.png) 
  
+The right hand plot just zooms in on the left hand plot, at the very end of the curve, so we can see that it is still dropping at quite a pace.
+ 
 This time I try gradient descent again with having rolled the code into a self-contained function to take arguments and follow the notation that Andrew Ng has stuck to in the machine learning course. In addition, the cost function has been changed to the vectorised form:
  
 $$
@@ -301,7 +303,7 @@ $$
  
 
 {% highlight r %}
-grad <- function(alpha,j,X,y,theta) {
+grad <- function(alpha, j, X, y, theta) {
   
 #   J <- function(X, y, theta) {
 #     sum( (X %*% theta - y)^2 ) / (2*length(y))
@@ -313,7 +315,7 @@ grad <- function(alpha,j,X,y,theta) {
     (1/2*length(y)) * t((X %*% theta - y)) %*% (X %*% theta - y)
     }
   
-  theta_history <<- matrix(nrow=j,ncol=ncol(X)+1)
+  theta_history <<- matrix(nrow = j, ncol = ncol(X) + 1)
   
   for (i in 1:j) {  
     error <- (X %*% theta - y)
@@ -322,6 +324,8 @@ grad <- function(alpha,j,X,y,theta) {
     theta_history[i,] <<- c(theta,J(X, y, theta))
     
     if (i > 1) {
+      
+      # Here I define a function to calculate when we have roughly reached convergence.
       
       if (
         isTRUE(
@@ -349,8 +353,8 @@ grad <- function(alpha,j,X,y,theta) {
   
   }
  
-theta <- matrix(c(0,0), nrow=2)
-out <- grad(0.02,3000,X,y,theta) %>% print
+theta <- matrix(c(0,0), nrow = 2)
+out <- grad(0.02, 3000, X, y, theta) %>% print
 {% endhighlight %}
 
 
@@ -367,6 +371,8 @@ out <- grad(0.02,3000,X,y,theta) %>% print
 ## $iterations
 ## [1] 1656
 {% endhighlight %}
+ 
+Now let's run it, along with $J(\theta_0,\theta_1)$.
  
 
 {% highlight r %}
@@ -385,3 +391,5 @@ plot(
 {% endhighlight %}
 
 ![plot of chunk plot_convergence2](/figures/plot_convergence2-1.png) 
+ 
+So this time we get a much better fit, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.
