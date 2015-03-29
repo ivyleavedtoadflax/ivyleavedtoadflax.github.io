@@ -1,22 +1,29 @@
 ---
-layout: post
-title: "Machine learning Exercise One"
+title: "Machine learning - linear regression"
 date: "29/03/2015"
-output: html_document
-status: publish
+excerpt: Linear regression the machine learning way
+output: pdf_document
+layout: post
 published: true
+status: publish
+comments: yes
 ---
  
 
  
-# 2 Linear regression with one variable
+# Linear regression with one variable
  
-## 2.1 Plotting the data
+I'm currently working on the excellent Machine Learning course by Andrew Ng available on [coursera](http://www.coursera.org). I've been working through the exercises using `R`, not matlab or octave as is requried in the course. This is the first programming exercise - implementing linear regression using the gradient descent algorithm rather than the normal equation method.
  
+Let's start by having a look at the data that we will be using.
  
 
 {% highlight r %}
-ex1data1 <- "_data/ex1data1.txt" %>%
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+ 
+ex1data1 <- "ex1data1.txt" %>%
   read.csv %>% 
   set_colnames(c("profit","population")) 
  
@@ -29,21 +36,27 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-2](/figures/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figuresfigures/unnamed-chunk-2-1.png) 
  
-## 2.2 Gradient descent
+## Gradient descent
  
-### 2.2.1 Simple implementation on single parameter function
+Rather than calculating the optimal solution for the linear regression with a single algorithm, in this exercise we use gradient descent to iteratively find a solution. To get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
  
-Let's start with a simpel implementation of gradient descent for a function which takes just on parameter. In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function: $h_{\theta}=1.2(x-2)^2 + 3.2$. So we can state our objective to minimise $\theta_1$ with respect of $J(\theta_1)$ with a real number, or put mathetically $\min\limits_{\theta_1}J(\theta_1)$ $\theta_1\in\mathbb{R}$. We define the cost function $J(\theta_1)$ using calculus as $J(\theta)=2.4(x-2)$ (see [Matt's blog](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html)).
+In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function: 
+ 
+$$h_{\theta}=1.2(x-2)^2 + 3.2$$
+ 
+So we can state our objective to minimise $$\theta_1$$ with respect of $J(\theta_1)$ with a real number, or put mathetically 
+ 
+$$\min\limits_{\theta_1}J(\theta_1) \theta_1\in\mathbb{R}$$
+ 
+We define the cost function $J(\theta_1)$ using calculus as $J(\theta)=2.4(x-2)$ (see [Matt's blog](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html)).
  
 Gradient descent is defined by Andrew Ng as:
  
 repeat until convergence {
  
-$$
-\theta_1:=\theta_1 - \alpha\frac{d}{d\theta_1}J(\theta_1)
-$$
+$\theta_1:=\theta_1 - \alpha\frac{d}{d\theta_1}J(\theta_1)$
  
 }
  
@@ -167,7 +180,7 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-3](/figures/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figuresfigures/unnamed-chunk-3-1.png) 
 
 {% highlight r %}
 plot(alpha_too_low$x,type="l",col="green")
@@ -178,7 +191,7 @@ plot(alpha_too_high$x,type="l",col="red")
 abline(v=(round(alpha_too_high$x,4)!=2) %>% which %>% length)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-3](/figures/unnamed-chunk-3-2.png) 
+![plot of chunk unnamed-chunk-3](figuresfigures/unnamed-chunk-3-2.png) 
  
 ## 2.2.2 Implementation of gradient descent for linear regression
  
@@ -202,7 +215,7 @@ Digithead's implementation of this is quite slick, and it took me a while to get
 {% highlight r %}
 # Start by loading the data and splitting into vectors
  
-"_data/ex1data1.txt" %>% 
+"ex1data1.txt" %>% 
   read.csv(header =  FALSE) %>%
   set_colnames(c("x","y")) -> ex1data1
  
@@ -364,7 +377,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.027
+##   0.031   0.000   0.029
 {% endhighlight %}
 
 
@@ -394,7 +407,7 @@ model <- lm(ex1data1$y~ex1data1$x)
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.002
+##   0.000   0.000   0.001
 {% endhighlight %}
 
 
@@ -424,7 +437,7 @@ abline(a=theta[1],b=theta[2])
 abline(model,col="red",lty=2)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-16](/figures/unnamed-chunk-16-1.png) 
+![plot of chunk unnamed-chunk-16](figuresfigures/unnamed-chunk-16-1.png) 
  
 Plotting $J(\theta_0,\theta_1)$ for each iteration would indicate that we had not yet minimised $J(\theta_0,\theta_1)$, and that it is continuing to fall with each further iteration:
  
@@ -449,7 +462,7 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-17](/figures/unnamed-chunk-17-1.png) 
+![plot of chunk unnamed-chunk-17](figuresfigures/unnamed-chunk-17-1.png) 
  
 This time I try gradient descent again with having rolled the code into a self-contained function to take arguments and follow the notation that Andrew Ng has stuck to in the machine learning course. In addition, the cost function has been changed to the vectorised form:
  
@@ -543,7 +556,7 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-18](/figures/unnamed-chunk-18-1.png) 
+![plot of chunk unnamed-chunk-18](figuresfigures/unnamed-chunk-18-1.png) 
  
 ***
  
@@ -555,7 +568,7 @@ Load the data dn produce some summaries:
  
 
 {% highlight r %}
-"_data/ex1data2.txt" %>% 
+"ex1data2.txt" %>% 
   read.csv(
     header = FALSE, 
     col.names = c("size","n_rooms","price")
@@ -603,7 +616,7 @@ house_prices %>%
     )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-21](/figures/unnamed-chunk-21-1.png) 
+![plot of chunk unnamed-chunk-21](figuresfigures/unnamed-chunk-21-1.png) 
  
 ## 3.1 Feature normalisation/scaling
  
@@ -762,7 +775,7 @@ multi_lin_reg <- grad(
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-23](/figures/unnamed-chunk-23-1.png) 
+![plot of chunk unnamed-chunk-23](figuresfigures/unnamed-chunk-23-1.png) 
 
 {% highlight r %}
 X[,2:3] <- feature_scale(X[,2:3])[[3]]
@@ -798,7 +811,7 @@ multi_lin_reg <- grad(
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-23](/figures/unnamed-chunk-23-2.png) 
+![plot of chunk unnamed-chunk-23](figuresfigures/unnamed-chunk-23-2.png) 
  
 Great, convergence after 389 iterations. Now a multiple linear regression the traditional way:
  
@@ -891,7 +904,7 @@ house_prices %>%
     )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-28](/figures/unnamed-chunk-28-1.png) 
+![plot of chunk unnamed-chunk-28](figuresfigures/unnamed-chunk-28-1.png) 
 
 {% highlight r %}
 theta <- matrix(c(1,2,3),ncol=1)

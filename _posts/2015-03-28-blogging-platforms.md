@@ -14,17 +14,17 @@ I also host my code on github, so it would be nice to just integrate everything 
 
 I also had a crack with WordPress. There is a package called [RWordPress](http://yihui.name/knitr/demo/wordpress/) which looked like it might solve these problems. I had some issues installing this, so these are the steps I took:
 
-* try 
+* install ll `xml2-config` (on my Ubuntu 14.04 system) using `apt-get install xml2-config`.
+* Manually install XMLRPC from [here](http://bioconductor.org/packages/release/extra/html/XMLRPC.html) 
+* Install RWordPress with:
 ```
 install.packages(
-'RWordPress', 
-repos = 'http://www.omegahat.org/R', 
+'RWordPress',
+repos = 'http://www.omegahat.org/R',
 type = 'source'
 )
 ```
 
-* Install `xml2-config` (on my Ubuntu 14.04 system) using `apt-get install xml2-config`.
-* Manually install XMLRPC from [here](http://bioconductor.org/packages/release/extra/html/XMLRPC.html) 
 
 There's a thread on SO [here](http://stackoverflow.com/questions/7765429/unable-to-install-r-package-in-ubuntu-11-04).
 
