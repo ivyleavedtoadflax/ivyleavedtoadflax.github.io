@@ -198,7 +198,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.031
+##   0.000   0.000   0.025
 {% endhighlight %}
 
 
