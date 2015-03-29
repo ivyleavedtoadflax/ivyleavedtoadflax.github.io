@@ -1,6 +1,6 @@
 ---
 title: "Linear regression with gradient descent"
-date: "30/03/2015"
+date: "2015-03-29"
 excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post
@@ -27,15 +27,6 @@ $$
 \}
 \end{multline}
 $$
- 
- 
-repeat until convergence {
- 
-$$\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})$$
- 
-$$\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{i}$$
- 
-}
  
 Where $\alpha$ is the training rate, $m$ is the number of training examples, and the term on the right is the familiar squared error term after multiplication with the partial derivative $\frac{\delta}{\delta\theta_0}$ or $\frac{\delta}{\delta\theta_1}$ as appropriate.
  
@@ -130,13 +121,17 @@ This makes a reasonably large jump, so I'll break down each line of this loop, f
  
 Recall that Andrew Ng defines the final algorithm for gradient descent for linear regression to be:
  
-repeat until convergence {
+$$
+\begin{multline}
+\text{repeat until convergence} \{\\
  
-$$\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})$$
+\theta_0:=\theta_0 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\\
  
-$$\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{(i)}$$
+\theta_1:=\theta_1 - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{i}\\
  
-}
+\}
+\end{multline}
+$$
  
 The first and second lines of the loop handle the term $(h_{\theta}(x^{(i)})-y^{(i)})\cdot x^{(i)}$. The first line:
  
@@ -211,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.022
+##   0.000   0.000   0.023
 {% endhighlight %}
 
 

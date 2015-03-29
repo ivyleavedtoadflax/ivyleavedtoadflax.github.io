@@ -1,6 +1,6 @@
 ---
 title: "Multiple linear regression"
-date: "30/03/2015"
+date: "2015-03-30"
 excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
