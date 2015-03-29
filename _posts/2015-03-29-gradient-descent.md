@@ -1,0 +1,237 @@
+---
+title: "Machine learning - Gradient descent"
+date: "29/03/2015"
+excerpt: Linear regression the machine learning way
+output: pdf_document
+layout: post
+published: true
+status: publish
+comments: yes
+---
+ 
+
+ 
+# Linear regression with one variable
+ 
+I'm currently working on the excellent Machine Learning course by Andrew Ng available on [coursera](http://www.coursera.org). I've been working through the exercises using `R`, not matlab or octave as is requried in the course. This is the first programming exercise - implementing linear regression using the gradient descent algorithm rather than the normal equation method.
+ 
+Let's start by having a look at the data that we will be using.
+ 
+
+{% highlight r %}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+ 
+ex1data1 <- "ex1data1.txt" %>%
+  read.csv %>% 
+  set_colnames(c("profit","population")) 
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in file(file, "rt"): cannot open the connection
+{% endhighlight %}
+
+
+
+{% highlight r %}
+plot(
+  x = ex1data1$profit,
+  y = ex1data1$population,
+  ylab = "Profit ($10,000s)",
+  xlab = "Population of City (10,000s)",
+  col = "red"
+  )
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in plot(x = ex1data1$profit, y = ex1data1$population, ylab = "Profit ($10,000s)", : object 'ex1data1' not found
+{% endhighlight %}
+ 
+## Gradient descent
+ 
+Rather than calculating the optimal solution for the linear regression with a single algorithm, in this exercise we use gradient descent to iteratively find a solution. To get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
+ 
+In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function:
+ 
+$$h_{\theta}=1.2(x-2)^2 + 3.2$$
+ 
+So we can state our objective to minimise $\theta_1$ with respect of $J(\theta_1)$ with a real number, or put mathetically $\min\limits_{\theta_1}J(\theta_1)$ and $\theta_1\in\mathbb{R}$
+ 
+We define the cost function $J(\theta_1)$ using calculus as $J(\theta)=2.4(x-2)$ (see [Matt's blog](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html)).
+ 
+Gradient descent is defined by Andrew Ng as:
+ 
+ 
+repeat until convergence {
+ 
+$\theta_1:=\theta_1 - \alpha\frac{d}{d\theta_1}J(\theta_1)$
+ 
+}
+ 
+* where $\alpha$ is the learning rate governing the size of the step take with each iteration.
+ 
+Here I define a function to plot the results of gradient descent graphically so we can get a sense of what is happening.
+ 
+ 
+
+{% highlight r %}
+par(mfrow=c(1,3))
+ 
+xs <- seq(0,4,len=100) # create some values
+ 
+# define the function we want to optimize
+ 
+f <-  function(x) {
+  1.2 * (x-2)^2 + 3.2
+  }
+ 
+# plot the function 
+ 
+create_plot <- function(title) {
+  plot(
+    ylim = c(3,8),
+    x = xs,
+    y = f(xs), 
+    type = "l", 
+    xlab = "x",
+    ylab = expression(1.2(x-2)^2 +3.2),
+    main = title
+    )
+  
+  abline(
+    h = 3.2,
+    v = 2, 
+    col = "red", 
+    type = 2
+    )
+  
+}
+ 
+cost <- function(x){
+  1.2*2*(x-2)
+}
+ 
+# df/dx = 2.4(x-2), if x = 2 then 2.4(2-2) = 0
+# The actual solution we will approximate with gradient descent
+# is  x = 2 as depicted in the plot below
+{% endhighlight %}
+ 
+Below is the actual implementation of gradient descent.
+ 
+
+{% highlight r %}
+# gradient descent implementation
+ 
+grad <- function(x=0.1,alpha=0.6,j=1000) {
+  
+  xtrace <- x
+  ftrace <- f(x)
+  
+  for (i in 1:j) {
+    
+    x <- x - alpha * cost(x)
+    
+    xtrace <- c(xtrace,x)
+    ftrace <- c(ftrace,f(x))
+    
+    }
+  
+  data.frame(
+    "x" = xtrace,
+    "f_x" = ftrace
+    )
+  }
+{% endhighlight %}
+ 
+Pretty simple! Now I use the plotting function to produce plots, and populate these with points using the gradient descent algorithm.
+ 
+ 
+
+{% highlight r %}
+create_plot(expression(Low~alpha))
+ 
+with(
+  alpha_too_low <- grad(
+    x = 0.1, # initialisation of x
+    alpha = 0.1, # learning rate
+    j = 100 # iterations
+    ),
+  points(
+    x, 
+    f_x, 
+    type = "b", 
+    col = "green"
+    )
+  )
+{% endhighlight %}
+
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
+
+{% highlight r %}
+create_plot(expression(alpha~just~right))
+ 
+with(
+  alpha_just_right <- grad(
+    x = 0.1, # initialisation of x
+    alpha = 0.6, # learning rate
+    j = 100 # iterations
+    ),
+  points(
+    x, 
+    f_x, 
+    type = "b", 
+    col = "blue"
+    )
+  )
+{% endhighlight %}
+
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-2.png) 
+
+{% highlight r %}
+create_plot(expression(High~alpha))
+ 
+with(
+  alpha_too_high <- grad(
+    x = 0.1, # initialisation of x
+    alpha = 0.8, # learning rate
+    j = 100 # iterations
+    ),
+  points(
+    x, 
+    f_x, 
+    type = "b", 
+    col = "red"
+    )
+  )
+{% endhighlight %}
+
+![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-3.png) 
+ 
+Another way to look at the rate of convergence is to plot the number of iterations against the output of (what is essentially) $J(\theta)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
+ 
+
+{% highlight r %}
+plot(alpha_too_low$x,type="l",col="green")
+abline(v=(round(alpha_too_low$x,4)!=2) %>% which %>% length)
+{% endhighlight %}
+
+![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png) 
+
+{% highlight r %}
+plot(alpha_just_right$x,type="l",col="blue")
+abline(v=(round(alpha_just_right$x,4)!=2) %>% which %>% length)
+{% endhighlight %}
+
+![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-2.png) 
+
+{% highlight r %}
+plot(alpha_too_high$x,type="l",col="red")
+abline(v=(round(alpha_too_high$x,4)!=2) %>% which %>% length)
+{% endhighlight %}
+
+![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-3.png) 

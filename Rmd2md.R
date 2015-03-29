@@ -13,14 +13,16 @@
 #' @param recursive should rmd files in subdirectories be processed.
 #' @return nothing.
 #' @author Jason Bryer <jason@bryer.org> edited by Andy South and Matthew Upson
+
 rmd2md <- function( path_site = getwd(),
                     dir_rmd = "_rmd",
                     dir_md = "_posts",                              
                     #dir_images = "figures",
                     url_images = "figures/",
-                    out_ext='.md', 
-                    in_ext='.Rmd', 
-                    recursive=FALSE) {
+                    out_ext = '.md', 
+                    in_ext = '.Rmd', 
+                    recursive = FALSE                 
+                    ) {
   
   require(knitr, quietly=TRUE, warn.conflicts=FALSE)
   require(testthat, quietly=TRUE, warn.conflicts=FALSE)
@@ -106,12 +108,12 @@ rmd2md <- function( path_site = getwd(),
     # The URL of an image is always base.url + fig.path"
     # https://groups.google.com/forum/#!topic/knitr/18aXpOmsumQ
     
-    opts_knit$set(base.url = "/")
+    #opts_knit$set(base.url = "")
     opts_chunk$set(fig.path = url_images)                     
     
     # andy I could try to make figures bigger
     # but that might make not work so well on mobile
-    # opts_chunk$set(fig.width  = 8.5,
+    # opts_chunk$set(fig.width  = 8.5,)
     #               fig.height = 5.25)
     
     try(knit(text=content, output=outFile), silent=FALSE)
@@ -119,3 +121,8 @@ rmd2md <- function( path_site = getwd(),
   }
   invisible()
 }
+
+#rmd2md()
+  #dir_md = "~/ivyleavedtoadflax.github.io/_posts",
+  #dir_images = "~/ivyleavedtoadflax.github.io/figures"
+#  )
