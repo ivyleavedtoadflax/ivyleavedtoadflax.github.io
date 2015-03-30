@@ -1,5 +1,5 @@
 ---
-title: "ggvis sessions"
+title: "LondonR 2014 - ggvis"
 author: "Matthew Upson"
 date: '2014-11-25'
 output: html_document
@@ -22,7 +22,7 @@ library(dplyr)
 library(ggplot2)
 
 tubeData <- read.table(
-  "../tubeData.csv",
+  "tubeData.csv",
   sep = ",",
   header = T
   )
