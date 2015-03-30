@@ -10,6 +10,7 @@ status: process
 comments: yes
 ---
 
+
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 library(dplyr)
 library(magrittr)
@@ -18,8 +19,6 @@ knitr::opts_chunk$set(
   warning = FALSE
   )
 ```
-
-# LondonR 
 
 I went to my first LondonR meeting tonight hosted by [Mango solutions](http://www.mango-solutions.com/wp/). Some really great talks - especially presentatiosn by Matt Sundquist of plotly.
 

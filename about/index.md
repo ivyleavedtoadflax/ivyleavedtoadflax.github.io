@@ -1,8 +1,10 @@
 ---
 layout: page
 title: Matt Upson
-tags: [about, Jekyll, theme, responsive]
+tags: [bio, forestry, statistics, R]
 modified: 2015-03-29
+status: hold
+published: no
 ---
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
+I'm an environmental scientist with a background in forest and agricultural research, and a penchant for statistics, R, and latterly machine learning. I'm also big into [Brazilian Jiu Jitsu](http://en.wikipedia.org/wiki/Brazilian_jiu-jitsu) and tree climbing, and blog about them on occasion too. 

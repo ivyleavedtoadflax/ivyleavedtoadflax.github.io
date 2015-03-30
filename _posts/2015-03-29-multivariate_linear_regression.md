@@ -472,7 +472,7 @@ house_prices %>%
   geom_point(
     aes(
       x = size,
-      y = pred
+      y = vector_pred
       ),
     shape = 2,
     )
