@@ -17,7 +17,7 @@ I'm currently working on the excellent Machine Learning course by Andrew Ng avai
  
 ### Gradient descent for a function with one parameter
  
-Rather than calculating the optimal solution for the linear regression with a single algorithm, in this exercise we use gradient descent to iteratively find a solution. To get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
+Rather than calculating the optimal solution for linear regression with the normal equation, in the first exercise we use gradient descent to iteratively find a solution. In this post, to get the concept behing gradient descent, I start by implementing gradient descent for a function which takes just on parameter (rather than two - like linear regression).
  
 In this instance I have adapted code from Matt Bogard's execellent blog [Econometric Sense](http://econometricsense.blogspot.co.uk/2011/11/gradient-descent-in-r.html), and will use the same same function:
  
