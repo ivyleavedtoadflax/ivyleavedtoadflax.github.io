@@ -9,7 +9,12 @@ status: publish
 comments: yes
 ---
  
+
+ 
+ 
+ 
 So this time I'm going to implement gradient descent for multivariate linear regression, but also using feature scaling. I'm using teh dataset provided in the machine learning course, which describes the cost of houses based on two parameters: the size in square feet, and the number of rooms, and giving prices in dollars.
+ 
  
 
  
