@@ -239,27 +239,27 @@ class(myPlot)
 myPlot
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id173707022-container" class="ggvis-output-container">
-<div id="plot_id173707022" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id144644972-container" class="ggvis-output-container">
+<div id="plot_id144644972" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id173707022_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id173707022" data-renderer="svg">SVG</a>
+<a id="plot_id144644972_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id144644972" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id173707022_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id173707022" data-renderer="canvas">Canvas</a>
+<a id="plot_id144644972_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id144644972" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id173707022_download" class="ggvis-download" data-plot-id="plot_id173707022">Download</a>
+<a id="plot_id144644972_download" class="ggvis-download" data-plot-id="plot_id144644972">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id173707022_spec = {
+var plot_id144644972_spec = {
     "data": [
         {
             "name": "tubeData0",
@@ -387,7 +387,7 @@ var plot_id173707022_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id173707022").parseSpec(plot_id173707022_spec);
+ggvis.getPlot("plot_id144644972").parseSpec(plot_id144644972_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -400,27 +400,27 @@ ggvis.getPlot("plot_id173707022").parseSpec(plot_id173707022_spec);
 layer_points(myPlot)
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id964643694-container" class="ggvis-output-container">
-<div id="plot_id964643694" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id837133268-container" class="ggvis-output-container">
+<div id="plot_id837133268" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id964643694_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id964643694" data-renderer="svg">SVG</a>
+<a id="plot_id837133268_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id837133268" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id964643694_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id964643694" data-renderer="canvas">Canvas</a>
+<a id="plot_id837133268_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id837133268" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id964643694_download" class="ggvis-download" data-plot-id="plot_id964643694">Download</a>
+<a id="plot_id837133268_download" class="ggvis-download" data-plot-id="plot_id837133268">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id964643694_spec = {
+var plot_id837133268_spec = {
     "data": [
         {
             "name": "tubeData0",
@@ -548,7 +548,7 @@ var plot_id964643694_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id964643694").parseSpec(plot_id964643694_spec);
+ggvis.getPlot("plot_id837133268").parseSpec(plot_id837133268_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -557,27 +557,27 @@ ggvis.getPlot("plot_id964643694").parseSpec(plot_id964643694_spec);
 myPlot %>% layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id908929658-container" class="ggvis-output-container">
-<div id="plot_id908929658" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id872122876-container" class="ggvis-output-container">
+<div id="plot_id872122876" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id908929658_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id908929658" data-renderer="svg">SVG</a>
+<a id="plot_id872122876_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id872122876" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id908929658_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id908929658" data-renderer="canvas">Canvas</a>
+<a id="plot_id872122876_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id872122876" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id908929658_download" class="ggvis-download" data-plot-id="plot_id908929658">Download</a>
+<a id="plot_id872122876_download" class="ggvis-download" data-plot-id="plot_id872122876">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id908929658_spec = {
+var plot_id872122876_spec = {
     "data": [
         {
             "name": "tubeData0",
@@ -705,7 +705,7 @@ var plot_id908929658_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id908929658").parseSpec(plot_id908929658_spec);
+ggvis.getPlot("plot_id872122876").parseSpec(plot_id872122876_spec);
 </script><!--/html_preserve-->
  
  
@@ -771,27 +771,27 @@ tubeData %>%
   layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id257382716-container" class="ggvis-output-container">
-<div id="plot_id257382716" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id942140407-container" class="ggvis-output-container">
+<div id="plot_id942140407" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id257382716_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id257382716" data-renderer="svg">SVG</a>
+<a id="plot_id942140407_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id942140407" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id257382716_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id257382716" data-renderer="canvas">Canvas</a>
+<a id="plot_id942140407_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id942140407" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id257382716_download" class="ggvis-download" data-plot-id="plot_id257382716">Download</a>
+<a id="plot_id942140407_download" class="ggvis-download" data-plot-id="plot_id942140407">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id257382716_spec = {
+var plot_id942140407_spec = {
     "data": [
         {
             "name": ".0",
@@ -919,7 +919,7 @@ var plot_id257382716_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id257382716").parseSpec(plot_id257382716_spec);
+ggvis.getPlot("plot_id942140407").parseSpec(plot_id942140407_spec);
 </script><!--/html_preserve-->
  
 #### Changing properties
@@ -950,27 +950,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id124994212-container" class="ggvis-output-container">
-<div id="plot_id124994212" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id411947722-container" class="ggvis-output-container">
+<div id="plot_id411947722" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id124994212_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id124994212" data-renderer="svg">SVG</a>
+<a id="plot_id411947722_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id411947722" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id124994212_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id124994212" data-renderer="canvas">Canvas</a>
+<a id="plot_id411947722_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id411947722" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id124994212_download" class="ggvis-download" data-plot-id="plot_id124994212">Download</a>
+<a id="plot_id411947722_download" class="ggvis-download" data-plot-id="plot_id411947722">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id124994212_spec = {
+var plot_id411947722_spec = {
     "data": [
         {
             "name": ".0",
@@ -1124,7 +1124,7 @@ var plot_id124994212_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id124994212").parseSpec(plot_id124994212_spec);
+ggvis.getPlot("plot_id411947722").parseSpec(plot_id411947722_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -1139,27 +1139,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id654093520-container" class="ggvis-output-container">
-<div id="plot_id654093520" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id502217235-container" class="ggvis-output-container">
+<div id="plot_id502217235" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id654093520_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id654093520" data-renderer="svg">SVG</a>
+<a id="plot_id502217235_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id502217235" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id654093520_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id654093520" data-renderer="canvas">Canvas</a>
+<a id="plot_id502217235_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id502217235" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id654093520_download" class="ggvis-download" data-plot-id="plot_id654093520">Download</a>
+<a id="plot_id502217235_download" class="ggvis-download" data-plot-id="plot_id502217235">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id654093520_spec = {
+var plot_id502217235_spec = {
     "data": [
         {
             "name": ".0",
@@ -1343,7 +1343,7 @@ var plot_id654093520_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id654093520").parseSpec(plot_id654093520_spec);
+ggvis.getPlot("plot_id502217235").parseSpec(plot_id502217235_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -1357,27 +1357,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id668899781-container" class="ggvis-output-container">
-<div id="plot_id668899781" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id830460774-container" class="ggvis-output-container">
+<div id="plot_id830460774" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id668899781_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id668899781" data-renderer="svg">SVG</a>
+<a id="plot_id830460774_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id830460774" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id668899781_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id668899781" data-renderer="canvas">Canvas</a>
+<a id="plot_id830460774_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id830460774" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id668899781_download" class="ggvis-download" data-plot-id="plot_id668899781">Download</a>
+<a id="plot_id830460774_download" class="ggvis-download" data-plot-id="plot_id830460774">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id668899781_spec = {
+var plot_id830460774_spec = {
     "data": [
         {
             "name": ".0",
@@ -1535,7 +1535,7 @@ var plot_id668899781_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id668899781").parseSpec(plot_id668899781_spec);
+ggvis.getPlot("plot_id830460774").parseSpec(plot_id830460774_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -1550,27 +1550,27 @@ tubeData %>%
   layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id540221474-container" class="ggvis-output-container">
-<div id="plot_id540221474" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id356292425-container" class="ggvis-output-container">
+<div id="plot_id356292425" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id540221474_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id540221474" data-renderer="svg">SVG</a>
+<a id="plot_id356292425_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id356292425" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id540221474_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id540221474" data-renderer="canvas">Canvas</a>
+<a id="plot_id356292425_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id356292425" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id540221474_download" class="ggvis-download" data-plot-id="plot_id540221474">Download</a>
+<a id="plot_id356292425_download" class="ggvis-download" data-plot-id="plot_id356292425">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id540221474_spec = {
+var plot_id356292425_spec = {
     "data": [
         {
             "name": ".0",
@@ -1724,7 +1724,7 @@ var plot_id540221474_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id540221474").parseSpec(plot_id540221474_spec);
+ggvis.getPlot("plot_id356292425").parseSpec(plot_id356292425_spec);
 </script><!--/html_preserve-->
  
 #### Setting property values
@@ -1744,27 +1744,27 @@ tubeData %>%
   layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id200413748-container" class="ggvis-output-container">
-<div id="plot_id200413748" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id986454164-container" class="ggvis-output-container">
+<div id="plot_id986454164" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id200413748_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id200413748" data-renderer="svg">SVG</a>
+<a id="plot_id986454164_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id986454164" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id200413748_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id200413748" data-renderer="canvas">Canvas</a>
+<a id="plot_id986454164_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id986454164" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id200413748_download" class="ggvis-download" data-plot-id="plot_id200413748">Download</a>
+<a id="plot_id986454164_download" class="ggvis-download" data-plot-id="plot_id986454164">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id200413748_spec = {
+var plot_id986454164_spec = {
     "data": [
         {
             "name": ".0",
@@ -1920,7 +1920,7 @@ var plot_id200413748_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id200413748").parseSpec(plot_id200413748_spec);
+ggvis.getPlot("plot_id986454164").parseSpec(plot_id986454164_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -1934,27 +1934,27 @@ tubeData %>%
   layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id750753999-container" class="ggvis-output-container">
-<div id="plot_id750753999" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id324921659-container" class="ggvis-output-container">
+<div id="plot_id324921659" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id750753999_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id750753999" data-renderer="svg">SVG</a>
+<a id="plot_id324921659_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id324921659" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id750753999_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id750753999" data-renderer="canvas">Canvas</a>
+<a id="plot_id324921659_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id324921659" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id750753999_download" class="ggvis-download" data-plot-id="plot_id750753999">Download</a>
+<a id="plot_id324921659_download" class="ggvis-download" data-plot-id="plot_id324921659">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id750753999_spec = {
+var plot_id324921659_spec = {
     "data": [
         {
             "name": ".0",
@@ -2085,7 +2085,7 @@ var plot_id750753999_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id750753999").parseSpec(plot_id750753999_spec);
+ggvis.getPlot("plot_id324921659").parseSpec(plot_id324921659_spec);
 </script><!--/html_preserve-->
  
 * Shaping has changed in ggvis as it is dependent on .d3
@@ -2104,27 +2104,27 @@ tubeData %>%
   layer_points
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id588971246-container" class="ggvis-output-container">
-<div id="plot_id588971246" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id970340376-container" class="ggvis-output-container">
+<div id="plot_id970340376" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id588971246_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id588971246" data-renderer="svg">SVG</a>
+<a id="plot_id970340376_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id970340376" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id588971246_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id588971246" data-renderer="canvas">Canvas</a>
+<a id="plot_id970340376_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id970340376" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id588971246_download" class="ggvis-download" data-plot-id="plot_id588971246">Download</a>
+<a id="plot_id970340376_download" class="ggvis-download" data-plot-id="plot_id970340376">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id588971246_spec = {
+var plot_id970340376_spec = {
     "data": [
         {
             "name": ".0",
@@ -2258,7 +2258,7 @@ var plot_id588971246_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id588971246").parseSpec(plot_id588971246_spec);
+ggvis.getPlot("plot_id970340376").parseSpec(plot_id970340376_spec);
 </script><!--/html_preserve-->
  
 #### Exercise
@@ -2281,27 +2281,27 @@ mtcars %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id129326456-container" class="ggvis-output-container">
-<div id="plot_id129326456" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id432924857-container" class="ggvis-output-container">
+<div id="plot_id432924857" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id129326456_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id129326456" data-renderer="svg">SVG</a>
+<a id="plot_id432924857_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id432924857" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id129326456_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id129326456" data-renderer="canvas">Canvas</a>
+<a id="plot_id432924857_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id432924857" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id129326456_download" class="ggvis-download" data-plot-id="plot_id129326456">Download</a>
+<a id="plot_id432924857_download" class="ggvis-download" data-plot-id="plot_id432924857">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id129326456_spec = {
+var plot_id432924857_spec = {
     "data": [
         {
             "name": ".0",
@@ -2458,7 +2458,7 @@ var plot_id129326456_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id129326456").parseSpec(plot_id129326456_spec);
+ggvis.getPlot("plot_id432924857").parseSpec(plot_id432924857_spec);
 </script><!--/html_preserve-->
  
 #### Adding layers
@@ -2487,27 +2487,27 @@ tubeData %>%
   layer_boxplots()
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id961615392-container" class="ggvis-output-container">
-<div id="plot_id961615392" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id326795719-container" class="ggvis-output-container">
+<div id="plot_id326795719" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id961615392_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id961615392" data-renderer="svg">SVG</a>
+<a id="plot_id326795719_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id326795719" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id961615392_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id961615392" data-renderer="canvas">Canvas</a>
+<a id="plot_id326795719_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id326795719" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id961615392_download" class="ggvis-download" data-plot-id="plot_id961615392">Download</a>
+<a id="plot_id326795719_download" class="ggvis-download" data-plot-id="plot_id326795719">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id961615392_spec = {
+var plot_id326795719_spec = {
     "data": [
         {
             "name": ".0/group_by1/boxplot2_flat",
@@ -2824,7 +2824,7 @@ var plot_id961615392_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id961615392").parseSpec(plot_id961615392_spec);
+ggvis.getPlot("plot_id326795719").parseSpec(plot_id326795719_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -2846,27 +2846,27 @@ mtcars %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id647709384-container" class="ggvis-output-container">
-<div id="plot_id647709384" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id602509339-container" class="ggvis-output-container">
+<div id="plot_id602509339" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id647709384_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id647709384" data-renderer="svg">SVG</a>
+<a id="plot_id602509339_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id602509339" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id647709384_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id647709384" data-renderer="canvas">Canvas</a>
+<a id="plot_id602509339_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id602509339" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id647709384_download" class="ggvis-download" data-plot-id="plot_id647709384">Download</a>
+<a id="plot_id602509339_download" class="ggvis-download" data-plot-id="plot_id602509339">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id647709384_spec = {
+var plot_id602509339_spec = {
     "data": [
         {
             "name": ".0",
@@ -3109,7 +3109,7 @@ var plot_id647709384_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id647709384").parseSpec(plot_id647709384_spec);
+ggvis.getPlot("plot_id602509339").parseSpec(plot_id602509339_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -3136,27 +3136,27 @@ mtcars %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id845586059-container" class="ggvis-output-container">
-<div id="plot_id845586059" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id444296840-container" class="ggvis-output-container">
+<div id="plot_id444296840" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id845586059_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845586059" data-renderer="svg">SVG</a>
+<a id="plot_id444296840_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id444296840" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id845586059_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id845586059" data-renderer="canvas">Canvas</a>
+<a id="plot_id444296840_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id444296840" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id845586059_download" class="ggvis-download" data-plot-id="plot_id845586059">Download</a>
+<a id="plot_id444296840_download" class="ggvis-download" data-plot-id="plot_id444296840">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id845586059_spec = {
+var plot_id444296840_spec = {
     "data": [
         {
             "name": ".0",
@@ -3475,7 +3475,7 @@ var plot_id845586059_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id845586059").parseSpec(plot_id845586059_spec);
+ggvis.getPlot("plot_id444296840").parseSpec(plot_id444296840_spec);
 </script><!--/html_preserve-->
  
 ### Making plots interactive
@@ -3500,27 +3500,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id584911581-container" class="ggvis-output-container">
-<div id="plot_id584911581" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id990861420-container" class="ggvis-output-container">
+<div id="plot_id990861420" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id584911581_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id584911581" data-renderer="svg">SVG</a>
+<a id="plot_id990861420_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id990861420" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id584911581_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id584911581" data-renderer="canvas">Canvas</a>
+<a id="plot_id990861420_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id990861420" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id584911581_download" class="ggvis-download" data-plot-id="plot_id584911581">Download</a>
+<a id="plot_id990861420_download" class="ggvis-download" data-plot-id="plot_id990861420">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id584911581_spec = {
+var plot_id990861420_spec = {
     "data": [
         {
             "name": ".0",
@@ -3682,7 +3682,7 @@ var plot_id584911581_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id584911581").parseSpec(plot_id584911581_spec);
+ggvis.getPlot("plot_id990861420").parseSpec(plot_id990861420_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -3711,27 +3711,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id982810400-container" class="ggvis-output-container">
-<div id="plot_id982810400" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id518939049-container" class="ggvis-output-container">
+<div id="plot_id518939049" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id982810400_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id982810400" data-renderer="svg">SVG</a>
+<a id="plot_id518939049_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id518939049" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id982810400_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id982810400" data-renderer="canvas">Canvas</a>
+<a id="plot_id518939049_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id518939049" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id982810400_download" class="ggvis-download" data-plot-id="plot_id982810400">Download</a>
+<a id="plot_id518939049_download" class="ggvis-download" data-plot-id="plot_id518939049">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id982810400_spec = {
+var plot_id518939049_spec = {
     "data": [
         {
             "name": ".0",
@@ -3893,7 +3893,7 @@ var plot_id982810400_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id982810400").parseSpec(plot_id982810400_spec);
+ggvis.getPlot("plot_id518939049").parseSpec(plot_id518939049_spec);
 </script><!--/html_preserve-->
 
 {% highlight r %}
@@ -3943,27 +3943,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id768389471-container" class="ggvis-output-container">
-<div id="plot_id768389471" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id607155219-container" class="ggvis-output-container">
+<div id="plot_id607155219" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id768389471_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id768389471" data-renderer="svg">SVG</a>
+<a id="plot_id607155219_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id607155219" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id768389471_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id768389471" data-renderer="canvas">Canvas</a>
+<a id="plot_id607155219_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id607155219" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id768389471_download" class="ggvis-download" data-plot-id="plot_id768389471">Download</a>
+<a id="plot_id607155219_download" class="ggvis-download" data-plot-id="plot_id607155219">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id768389471_spec = {
+var plot_id607155219_spec = {
     "data": [
         {
             "name": ".0",
@@ -3972,10 +3972,10 @@ var plot_id768389471_spec = {
                 "parse": {
                     "Month": "number",
                     "Excess": "number",
-                    "reactive_560649254": "number"
+                    "reactive_204785234": "number"
                 }
             },
-            "values": "\"Month\",\"Excess\",\"Line\",\"reactive_560649254\"\n1,6.04,\"Bakerloo\",505\n2,6.54,\"Bakerloo\",505\n3,4.77,\"Bakerloo\",505\n4,5.4,\"Bakerloo\",505\n5,5.23,\"Bakerloo\",505\n6,5.03,\"Bakerloo\",505\n7,5.14,\"Bakerloo\",505\n8,5.73,\"Bakerloo\",505\n9,4.8,\"Bakerloo\",505\n10,5.95,\"Bakerloo\",505\n11,4.76,\"Bakerloo\",505\n12,6,\"Bakerloo\",505\n13,6.67,\"Bakerloo\",505\n14,5.24,\"Bakerloo\",505\n15,4.83,\"Bakerloo\",505\n16,5.5,\"Bakerloo\",505\n17,6.19,\"Bakerloo\",505\n18,5.6,\"Bakerloo\",505\n19,4.64,\"Bakerloo\",505\n20,4.74,\"Bakerloo\",505\n21,6.96,\"Bakerloo\",505\n22,5.72,\"Bakerloo\",505\n23,5.4,\"Bakerloo\",505\n24,5.11,\"Bakerloo\",505\n25,5.65,\"Bakerloo\",505\n26,4.37,\"Bakerloo\",505\n27,5.3,\"Bakerloo\",505\n28,4.36,\"Bakerloo\",505\n29,4.48,\"Bakerloo\",505\n30,5.45,\"Bakerloo\",505\n31,4.8,\"Bakerloo\",505\n32,4.54,\"Bakerloo\",505\n33,3.99,\"Bakerloo\",505\n34,5.41,\"Bakerloo\",505\n35,4.78,\"Bakerloo\",505\n36,5.04,\"Bakerloo\",505\n37,4.77,\"Bakerloo\",505\n38,5.52,\"Bakerloo\",505\n39,4.99,\"Bakerloo\",505\n40,5.31,\"Bakerloo\",505\n41,5.45,\"Bakerloo\",505\n42,4.23,\"Bakerloo\",505\n43,5.68,\"Bakerloo\",505\n44,4.52,\"Bakerloo\",505\n45,4.87,\"Bakerloo\",505\n46,5.03,\"Bakerloo\",505\n47,5.45,\"Bakerloo\",505\n48,5.5,\"Bakerloo\",505\n49,4.02,\"Bakerloo\",505\n50,5.38,\"Bakerloo\",505\n51,5.86,\"Bakerloo\",505\n52,5.17,\"Bakerloo\",505\n53,4.84,\"Bakerloo\",505\n54,5.11,\"Bakerloo\",505\n55,5.19,\"Bakerloo\",505\n56,5.59,\"Bakerloo\",505\n57,5.57,\"Bakerloo\",505\n58,5.23,\"Bakerloo\",505\n59,5.39,\"Bakerloo\",505\n60,6.1,\"Bakerloo\",505\n61,5.88,\"Bakerloo\",505\n62,5.2,\"Bakerloo\",505\n63,5.01,\"Bakerloo\",505\n64,5.84,\"Bakerloo\",505\n65,5.28,\"Bakerloo\",505\n66,4.71,\"Bakerloo\",505\n67,4.19,\"Bakerloo\",505\n68,4.26,\"Bakerloo\",505\n69,4.18,\"Bakerloo\",505\n70,4.47,\"Bakerloo\",505\n71,4.55,\"Bakerloo\",505\n72,4.61,\"Bakerloo\",505\n73,5.06,\"Bakerloo\",505\n74,4.37,\"Bakerloo\",505\n75,4.15,\"Bakerloo\",505\n76,3.95,\"Bakerloo\",505\n77,6.08,\"Bakerloo\",505\n78,4.42,\"Bakerloo\",505\n79,4.34,\"Bakerloo\",505\n80,4.17,\"Bakerloo\",505\n81,5.13,\"Bakerloo\",505\n82,3.95,\"Bakerloo\",505\n83,3.53,\"Bakerloo\",505\n84,5.04,\"Bakerloo\",505\n85,4.67,\"Bakerloo\",505\n86,3.96,\"Bakerloo\",505\n87,4.27,\"Bakerloo\",505\n88,4.6,\"Bakerloo\",505\n89,4.87,\"Bakerloo\",505\n90,4.56,\"Bakerloo\",505\n91,4.36,\"Bakerloo\",505\n92,4.19,\"Bakerloo\",505\n93,4.48,\"Bakerloo\",505\n94,4.49,\"Bakerloo\",505\n95,4.85,\"Bakerloo\",505\n96,5.74,\"Bakerloo\",505\n97,5.14,\"Bakerloo\",505\n98,5.93,\"Bakerloo\",505\n99,5.84,\"Bakerloo\",505\n100,6.26,\"Bakerloo\",505\n101,5.07,\"Bakerloo\",505\n102,4.5,\"Bakerloo\",505\n103,4.96,\"Bakerloo\",505\n104,4.75,\"Bakerloo\",505\n105,5.22,\"Bakerloo\",505\n1,7.21,\"Central\",505\n2,5.23,\"Central\",505\n3,5.67,\"Central\",505\n4,6.1,\"Central\",505\n5,5.54,\"Central\",505\n6,5.85,\"Central\",505\n7,6.08,\"Central\",505\n8,7.95,\"Central\",505\n9,7.27,\"Central\",505\n10,6.64,\"Central\",505\n11,6.33,\"Central\",505\n12,6.09,\"Central\",505\n13,7.01,\"Central\",505\n14,6.33,\"Central\",505\n15,6.78,\"Central\",505\n16,7.04,\"Central\",505\n17,10.1,\"Central\",505\n18,6.91,\"Central\",505\n19,5.74,\"Central\",505\n20,6.17,\"Central\",505\n21,6.79,\"Central\",505\n22,5.45,\"Central\",505\n23,4.95,\"Central\",505\n24,5.36,\"Central\",505\n25,6.18,\"Central\",505\n26,5.68,\"Central\",505\n27,4.69,\"Central\",505\n28,4.78,\"Central\",505\n29,6.47,\"Central\",505\n30,8.2,\"Central\",505\n31,5.28,\"Central\",505\n32,6.05,\"Central\",505\n33,5.34,\"Central\",505\n34,5.71,\"Central\",505\n35,6.16,\"Central\",505\n36,4.4,\"Central\",505\n37,5.99,\"Central\",505\n38,4.66,\"Central\",505\n39,4.91,\"Central\",505\n40,4.12,\"Central\",505\n41,4.54,\"Central\",505\n42,6.97,\"Central\",505\n43,7.23,\"Central\",505\n44,6.14,\"Central\",505\n45,4.93,\"Central\",505\n46,7.27,\"Central\",505\n47,7.72,\"Central\",505\n48,9.49,\"Central\",505\n49,5.3,\"Central\",505\n50,6.35,\"Central\",505\n51,6.55,\"Central\",505\n52,4.99,\"Central\",505\n53,6.09,\"Central\",505\n54,5.4,\"Central\",505\n55,6.14,\"Central\",505\n56,7.26,\"Central\",505\n57,5.11,\"Central\",505\n58,9.42,\"Central\",505\n59,6.26,\"Central\",505\n60,6.64,\"Central\",505\n61,6.41,\"Central\",505\n62,5.68,\"Central\",505\n63,5.54,\"Central\",505\n64,6.3,\"Central\",505\n65,5.7,\"Central\",505\n66,5.18,\"Central\",505\n67,5.51,\"Central\",505\n68,4.85,\"Central\",505\n69,5.58,\"Central\",505\n70,4.89,\"Central\",505\n71,4.22,\"Central\",505\n72,5.2,\"Central\",505\n73,5.92,\"Central\",505\n74,5.16,\"Central\",505\n75,4.29,\"Central\",505\n76,5.09,\"Central\",505\n77,6.34,\"Central\",505\n78,5.83,\"Central\",505\n79,4.83,\"Central\",505\n80,4.62,\"Central\",505\n81,8.41,\"Central\",505\n82,4.79,\"Central\",505\n83,4.65,\"Central\",505\n84,4.49,\"Central\",505\n85,5.18,\"Central\",505\n86,5.69,\"Central\",505\n87,6.07,\"Central\",505\n88,4.81,\"Central\",505\n89,4.95,\"Central\",505\n90,6.15,\"Central\",505\n91,5.23,\"Central\",505\n92,5.35,\"Central\",505\n93,5.63,\"Central\",505\n94,5.41,\"Central\",505\n95,5.55,\"Central\",505\n96,4.68,\"Central\",505\n97,8.12,\"Central\",505\n98,8.36,\"Central\",505\n99,7.87,\"Central\",505\n100,8.42,\"Central\",505\n101,5.54,\"Central\",505\n102,5.95,\"Central\",505\n103,6.17,\"Central\",505\n104,5.94,\"Central\",505\n105,6.3,\"Central\",505\n1,7.5,\"Circle &amp; Ham\",505\n2,7.92,\"Circle &amp; Ham\",505\n3,8.46,\"Circle &amp; Ham\",505\n4,6.94,\"Circle &amp; Ham\",505\n5,7.76,\"Circle &amp; Ham\",505\n6,8.19,\"Circle &amp; Ham\",505\n7,8.03,\"Circle &amp; Ham\",505\n8,8.13,\"Circle &amp; Ham\",505\n9,8.42,\"Circle &amp; Ham\",505\n10,8.49,\"Circle &amp; Ham\",505\n11,7.16,\"Circle &amp; Ham\",505\n12,7.49,\"Circle &amp; Ham\",505\n13,7.15,\"Circle &amp; Ham\",505\n14,7.53,\"Circle &amp; Ham\",505\n15,6.61,\"Circle &amp; Ham\",505\n16,6.63,\"Circle &amp; Ham\",505\n17,7.14,\"Circle &amp; Ham\",505\n18,6.52,\"Circle &amp; Ham\",505\n19,6.23,\"Circle &amp; Ham\",505\n20,7.3,\"Circle &amp; Ham\",505\n21,7.59,\"Circle &amp; Ham\",505\n22,7.01,\"Circle &amp; Ham\",505\n23,6.92,\"Circle &amp; Ham\",505\n24,6.62,\"Circle &amp; Ham\",505\n25,7.47,\"Circle &amp; Ham\",505\n26,6.74,\"Circle &amp; Ham\",505\n27,6.28,\"Circle &amp; Ham\",505\n28,6.62,\"Circle &amp; Ham\",505\n29,5.99,\"Circle &amp; Ham\",505\n30,16.08,\"Circle &amp; Ham\",505\n31,11.38,\"Circle &amp; Ham\",505\n32,6.88,\"Circle &amp; Ham\",505\n33,6.73,\"Circle &amp; Ham\",505\n34,6.95,\"Circle &amp; Ham\",505\n35,6.85,\"Circle &amp; Ham\",505\n36,6.83,\"Circle &amp; Ham\",505\n37,5.84,\"Circle &amp; Ham\",505\n38,6.03,\"Circle &amp; Ham\",505\n39,6.65,\"Circle &amp; Ham\",505\n40,6.48,\"Circle &amp; Ham\",505\n41,7.59,\"Circle &amp; Ham\",505\n42,7.33,\"Circle &amp; Ham\",505\n43,8.36,\"Circle &amp; Ham\",505\n44,7.17,\"Circle &amp; Ham\",505\n45,6.49,\"Circle &amp; Ham\",505\n46,8.39,\"Circle &amp; Ham\",505\n47,8.04,\"Circle &amp; Ham\",505\n48,8.39,\"Circle &amp; Ham\",505\n49,7.33,\"Circle &amp; Ham\",505\n50,8.79,\"Circle &amp; Ham\",505\n51,8.27,\"Circle &amp; Ham\",505\n52,7.44,\"Circle &amp; Ham\",505\n53,6.39,\"Circle &amp; Ham\",505\n54,6.26,\"Circle &amp; Ham\",505\n55,6.51,\"Circle &amp; Ham\",505\n56,7.8,\"Circle &amp; Ham\",505\n57,8.19,\"Circle &amp; Ham\",505\n58,7.93,\"Circle &amp; Ham\",505\n59,7.08,\"Circle &amp; Ham\",505\n60,7.07,\"Circle &amp; Ham\",505\n61,8.7,\"Circle &amp; Ham\",505\n62,7.17,\"Circle &amp; Ham\",505\n63,7.29,\"Circle &amp; Ham\",505\n64,8.2,\"Circle &amp; Ham\",505\n65,8.05,\"Circle &amp; Ham\",505\n66,7.51,\"Circle &amp; Ham\",505\n67,7.67,\"Circle &amp; Ham\",505\n68,7.93,\"Circle &amp; Ham\",505\n69,7.6,\"Circle &amp; Ham\",505\n70,7.63,\"Circle &amp; Ham\",505\n71,6.84,\"Circle &amp; Ham\",505\n72,7.89,\"Circle &amp; Ham\",505\n73,7.79,\"Circle &amp; Ham\",505\n74,7.29,\"Circle &amp; Ham\",505\n75,6.47,\"Circle &amp; Ham\",505\n76,6.56,\"Circle &amp; Ham\",505\n77,7.73,\"Circle &amp; Ham\",505\n78,6.32,\"Circle &amp; Ham\",505\n79,6.16,\"Circle &amp; Ham\",505\n80,5.2,\"Circle &amp; Ham\",505\n81,7.2,\"Circle &amp; Ham\",505\n82,6.54,\"Circle &amp; Ham\",505\n83,6.31,\"Circle &amp; Ham\",505\n84,6.19,\"Circle &amp; Ham\",505\n85,6.83,\"Circle &amp; Ham\",505\n86,6.01,\"Circle &amp; Ham\",505\n87,7.28,\"Circle &amp; Ham\",505\n88,5.4,\"Circle &amp; Ham\",505\n89,6.88,\"Circle &amp; Ham\",505\n90,7.32,\"Circle &amp; Ham\",505\n91,6.37,\"Circle &amp; Ham\",505\n92,5.81,\"Circle &amp; Ham\",505\n93,4.68,\"Circle &amp; Ham\",505\n94,5.69,\"Circle &amp; Ham\",505\n95,7.35,\"Circle &amp; Ham\",505\n96,4.48,\"Circle &amp; Ham\",505\n97,6.65,\"Circle &amp; Ham\",505\n98,6.35,\"Circle &amp; Ham\",505\n99,7.69,\"Circle &amp; Ham\",505\n100,6.86,\"Circle &amp; Ham\",505\n101,5.84,\"Circle &amp; Ham\",505\n102,6.26,\"Circle &amp; Ham\",505\n103,6.48,\"Circle &amp; Ham\",505\n104,5.54,\"Circle &amp; Ham\",505\n105,6.07,\"Circle &amp; Ham\",505\n1,4.74,\"District\",505\n2,5.06,\"District\",505\n3,6.02,\"District\",505\n4,5.56,\"District\",505\n5,4.86,\"District\",505\n6,4.79,\"District\",505\n7,5,\"District\",505\n8,4.96,\"District\",505\n9,6.27,\"District\",505\n10,4.99,\"District\",505\n11,5.38,\"District\",505\n12,5.44,\"District\",505\n13,5.45,\"District\",505\n14,6.01,\"District\",505\n15,5.76,\"District\",505\n16,4.51,\"District\",505\n17,6.4,\"District\",505\n18,5.29,\"District\",505\n19,5.2,\"District\",505\n20,5.05,\"District\",505\n21,5.92,\"District\",505\n22,5.78,\"District\",505\n23,3.89,\"District\",505\n24,5.73,\"District\",505\n25,6.96,\"District\",505\n26,5.73,\"District\",505\n27,5.67,\"District\",505\n28,5.26,\"District\",505\n29,6.7,\"District\",505\n30,7.61,\"District\",505\n31,5.37,\"District\",505\n32,5.4,\"District\",505\n33,5.09,\"District\",505\n34,5.17,\"District\",505\n35,7.09,\"District\",505\n36,5.01,\"District\",505\n37,5.65,\"District\",505\n38,6.26,\"District\",505\n39,6.32,\"District\",505\n40,5.47,\"District\",505\n41,6.91,\"District\",505\n42,6.25,\"District\",505\n43,6.87,\"District\",505\n44,5.62,\"District\",505\n45,4.99,\"District\",505\n46,6.94,\"District\",505\n47,6.95,\"District\",505\n48,7.74,\"District\",505\n49,4.84,\"District\",505\n50,7.35,\"District\",505\n51,6.72,\"District\",505\n52,7.01,\"District\",505\n53,5.61,\"District\",505\n54,6,\"District\",505\n55,7.1,\"District\",505\n56,6.03,\"District\",505\n57,6.09,\"District\",505\n58,8.69,\"District\",505\n59,6.57,\"District\",505\n60,6.58,\"District\",505\n61,6.72,\"District\",505\n62,4.15,\"District\",505\n63,6.98,\"District\",505\n64,5.39,\"District\",505\n65,5.48,\"District\",505\n66,4.27,\"District\",505\n67,4.4,\"District\",505\n68,4.91,\"District\",505\n69,6.14,\"District\",505\n70,5.58,\"District\",505\n71,4.46,\"District\",505\n72,5.66,\"District\",505\n73,5.36,\"District\",505\n74,5.8,\"District\",505\n75,3.76,\"District\",505\n76,4.8,\"District\",505\n77,7.57,\"District\",505\n78,5.42,\"District\",505\n79,6.23,\"District\",505\n80,5.34,\"District\",505\n81,6.68,\"District\",505\n82,4.77,\"District\",505\n83,5.27,\"District\",505\n84,4.87,\"District\",505\n85,4.95,\"District\",505\n86,5.47,\"District\",505\n87,5.98,\"District\",505\n88,3.05,\"District\",505\n89,4.06,\"District\",505\n90,3.93,\"District\",505\n91,4.44,\"District\",505\n92,4,\"District\",505\n93,3.87,\"District\",505\n94,3.92,\"District\",505\n95,4.38,\"District\",505\n96,3.52,\"District\",505\n97,4.92,\"District\",505\n98,4.98,\"District\",505\n99,4.51,\"District\",505\n100,4.36,\"District\",505\n101,4.51,\"District\",505\n102,4.59,\"District\",505\n103,3.87,\"District\",505\n104,4.24,\"District\",505\n105,4.75,\"District\",505\n1,5.19,\"Jubilee\",505\n2,4.86,\"Jubilee\",505\n3,5.15,\"Jubilee\",505\n4,5.07,\"Jubilee\",505\n5,6.46,\"Jubilee\",505\n6,5.15,\"Jubilee\",505\n7,5.98,\"Jubilee\",505\n8,6.93,\"Jubilee\",505\n9,5.74,\"Jubilee\",505\n10,6.07,\"Jubilee\",505\n11,5.64,\"Jubilee\",505\n12,4.06,\"Jubilee\",505\n13,4.02,\"Jubilee\",505\n14,5.05,\"Jubilee\",505\n15,4.91,\"Jubilee\",505\n16,5.7,\"Jubilee\",505\n17,6.19,\"Jubilee\",505\n18,4.39,\"Jubilee\",505\n19,4.11,\"Jubilee\",505\n20,5.48,\"Jubilee\",505\n21,5.53,\"Jubilee\",505\n22,6.71,\"Jubilee\",505\n23,5.27,\"Jubilee\",505\n24,6.14,\"Jubilee\",505\n25,7.56,\"Jubilee\",505\n26,6.91,\"Jubilee\",505\n27,5.71,\"Jubilee\",505\n28,6.65,\"Jubilee\",505\n29,6.6,\"Jubilee\",505\n30,6.29,\"Jubilee\",505\n31,5.47,\"Jubilee\",505\n32,4.9,\"Jubilee\",505\n33,5.58,\"Jubilee\",505\n34,5.76,\"Jubilee\",505\n35,5.99,\"Jubilee\",505\n36,6.07,\"Jubilee\",505\n37,5.12,\"Jubilee\",505\n38,7.12,\"Jubilee\",505\n39,5.94,\"Jubilee\",505\n40,5.04,\"Jubilee\",505\n41,6.14,\"Jubilee\",505\n42,5.99,\"Jubilee\",505\n43,6.46,\"Jubilee\",505\n44,5.4,\"Jubilee\",505\n45,5.56,\"Jubilee\",505\n46,5.85,\"Jubilee\",505\n47,7.56,\"Jubilee\",505\n48,6.52,\"Jubilee\",505\n49,4.66,\"Jubilee\",505\n50,6.08,\"Jubilee\",505\n51,7.23,\"Jubilee\",505\n52,6.83,\"Jubilee\",505\n53,5.45,\"Jubilee\",505\n54,5.81,\"Jubilee\",505\n55,6,\"Jubilee\",505\n56,5.29,\"Jubilee\",505\n57,6.33,\"Jubilee\",505\n58,4.86,\"Jubilee\",505\n59,7.15,\"Jubilee\",505\n60,6.4,\"Jubilee\",505\n61,6.58,\"Jubilee\",505\n62,5.24,\"Jubilee\",505\n63,7.62,\"Jubilee\",505\n64,7.14,\"Jubilee\",505\n65,6.1,\"Jubilee\",505\n66,5.51,\"Jubilee\",505\n67,5.06,\"Jubilee\",505\n68,5.51,\"Jubilee\",505\n69,6.47,\"Jubilee\",505\n70,5.6,\"Jubilee\",505\n71,5.43,\"Jubilee\",505\n72,5.32,\"Jubilee\",505\n73,6.29,\"Jubilee\",505\n74,6.53,\"Jubilee\",505\n75,4.37,\"Jubilee\",505\n76,6.5,\"Jubilee\",505\n77,6.71,\"Jubilee\",505\n78,6.11,\"Jubilee\",505\n79,5.95,\"Jubilee\",505\n80,5.87,\"Jubilee\",505\n81,6.12,\"Jubilee\",505\n82,5.61,\"Jubilee\",505\n83,5.73,\"Jubilee\",505\n84,5.14,\"Jubilee\",505\n85,5.75,\"Jubilee\",505\n86,6.3,\"Jubilee\",505\n87,6.1,\"Jubilee\",505\n88,5.15,\"Jubilee\",505\n89,5.77,\"Jubilee\",505\n90,5.37,\"Jubilee\",505\n91,5.57,\"Jubilee\",505\n92,5.09,\"Jubilee\",505\n93,4.77,\"Jubilee\",505\n94,4.96,\"Jubilee\",505\n95,5.56,\"Jubilee\",505\n96,4.63,\"Jubilee\",505\n97,6.37,\"Jubilee\",505\n98,6.07,\"Jubilee\",505\n99,7.75,\"Jubilee\",505\n100,6.62,\"Jubilee\",505\n101,6.4,\"Jubilee\",505\n102,6.64,\"Jubilee\",505\n103,5.03,\"Jubilee\",505\n104,4.65,\"Jubilee\",505\n105,4.83,\"Jubilee\",505\n1,8.61,\"Metropolitan\",505\n2,9.73,\"Metropolitan\",505\n3,7.02,\"Metropolitan\",505\n4,6.26,\"Metropolitan\",505\n5,8.67,\"Metropolitan\",505\n6,10.23,\"Metropolitan\",505\n7,9.37,\"Metropolitan\",505\n8,7.6,\"Metropolitan\",505\n9,7.9,\"Metropolitan\",505\n10,6.67,\"Metropolitan\",505\n11,6.86,\"Metropolitan\",505\n12,8.51,\"Metropolitan\",505\n13,6.99,\"Metropolitan\",505\n14,6.36,\"Metropolitan\",505\n15,7.53,\"Metropolitan\",505\n16,7.42,\"Metropolitan\",505\n17,7.35,\"Metropolitan\",505\n18,7.9,\"Metropolitan\",505\n19,5.43,\"Metropolitan\",505\n20,6.79,\"Metropolitan\",505\n21,9.76,\"Metropolitan\",505\n22,8.83,\"Metropolitan\",505\n23,8.5,\"Metropolitan\",505\n24,7.17,\"Metropolitan\",505\n25,9.06,\"Metropolitan\",505\n26,8,\"Metropolitan\",505\n27,8.65,\"Metropolitan\",505\n28,8.75,\"Metropolitan\",505\n29,7.56,\"Metropolitan\",505\n30,17.6,\"Metropolitan\",505\n31,7.94,\"Metropolitan\",505\n32,7,\"Metropolitan\",505\n33,9.19,\"Metropolitan\",505\n34,8.22,\"Metropolitan\",505\n35,9.79,\"Metropolitan\",505\n36,7.16,\"Metropolitan\",505\n37,9.36,\"Metropolitan\",505\n38,9.82,\"Metropolitan\",505\n39,9.29,\"Metropolitan\",505\n40,10.84,\"Metropolitan\",505\n41,12.3,\"Metropolitan\",505\n42,8.53,\"Metropolitan\",505\n43,11.9,\"Metropolitan\",505\n44,10.78,\"Metropolitan\",505\n45,10.89,\"Metropolitan\",505\n46,8.44,\"Metropolitan\",505\n47,9.12,\"Metropolitan\",505\n48,9.77,\"Metropolitan\",505\n49,7.18,\"Metropolitan\",505\n50,9.96,\"Metropolitan\",505\n51,10.04,\"Metropolitan\",505\n52,9.13,\"Metropolitan\",505\n53,8.09,\"Metropolitan\",505\n54,7.77,\"Metropolitan\",505\n55,8.02,\"Metropolitan\",505\n56,8.39,\"Metropolitan\",505\n57,8.04,\"Metropolitan\",505\n58,9.49,\"Metropolitan\",505\n59,8.55,\"Metropolitan\",505\n60,9.51,\"Metropolitan\",505\n61,10.15,\"Metropolitan\",505\n62,8.01,\"Metropolitan\",505\n63,11.64,\"Metropolitan\",505\n64,8.22,\"Metropolitan\",505\n65,10.56,\"Metropolitan\",505\n66,7.69,\"Metropolitan\",505\n67,8.3,\"Metropolitan\",505\n68,9.98,\"Metropolitan\",505\n69,8.01,\"Metropolitan\",505\n70,8.15,\"Metropolitan\",505\n71,6.97,\"Metropolitan\",505\n72,8.11,\"Metropolitan\",505\n73,9.72,\"Metropolitan\",505\n74,9.74,\"Metropolitan\",505\n75,7.91,\"Metropolitan\",505\n76,10.31,\"Metropolitan\",505\n77,11.97,\"Metropolitan\",505\n78,8.47,\"Metropolitan\",505\n79,9.43,\"Metropolitan\",505\n80,7.48,\"Metropolitan\",505\n81,10.28,\"Metropolitan\",505\n82,6.76,\"Metropolitan\",505\n83,7.07,\"Metropolitan\",505\n84,7.55,\"Metropolitan\",505\n85,8.31,\"Metropolitan\",505\n86,9.78,\"Metropolitan\",505\n87,10.83,\"Metropolitan\",505\n88,6.33,\"Metropolitan\",505\n89,8.36,\"Metropolitan\",505\n90,7.73,\"Metropolitan\",505\n91,6.73,\"Metropolitan\",505\n92,6.36,\"Metropolitan\",505\n93,6.22,\"Metropolitan\",505\n94,7.4,\"Metropolitan\",505\n95,7.79,\"Metropolitan\",505\n96,6.42,\"Metropolitan\",505\n97,7.29,\"Metropolitan\",505\n98,8.3,\"Metropolitan\",505\n99,9.29,\"Metropolitan\",505\n100,9.26,\"Metropolitan\",505\n101,7.89,\"Metropolitan\",505\n102,8.42,\"Metropolitan\",505\n103,7.61,\"Metropolitan\",505\n104,6.91,\"Metropolitan\",505\n105,6.77,\"Metropolitan\",505\n1,4.98,\"Northern\",505\n2,5.44,\"Northern\",505\n3,5.32,\"Northern\",505\n4,5.74,\"Northern\",505\n5,4.93,\"Northern\",505\n6,5.12,\"Northern\",505\n7,5.93,\"Northern\",505\n8,22.25,\"Northern\",505\n9,6.05,\"Northern\",505\n10,5.99,\"Northern\",505\n11,4.98,\"Northern\",505\n12,5.15,\"Northern\",505\n13,6.29,\"Northern\",505\n14,5.42,\"Northern\",505\n15,6.43,\"Northern\",505\n16,5.45,\"Northern\",505\n17,7.79,\"Northern\",505\n18,6.74,\"Northern\",505\n19,6.19,\"Northern\",505\n20,6.28,\"Northern\",505\n21,6.6,\"Northern\",505\n22,6.62,\"Northern\",505\n23,5.8,\"Northern\",505\n24,6.06,\"Northern\",505\n25,7.6,\"Northern\",505\n26,6.5,\"Northern\",505\n27,5.87,\"Northern\",505\n28,5.79,\"Northern\",505\n29,4.51,\"Northern\",505\n30,8.25,\"Northern\",505\n31,4.75,\"Northern\",505\n32,5.2,\"Northern\",505\n33,11.63,\"Northern\",505\n34,6.93,\"Northern\",505\n35,7.51,\"Northern\",505\n36,5.93,\"Northern\",505\n37,7.57,\"Northern\",505\n38,6.79,\"Northern\",505\n39,5.8,\"Northern\",505\n40,7.05,\"Northern\",505\n41,7.53,\"Northern\",505\n42,7.18,\"Northern\",505\n43,7.32,\"Northern\",505\n44,6.34,\"Northern\",505\n45,6.27,\"Northern\",505\n46,5.88,\"Northern\",505\n47,7.21,\"Northern\",505\n48,8.41,\"Northern\",505\n49,6.11,\"Northern\",505\n50,7.74,\"Northern\",505\n51,7.53,\"Northern\",505\n52,6.92,\"Northern\",505\n53,6.44,\"Northern\",505\n54,6.09,\"Northern\",505\n55,7,\"Northern\",505\n56,6.66,\"Northern\",505\n57,5.74,\"Northern\",505\n58,5.87,\"Northern\",505\n59,6.04,\"Northern\",505\n60,6.96,\"Northern\",505\n61,6.53,\"Northern\",505\n62,4.83,\"Northern\",505\n63,6.31,\"Northern\",505\n64,4.93,\"Northern\",505\n65,3.79,\"Northern\",505\n66,4.21,\"Northern\",505\n67,4,\"Northern\",505\n68,3.94,\"Northern\",505\n69,3.53,\"Northern\",505\n70,3.94,\"Northern\",505\n71,3.39,\"Northern\",505\n72,4.49,\"Northern\",505\n73,5.18,\"Northern\",505\n74,4.97,\"Northern\",505\n75,3.28,\"Northern\",505\n76,3.93,\"Northern\",505\n77,5.41,\"Northern\",505\n78,4.12,\"Northern\",505\n79,3.94,\"Northern\",505\n80,3.91,\"Northern\",505\n81,4.47,\"Northern\",505\n82,4.16,\"Northern\",505\n83,3.85,\"Northern\",505\n84,4.45,\"Northern\",505\n85,4.95,\"Northern\",505\n86,4.77,\"Northern\",505\n87,4.96,\"Northern\",505\n88,3.5,\"Northern\",505\n89,4.86,\"Northern\",505\n90,4.9,\"Northern\",505\n91,4.07,\"Northern\",505\n92,3.74,\"Northern\",505\n93,4.59,\"Northern\",505\n94,4.22,\"Northern\",505\n95,4.59,\"Northern\",505\n96,4.22,\"Northern\",505\n97,4.04,\"Northern\",505\n98,5,\"Northern\",505\n99,5.23,\"Northern\",505\n100,5.49,\"Northern\",505\n101,3.73,\"Northern\",505\n102,4.21,\"Northern\",505\n103,4.51,\"Northern\",505\n104,4.26,\"Northern\",505\n105,4.11,\"Northern\",505\n1,4.97,\"Piccadilly\",505\n2,4.96,\"Piccadilly\",505\n3,5.55,\"Piccadilly\",505\n4,4.94,\"Piccadilly\",505\n5,5.81,\"Piccadilly\",505\n6,5.05,\"Piccadilly\",505\n7,5,\"Piccadilly\",505\n8,5.68,\"Piccadilly\",505\n9,4.51,\"Piccadilly\",505\n10,5.43,\"Piccadilly\",505\n11,6.33,\"Piccadilly\",505\n12,6.17,\"Piccadilly\",505\n13,7.18,\"Piccadilly\",505\n14,5.16,\"Piccadilly\",505\n15,4.24,\"Piccadilly\",505\n16,4.92,\"Piccadilly\",505\n17,6.24,\"Piccadilly\",505\n18,5.52,\"Piccadilly\",505\n19,4.21,\"Piccadilly\",505\n20,4.94,\"Piccadilly\",505\n21,6.17,\"Piccadilly\",505\n22,6.35,\"Piccadilly\",505\n23,5.92,\"Piccadilly\",505\n24,5.35,\"Piccadilly\",505\n25,5.43,\"Piccadilly\",505\n26,5.35,\"Piccadilly\",505\n27,4.69,\"Piccadilly\",505\n28,4.99,\"Piccadilly\",505\n29,4.75,\"Piccadilly\",505\n30,19.71,\"Piccadilly\",505\n31,12.07,\"Piccadilly\",505\n32,5.38,\"Piccadilly\",505\n33,6.17,\"Piccadilly\",505\n34,7.24,\"Piccadilly\",505\n35,5.65,\"Piccadilly\",505\n36,5.51,\"Piccadilly\",505\n37,6.88,\"Piccadilly\",505\n38,6.24,\"Piccadilly\",505\n39,6.21,\"Piccadilly\",505\n40,5.93,\"Piccadilly\",505\n41,6.3,\"Piccadilly\",505\n42,7.47,\"Piccadilly\",505\n43,6.89,\"Piccadilly\",505\n44,6.58,\"Piccadilly\",505\n45,6.02,\"Piccadilly\",505\n46,6.96,\"Piccadilly\",505\n47,6.96,\"Piccadilly\",505\n48,8.17,\"Piccadilly\",505\n49,6.1,\"Piccadilly\",505\n50,6.95,\"Piccadilly\",505\n51,7.71,\"Piccadilly\",505\n52,6.58,\"Piccadilly\",505\n53,6.77,\"Piccadilly\",505\n54,6.19,\"Piccadilly\",505\n55,6.08,\"Piccadilly\",505\n56,6.84,\"Piccadilly\",505\n57,6.17,\"Piccadilly\",505\n58,6.99,\"Piccadilly\",505\n59,6.88,\"Piccadilly\",505\n60,7.37,\"Piccadilly\",505\n61,8.68,\"Piccadilly\",505\n62,6.35,\"Piccadilly\",505\n63,6.59,\"Piccadilly\",505\n64,7.47,\"Piccadilly\",505\n65,7.07,\"Piccadilly\",505\n66,5.03,\"Piccadilly\",505\n67,5.25,\"Piccadilly\",505\n68,5.29,\"Piccadilly\",505\n69,5.89,\"Piccadilly\",505\n70,5.78,\"Piccadilly\",505\n71,5.07,\"Piccadilly\",505\n72,5.61,\"Piccadilly\",505\n73,5.72,\"Piccadilly\",505\n74,5.73,\"Piccadilly\",505\n75,4.78,\"Piccadilly\",505\n76,4.67,\"Piccadilly\",505\n77,6.07,\"Piccadilly\",505\n78,5.04,\"Piccadilly\",505\n79,4.55,\"Piccadilly\",505\n80,4.7,\"Piccadilly\",505\n81,7.24,\"Piccadilly\",505\n82,6.3,\"Piccadilly\",505\n83,4.7,\"Piccadilly\",505\n84,4.2,\"Piccadilly\",505\n85,4.86,\"Piccadilly\",505\n86,5.64,\"Piccadilly\",505\n87,5.92,\"Piccadilly\",505\n88,5.15,\"Piccadilly\",505\n89,4.81,\"Piccadilly\",505\n90,4.74,\"Piccadilly\",505\n91,5.18,\"Piccadilly\",505\n92,4.35,\"Piccadilly\",505\n93,5.41,\"Piccadilly\",505\n94,4.69,\"Piccadilly\",505\n95,4.57,\"Piccadilly\",505\n96,4.03,\"Piccadilly\",505\n97,4.77,\"Piccadilly\",505\n98,6.48,\"Piccadilly\",505\n99,7.76,\"Piccadilly\",505\n100,6.34,\"Piccadilly\",505\n101,5.35,\"Piccadilly\",505\n102,3.86,\"Piccadilly\",505\n103,4.97,\"Piccadilly\",505\n104,4.26,\"Piccadilly\",505\n105,4.22,\"Piccadilly\",505\n1,6.13,\"Victoria\",505\n2,5.77,\"Victoria\",505\n3,5.9,\"Victoria\",505\n4,5.49,\"Victoria\",505\n5,6.89,\"Victoria\",505\n6,6.15,\"Victoria\",505\n7,6.24,\"Victoria\",505\n8,6.72,\"Victoria\",505\n9,6.23,\"Victoria\",505\n10,8.45,\"Victoria\",505\n11,5.09,\"Victoria\",505\n12,5.72,\"Victoria\",505\n13,7.54,\"Victoria\",505\n14,5.23,\"Victoria\",505\n15,4.66,\"Victoria\",505\n16,5.68,\"Victoria\",505\n17,5.64,\"Victoria\",505\n18,5.48,\"Victoria\",505\n19,4.72,\"Victoria\",505\n20,5.68,\"Victoria\",505\n21,6.22,\"Victoria\",505\n22,6.54,\"Victoria\",505\n23,4.89,\"Victoria\",505\n24,5.18,\"Victoria\",505\n25,5.61,\"Victoria\",505\n26,5.21,\"Victoria\",505\n27,5.28,\"Victoria\",505\n28,4.68,\"Victoria\",505\n29,4.63,\"Victoria\",505\n30,7.37,\"Victoria\",505\n31,5.19,\"Victoria\",505\n32,4.9,\"Victoria\",505\n33,4.28,\"Victoria\",505\n34,4.98,\"Victoria\",505\n35,6.04,\"Victoria\",505\n36,4.75,\"Victoria\",505\n37,6.1,\"Victoria\",505\n38,4.92,\"Victoria\",505\n39,5.45,\"Victoria\",505\n40,7.18,\"Victoria\",505\n41,6.39,\"Victoria\",505\n42,4.95,\"Victoria\",505\n43,8.02,\"Victoria\",505\n44,6.5,\"Victoria\",505\n45,6.06,\"Victoria\",505\n46,6.04,\"Victoria\",505\n47,5.65,\"Victoria\",505\n48,7.71,\"Victoria\",505\n49,5.36,\"Victoria\",505\n50,5.29,\"Victoria\",505\n51,5.66,\"Victoria\",505\n52,6.04,\"Victoria\",505\n53,6.33,\"Victoria\",505\n54,5.41,\"Victoria\",505\n55,5.81,\"Victoria\",505\n56,7.26,\"Victoria\",505\n57,6.34,\"Victoria\",505\n58,5.71,\"Victoria\",505\n59,6.52,\"Victoria\",505\n60,6.18,\"Victoria\",505\n61,6.48,\"Victoria\",505\n62,8.25,\"Victoria\",505\n63,6.28,\"Victoria\",505\n64,6.39,\"Victoria\",505\n65,7.1,\"Victoria\",505\n66,5.56,\"Victoria\",505\n67,5.82,\"Victoria\",505\n68,6.14,\"Victoria\",505\n69,5.07,\"Victoria\",505\n70,5.21,\"Victoria\",505\n71,5.4,\"Victoria\",505\n72,6.11,\"Victoria\",505\n73,5.79,\"Victoria\",505\n74,5.5,\"Victoria\",505\n75,4.07,\"Victoria\",505\n76,5.27,\"Victoria\",505\n77,5.91,\"Victoria\",505\n78,5.84,\"Victoria\",505\n79,5.88,\"Victoria\",505\n80,6.23,\"Victoria\",505\n81,7.33,\"Victoria\",505\n82,5.67,\"Victoria\",505\n83,6.25,\"Victoria\",505\n84,5.6,\"Victoria\",505\n85,6.24,\"Victoria\",505\n86,5.84,\"Victoria\",505\n87,5.19,\"Victoria\",505\n88,5.2,\"Victoria\",505\n89,5.27,\"Victoria\",505\n90,5.01,\"Victoria\",505\n91,5.08,\"Victoria\",505\n92,6.01,\"Victoria\",505\n93,5.5,\"Victoria\",505\n94,5.28,\"Victoria\",505\n95,6.92,\"Victoria\",505\n96,5.96,\"Victoria\",505\n97,6.37,\"Victoria\",505\n98,7.09,\"Victoria\",505\n99,6.86,\"Victoria\",505\n100,7.33,\"Victoria\",505\n101,5.4,\"Victoria\",505\n102,6.28,\"Victoria\",505\n103,6.91,\"Victoria\",505\n104,6.67,\"Victoria\",505\n105,5.39,\"Victoria\",505\n1,3.04,\"Waterloo &amp; City\",505\n2,1.87,\"Waterloo &amp; City\",505\n3,2.15,\"Waterloo &amp; City\",505\n4,2.65,\"Waterloo &amp; City\",505\n5,1.54,\"Waterloo &amp; City\",505\n6,1.47,\"Waterloo &amp; City\",505\n7,2.24,\"Waterloo &amp; City\",505\n8,1.44,\"Waterloo &amp; City\",505\n9,1.69,\"Waterloo &amp; City\",505\n10,1.57,\"Waterloo &amp; City\",505\n11,1.45,\"Waterloo &amp; City\",505\n12,1.58,\"Waterloo &amp; City\",505\n13,1.72,\"Waterloo &amp; City\",505\n14,1.33,\"Waterloo &amp; City\",505\n15,1.77,\"Waterloo &amp; City\",505\n16,1.32,\"Waterloo &amp; City\",505\n17,1.88,\"Waterloo &amp; City\",505\n18,3.26,\"Waterloo &amp; City\",505\n19,2.84,\"Waterloo &amp; City\",505\n20,2.92,\"Waterloo &amp; City\",505\n21,2.04,\"Waterloo &amp; City\",505\n22,2.09,\"Waterloo &amp; City\",505\n23,1.7,\"Waterloo &amp; City\",505\n24,1.84,\"Waterloo &amp; City\",505\n25,2.16,\"Waterloo &amp; City\",505\n26,2.66,\"Waterloo &amp; City\",505\n27,3.2,\"Waterloo &amp; City\",505\n28,1.94,\"Waterloo &amp; City\",505\n29,2.21,\"Waterloo &amp; City\",505\n30,3.18,\"Waterloo &amp; City\",505\n31,1.23,\"Waterloo &amp; City\",505\n32,1.74,\"Waterloo &amp; City\",505\n33,1.42,\"Waterloo &amp; City\",505\n34,2.16,\"Waterloo &amp; City\",505\n35,2.46,\"Waterloo &amp; City\",505\n36,1.71,\"Waterloo &amp; City\",505\n37,3.29,\"Waterloo &amp; City\",505\n38,1.71,\"Waterloo &amp; City\",505\n39,3.64,\"Waterloo &amp; City\",505\n40,0,\"Waterloo &amp; City\",505\n41,0,\"Waterloo &amp; City\",505\n42,0,\"Waterloo &amp; City\",505\n43,0,\"Waterloo &amp; City\",505\n44,0,\"Waterloo &amp; City\",505\n45,0.05,\"Waterloo &amp; City\",505\n46,2.73,\"Waterloo &amp; City\",505\n47,1.5,\"Waterloo &amp; City\",505\n48,2.34,\"Waterloo &amp; City\",505\n49,1.44,\"Waterloo &amp; City\",505\n50,1.59,\"Waterloo &amp; City\",505\n51,1.31,\"Waterloo &amp; City\",505\n52,1.46,\"Waterloo &amp; City\",505\n53,1.45,\"Waterloo &amp; City\",505\n54,1.73,\"Waterloo &amp; City\",505\n55,1.99,\"Waterloo &amp; City\",505\n56,1.65,\"Waterloo &amp; City\",505\n57,1.1,\"Waterloo &amp; City\",505\n58,4.36,\"Waterloo &amp; City\",505\n59,3.67,\"Waterloo &amp; City\",505\n60,1.76,\"Waterloo &amp; City\",505\n61,2.06,\"Waterloo &amp; City\",505\n62,1.11,\"Waterloo &amp; City\",505\n63,1.63,\"Waterloo &amp; City\",505\n64,1.31,\"Waterloo &amp; City\",505\n65,2.42,\"Waterloo &amp; City\",505\n66,2.77,\"Waterloo &amp; City\",505\n67,4.12,\"Waterloo &amp; City\",505\n68,2.42,\"Waterloo &amp; City\",505\n69,2.81,\"Waterloo &amp; City\",505\n70,3.8,\"Waterloo &amp; City\",505\n71,2.81,\"Waterloo &amp; City\",505\n72,2.33,\"Waterloo &amp; City\",505\n73,2.82,\"Waterloo &amp; City\",505\n74,3.09,\"Waterloo &amp; City\",505\n75,1.63,\"Waterloo &amp; City\",505\n76,3,\"Waterloo &amp; City\",505\n77,2.65,\"Waterloo &amp; City\",505\n78,3.06,\"Waterloo &amp; City\",505\n79,2.86,\"Waterloo &amp; City\",505\n80,1.65,\"Waterloo &amp; City\",505\n81,3.98,\"Waterloo &amp; City\",505\n82,1.25,\"Waterloo &amp; City\",505\n83,1.28,\"Waterloo &amp; City\",505\n84,1.39,\"Waterloo &amp; City\",505\n85,2.22,\"Waterloo &amp; City\",505\n86,2.35,\"Waterloo &amp; City\",505\n87,2.24,\"Waterloo &amp; City\",505\n88,1.62,\"Waterloo &amp; City\",505\n89,2.44,\"Waterloo &amp; City\",505\n90,2.05,\"Waterloo &amp; City\",505\n91,1.82,\"Waterloo &amp; City\",505\n92,2.36,\"Waterloo &amp; City\",505\n93,2.45,\"Waterloo &amp; City\",505\n94,2.26,\"Waterloo &amp; City\",505\n95,1.89,\"Waterloo &amp; City\",505\n96,1.2,\"Waterloo &amp; City\",505\n97,2.65,\"Waterloo &amp; City\",505\n98,1.57,\"Waterloo &amp; City\",505\n99,2.6,\"Waterloo &amp; City\",505\n100,3.43,\"Waterloo &amp; City\",505\n101,2.83,\"Waterloo &amp; City\",505\n102,2.05,\"Waterloo &amp; City\",505\n103,2.23,\"Waterloo &amp; City\",505\n104,1.96,\"Waterloo &amp; City\",505\n105,1.42,\"Waterloo &amp; City\",505"
+            "values": "\"Month\",\"Excess\",\"Line\",\"reactive_204785234\"\n1,6.04,\"Bakerloo\",505\n2,6.54,\"Bakerloo\",505\n3,4.77,\"Bakerloo\",505\n4,5.4,\"Bakerloo\",505\n5,5.23,\"Bakerloo\",505\n6,5.03,\"Bakerloo\",505\n7,5.14,\"Bakerloo\",505\n8,5.73,\"Bakerloo\",505\n9,4.8,\"Bakerloo\",505\n10,5.95,\"Bakerloo\",505\n11,4.76,\"Bakerloo\",505\n12,6,\"Bakerloo\",505\n13,6.67,\"Bakerloo\",505\n14,5.24,\"Bakerloo\",505\n15,4.83,\"Bakerloo\",505\n16,5.5,\"Bakerloo\",505\n17,6.19,\"Bakerloo\",505\n18,5.6,\"Bakerloo\",505\n19,4.64,\"Bakerloo\",505\n20,4.74,\"Bakerloo\",505\n21,6.96,\"Bakerloo\",505\n22,5.72,\"Bakerloo\",505\n23,5.4,\"Bakerloo\",505\n24,5.11,\"Bakerloo\",505\n25,5.65,\"Bakerloo\",505\n26,4.37,\"Bakerloo\",505\n27,5.3,\"Bakerloo\",505\n28,4.36,\"Bakerloo\",505\n29,4.48,\"Bakerloo\",505\n30,5.45,\"Bakerloo\",505\n31,4.8,\"Bakerloo\",505\n32,4.54,\"Bakerloo\",505\n33,3.99,\"Bakerloo\",505\n34,5.41,\"Bakerloo\",505\n35,4.78,\"Bakerloo\",505\n36,5.04,\"Bakerloo\",505\n37,4.77,\"Bakerloo\",505\n38,5.52,\"Bakerloo\",505\n39,4.99,\"Bakerloo\",505\n40,5.31,\"Bakerloo\",505\n41,5.45,\"Bakerloo\",505\n42,4.23,\"Bakerloo\",505\n43,5.68,\"Bakerloo\",505\n44,4.52,\"Bakerloo\",505\n45,4.87,\"Bakerloo\",505\n46,5.03,\"Bakerloo\",505\n47,5.45,\"Bakerloo\",505\n48,5.5,\"Bakerloo\",505\n49,4.02,\"Bakerloo\",505\n50,5.38,\"Bakerloo\",505\n51,5.86,\"Bakerloo\",505\n52,5.17,\"Bakerloo\",505\n53,4.84,\"Bakerloo\",505\n54,5.11,\"Bakerloo\",505\n55,5.19,\"Bakerloo\",505\n56,5.59,\"Bakerloo\",505\n57,5.57,\"Bakerloo\",505\n58,5.23,\"Bakerloo\",505\n59,5.39,\"Bakerloo\",505\n60,6.1,\"Bakerloo\",505\n61,5.88,\"Bakerloo\",505\n62,5.2,\"Bakerloo\",505\n63,5.01,\"Bakerloo\",505\n64,5.84,\"Bakerloo\",505\n65,5.28,\"Bakerloo\",505\n66,4.71,\"Bakerloo\",505\n67,4.19,\"Bakerloo\",505\n68,4.26,\"Bakerloo\",505\n69,4.18,\"Bakerloo\",505\n70,4.47,\"Bakerloo\",505\n71,4.55,\"Bakerloo\",505\n72,4.61,\"Bakerloo\",505\n73,5.06,\"Bakerloo\",505\n74,4.37,\"Bakerloo\",505\n75,4.15,\"Bakerloo\",505\n76,3.95,\"Bakerloo\",505\n77,6.08,\"Bakerloo\",505\n78,4.42,\"Bakerloo\",505\n79,4.34,\"Bakerloo\",505\n80,4.17,\"Bakerloo\",505\n81,5.13,\"Bakerloo\",505\n82,3.95,\"Bakerloo\",505\n83,3.53,\"Bakerloo\",505\n84,5.04,\"Bakerloo\",505\n85,4.67,\"Bakerloo\",505\n86,3.96,\"Bakerloo\",505\n87,4.27,\"Bakerloo\",505\n88,4.6,\"Bakerloo\",505\n89,4.87,\"Bakerloo\",505\n90,4.56,\"Bakerloo\",505\n91,4.36,\"Bakerloo\",505\n92,4.19,\"Bakerloo\",505\n93,4.48,\"Bakerloo\",505\n94,4.49,\"Bakerloo\",505\n95,4.85,\"Bakerloo\",505\n96,5.74,\"Bakerloo\",505\n97,5.14,\"Bakerloo\",505\n98,5.93,\"Bakerloo\",505\n99,5.84,\"Bakerloo\",505\n100,6.26,\"Bakerloo\",505\n101,5.07,\"Bakerloo\",505\n102,4.5,\"Bakerloo\",505\n103,4.96,\"Bakerloo\",505\n104,4.75,\"Bakerloo\",505\n105,5.22,\"Bakerloo\",505\n1,7.21,\"Central\",505\n2,5.23,\"Central\",505\n3,5.67,\"Central\",505\n4,6.1,\"Central\",505\n5,5.54,\"Central\",505\n6,5.85,\"Central\",505\n7,6.08,\"Central\",505\n8,7.95,\"Central\",505\n9,7.27,\"Central\",505\n10,6.64,\"Central\",505\n11,6.33,\"Central\",505\n12,6.09,\"Central\",505\n13,7.01,\"Central\",505\n14,6.33,\"Central\",505\n15,6.78,\"Central\",505\n16,7.04,\"Central\",505\n17,10.1,\"Central\",505\n18,6.91,\"Central\",505\n19,5.74,\"Central\",505\n20,6.17,\"Central\",505\n21,6.79,\"Central\",505\n22,5.45,\"Central\",505\n23,4.95,\"Central\",505\n24,5.36,\"Central\",505\n25,6.18,\"Central\",505\n26,5.68,\"Central\",505\n27,4.69,\"Central\",505\n28,4.78,\"Central\",505\n29,6.47,\"Central\",505\n30,8.2,\"Central\",505\n31,5.28,\"Central\",505\n32,6.05,\"Central\",505\n33,5.34,\"Central\",505\n34,5.71,\"Central\",505\n35,6.16,\"Central\",505\n36,4.4,\"Central\",505\n37,5.99,\"Central\",505\n38,4.66,\"Central\",505\n39,4.91,\"Central\",505\n40,4.12,\"Central\",505\n41,4.54,\"Central\",505\n42,6.97,\"Central\",505\n43,7.23,\"Central\",505\n44,6.14,\"Central\",505\n45,4.93,\"Central\",505\n46,7.27,\"Central\",505\n47,7.72,\"Central\",505\n48,9.49,\"Central\",505\n49,5.3,\"Central\",505\n50,6.35,\"Central\",505\n51,6.55,\"Central\",505\n52,4.99,\"Central\",505\n53,6.09,\"Central\",505\n54,5.4,\"Central\",505\n55,6.14,\"Central\",505\n56,7.26,\"Central\",505\n57,5.11,\"Central\",505\n58,9.42,\"Central\",505\n59,6.26,\"Central\",505\n60,6.64,\"Central\",505\n61,6.41,\"Central\",505\n62,5.68,\"Central\",505\n63,5.54,\"Central\",505\n64,6.3,\"Central\",505\n65,5.7,\"Central\",505\n66,5.18,\"Central\",505\n67,5.51,\"Central\",505\n68,4.85,\"Central\",505\n69,5.58,\"Central\",505\n70,4.89,\"Central\",505\n71,4.22,\"Central\",505\n72,5.2,\"Central\",505\n73,5.92,\"Central\",505\n74,5.16,\"Central\",505\n75,4.29,\"Central\",505\n76,5.09,\"Central\",505\n77,6.34,\"Central\",505\n78,5.83,\"Central\",505\n79,4.83,\"Central\",505\n80,4.62,\"Central\",505\n81,8.41,\"Central\",505\n82,4.79,\"Central\",505\n83,4.65,\"Central\",505\n84,4.49,\"Central\",505\n85,5.18,\"Central\",505\n86,5.69,\"Central\",505\n87,6.07,\"Central\",505\n88,4.81,\"Central\",505\n89,4.95,\"Central\",505\n90,6.15,\"Central\",505\n91,5.23,\"Central\",505\n92,5.35,\"Central\",505\n93,5.63,\"Central\",505\n94,5.41,\"Central\",505\n95,5.55,\"Central\",505\n96,4.68,\"Central\",505\n97,8.12,\"Central\",505\n98,8.36,\"Central\",505\n99,7.87,\"Central\",505\n100,8.42,\"Central\",505\n101,5.54,\"Central\",505\n102,5.95,\"Central\",505\n103,6.17,\"Central\",505\n104,5.94,\"Central\",505\n105,6.3,\"Central\",505\n1,7.5,\"Circle &amp; Ham\",505\n2,7.92,\"Circle &amp; Ham\",505\n3,8.46,\"Circle &amp; Ham\",505\n4,6.94,\"Circle &amp; Ham\",505\n5,7.76,\"Circle &amp; Ham\",505\n6,8.19,\"Circle &amp; Ham\",505\n7,8.03,\"Circle &amp; Ham\",505\n8,8.13,\"Circle &amp; Ham\",505\n9,8.42,\"Circle &amp; Ham\",505\n10,8.49,\"Circle &amp; Ham\",505\n11,7.16,\"Circle &amp; Ham\",505\n12,7.49,\"Circle &amp; Ham\",505\n13,7.15,\"Circle &amp; Ham\",505\n14,7.53,\"Circle &amp; Ham\",505\n15,6.61,\"Circle &amp; Ham\",505\n16,6.63,\"Circle &amp; Ham\",505\n17,7.14,\"Circle &amp; Ham\",505\n18,6.52,\"Circle &amp; Ham\",505\n19,6.23,\"Circle &amp; Ham\",505\n20,7.3,\"Circle &amp; Ham\",505\n21,7.59,\"Circle &amp; Ham\",505\n22,7.01,\"Circle &amp; Ham\",505\n23,6.92,\"Circle &amp; Ham\",505\n24,6.62,\"Circle &amp; Ham\",505\n25,7.47,\"Circle &amp; Ham\",505\n26,6.74,\"Circle &amp; Ham\",505\n27,6.28,\"Circle &amp; Ham\",505\n28,6.62,\"Circle &amp; Ham\",505\n29,5.99,\"Circle &amp; Ham\",505\n30,16.08,\"Circle &amp; Ham\",505\n31,11.38,\"Circle &amp; Ham\",505\n32,6.88,\"Circle &amp; Ham\",505\n33,6.73,\"Circle &amp; Ham\",505\n34,6.95,\"Circle &amp; Ham\",505\n35,6.85,\"Circle &amp; Ham\",505\n36,6.83,\"Circle &amp; Ham\",505\n37,5.84,\"Circle &amp; Ham\",505\n38,6.03,\"Circle &amp; Ham\",505\n39,6.65,\"Circle &amp; Ham\",505\n40,6.48,\"Circle &amp; Ham\",505\n41,7.59,\"Circle &amp; Ham\",505\n42,7.33,\"Circle &amp; Ham\",505\n43,8.36,\"Circle &amp; Ham\",505\n44,7.17,\"Circle &amp; Ham\",505\n45,6.49,\"Circle &amp; Ham\",505\n46,8.39,\"Circle &amp; Ham\",505\n47,8.04,\"Circle &amp; Ham\",505\n48,8.39,\"Circle &amp; Ham\",505\n49,7.33,\"Circle &amp; Ham\",505\n50,8.79,\"Circle &amp; Ham\",505\n51,8.27,\"Circle &amp; Ham\",505\n52,7.44,\"Circle &amp; Ham\",505\n53,6.39,\"Circle &amp; Ham\",505\n54,6.26,\"Circle &amp; Ham\",505\n55,6.51,\"Circle &amp; Ham\",505\n56,7.8,\"Circle &amp; Ham\",505\n57,8.19,\"Circle &amp; Ham\",505\n58,7.93,\"Circle &amp; Ham\",505\n59,7.08,\"Circle &amp; Ham\",505\n60,7.07,\"Circle &amp; Ham\",505\n61,8.7,\"Circle &amp; Ham\",505\n62,7.17,\"Circle &amp; Ham\",505\n63,7.29,\"Circle &amp; Ham\",505\n64,8.2,\"Circle &amp; Ham\",505\n65,8.05,\"Circle &amp; Ham\",505\n66,7.51,\"Circle &amp; Ham\",505\n67,7.67,\"Circle &amp; Ham\",505\n68,7.93,\"Circle &amp; Ham\",505\n69,7.6,\"Circle &amp; Ham\",505\n70,7.63,\"Circle &amp; Ham\",505\n71,6.84,\"Circle &amp; Ham\",505\n72,7.89,\"Circle &amp; Ham\",505\n73,7.79,\"Circle &amp; Ham\",505\n74,7.29,\"Circle &amp; Ham\",505\n75,6.47,\"Circle &amp; Ham\",505\n76,6.56,\"Circle &amp; Ham\",505\n77,7.73,\"Circle &amp; Ham\",505\n78,6.32,\"Circle &amp; Ham\",505\n79,6.16,\"Circle &amp; Ham\",505\n80,5.2,\"Circle &amp; Ham\",505\n81,7.2,\"Circle &amp; Ham\",505\n82,6.54,\"Circle &amp; Ham\",505\n83,6.31,\"Circle &amp; Ham\",505\n84,6.19,\"Circle &amp; Ham\",505\n85,6.83,\"Circle &amp; Ham\",505\n86,6.01,\"Circle &amp; Ham\",505\n87,7.28,\"Circle &amp; Ham\",505\n88,5.4,\"Circle &amp; Ham\",505\n89,6.88,\"Circle &amp; Ham\",505\n90,7.32,\"Circle &amp; Ham\",505\n91,6.37,\"Circle &amp; Ham\",505\n92,5.81,\"Circle &amp; Ham\",505\n93,4.68,\"Circle &amp; Ham\",505\n94,5.69,\"Circle &amp; Ham\",505\n95,7.35,\"Circle &amp; Ham\",505\n96,4.48,\"Circle &amp; Ham\",505\n97,6.65,\"Circle &amp; Ham\",505\n98,6.35,\"Circle &amp; Ham\",505\n99,7.69,\"Circle &amp; Ham\",505\n100,6.86,\"Circle &amp; Ham\",505\n101,5.84,\"Circle &amp; Ham\",505\n102,6.26,\"Circle &amp; Ham\",505\n103,6.48,\"Circle &amp; Ham\",505\n104,5.54,\"Circle &amp; Ham\",505\n105,6.07,\"Circle &amp; Ham\",505\n1,4.74,\"District\",505\n2,5.06,\"District\",505\n3,6.02,\"District\",505\n4,5.56,\"District\",505\n5,4.86,\"District\",505\n6,4.79,\"District\",505\n7,5,\"District\",505\n8,4.96,\"District\",505\n9,6.27,\"District\",505\n10,4.99,\"District\",505\n11,5.38,\"District\",505\n12,5.44,\"District\",505\n13,5.45,\"District\",505\n14,6.01,\"District\",505\n15,5.76,\"District\",505\n16,4.51,\"District\",505\n17,6.4,\"District\",505\n18,5.29,\"District\",505\n19,5.2,\"District\",505\n20,5.05,\"District\",505\n21,5.92,\"District\",505\n22,5.78,\"District\",505\n23,3.89,\"District\",505\n24,5.73,\"District\",505\n25,6.96,\"District\",505\n26,5.73,\"District\",505\n27,5.67,\"District\",505\n28,5.26,\"District\",505\n29,6.7,\"District\",505\n30,7.61,\"District\",505\n31,5.37,\"District\",505\n32,5.4,\"District\",505\n33,5.09,\"District\",505\n34,5.17,\"District\",505\n35,7.09,\"District\",505\n36,5.01,\"District\",505\n37,5.65,\"District\",505\n38,6.26,\"District\",505\n39,6.32,\"District\",505\n40,5.47,\"District\",505\n41,6.91,\"District\",505\n42,6.25,\"District\",505\n43,6.87,\"District\",505\n44,5.62,\"District\",505\n45,4.99,\"District\",505\n46,6.94,\"District\",505\n47,6.95,\"District\",505\n48,7.74,\"District\",505\n49,4.84,\"District\",505\n50,7.35,\"District\",505\n51,6.72,\"District\",505\n52,7.01,\"District\",505\n53,5.61,\"District\",505\n54,6,\"District\",505\n55,7.1,\"District\",505\n56,6.03,\"District\",505\n57,6.09,\"District\",505\n58,8.69,\"District\",505\n59,6.57,\"District\",505\n60,6.58,\"District\",505\n61,6.72,\"District\",505\n62,4.15,\"District\",505\n63,6.98,\"District\",505\n64,5.39,\"District\",505\n65,5.48,\"District\",505\n66,4.27,\"District\",505\n67,4.4,\"District\",505\n68,4.91,\"District\",505\n69,6.14,\"District\",505\n70,5.58,\"District\",505\n71,4.46,\"District\",505\n72,5.66,\"District\",505\n73,5.36,\"District\",505\n74,5.8,\"District\",505\n75,3.76,\"District\",505\n76,4.8,\"District\",505\n77,7.57,\"District\",505\n78,5.42,\"District\",505\n79,6.23,\"District\",505\n80,5.34,\"District\",505\n81,6.68,\"District\",505\n82,4.77,\"District\",505\n83,5.27,\"District\",505\n84,4.87,\"District\",505\n85,4.95,\"District\",505\n86,5.47,\"District\",505\n87,5.98,\"District\",505\n88,3.05,\"District\",505\n89,4.06,\"District\",505\n90,3.93,\"District\",505\n91,4.44,\"District\",505\n92,4,\"District\",505\n93,3.87,\"District\",505\n94,3.92,\"District\",505\n95,4.38,\"District\",505\n96,3.52,\"District\",505\n97,4.92,\"District\",505\n98,4.98,\"District\",505\n99,4.51,\"District\",505\n100,4.36,\"District\",505\n101,4.51,\"District\",505\n102,4.59,\"District\",505\n103,3.87,\"District\",505\n104,4.24,\"District\",505\n105,4.75,\"District\",505\n1,5.19,\"Jubilee\",505\n2,4.86,\"Jubilee\",505\n3,5.15,\"Jubilee\",505\n4,5.07,\"Jubilee\",505\n5,6.46,\"Jubilee\",505\n6,5.15,\"Jubilee\",505\n7,5.98,\"Jubilee\",505\n8,6.93,\"Jubilee\",505\n9,5.74,\"Jubilee\",505\n10,6.07,\"Jubilee\",505\n11,5.64,\"Jubilee\",505\n12,4.06,\"Jubilee\",505\n13,4.02,\"Jubilee\",505\n14,5.05,\"Jubilee\",505\n15,4.91,\"Jubilee\",505\n16,5.7,\"Jubilee\",505\n17,6.19,\"Jubilee\",505\n18,4.39,\"Jubilee\",505\n19,4.11,\"Jubilee\",505\n20,5.48,\"Jubilee\",505\n21,5.53,\"Jubilee\",505\n22,6.71,\"Jubilee\",505\n23,5.27,\"Jubilee\",505\n24,6.14,\"Jubilee\",505\n25,7.56,\"Jubilee\",505\n26,6.91,\"Jubilee\",505\n27,5.71,\"Jubilee\",505\n28,6.65,\"Jubilee\",505\n29,6.6,\"Jubilee\",505\n30,6.29,\"Jubilee\",505\n31,5.47,\"Jubilee\",505\n32,4.9,\"Jubilee\",505\n33,5.58,\"Jubilee\",505\n34,5.76,\"Jubilee\",505\n35,5.99,\"Jubilee\",505\n36,6.07,\"Jubilee\",505\n37,5.12,\"Jubilee\",505\n38,7.12,\"Jubilee\",505\n39,5.94,\"Jubilee\",505\n40,5.04,\"Jubilee\",505\n41,6.14,\"Jubilee\",505\n42,5.99,\"Jubilee\",505\n43,6.46,\"Jubilee\",505\n44,5.4,\"Jubilee\",505\n45,5.56,\"Jubilee\",505\n46,5.85,\"Jubilee\",505\n47,7.56,\"Jubilee\",505\n48,6.52,\"Jubilee\",505\n49,4.66,\"Jubilee\",505\n50,6.08,\"Jubilee\",505\n51,7.23,\"Jubilee\",505\n52,6.83,\"Jubilee\",505\n53,5.45,\"Jubilee\",505\n54,5.81,\"Jubilee\",505\n55,6,\"Jubilee\",505\n56,5.29,\"Jubilee\",505\n57,6.33,\"Jubilee\",505\n58,4.86,\"Jubilee\",505\n59,7.15,\"Jubilee\",505\n60,6.4,\"Jubilee\",505\n61,6.58,\"Jubilee\",505\n62,5.24,\"Jubilee\",505\n63,7.62,\"Jubilee\",505\n64,7.14,\"Jubilee\",505\n65,6.1,\"Jubilee\",505\n66,5.51,\"Jubilee\",505\n67,5.06,\"Jubilee\",505\n68,5.51,\"Jubilee\",505\n69,6.47,\"Jubilee\",505\n70,5.6,\"Jubilee\",505\n71,5.43,\"Jubilee\",505\n72,5.32,\"Jubilee\",505\n73,6.29,\"Jubilee\",505\n74,6.53,\"Jubilee\",505\n75,4.37,\"Jubilee\",505\n76,6.5,\"Jubilee\",505\n77,6.71,\"Jubilee\",505\n78,6.11,\"Jubilee\",505\n79,5.95,\"Jubilee\",505\n80,5.87,\"Jubilee\",505\n81,6.12,\"Jubilee\",505\n82,5.61,\"Jubilee\",505\n83,5.73,\"Jubilee\",505\n84,5.14,\"Jubilee\",505\n85,5.75,\"Jubilee\",505\n86,6.3,\"Jubilee\",505\n87,6.1,\"Jubilee\",505\n88,5.15,\"Jubilee\",505\n89,5.77,\"Jubilee\",505\n90,5.37,\"Jubilee\",505\n91,5.57,\"Jubilee\",505\n92,5.09,\"Jubilee\",505\n93,4.77,\"Jubilee\",505\n94,4.96,\"Jubilee\",505\n95,5.56,\"Jubilee\",505\n96,4.63,\"Jubilee\",505\n97,6.37,\"Jubilee\",505\n98,6.07,\"Jubilee\",505\n99,7.75,\"Jubilee\",505\n100,6.62,\"Jubilee\",505\n101,6.4,\"Jubilee\",505\n102,6.64,\"Jubilee\",505\n103,5.03,\"Jubilee\",505\n104,4.65,\"Jubilee\",505\n105,4.83,\"Jubilee\",505\n1,8.61,\"Metropolitan\",505\n2,9.73,\"Metropolitan\",505\n3,7.02,\"Metropolitan\",505\n4,6.26,\"Metropolitan\",505\n5,8.67,\"Metropolitan\",505\n6,10.23,\"Metropolitan\",505\n7,9.37,\"Metropolitan\",505\n8,7.6,\"Metropolitan\",505\n9,7.9,\"Metropolitan\",505\n10,6.67,\"Metropolitan\",505\n11,6.86,\"Metropolitan\",505\n12,8.51,\"Metropolitan\",505\n13,6.99,\"Metropolitan\",505\n14,6.36,\"Metropolitan\",505\n15,7.53,\"Metropolitan\",505\n16,7.42,\"Metropolitan\",505\n17,7.35,\"Metropolitan\",505\n18,7.9,\"Metropolitan\",505\n19,5.43,\"Metropolitan\",505\n20,6.79,\"Metropolitan\",505\n21,9.76,\"Metropolitan\",505\n22,8.83,\"Metropolitan\",505\n23,8.5,\"Metropolitan\",505\n24,7.17,\"Metropolitan\",505\n25,9.06,\"Metropolitan\",505\n26,8,\"Metropolitan\",505\n27,8.65,\"Metropolitan\",505\n28,8.75,\"Metropolitan\",505\n29,7.56,\"Metropolitan\",505\n30,17.6,\"Metropolitan\",505\n31,7.94,\"Metropolitan\",505\n32,7,\"Metropolitan\",505\n33,9.19,\"Metropolitan\",505\n34,8.22,\"Metropolitan\",505\n35,9.79,\"Metropolitan\",505\n36,7.16,\"Metropolitan\",505\n37,9.36,\"Metropolitan\",505\n38,9.82,\"Metropolitan\",505\n39,9.29,\"Metropolitan\",505\n40,10.84,\"Metropolitan\",505\n41,12.3,\"Metropolitan\",505\n42,8.53,\"Metropolitan\",505\n43,11.9,\"Metropolitan\",505\n44,10.78,\"Metropolitan\",505\n45,10.89,\"Metropolitan\",505\n46,8.44,\"Metropolitan\",505\n47,9.12,\"Metropolitan\",505\n48,9.77,\"Metropolitan\",505\n49,7.18,\"Metropolitan\",505\n50,9.96,\"Metropolitan\",505\n51,10.04,\"Metropolitan\",505\n52,9.13,\"Metropolitan\",505\n53,8.09,\"Metropolitan\",505\n54,7.77,\"Metropolitan\",505\n55,8.02,\"Metropolitan\",505\n56,8.39,\"Metropolitan\",505\n57,8.04,\"Metropolitan\",505\n58,9.49,\"Metropolitan\",505\n59,8.55,\"Metropolitan\",505\n60,9.51,\"Metropolitan\",505\n61,10.15,\"Metropolitan\",505\n62,8.01,\"Metropolitan\",505\n63,11.64,\"Metropolitan\",505\n64,8.22,\"Metropolitan\",505\n65,10.56,\"Metropolitan\",505\n66,7.69,\"Metropolitan\",505\n67,8.3,\"Metropolitan\",505\n68,9.98,\"Metropolitan\",505\n69,8.01,\"Metropolitan\",505\n70,8.15,\"Metropolitan\",505\n71,6.97,\"Metropolitan\",505\n72,8.11,\"Metropolitan\",505\n73,9.72,\"Metropolitan\",505\n74,9.74,\"Metropolitan\",505\n75,7.91,\"Metropolitan\",505\n76,10.31,\"Metropolitan\",505\n77,11.97,\"Metropolitan\",505\n78,8.47,\"Metropolitan\",505\n79,9.43,\"Metropolitan\",505\n80,7.48,\"Metropolitan\",505\n81,10.28,\"Metropolitan\",505\n82,6.76,\"Metropolitan\",505\n83,7.07,\"Metropolitan\",505\n84,7.55,\"Metropolitan\",505\n85,8.31,\"Metropolitan\",505\n86,9.78,\"Metropolitan\",505\n87,10.83,\"Metropolitan\",505\n88,6.33,\"Metropolitan\",505\n89,8.36,\"Metropolitan\",505\n90,7.73,\"Metropolitan\",505\n91,6.73,\"Metropolitan\",505\n92,6.36,\"Metropolitan\",505\n93,6.22,\"Metropolitan\",505\n94,7.4,\"Metropolitan\",505\n95,7.79,\"Metropolitan\",505\n96,6.42,\"Metropolitan\",505\n97,7.29,\"Metropolitan\",505\n98,8.3,\"Metropolitan\",505\n99,9.29,\"Metropolitan\",505\n100,9.26,\"Metropolitan\",505\n101,7.89,\"Metropolitan\",505\n102,8.42,\"Metropolitan\",505\n103,7.61,\"Metropolitan\",505\n104,6.91,\"Metropolitan\",505\n105,6.77,\"Metropolitan\",505\n1,4.98,\"Northern\",505\n2,5.44,\"Northern\",505\n3,5.32,\"Northern\",505\n4,5.74,\"Northern\",505\n5,4.93,\"Northern\",505\n6,5.12,\"Northern\",505\n7,5.93,\"Northern\",505\n8,22.25,\"Northern\",505\n9,6.05,\"Northern\",505\n10,5.99,\"Northern\",505\n11,4.98,\"Northern\",505\n12,5.15,\"Northern\",505\n13,6.29,\"Northern\",505\n14,5.42,\"Northern\",505\n15,6.43,\"Northern\",505\n16,5.45,\"Northern\",505\n17,7.79,\"Northern\",505\n18,6.74,\"Northern\",505\n19,6.19,\"Northern\",505\n20,6.28,\"Northern\",505\n21,6.6,\"Northern\",505\n22,6.62,\"Northern\",505\n23,5.8,\"Northern\",505\n24,6.06,\"Northern\",505\n25,7.6,\"Northern\",505\n26,6.5,\"Northern\",505\n27,5.87,\"Northern\",505\n28,5.79,\"Northern\",505\n29,4.51,\"Northern\",505\n30,8.25,\"Northern\",505\n31,4.75,\"Northern\",505\n32,5.2,\"Northern\",505\n33,11.63,\"Northern\",505\n34,6.93,\"Northern\",505\n35,7.51,\"Northern\",505\n36,5.93,\"Northern\",505\n37,7.57,\"Northern\",505\n38,6.79,\"Northern\",505\n39,5.8,\"Northern\",505\n40,7.05,\"Northern\",505\n41,7.53,\"Northern\",505\n42,7.18,\"Northern\",505\n43,7.32,\"Northern\",505\n44,6.34,\"Northern\",505\n45,6.27,\"Northern\",505\n46,5.88,\"Northern\",505\n47,7.21,\"Northern\",505\n48,8.41,\"Northern\",505\n49,6.11,\"Northern\",505\n50,7.74,\"Northern\",505\n51,7.53,\"Northern\",505\n52,6.92,\"Northern\",505\n53,6.44,\"Northern\",505\n54,6.09,\"Northern\",505\n55,7,\"Northern\",505\n56,6.66,\"Northern\",505\n57,5.74,\"Northern\",505\n58,5.87,\"Northern\",505\n59,6.04,\"Northern\",505\n60,6.96,\"Northern\",505\n61,6.53,\"Northern\",505\n62,4.83,\"Northern\",505\n63,6.31,\"Northern\",505\n64,4.93,\"Northern\",505\n65,3.79,\"Northern\",505\n66,4.21,\"Northern\",505\n67,4,\"Northern\",505\n68,3.94,\"Northern\",505\n69,3.53,\"Northern\",505\n70,3.94,\"Northern\",505\n71,3.39,\"Northern\",505\n72,4.49,\"Northern\",505\n73,5.18,\"Northern\",505\n74,4.97,\"Northern\",505\n75,3.28,\"Northern\",505\n76,3.93,\"Northern\",505\n77,5.41,\"Northern\",505\n78,4.12,\"Northern\",505\n79,3.94,\"Northern\",505\n80,3.91,\"Northern\",505\n81,4.47,\"Northern\",505\n82,4.16,\"Northern\",505\n83,3.85,\"Northern\",505\n84,4.45,\"Northern\",505\n85,4.95,\"Northern\",505\n86,4.77,\"Northern\",505\n87,4.96,\"Northern\",505\n88,3.5,\"Northern\",505\n89,4.86,\"Northern\",505\n90,4.9,\"Northern\",505\n91,4.07,\"Northern\",505\n92,3.74,\"Northern\",505\n93,4.59,\"Northern\",505\n94,4.22,\"Northern\",505\n95,4.59,\"Northern\",505\n96,4.22,\"Northern\",505\n97,4.04,\"Northern\",505\n98,5,\"Northern\",505\n99,5.23,\"Northern\",505\n100,5.49,\"Northern\",505\n101,3.73,\"Northern\",505\n102,4.21,\"Northern\",505\n103,4.51,\"Northern\",505\n104,4.26,\"Northern\",505\n105,4.11,\"Northern\",505\n1,4.97,\"Piccadilly\",505\n2,4.96,\"Piccadilly\",505\n3,5.55,\"Piccadilly\",505\n4,4.94,\"Piccadilly\",505\n5,5.81,\"Piccadilly\",505\n6,5.05,\"Piccadilly\",505\n7,5,\"Piccadilly\",505\n8,5.68,\"Piccadilly\",505\n9,4.51,\"Piccadilly\",505\n10,5.43,\"Piccadilly\",505\n11,6.33,\"Piccadilly\",505\n12,6.17,\"Piccadilly\",505\n13,7.18,\"Piccadilly\",505\n14,5.16,\"Piccadilly\",505\n15,4.24,\"Piccadilly\",505\n16,4.92,\"Piccadilly\",505\n17,6.24,\"Piccadilly\",505\n18,5.52,\"Piccadilly\",505\n19,4.21,\"Piccadilly\",505\n20,4.94,\"Piccadilly\",505\n21,6.17,\"Piccadilly\",505\n22,6.35,\"Piccadilly\",505\n23,5.92,\"Piccadilly\",505\n24,5.35,\"Piccadilly\",505\n25,5.43,\"Piccadilly\",505\n26,5.35,\"Piccadilly\",505\n27,4.69,\"Piccadilly\",505\n28,4.99,\"Piccadilly\",505\n29,4.75,\"Piccadilly\",505\n30,19.71,\"Piccadilly\",505\n31,12.07,\"Piccadilly\",505\n32,5.38,\"Piccadilly\",505\n33,6.17,\"Piccadilly\",505\n34,7.24,\"Piccadilly\",505\n35,5.65,\"Piccadilly\",505\n36,5.51,\"Piccadilly\",505\n37,6.88,\"Piccadilly\",505\n38,6.24,\"Piccadilly\",505\n39,6.21,\"Piccadilly\",505\n40,5.93,\"Piccadilly\",505\n41,6.3,\"Piccadilly\",505\n42,7.47,\"Piccadilly\",505\n43,6.89,\"Piccadilly\",505\n44,6.58,\"Piccadilly\",505\n45,6.02,\"Piccadilly\",505\n46,6.96,\"Piccadilly\",505\n47,6.96,\"Piccadilly\",505\n48,8.17,\"Piccadilly\",505\n49,6.1,\"Piccadilly\",505\n50,6.95,\"Piccadilly\",505\n51,7.71,\"Piccadilly\",505\n52,6.58,\"Piccadilly\",505\n53,6.77,\"Piccadilly\",505\n54,6.19,\"Piccadilly\",505\n55,6.08,\"Piccadilly\",505\n56,6.84,\"Piccadilly\",505\n57,6.17,\"Piccadilly\",505\n58,6.99,\"Piccadilly\",505\n59,6.88,\"Piccadilly\",505\n60,7.37,\"Piccadilly\",505\n61,8.68,\"Piccadilly\",505\n62,6.35,\"Piccadilly\",505\n63,6.59,\"Piccadilly\",505\n64,7.47,\"Piccadilly\",505\n65,7.07,\"Piccadilly\",505\n66,5.03,\"Piccadilly\",505\n67,5.25,\"Piccadilly\",505\n68,5.29,\"Piccadilly\",505\n69,5.89,\"Piccadilly\",505\n70,5.78,\"Piccadilly\",505\n71,5.07,\"Piccadilly\",505\n72,5.61,\"Piccadilly\",505\n73,5.72,\"Piccadilly\",505\n74,5.73,\"Piccadilly\",505\n75,4.78,\"Piccadilly\",505\n76,4.67,\"Piccadilly\",505\n77,6.07,\"Piccadilly\",505\n78,5.04,\"Piccadilly\",505\n79,4.55,\"Piccadilly\",505\n80,4.7,\"Piccadilly\",505\n81,7.24,\"Piccadilly\",505\n82,6.3,\"Piccadilly\",505\n83,4.7,\"Piccadilly\",505\n84,4.2,\"Piccadilly\",505\n85,4.86,\"Piccadilly\",505\n86,5.64,\"Piccadilly\",505\n87,5.92,\"Piccadilly\",505\n88,5.15,\"Piccadilly\",505\n89,4.81,\"Piccadilly\",505\n90,4.74,\"Piccadilly\",505\n91,5.18,\"Piccadilly\",505\n92,4.35,\"Piccadilly\",505\n93,5.41,\"Piccadilly\",505\n94,4.69,\"Piccadilly\",505\n95,4.57,\"Piccadilly\",505\n96,4.03,\"Piccadilly\",505\n97,4.77,\"Piccadilly\",505\n98,6.48,\"Piccadilly\",505\n99,7.76,\"Piccadilly\",505\n100,6.34,\"Piccadilly\",505\n101,5.35,\"Piccadilly\",505\n102,3.86,\"Piccadilly\",505\n103,4.97,\"Piccadilly\",505\n104,4.26,\"Piccadilly\",505\n105,4.22,\"Piccadilly\",505\n1,6.13,\"Victoria\",505\n2,5.77,\"Victoria\",505\n3,5.9,\"Victoria\",505\n4,5.49,\"Victoria\",505\n5,6.89,\"Victoria\",505\n6,6.15,\"Victoria\",505\n7,6.24,\"Victoria\",505\n8,6.72,\"Victoria\",505\n9,6.23,\"Victoria\",505\n10,8.45,\"Victoria\",505\n11,5.09,\"Victoria\",505\n12,5.72,\"Victoria\",505\n13,7.54,\"Victoria\",505\n14,5.23,\"Victoria\",505\n15,4.66,\"Victoria\",505\n16,5.68,\"Victoria\",505\n17,5.64,\"Victoria\",505\n18,5.48,\"Victoria\",505\n19,4.72,\"Victoria\",505\n20,5.68,\"Victoria\",505\n21,6.22,\"Victoria\",505\n22,6.54,\"Victoria\",505\n23,4.89,\"Victoria\",505\n24,5.18,\"Victoria\",505\n25,5.61,\"Victoria\",505\n26,5.21,\"Victoria\",505\n27,5.28,\"Victoria\",505\n28,4.68,\"Victoria\",505\n29,4.63,\"Victoria\",505\n30,7.37,\"Victoria\",505\n31,5.19,\"Victoria\",505\n32,4.9,\"Victoria\",505\n33,4.28,\"Victoria\",505\n34,4.98,\"Victoria\",505\n35,6.04,\"Victoria\",505\n36,4.75,\"Victoria\",505\n37,6.1,\"Victoria\",505\n38,4.92,\"Victoria\",505\n39,5.45,\"Victoria\",505\n40,7.18,\"Victoria\",505\n41,6.39,\"Victoria\",505\n42,4.95,\"Victoria\",505\n43,8.02,\"Victoria\",505\n44,6.5,\"Victoria\",505\n45,6.06,\"Victoria\",505\n46,6.04,\"Victoria\",505\n47,5.65,\"Victoria\",505\n48,7.71,\"Victoria\",505\n49,5.36,\"Victoria\",505\n50,5.29,\"Victoria\",505\n51,5.66,\"Victoria\",505\n52,6.04,\"Victoria\",505\n53,6.33,\"Victoria\",505\n54,5.41,\"Victoria\",505\n55,5.81,\"Victoria\",505\n56,7.26,\"Victoria\",505\n57,6.34,\"Victoria\",505\n58,5.71,\"Victoria\",505\n59,6.52,\"Victoria\",505\n60,6.18,\"Victoria\",505\n61,6.48,\"Victoria\",505\n62,8.25,\"Victoria\",505\n63,6.28,\"Victoria\",505\n64,6.39,\"Victoria\",505\n65,7.1,\"Victoria\",505\n66,5.56,\"Victoria\",505\n67,5.82,\"Victoria\",505\n68,6.14,\"Victoria\",505\n69,5.07,\"Victoria\",505\n70,5.21,\"Victoria\",505\n71,5.4,\"Victoria\",505\n72,6.11,\"Victoria\",505\n73,5.79,\"Victoria\",505\n74,5.5,\"Victoria\",505\n75,4.07,\"Victoria\",505\n76,5.27,\"Victoria\",505\n77,5.91,\"Victoria\",505\n78,5.84,\"Victoria\",505\n79,5.88,\"Victoria\",505\n80,6.23,\"Victoria\",505\n81,7.33,\"Victoria\",505\n82,5.67,\"Victoria\",505\n83,6.25,\"Victoria\",505\n84,5.6,\"Victoria\",505\n85,6.24,\"Victoria\",505\n86,5.84,\"Victoria\",505\n87,5.19,\"Victoria\",505\n88,5.2,\"Victoria\",505\n89,5.27,\"Victoria\",505\n90,5.01,\"Victoria\",505\n91,5.08,\"Victoria\",505\n92,6.01,\"Victoria\",505\n93,5.5,\"Victoria\",505\n94,5.28,\"Victoria\",505\n95,6.92,\"Victoria\",505\n96,5.96,\"Victoria\",505\n97,6.37,\"Victoria\",505\n98,7.09,\"Victoria\",505\n99,6.86,\"Victoria\",505\n100,7.33,\"Victoria\",505\n101,5.4,\"Victoria\",505\n102,6.28,\"Victoria\",505\n103,6.91,\"Victoria\",505\n104,6.67,\"Victoria\",505\n105,5.39,\"Victoria\",505\n1,3.04,\"Waterloo &amp; City\",505\n2,1.87,\"Waterloo &amp; City\",505\n3,2.15,\"Waterloo &amp; City\",505\n4,2.65,\"Waterloo &amp; City\",505\n5,1.54,\"Waterloo &amp; City\",505\n6,1.47,\"Waterloo &amp; City\",505\n7,2.24,\"Waterloo &amp; City\",505\n8,1.44,\"Waterloo &amp; City\",505\n9,1.69,\"Waterloo &amp; City\",505\n10,1.57,\"Waterloo &amp; City\",505\n11,1.45,\"Waterloo &amp; City\",505\n12,1.58,\"Waterloo &amp; City\",505\n13,1.72,\"Waterloo &amp; City\",505\n14,1.33,\"Waterloo &amp; City\",505\n15,1.77,\"Waterloo &amp; City\",505\n16,1.32,\"Waterloo &amp; City\",505\n17,1.88,\"Waterloo &amp; City\",505\n18,3.26,\"Waterloo &amp; City\",505\n19,2.84,\"Waterloo &amp; City\",505\n20,2.92,\"Waterloo &amp; City\",505\n21,2.04,\"Waterloo &amp; City\",505\n22,2.09,\"Waterloo &amp; City\",505\n23,1.7,\"Waterloo &amp; City\",505\n24,1.84,\"Waterloo &amp; City\",505\n25,2.16,\"Waterloo &amp; City\",505\n26,2.66,\"Waterloo &amp; City\",505\n27,3.2,\"Waterloo &amp; City\",505\n28,1.94,\"Waterloo &amp; City\",505\n29,2.21,\"Waterloo &amp; City\",505\n30,3.18,\"Waterloo &amp; City\",505\n31,1.23,\"Waterloo &amp; City\",505\n32,1.74,\"Waterloo &amp; City\",505\n33,1.42,\"Waterloo &amp; City\",505\n34,2.16,\"Waterloo &amp; City\",505\n35,2.46,\"Waterloo &amp; City\",505\n36,1.71,\"Waterloo &amp; City\",505\n37,3.29,\"Waterloo &amp; City\",505\n38,1.71,\"Waterloo &amp; City\",505\n39,3.64,\"Waterloo &amp; City\",505\n40,0,\"Waterloo &amp; City\",505\n41,0,\"Waterloo &amp; City\",505\n42,0,\"Waterloo &amp; City\",505\n43,0,\"Waterloo &amp; City\",505\n44,0,\"Waterloo &amp; City\",505\n45,0.05,\"Waterloo &amp; City\",505\n46,2.73,\"Waterloo &amp; City\",505\n47,1.5,\"Waterloo &amp; City\",505\n48,2.34,\"Waterloo &amp; City\",505\n49,1.44,\"Waterloo &amp; City\",505\n50,1.59,\"Waterloo &amp; City\",505\n51,1.31,\"Waterloo &amp; City\",505\n52,1.46,\"Waterloo &amp; City\",505\n53,1.45,\"Waterloo &amp; City\",505\n54,1.73,\"Waterloo &amp; City\",505\n55,1.99,\"Waterloo &amp; City\",505\n56,1.65,\"Waterloo &amp; City\",505\n57,1.1,\"Waterloo &amp; City\",505\n58,4.36,\"Waterloo &amp; City\",505\n59,3.67,\"Waterloo &amp; City\",505\n60,1.76,\"Waterloo &amp; City\",505\n61,2.06,\"Waterloo &amp; City\",505\n62,1.11,\"Waterloo &amp; City\",505\n63,1.63,\"Waterloo &amp; City\",505\n64,1.31,\"Waterloo &amp; City\",505\n65,2.42,\"Waterloo &amp; City\",505\n66,2.77,\"Waterloo &amp; City\",505\n67,4.12,\"Waterloo &amp; City\",505\n68,2.42,\"Waterloo &amp; City\",505\n69,2.81,\"Waterloo &amp; City\",505\n70,3.8,\"Waterloo &amp; City\",505\n71,2.81,\"Waterloo &amp; City\",505\n72,2.33,\"Waterloo &amp; City\",505\n73,2.82,\"Waterloo &amp; City\",505\n74,3.09,\"Waterloo &amp; City\",505\n75,1.63,\"Waterloo &amp; City\",505\n76,3,\"Waterloo &amp; City\",505\n77,2.65,\"Waterloo &amp; City\",505\n78,3.06,\"Waterloo &amp; City\",505\n79,2.86,\"Waterloo &amp; City\",505\n80,1.65,\"Waterloo &amp; City\",505\n81,3.98,\"Waterloo &amp; City\",505\n82,1.25,\"Waterloo &amp; City\",505\n83,1.28,\"Waterloo &amp; City\",505\n84,1.39,\"Waterloo &amp; City\",505\n85,2.22,\"Waterloo &amp; City\",505\n86,2.35,\"Waterloo &amp; City\",505\n87,2.24,\"Waterloo &amp; City\",505\n88,1.62,\"Waterloo &amp; City\",505\n89,2.44,\"Waterloo &amp; City\",505\n90,2.05,\"Waterloo &amp; City\",505\n91,1.82,\"Waterloo &amp; City\",505\n92,2.36,\"Waterloo &amp; City\",505\n93,2.45,\"Waterloo &amp; City\",505\n94,2.26,\"Waterloo &amp; City\",505\n95,1.89,\"Waterloo &amp; City\",505\n96,1.2,\"Waterloo &amp; City\",505\n97,2.65,\"Waterloo &amp; City\",505\n98,1.57,\"Waterloo &amp; City\",505\n99,2.6,\"Waterloo &amp; City\",505\n100,3.43,\"Waterloo &amp; City\",505\n101,2.83,\"Waterloo &amp; City\",505\n102,2.05,\"Waterloo &amp; City\",505\n103,2.23,\"Waterloo &amp; City\",505\n104,1.96,\"Waterloo &amp; City\",505\n105,1.42,\"Waterloo &amp; City\",505"
         },
         {
             "name": "scale/fill",
@@ -4061,7 +4061,7 @@ var plot_id768389471_spec = {
                         "field": "data.Line"
                     },
                     "size": {
-                        "field": "data.reactive_560649254"
+                        "field": "data.reactive_204785234"
                     }
                 },
                 "ggvis": {
@@ -4118,7 +4118,7 @@ var plot_id768389471_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id768389471").parseSpec(plot_id768389471_spec);
+ggvis.getPlot("plot_id607155219").parseSpec(plot_id607155219_spec);
 </script><!--/html_preserve-->
  
 #### Interactive input functions
@@ -4144,27 +4144,27 @@ tubeData %>%
     )
 {% endhighlight %}
 
-<!--html_preserve--><div id="plot_id135799309-container" class="ggvis-output-container">
-<div id="plot_id135799309" class="ggvis-output"></div>
+<!--html_preserve--><div id="plot_id443457428-container" class="ggvis-output-container">
+<div id="plot_id443457428" class="ggvis-output"></div>
 <div class="plot-gear-icon">
 <nav class="ggvis-control">
 <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
 <ul class="ggvis-dropdown">
 <li>
 Renderer: 
-<a id="plot_id135799309_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id135799309" data-renderer="svg">SVG</a>
+<a id="plot_id443457428_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443457428" data-renderer="svg">SVG</a>
  | 
-<a id="plot_id135799309_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id135799309" data-renderer="canvas">Canvas</a>
+<a id="plot_id443457428_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id443457428" data-renderer="canvas">Canvas</a>
 </li>
 <li>
-<a id="plot_id135799309_download" class="ggvis-download" data-plot-id="plot_id135799309">Download</a>
+<a id="plot_id443457428_download" class="ggvis-download" data-plot-id="plot_id443457428">Download</a>
 </li>
 </ul>
 </nav>
 </div>
 </div>
 <script type="text/javascript">
-var plot_id135799309_spec = {
+var plot_id443457428_spec = {
     "data": [
         {
             "name": ".0",
@@ -4173,11 +4173,11 @@ var plot_id135799309_spec = {
                 "parse": {
                     "Month": "number",
                     "Excess": "number",
-                    "reactive_989414566": "number",
-                    "reactive_256393042": "number"
+                    "reactive_358693530": "number",
+                    "reactive_608041502": "number"
                 }
             },
-            "values": "\"Month\",\"Excess\",\"reactive_989414566\",\"reactive_256393042\",\"reactive_407168011\"\n1,6.04,30,0.7,\"red\"\n2,6.54,30,0.7,\"red\"\n3,4.77,30,0.7,\"red\"\n4,5.4,30,0.7,\"red\"\n5,5.23,30,0.7,\"red\"\n6,5.03,30,0.7,\"red\"\n7,5.14,30,0.7,\"red\"\n8,5.73,30,0.7,\"red\"\n9,4.8,30,0.7,\"red\"\n10,5.95,30,0.7,\"red\"\n11,4.76,30,0.7,\"red\"\n12,6,30,0.7,\"red\"\n13,6.67,30,0.7,\"red\"\n14,5.24,30,0.7,\"red\"\n15,4.83,30,0.7,\"red\"\n16,5.5,30,0.7,\"red\"\n17,6.19,30,0.7,\"red\"\n18,5.6,30,0.7,\"red\"\n19,4.64,30,0.7,\"red\"\n20,4.74,30,0.7,\"red\"\n21,6.96,30,0.7,\"red\"\n22,5.72,30,0.7,\"red\"\n23,5.4,30,0.7,\"red\"\n24,5.11,30,0.7,\"red\"\n25,5.65,30,0.7,\"red\"\n26,4.37,30,0.7,\"red\"\n27,5.3,30,0.7,\"red\"\n28,4.36,30,0.7,\"red\"\n29,4.48,30,0.7,\"red\"\n30,5.45,30,0.7,\"red\"\n31,4.8,30,0.7,\"red\"\n32,4.54,30,0.7,\"red\"\n33,3.99,30,0.7,\"red\"\n34,5.41,30,0.7,\"red\"\n35,4.78,30,0.7,\"red\"\n36,5.04,30,0.7,\"red\"\n37,4.77,30,0.7,\"red\"\n38,5.52,30,0.7,\"red\"\n39,4.99,30,0.7,\"red\"\n40,5.31,30,0.7,\"red\"\n41,5.45,30,0.7,\"red\"\n42,4.23,30,0.7,\"red\"\n43,5.68,30,0.7,\"red\"\n44,4.52,30,0.7,\"red\"\n45,4.87,30,0.7,\"red\"\n46,5.03,30,0.7,\"red\"\n47,5.45,30,0.7,\"red\"\n48,5.5,30,0.7,\"red\"\n49,4.02,30,0.7,\"red\"\n50,5.38,30,0.7,\"red\"\n51,5.86,30,0.7,\"red\"\n52,5.17,30,0.7,\"red\"\n53,4.84,30,0.7,\"red\"\n54,5.11,30,0.7,\"red\"\n55,5.19,30,0.7,\"red\"\n56,5.59,30,0.7,\"red\"\n57,5.57,30,0.7,\"red\"\n58,5.23,30,0.7,\"red\"\n59,5.39,30,0.7,\"red\"\n60,6.1,30,0.7,\"red\"\n61,5.88,30,0.7,\"red\"\n62,5.2,30,0.7,\"red\"\n63,5.01,30,0.7,\"red\"\n64,5.84,30,0.7,\"red\"\n65,5.28,30,0.7,\"red\"\n66,4.71,30,0.7,\"red\"\n67,4.19,30,0.7,\"red\"\n68,4.26,30,0.7,\"red\"\n69,4.18,30,0.7,\"red\"\n70,4.47,30,0.7,\"red\"\n71,4.55,30,0.7,\"red\"\n72,4.61,30,0.7,\"red\"\n73,5.06,30,0.7,\"red\"\n74,4.37,30,0.7,\"red\"\n75,4.15,30,0.7,\"red\"\n76,3.95,30,0.7,\"red\"\n77,6.08,30,0.7,\"red\"\n78,4.42,30,0.7,\"red\"\n79,4.34,30,0.7,\"red\"\n80,4.17,30,0.7,\"red\"\n81,5.13,30,0.7,\"red\"\n82,3.95,30,0.7,\"red\"\n83,3.53,30,0.7,\"red\"\n84,5.04,30,0.7,\"red\"\n85,4.67,30,0.7,\"red\"\n86,3.96,30,0.7,\"red\"\n87,4.27,30,0.7,\"red\"\n88,4.6,30,0.7,\"red\"\n89,4.87,30,0.7,\"red\"\n90,4.56,30,0.7,\"red\"\n91,4.36,30,0.7,\"red\"\n92,4.19,30,0.7,\"red\"\n93,4.48,30,0.7,\"red\"\n94,4.49,30,0.7,\"red\"\n95,4.85,30,0.7,\"red\"\n96,5.74,30,0.7,\"red\"\n97,5.14,30,0.7,\"red\"\n98,5.93,30,0.7,\"red\"\n99,5.84,30,0.7,\"red\"\n100,6.26,30,0.7,\"red\"\n101,5.07,30,0.7,\"red\"\n102,4.5,30,0.7,\"red\"\n103,4.96,30,0.7,\"red\"\n104,4.75,30,0.7,\"red\"\n105,5.22,30,0.7,\"red\"\n1,7.21,30,0.7,\"red\"\n2,5.23,30,0.7,\"red\"\n3,5.67,30,0.7,\"red\"\n4,6.1,30,0.7,\"red\"\n5,5.54,30,0.7,\"red\"\n6,5.85,30,0.7,\"red\"\n7,6.08,30,0.7,\"red\"\n8,7.95,30,0.7,\"red\"\n9,7.27,30,0.7,\"red\"\n10,6.64,30,0.7,\"red\"\n11,6.33,30,0.7,\"red\"\n12,6.09,30,0.7,\"red\"\n13,7.01,30,0.7,\"red\"\n14,6.33,30,0.7,\"red\"\n15,6.78,30,0.7,\"red\"\n16,7.04,30,0.7,\"red\"\n17,10.1,30,0.7,\"red\"\n18,6.91,30,0.7,\"red\"\n19,5.74,30,0.7,\"red\"\n20,6.17,30,0.7,\"red\"\n21,6.79,30,0.7,\"red\"\n22,5.45,30,0.7,\"red\"\n23,4.95,30,0.7,\"red\"\n24,5.36,30,0.7,\"red\"\n25,6.18,30,0.7,\"red\"\n26,5.68,30,0.7,\"red\"\n27,4.69,30,0.7,\"red\"\n28,4.78,30,0.7,\"red\"\n29,6.47,30,0.7,\"red\"\n30,8.2,30,0.7,\"red\"\n31,5.28,30,0.7,\"red\"\n32,6.05,30,0.7,\"red\"\n33,5.34,30,0.7,\"red\"\n34,5.71,30,0.7,\"red\"\n35,6.16,30,0.7,\"red\"\n36,4.4,30,0.7,\"red\"\n37,5.99,30,0.7,\"red\"\n38,4.66,30,0.7,\"red\"\n39,4.91,30,0.7,\"red\"\n40,4.12,30,0.7,\"red\"\n41,4.54,30,0.7,\"red\"\n42,6.97,30,0.7,\"red\"\n43,7.23,30,0.7,\"red\"\n44,6.14,30,0.7,\"red\"\n45,4.93,30,0.7,\"red\"\n46,7.27,30,0.7,\"red\"\n47,7.72,30,0.7,\"red\"\n48,9.49,30,0.7,\"red\"\n49,5.3,30,0.7,\"red\"\n50,6.35,30,0.7,\"red\"\n51,6.55,30,0.7,\"red\"\n52,4.99,30,0.7,\"red\"\n53,6.09,30,0.7,\"red\"\n54,5.4,30,0.7,\"red\"\n55,6.14,30,0.7,\"red\"\n56,7.26,30,0.7,\"red\"\n57,5.11,30,0.7,\"red\"\n58,9.42,30,0.7,\"red\"\n59,6.26,30,0.7,\"red\"\n60,6.64,30,0.7,\"red\"\n61,6.41,30,0.7,\"red\"\n62,5.68,30,0.7,\"red\"\n63,5.54,30,0.7,\"red\"\n64,6.3,30,0.7,\"red\"\n65,5.7,30,0.7,\"red\"\n66,5.18,30,0.7,\"red\"\n67,5.51,30,0.7,\"red\"\n68,4.85,30,0.7,\"red\"\n69,5.58,30,0.7,\"red\"\n70,4.89,30,0.7,\"red\"\n71,4.22,30,0.7,\"red\"\n72,5.2,30,0.7,\"red\"\n73,5.92,30,0.7,\"red\"\n74,5.16,30,0.7,\"red\"\n75,4.29,30,0.7,\"red\"\n76,5.09,30,0.7,\"red\"\n77,6.34,30,0.7,\"red\"\n78,5.83,30,0.7,\"red\"\n79,4.83,30,0.7,\"red\"\n80,4.62,30,0.7,\"red\"\n81,8.41,30,0.7,\"red\"\n82,4.79,30,0.7,\"red\"\n83,4.65,30,0.7,\"red\"\n84,4.49,30,0.7,\"red\"\n85,5.18,30,0.7,\"red\"\n86,5.69,30,0.7,\"red\"\n87,6.07,30,0.7,\"red\"\n88,4.81,30,0.7,\"red\"\n89,4.95,30,0.7,\"red\"\n90,6.15,30,0.7,\"red\"\n91,5.23,30,0.7,\"red\"\n92,5.35,30,0.7,\"red\"\n93,5.63,30,0.7,\"red\"\n94,5.41,30,0.7,\"red\"\n95,5.55,30,0.7,\"red\"\n96,4.68,30,0.7,\"red\"\n97,8.12,30,0.7,\"red\"\n98,8.36,30,0.7,\"red\"\n99,7.87,30,0.7,\"red\"\n100,8.42,30,0.7,\"red\"\n101,5.54,30,0.7,\"red\"\n102,5.95,30,0.7,\"red\"\n103,6.17,30,0.7,\"red\"\n104,5.94,30,0.7,\"red\"\n105,6.3,30,0.7,\"red\"\n1,7.5,30,0.7,\"red\"\n2,7.92,30,0.7,\"red\"\n3,8.46,30,0.7,\"red\"\n4,6.94,30,0.7,\"red\"\n5,7.76,30,0.7,\"red\"\n6,8.19,30,0.7,\"red\"\n7,8.03,30,0.7,\"red\"\n8,8.13,30,0.7,\"red\"\n9,8.42,30,0.7,\"red\"\n10,8.49,30,0.7,\"red\"\n11,7.16,30,0.7,\"red\"\n12,7.49,30,0.7,\"red\"\n13,7.15,30,0.7,\"red\"\n14,7.53,30,0.7,\"red\"\n15,6.61,30,0.7,\"red\"\n16,6.63,30,0.7,\"red\"\n17,7.14,30,0.7,\"red\"\n18,6.52,30,0.7,\"red\"\n19,6.23,30,0.7,\"red\"\n20,7.3,30,0.7,\"red\"\n21,7.59,30,0.7,\"red\"\n22,7.01,30,0.7,\"red\"\n23,6.92,30,0.7,\"red\"\n24,6.62,30,0.7,\"red\"\n25,7.47,30,0.7,\"red\"\n26,6.74,30,0.7,\"red\"\n27,6.28,30,0.7,\"red\"\n28,6.62,30,0.7,\"red\"\n29,5.99,30,0.7,\"red\"\n30,16.08,30,0.7,\"red\"\n31,11.38,30,0.7,\"red\"\n32,6.88,30,0.7,\"red\"\n33,6.73,30,0.7,\"red\"\n34,6.95,30,0.7,\"red\"\n35,6.85,30,0.7,\"red\"\n36,6.83,30,0.7,\"red\"\n37,5.84,30,0.7,\"red\"\n38,6.03,30,0.7,\"red\"\n39,6.65,30,0.7,\"red\"\n40,6.48,30,0.7,\"red\"\n41,7.59,30,0.7,\"red\"\n42,7.33,30,0.7,\"red\"\n43,8.36,30,0.7,\"red\"\n44,7.17,30,0.7,\"red\"\n45,6.49,30,0.7,\"red\"\n46,8.39,30,0.7,\"red\"\n47,8.04,30,0.7,\"red\"\n48,8.39,30,0.7,\"red\"\n49,7.33,30,0.7,\"red\"\n50,8.79,30,0.7,\"red\"\n51,8.27,30,0.7,\"red\"\n52,7.44,30,0.7,\"red\"\n53,6.39,30,0.7,\"red\"\n54,6.26,30,0.7,\"red\"\n55,6.51,30,0.7,\"red\"\n56,7.8,30,0.7,\"red\"\n57,8.19,30,0.7,\"red\"\n58,7.93,30,0.7,\"red\"\n59,7.08,30,0.7,\"red\"\n60,7.07,30,0.7,\"red\"\n61,8.7,30,0.7,\"red\"\n62,7.17,30,0.7,\"red\"\n63,7.29,30,0.7,\"red\"\n64,8.2,30,0.7,\"red\"\n65,8.05,30,0.7,\"red\"\n66,7.51,30,0.7,\"red\"\n67,7.67,30,0.7,\"red\"\n68,7.93,30,0.7,\"red\"\n69,7.6,30,0.7,\"red\"\n70,7.63,30,0.7,\"red\"\n71,6.84,30,0.7,\"red\"\n72,7.89,30,0.7,\"red\"\n73,7.79,30,0.7,\"red\"\n74,7.29,30,0.7,\"red\"\n75,6.47,30,0.7,\"red\"\n76,6.56,30,0.7,\"red\"\n77,7.73,30,0.7,\"red\"\n78,6.32,30,0.7,\"red\"\n79,6.16,30,0.7,\"red\"\n80,5.2,30,0.7,\"red\"\n81,7.2,30,0.7,\"red\"\n82,6.54,30,0.7,\"red\"\n83,6.31,30,0.7,\"red\"\n84,6.19,30,0.7,\"red\"\n85,6.83,30,0.7,\"red\"\n86,6.01,30,0.7,\"red\"\n87,7.28,30,0.7,\"red\"\n88,5.4,30,0.7,\"red\"\n89,6.88,30,0.7,\"red\"\n90,7.32,30,0.7,\"red\"\n91,6.37,30,0.7,\"red\"\n92,5.81,30,0.7,\"red\"\n93,4.68,30,0.7,\"red\"\n94,5.69,30,0.7,\"red\"\n95,7.35,30,0.7,\"red\"\n96,4.48,30,0.7,\"red\"\n97,6.65,30,0.7,\"red\"\n98,6.35,30,0.7,\"red\"\n99,7.69,30,0.7,\"red\"\n100,6.86,30,0.7,\"red\"\n101,5.84,30,0.7,\"red\"\n102,6.26,30,0.7,\"red\"\n103,6.48,30,0.7,\"red\"\n104,5.54,30,0.7,\"red\"\n105,6.07,30,0.7,\"red\"\n1,4.74,30,0.7,\"red\"\n2,5.06,30,0.7,\"red\"\n3,6.02,30,0.7,\"red\"\n4,5.56,30,0.7,\"red\"\n5,4.86,30,0.7,\"red\"\n6,4.79,30,0.7,\"red\"\n7,5,30,0.7,\"red\"\n8,4.96,30,0.7,\"red\"\n9,6.27,30,0.7,\"red\"\n10,4.99,30,0.7,\"red\"\n11,5.38,30,0.7,\"red\"\n12,5.44,30,0.7,\"red\"\n13,5.45,30,0.7,\"red\"\n14,6.01,30,0.7,\"red\"\n15,5.76,30,0.7,\"red\"\n16,4.51,30,0.7,\"red\"\n17,6.4,30,0.7,\"red\"\n18,5.29,30,0.7,\"red\"\n19,5.2,30,0.7,\"red\"\n20,5.05,30,0.7,\"red\"\n21,5.92,30,0.7,\"red\"\n22,5.78,30,0.7,\"red\"\n23,3.89,30,0.7,\"red\"\n24,5.73,30,0.7,\"red\"\n25,6.96,30,0.7,\"red\"\n26,5.73,30,0.7,\"red\"\n27,5.67,30,0.7,\"red\"\n28,5.26,30,0.7,\"red\"\n29,6.7,30,0.7,\"red\"\n30,7.61,30,0.7,\"red\"\n31,5.37,30,0.7,\"red\"\n32,5.4,30,0.7,\"red\"\n33,5.09,30,0.7,\"red\"\n34,5.17,30,0.7,\"red\"\n35,7.09,30,0.7,\"red\"\n36,5.01,30,0.7,\"red\"\n37,5.65,30,0.7,\"red\"\n38,6.26,30,0.7,\"red\"\n39,6.32,30,0.7,\"red\"\n40,5.47,30,0.7,\"red\"\n41,6.91,30,0.7,\"red\"\n42,6.25,30,0.7,\"red\"\n43,6.87,30,0.7,\"red\"\n44,5.62,30,0.7,\"red\"\n45,4.99,30,0.7,\"red\"\n46,6.94,30,0.7,\"red\"\n47,6.95,30,0.7,\"red\"\n48,7.74,30,0.7,\"red\"\n49,4.84,30,0.7,\"red\"\n50,7.35,30,0.7,\"red\"\n51,6.72,30,0.7,\"red\"\n52,7.01,30,0.7,\"red\"\n53,5.61,30,0.7,\"red\"\n54,6,30,0.7,\"red\"\n55,7.1,30,0.7,\"red\"\n56,6.03,30,0.7,\"red\"\n57,6.09,30,0.7,\"red\"\n58,8.69,30,0.7,\"red\"\n59,6.57,30,0.7,\"red\"\n60,6.58,30,0.7,\"red\"\n61,6.72,30,0.7,\"red\"\n62,4.15,30,0.7,\"red\"\n63,6.98,30,0.7,\"red\"\n64,5.39,30,0.7,\"red\"\n65,5.48,30,0.7,\"red\"\n66,4.27,30,0.7,\"red\"\n67,4.4,30,0.7,\"red\"\n68,4.91,30,0.7,\"red\"\n69,6.14,30,0.7,\"red\"\n70,5.58,30,0.7,\"red\"\n71,4.46,30,0.7,\"red\"\n72,5.66,30,0.7,\"red\"\n73,5.36,30,0.7,\"red\"\n74,5.8,30,0.7,\"red\"\n75,3.76,30,0.7,\"red\"\n76,4.8,30,0.7,\"red\"\n77,7.57,30,0.7,\"red\"\n78,5.42,30,0.7,\"red\"\n79,6.23,30,0.7,\"red\"\n80,5.34,30,0.7,\"red\"\n81,6.68,30,0.7,\"red\"\n82,4.77,30,0.7,\"red\"\n83,5.27,30,0.7,\"red\"\n84,4.87,30,0.7,\"red\"\n85,4.95,30,0.7,\"red\"\n86,5.47,30,0.7,\"red\"\n87,5.98,30,0.7,\"red\"\n88,3.05,30,0.7,\"red\"\n89,4.06,30,0.7,\"red\"\n90,3.93,30,0.7,\"red\"\n91,4.44,30,0.7,\"red\"\n92,4,30,0.7,\"red\"\n93,3.87,30,0.7,\"red\"\n94,3.92,30,0.7,\"red\"\n95,4.38,30,0.7,\"red\"\n96,3.52,30,0.7,\"red\"\n97,4.92,30,0.7,\"red\"\n98,4.98,30,0.7,\"red\"\n99,4.51,30,0.7,\"red\"\n100,4.36,30,0.7,\"red\"\n101,4.51,30,0.7,\"red\"\n102,4.59,30,0.7,\"red\"\n103,3.87,30,0.7,\"red\"\n104,4.24,30,0.7,\"red\"\n105,4.75,30,0.7,\"red\"\n1,5.19,30,0.7,\"red\"\n2,4.86,30,0.7,\"red\"\n3,5.15,30,0.7,\"red\"\n4,5.07,30,0.7,\"red\"\n5,6.46,30,0.7,\"red\"\n6,5.15,30,0.7,\"red\"\n7,5.98,30,0.7,\"red\"\n8,6.93,30,0.7,\"red\"\n9,5.74,30,0.7,\"red\"\n10,6.07,30,0.7,\"red\"\n11,5.64,30,0.7,\"red\"\n12,4.06,30,0.7,\"red\"\n13,4.02,30,0.7,\"red\"\n14,5.05,30,0.7,\"red\"\n15,4.91,30,0.7,\"red\"\n16,5.7,30,0.7,\"red\"\n17,6.19,30,0.7,\"red\"\n18,4.39,30,0.7,\"red\"\n19,4.11,30,0.7,\"red\"\n20,5.48,30,0.7,\"red\"\n21,5.53,30,0.7,\"red\"\n22,6.71,30,0.7,\"red\"\n23,5.27,30,0.7,\"red\"\n24,6.14,30,0.7,\"red\"\n25,7.56,30,0.7,\"red\"\n26,6.91,30,0.7,\"red\"\n27,5.71,30,0.7,\"red\"\n28,6.65,30,0.7,\"red\"\n29,6.6,30,0.7,\"red\"\n30,6.29,30,0.7,\"red\"\n31,5.47,30,0.7,\"red\"\n32,4.9,30,0.7,\"red\"\n33,5.58,30,0.7,\"red\"\n34,5.76,30,0.7,\"red\"\n35,5.99,30,0.7,\"red\"\n36,6.07,30,0.7,\"red\"\n37,5.12,30,0.7,\"red\"\n38,7.12,30,0.7,\"red\"\n39,5.94,30,0.7,\"red\"\n40,5.04,30,0.7,\"red\"\n41,6.14,30,0.7,\"red\"\n42,5.99,30,0.7,\"red\"\n43,6.46,30,0.7,\"red\"\n44,5.4,30,0.7,\"red\"\n45,5.56,30,0.7,\"red\"\n46,5.85,30,0.7,\"red\"\n47,7.56,30,0.7,\"red\"\n48,6.52,30,0.7,\"red\"\n49,4.66,30,0.7,\"red\"\n50,6.08,30,0.7,\"red\"\n51,7.23,30,0.7,\"red\"\n52,6.83,30,0.7,\"red\"\n53,5.45,30,0.7,\"red\"\n54,5.81,30,0.7,\"red\"\n55,6,30,0.7,\"red\"\n56,5.29,30,0.7,\"red\"\n57,6.33,30,0.7,\"red\"\n58,4.86,30,0.7,\"red\"\n59,7.15,30,0.7,\"red\"\n60,6.4,30,0.7,\"red\"\n61,6.58,30,0.7,\"red\"\n62,5.24,30,0.7,\"red\"\n63,7.62,30,0.7,\"red\"\n64,7.14,30,0.7,\"red\"\n65,6.1,30,0.7,\"red\"\n66,5.51,30,0.7,\"red\"\n67,5.06,30,0.7,\"red\"\n68,5.51,30,0.7,\"red\"\n69,6.47,30,0.7,\"red\"\n70,5.6,30,0.7,\"red\"\n71,5.43,30,0.7,\"red\"\n72,5.32,30,0.7,\"red\"\n73,6.29,30,0.7,\"red\"\n74,6.53,30,0.7,\"red\"\n75,4.37,30,0.7,\"red\"\n76,6.5,30,0.7,\"red\"\n77,6.71,30,0.7,\"red\"\n78,6.11,30,0.7,\"red\"\n79,5.95,30,0.7,\"red\"\n80,5.87,30,0.7,\"red\"\n81,6.12,30,0.7,\"red\"\n82,5.61,30,0.7,\"red\"\n83,5.73,30,0.7,\"red\"\n84,5.14,30,0.7,\"red\"\n85,5.75,30,0.7,\"red\"\n86,6.3,30,0.7,\"red\"\n87,6.1,30,0.7,\"red\"\n88,5.15,30,0.7,\"red\"\n89,5.77,30,0.7,\"red\"\n90,5.37,30,0.7,\"red\"\n91,5.57,30,0.7,\"red\"\n92,5.09,30,0.7,\"red\"\n93,4.77,30,0.7,\"red\"\n94,4.96,30,0.7,\"red\"\n95,5.56,30,0.7,\"red\"\n96,4.63,30,0.7,\"red\"\n97,6.37,30,0.7,\"red\"\n98,6.07,30,0.7,\"red\"\n99,7.75,30,0.7,\"red\"\n100,6.62,30,0.7,\"red\"\n101,6.4,30,0.7,\"red\"\n102,6.64,30,0.7,\"red\"\n103,5.03,30,0.7,\"red\"\n104,4.65,30,0.7,\"red\"\n105,4.83,30,0.7,\"red\"\n1,8.61,30,0.7,\"red\"\n2,9.73,30,0.7,\"red\"\n3,7.02,30,0.7,\"red\"\n4,6.26,30,0.7,\"red\"\n5,8.67,30,0.7,\"red\"\n6,10.23,30,0.7,\"red\"\n7,9.37,30,0.7,\"red\"\n8,7.6,30,0.7,\"red\"\n9,7.9,30,0.7,\"red\"\n10,6.67,30,0.7,\"red\"\n11,6.86,30,0.7,\"red\"\n12,8.51,30,0.7,\"red\"\n13,6.99,30,0.7,\"red\"\n14,6.36,30,0.7,\"red\"\n15,7.53,30,0.7,\"red\"\n16,7.42,30,0.7,\"red\"\n17,7.35,30,0.7,\"red\"\n18,7.9,30,0.7,\"red\"\n19,5.43,30,0.7,\"red\"\n20,6.79,30,0.7,\"red\"\n21,9.76,30,0.7,\"red\"\n22,8.83,30,0.7,\"red\"\n23,8.5,30,0.7,\"red\"\n24,7.17,30,0.7,\"red\"\n25,9.06,30,0.7,\"red\"\n26,8,30,0.7,\"red\"\n27,8.65,30,0.7,\"red\"\n28,8.75,30,0.7,\"red\"\n29,7.56,30,0.7,\"red\"\n30,17.6,30,0.7,\"red\"\n31,7.94,30,0.7,\"red\"\n32,7,30,0.7,\"red\"\n33,9.19,30,0.7,\"red\"\n34,8.22,30,0.7,\"red\"\n35,9.79,30,0.7,\"red\"\n36,7.16,30,0.7,\"red\"\n37,9.36,30,0.7,\"red\"\n38,9.82,30,0.7,\"red\"\n39,9.29,30,0.7,\"red\"\n40,10.84,30,0.7,\"red\"\n41,12.3,30,0.7,\"red\"\n42,8.53,30,0.7,\"red\"\n43,11.9,30,0.7,\"red\"\n44,10.78,30,0.7,\"red\"\n45,10.89,30,0.7,\"red\"\n46,8.44,30,0.7,\"red\"\n47,9.12,30,0.7,\"red\"\n48,9.77,30,0.7,\"red\"\n49,7.18,30,0.7,\"red\"\n50,9.96,30,0.7,\"red\"\n51,10.04,30,0.7,\"red\"\n52,9.13,30,0.7,\"red\"\n53,8.09,30,0.7,\"red\"\n54,7.77,30,0.7,\"red\"\n55,8.02,30,0.7,\"red\"\n56,8.39,30,0.7,\"red\"\n57,8.04,30,0.7,\"red\"\n58,9.49,30,0.7,\"red\"\n59,8.55,30,0.7,\"red\"\n60,9.51,30,0.7,\"red\"\n61,10.15,30,0.7,\"red\"\n62,8.01,30,0.7,\"red\"\n63,11.64,30,0.7,\"red\"\n64,8.22,30,0.7,\"red\"\n65,10.56,30,0.7,\"red\"\n66,7.69,30,0.7,\"red\"\n67,8.3,30,0.7,\"red\"\n68,9.98,30,0.7,\"red\"\n69,8.01,30,0.7,\"red\"\n70,8.15,30,0.7,\"red\"\n71,6.97,30,0.7,\"red\"\n72,8.11,30,0.7,\"red\"\n73,9.72,30,0.7,\"red\"\n74,9.74,30,0.7,\"red\"\n75,7.91,30,0.7,\"red\"\n76,10.31,30,0.7,\"red\"\n77,11.97,30,0.7,\"red\"\n78,8.47,30,0.7,\"red\"\n79,9.43,30,0.7,\"red\"\n80,7.48,30,0.7,\"red\"\n81,10.28,30,0.7,\"red\"\n82,6.76,30,0.7,\"red\"\n83,7.07,30,0.7,\"red\"\n84,7.55,30,0.7,\"red\"\n85,8.31,30,0.7,\"red\"\n86,9.78,30,0.7,\"red\"\n87,10.83,30,0.7,\"red\"\n88,6.33,30,0.7,\"red\"\n89,8.36,30,0.7,\"red\"\n90,7.73,30,0.7,\"red\"\n91,6.73,30,0.7,\"red\"\n92,6.36,30,0.7,\"red\"\n93,6.22,30,0.7,\"red\"\n94,7.4,30,0.7,\"red\"\n95,7.79,30,0.7,\"red\"\n96,6.42,30,0.7,\"red\"\n97,7.29,30,0.7,\"red\"\n98,8.3,30,0.7,\"red\"\n99,9.29,30,0.7,\"red\"\n100,9.26,30,0.7,\"red\"\n101,7.89,30,0.7,\"red\"\n102,8.42,30,0.7,\"red\"\n103,7.61,30,0.7,\"red\"\n104,6.91,30,0.7,\"red\"\n105,6.77,30,0.7,\"red\"\n1,4.98,30,0.7,\"red\"\n2,5.44,30,0.7,\"red\"\n3,5.32,30,0.7,\"red\"\n4,5.74,30,0.7,\"red\"\n5,4.93,30,0.7,\"red\"\n6,5.12,30,0.7,\"red\"\n7,5.93,30,0.7,\"red\"\n8,22.25,30,0.7,\"red\"\n9,6.05,30,0.7,\"red\"\n10,5.99,30,0.7,\"red\"\n11,4.98,30,0.7,\"red\"\n12,5.15,30,0.7,\"red\"\n13,6.29,30,0.7,\"red\"\n14,5.42,30,0.7,\"red\"\n15,6.43,30,0.7,\"red\"\n16,5.45,30,0.7,\"red\"\n17,7.79,30,0.7,\"red\"\n18,6.74,30,0.7,\"red\"\n19,6.19,30,0.7,\"red\"\n20,6.28,30,0.7,\"red\"\n21,6.6,30,0.7,\"red\"\n22,6.62,30,0.7,\"red\"\n23,5.8,30,0.7,\"red\"\n24,6.06,30,0.7,\"red\"\n25,7.6,30,0.7,\"red\"\n26,6.5,30,0.7,\"red\"\n27,5.87,30,0.7,\"red\"\n28,5.79,30,0.7,\"red\"\n29,4.51,30,0.7,\"red\"\n30,8.25,30,0.7,\"red\"\n31,4.75,30,0.7,\"red\"\n32,5.2,30,0.7,\"red\"\n33,11.63,30,0.7,\"red\"\n34,6.93,30,0.7,\"red\"\n35,7.51,30,0.7,\"red\"\n36,5.93,30,0.7,\"red\"\n37,7.57,30,0.7,\"red\"\n38,6.79,30,0.7,\"red\"\n39,5.8,30,0.7,\"red\"\n40,7.05,30,0.7,\"red\"\n41,7.53,30,0.7,\"red\"\n42,7.18,30,0.7,\"red\"\n43,7.32,30,0.7,\"red\"\n44,6.34,30,0.7,\"red\"\n45,6.27,30,0.7,\"red\"\n46,5.88,30,0.7,\"red\"\n47,7.21,30,0.7,\"red\"\n48,8.41,30,0.7,\"red\"\n49,6.11,30,0.7,\"red\"\n50,7.74,30,0.7,\"red\"\n51,7.53,30,0.7,\"red\"\n52,6.92,30,0.7,\"red\"\n53,6.44,30,0.7,\"red\"\n54,6.09,30,0.7,\"red\"\n55,7,30,0.7,\"red\"\n56,6.66,30,0.7,\"red\"\n57,5.74,30,0.7,\"red\"\n58,5.87,30,0.7,\"red\"\n59,6.04,30,0.7,\"red\"\n60,6.96,30,0.7,\"red\"\n61,6.53,30,0.7,\"red\"\n62,4.83,30,0.7,\"red\"\n63,6.31,30,0.7,\"red\"\n64,4.93,30,0.7,\"red\"\n65,3.79,30,0.7,\"red\"\n66,4.21,30,0.7,\"red\"\n67,4,30,0.7,\"red\"\n68,3.94,30,0.7,\"red\"\n69,3.53,30,0.7,\"red\"\n70,3.94,30,0.7,\"red\"\n71,3.39,30,0.7,\"red\"\n72,4.49,30,0.7,\"red\"\n73,5.18,30,0.7,\"red\"\n74,4.97,30,0.7,\"red\"\n75,3.28,30,0.7,\"red\"\n76,3.93,30,0.7,\"red\"\n77,5.41,30,0.7,\"red\"\n78,4.12,30,0.7,\"red\"\n79,3.94,30,0.7,\"red\"\n80,3.91,30,0.7,\"red\"\n81,4.47,30,0.7,\"red\"\n82,4.16,30,0.7,\"red\"\n83,3.85,30,0.7,\"red\"\n84,4.45,30,0.7,\"red\"\n85,4.95,30,0.7,\"red\"\n86,4.77,30,0.7,\"red\"\n87,4.96,30,0.7,\"red\"\n88,3.5,30,0.7,\"red\"\n89,4.86,30,0.7,\"red\"\n90,4.9,30,0.7,\"red\"\n91,4.07,30,0.7,\"red\"\n92,3.74,30,0.7,\"red\"\n93,4.59,30,0.7,\"red\"\n94,4.22,30,0.7,\"red\"\n95,4.59,30,0.7,\"red\"\n96,4.22,30,0.7,\"red\"\n97,4.04,30,0.7,\"red\"\n98,5,30,0.7,\"red\"\n99,5.23,30,0.7,\"red\"\n100,5.49,30,0.7,\"red\"\n101,3.73,30,0.7,\"red\"\n102,4.21,30,0.7,\"red\"\n103,4.51,30,0.7,\"red\"\n104,4.26,30,0.7,\"red\"\n105,4.11,30,0.7,\"red\"\n1,4.97,30,0.7,\"red\"\n2,4.96,30,0.7,\"red\"\n3,5.55,30,0.7,\"red\"\n4,4.94,30,0.7,\"red\"\n5,5.81,30,0.7,\"red\"\n6,5.05,30,0.7,\"red\"\n7,5,30,0.7,\"red\"\n8,5.68,30,0.7,\"red\"\n9,4.51,30,0.7,\"red\"\n10,5.43,30,0.7,\"red\"\n11,6.33,30,0.7,\"red\"\n12,6.17,30,0.7,\"red\"\n13,7.18,30,0.7,\"red\"\n14,5.16,30,0.7,\"red\"\n15,4.24,30,0.7,\"red\"\n16,4.92,30,0.7,\"red\"\n17,6.24,30,0.7,\"red\"\n18,5.52,30,0.7,\"red\"\n19,4.21,30,0.7,\"red\"\n20,4.94,30,0.7,\"red\"\n21,6.17,30,0.7,\"red\"\n22,6.35,30,0.7,\"red\"\n23,5.92,30,0.7,\"red\"\n24,5.35,30,0.7,\"red\"\n25,5.43,30,0.7,\"red\"\n26,5.35,30,0.7,\"red\"\n27,4.69,30,0.7,\"red\"\n28,4.99,30,0.7,\"red\"\n29,4.75,30,0.7,\"red\"\n30,19.71,30,0.7,\"red\"\n31,12.07,30,0.7,\"red\"\n32,5.38,30,0.7,\"red\"\n33,6.17,30,0.7,\"red\"\n34,7.24,30,0.7,\"red\"\n35,5.65,30,0.7,\"red\"\n36,5.51,30,0.7,\"red\"\n37,6.88,30,0.7,\"red\"\n38,6.24,30,0.7,\"red\"\n39,6.21,30,0.7,\"red\"\n40,5.93,30,0.7,\"red\"\n41,6.3,30,0.7,\"red\"\n42,7.47,30,0.7,\"red\"\n43,6.89,30,0.7,\"red\"\n44,6.58,30,0.7,\"red\"\n45,6.02,30,0.7,\"red\"\n46,6.96,30,0.7,\"red\"\n47,6.96,30,0.7,\"red\"\n48,8.17,30,0.7,\"red\"\n49,6.1,30,0.7,\"red\"\n50,6.95,30,0.7,\"red\"\n51,7.71,30,0.7,\"red\"\n52,6.58,30,0.7,\"red\"\n53,6.77,30,0.7,\"red\"\n54,6.19,30,0.7,\"red\"\n55,6.08,30,0.7,\"red\"\n56,6.84,30,0.7,\"red\"\n57,6.17,30,0.7,\"red\"\n58,6.99,30,0.7,\"red\"\n59,6.88,30,0.7,\"red\"\n60,7.37,30,0.7,\"red\"\n61,8.68,30,0.7,\"red\"\n62,6.35,30,0.7,\"red\"\n63,6.59,30,0.7,\"red\"\n64,7.47,30,0.7,\"red\"\n65,7.07,30,0.7,\"red\"\n66,5.03,30,0.7,\"red\"\n67,5.25,30,0.7,\"red\"\n68,5.29,30,0.7,\"red\"\n69,5.89,30,0.7,\"red\"\n70,5.78,30,0.7,\"red\"\n71,5.07,30,0.7,\"red\"\n72,5.61,30,0.7,\"red\"\n73,5.72,30,0.7,\"red\"\n74,5.73,30,0.7,\"red\"\n75,4.78,30,0.7,\"red\"\n76,4.67,30,0.7,\"red\"\n77,6.07,30,0.7,\"red\"\n78,5.04,30,0.7,\"red\"\n79,4.55,30,0.7,\"red\"\n80,4.7,30,0.7,\"red\"\n81,7.24,30,0.7,\"red\"\n82,6.3,30,0.7,\"red\"\n83,4.7,30,0.7,\"red\"\n84,4.2,30,0.7,\"red\"\n85,4.86,30,0.7,\"red\"\n86,5.64,30,0.7,\"red\"\n87,5.92,30,0.7,\"red\"\n88,5.15,30,0.7,\"red\"\n89,4.81,30,0.7,\"red\"\n90,4.74,30,0.7,\"red\"\n91,5.18,30,0.7,\"red\"\n92,4.35,30,0.7,\"red\"\n93,5.41,30,0.7,\"red\"\n94,4.69,30,0.7,\"red\"\n95,4.57,30,0.7,\"red\"\n96,4.03,30,0.7,\"red\"\n97,4.77,30,0.7,\"red\"\n98,6.48,30,0.7,\"red\"\n99,7.76,30,0.7,\"red\"\n100,6.34,30,0.7,\"red\"\n101,5.35,30,0.7,\"red\"\n102,3.86,30,0.7,\"red\"\n103,4.97,30,0.7,\"red\"\n104,4.26,30,0.7,\"red\"\n105,4.22,30,0.7,\"red\"\n1,6.13,30,0.7,\"red\"\n2,5.77,30,0.7,\"red\"\n3,5.9,30,0.7,\"red\"\n4,5.49,30,0.7,\"red\"\n5,6.89,30,0.7,\"red\"\n6,6.15,30,0.7,\"red\"\n7,6.24,30,0.7,\"red\"\n8,6.72,30,0.7,\"red\"\n9,6.23,30,0.7,\"red\"\n10,8.45,30,0.7,\"red\"\n11,5.09,30,0.7,\"red\"\n12,5.72,30,0.7,\"red\"\n13,7.54,30,0.7,\"red\"\n14,5.23,30,0.7,\"red\"\n15,4.66,30,0.7,\"red\"\n16,5.68,30,0.7,\"red\"\n17,5.64,30,0.7,\"red\"\n18,5.48,30,0.7,\"red\"\n19,4.72,30,0.7,\"red\"\n20,5.68,30,0.7,\"red\"\n21,6.22,30,0.7,\"red\"\n22,6.54,30,0.7,\"red\"\n23,4.89,30,0.7,\"red\"\n24,5.18,30,0.7,\"red\"\n25,5.61,30,0.7,\"red\"\n26,5.21,30,0.7,\"red\"\n27,5.28,30,0.7,\"red\"\n28,4.68,30,0.7,\"red\"\n29,4.63,30,0.7,\"red\"\n30,7.37,30,0.7,\"red\"\n31,5.19,30,0.7,\"red\"\n32,4.9,30,0.7,\"red\"\n33,4.28,30,0.7,\"red\"\n34,4.98,30,0.7,\"red\"\n35,6.04,30,0.7,\"red\"\n36,4.75,30,0.7,\"red\"\n37,6.1,30,0.7,\"red\"\n38,4.92,30,0.7,\"red\"\n39,5.45,30,0.7,\"red\"\n40,7.18,30,0.7,\"red\"\n41,6.39,30,0.7,\"red\"\n42,4.95,30,0.7,\"red\"\n43,8.02,30,0.7,\"red\"\n44,6.5,30,0.7,\"red\"\n45,6.06,30,0.7,\"red\"\n46,6.04,30,0.7,\"red\"\n47,5.65,30,0.7,\"red\"\n48,7.71,30,0.7,\"red\"\n49,5.36,30,0.7,\"red\"\n50,5.29,30,0.7,\"red\"\n51,5.66,30,0.7,\"red\"\n52,6.04,30,0.7,\"red\"\n53,6.33,30,0.7,\"red\"\n54,5.41,30,0.7,\"red\"\n55,5.81,30,0.7,\"red\"\n56,7.26,30,0.7,\"red\"\n57,6.34,30,0.7,\"red\"\n58,5.71,30,0.7,\"red\"\n59,6.52,30,0.7,\"red\"\n60,6.18,30,0.7,\"red\"\n61,6.48,30,0.7,\"red\"\n62,8.25,30,0.7,\"red\"\n63,6.28,30,0.7,\"red\"\n64,6.39,30,0.7,\"red\"\n65,7.1,30,0.7,\"red\"\n66,5.56,30,0.7,\"red\"\n67,5.82,30,0.7,\"red\"\n68,6.14,30,0.7,\"red\"\n69,5.07,30,0.7,\"red\"\n70,5.21,30,0.7,\"red\"\n71,5.4,30,0.7,\"red\"\n72,6.11,30,0.7,\"red\"\n73,5.79,30,0.7,\"red\"\n74,5.5,30,0.7,\"red\"\n75,4.07,30,0.7,\"red\"\n76,5.27,30,0.7,\"red\"\n77,5.91,30,0.7,\"red\"\n78,5.84,30,0.7,\"red\"\n79,5.88,30,0.7,\"red\"\n80,6.23,30,0.7,\"red\"\n81,7.33,30,0.7,\"red\"\n82,5.67,30,0.7,\"red\"\n83,6.25,30,0.7,\"red\"\n84,5.6,30,0.7,\"red\"\n85,6.24,30,0.7,\"red\"\n86,5.84,30,0.7,\"red\"\n87,5.19,30,0.7,\"red\"\n88,5.2,30,0.7,\"red\"\n89,5.27,30,0.7,\"red\"\n90,5.01,30,0.7,\"red\"\n91,5.08,30,0.7,\"red\"\n92,6.01,30,0.7,\"red\"\n93,5.5,30,0.7,\"red\"\n94,5.28,30,0.7,\"red\"\n95,6.92,30,0.7,\"red\"\n96,5.96,30,0.7,\"red\"\n97,6.37,30,0.7,\"red\"\n98,7.09,30,0.7,\"red\"\n99,6.86,30,0.7,\"red\"\n100,7.33,30,0.7,\"red\"\n101,5.4,30,0.7,\"red\"\n102,6.28,30,0.7,\"red\"\n103,6.91,30,0.7,\"red\"\n104,6.67,30,0.7,\"red\"\n105,5.39,30,0.7,\"red\"\n1,3.04,30,0.7,\"red\"\n2,1.87,30,0.7,\"red\"\n3,2.15,30,0.7,\"red\"\n4,2.65,30,0.7,\"red\"\n5,1.54,30,0.7,\"red\"\n6,1.47,30,0.7,\"red\"\n7,2.24,30,0.7,\"red\"\n8,1.44,30,0.7,\"red\"\n9,1.69,30,0.7,\"red\"\n10,1.57,30,0.7,\"red\"\n11,1.45,30,0.7,\"red\"\n12,1.58,30,0.7,\"red\"\n13,1.72,30,0.7,\"red\"\n14,1.33,30,0.7,\"red\"\n15,1.77,30,0.7,\"red\"\n16,1.32,30,0.7,\"red\"\n17,1.88,30,0.7,\"red\"\n18,3.26,30,0.7,\"red\"\n19,2.84,30,0.7,\"red\"\n20,2.92,30,0.7,\"red\"\n21,2.04,30,0.7,\"red\"\n22,2.09,30,0.7,\"red\"\n23,1.7,30,0.7,\"red\"\n24,1.84,30,0.7,\"red\"\n25,2.16,30,0.7,\"red\"\n26,2.66,30,0.7,\"red\"\n27,3.2,30,0.7,\"red\"\n28,1.94,30,0.7,\"red\"\n29,2.21,30,0.7,\"red\"\n30,3.18,30,0.7,\"red\"\n31,1.23,30,0.7,\"red\"\n32,1.74,30,0.7,\"red\"\n33,1.42,30,0.7,\"red\"\n34,2.16,30,0.7,\"red\"\n35,2.46,30,0.7,\"red\"\n36,1.71,30,0.7,\"red\"\n37,3.29,30,0.7,\"red\"\n38,1.71,30,0.7,\"red\"\n39,3.64,30,0.7,\"red\"\n40,0,30,0.7,\"red\"\n41,0,30,0.7,\"red\"\n42,0,30,0.7,\"red\"\n43,0,30,0.7,\"red\"\n44,0,30,0.7,\"red\"\n45,0.05,30,0.7,\"red\"\n46,2.73,30,0.7,\"red\"\n47,1.5,30,0.7,\"red\"\n48,2.34,30,0.7,\"red\"\n49,1.44,30,0.7,\"red\"\n50,1.59,30,0.7,\"red\"\n51,1.31,30,0.7,\"red\"\n52,1.46,30,0.7,\"red\"\n53,1.45,30,0.7,\"red\"\n54,1.73,30,0.7,\"red\"\n55,1.99,30,0.7,\"red\"\n56,1.65,30,0.7,\"red\"\n57,1.1,30,0.7,\"red\"\n58,4.36,30,0.7,\"red\"\n59,3.67,30,0.7,\"red\"\n60,1.76,30,0.7,\"red\"\n61,2.06,30,0.7,\"red\"\n62,1.11,30,0.7,\"red\"\n63,1.63,30,0.7,\"red\"\n64,1.31,30,0.7,\"red\"\n65,2.42,30,0.7,\"red\"\n66,2.77,30,0.7,\"red\"\n67,4.12,30,0.7,\"red\"\n68,2.42,30,0.7,\"red\"\n69,2.81,30,0.7,\"red\"\n70,3.8,30,0.7,\"red\"\n71,2.81,30,0.7,\"red\"\n72,2.33,30,0.7,\"red\"\n73,2.82,30,0.7,\"red\"\n74,3.09,30,0.7,\"red\"\n75,1.63,30,0.7,\"red\"\n76,3,30,0.7,\"red\"\n77,2.65,30,0.7,\"red\"\n78,3.06,30,0.7,\"red\"\n79,2.86,30,0.7,\"red\"\n80,1.65,30,0.7,\"red\"\n81,3.98,30,0.7,\"red\"\n82,1.25,30,0.7,\"red\"\n83,1.28,30,0.7,\"red\"\n84,1.39,30,0.7,\"red\"\n85,2.22,30,0.7,\"red\"\n86,2.35,30,0.7,\"red\"\n87,2.24,30,0.7,\"red\"\n88,1.62,30,0.7,\"red\"\n89,2.44,30,0.7,\"red\"\n90,2.05,30,0.7,\"red\"\n91,1.82,30,0.7,\"red\"\n92,2.36,30,0.7,\"red\"\n93,2.45,30,0.7,\"red\"\n94,2.26,30,0.7,\"red\"\n95,1.89,30,0.7,\"red\"\n96,1.2,30,0.7,\"red\"\n97,2.65,30,0.7,\"red\"\n98,1.57,30,0.7,\"red\"\n99,2.6,30,0.7,\"red\"\n100,3.43,30,0.7,\"red\"\n101,2.83,30,0.7,\"red\"\n102,2.05,30,0.7,\"red\"\n103,2.23,30,0.7,\"red\"\n104,1.96,30,0.7,\"red\"\n105,1.42,30,0.7,\"red\""
+            "values": "\"Month\",\"Excess\",\"reactive_358693530\",\"reactive_608041502\",\"reactive_786241368\"\n1,6.04,30,0.7,\"red\"\n2,6.54,30,0.7,\"red\"\n3,4.77,30,0.7,\"red\"\n4,5.4,30,0.7,\"red\"\n5,5.23,30,0.7,\"red\"\n6,5.03,30,0.7,\"red\"\n7,5.14,30,0.7,\"red\"\n8,5.73,30,0.7,\"red\"\n9,4.8,30,0.7,\"red\"\n10,5.95,30,0.7,\"red\"\n11,4.76,30,0.7,\"red\"\n12,6,30,0.7,\"red\"\n13,6.67,30,0.7,\"red\"\n14,5.24,30,0.7,\"red\"\n15,4.83,30,0.7,\"red\"\n16,5.5,30,0.7,\"red\"\n17,6.19,30,0.7,\"red\"\n18,5.6,30,0.7,\"red\"\n19,4.64,30,0.7,\"red\"\n20,4.74,30,0.7,\"red\"\n21,6.96,30,0.7,\"red\"\n22,5.72,30,0.7,\"red\"\n23,5.4,30,0.7,\"red\"\n24,5.11,30,0.7,\"red\"\n25,5.65,30,0.7,\"red\"\n26,4.37,30,0.7,\"red\"\n27,5.3,30,0.7,\"red\"\n28,4.36,30,0.7,\"red\"\n29,4.48,30,0.7,\"red\"\n30,5.45,30,0.7,\"red\"\n31,4.8,30,0.7,\"red\"\n32,4.54,30,0.7,\"red\"\n33,3.99,30,0.7,\"red\"\n34,5.41,30,0.7,\"red\"\n35,4.78,30,0.7,\"red\"\n36,5.04,30,0.7,\"red\"\n37,4.77,30,0.7,\"red\"\n38,5.52,30,0.7,\"red\"\n39,4.99,30,0.7,\"red\"\n40,5.31,30,0.7,\"red\"\n41,5.45,30,0.7,\"red\"\n42,4.23,30,0.7,\"red\"\n43,5.68,30,0.7,\"red\"\n44,4.52,30,0.7,\"red\"\n45,4.87,30,0.7,\"red\"\n46,5.03,30,0.7,\"red\"\n47,5.45,30,0.7,\"red\"\n48,5.5,30,0.7,\"red\"\n49,4.02,30,0.7,\"red\"\n50,5.38,30,0.7,\"red\"\n51,5.86,30,0.7,\"red\"\n52,5.17,30,0.7,\"red\"\n53,4.84,30,0.7,\"red\"\n54,5.11,30,0.7,\"red\"\n55,5.19,30,0.7,\"red\"\n56,5.59,30,0.7,\"red\"\n57,5.57,30,0.7,\"red\"\n58,5.23,30,0.7,\"red\"\n59,5.39,30,0.7,\"red\"\n60,6.1,30,0.7,\"red\"\n61,5.88,30,0.7,\"red\"\n62,5.2,30,0.7,\"red\"\n63,5.01,30,0.7,\"red\"\n64,5.84,30,0.7,\"red\"\n65,5.28,30,0.7,\"red\"\n66,4.71,30,0.7,\"red\"\n67,4.19,30,0.7,\"red\"\n68,4.26,30,0.7,\"red\"\n69,4.18,30,0.7,\"red\"\n70,4.47,30,0.7,\"red\"\n71,4.55,30,0.7,\"red\"\n72,4.61,30,0.7,\"red\"\n73,5.06,30,0.7,\"red\"\n74,4.37,30,0.7,\"red\"\n75,4.15,30,0.7,\"red\"\n76,3.95,30,0.7,\"red\"\n77,6.08,30,0.7,\"red\"\n78,4.42,30,0.7,\"red\"\n79,4.34,30,0.7,\"red\"\n80,4.17,30,0.7,\"red\"\n81,5.13,30,0.7,\"red\"\n82,3.95,30,0.7,\"red\"\n83,3.53,30,0.7,\"red\"\n84,5.04,30,0.7,\"red\"\n85,4.67,30,0.7,\"red\"\n86,3.96,30,0.7,\"red\"\n87,4.27,30,0.7,\"red\"\n88,4.6,30,0.7,\"red\"\n89,4.87,30,0.7,\"red\"\n90,4.56,30,0.7,\"red\"\n91,4.36,30,0.7,\"red\"\n92,4.19,30,0.7,\"red\"\n93,4.48,30,0.7,\"red\"\n94,4.49,30,0.7,\"red\"\n95,4.85,30,0.7,\"red\"\n96,5.74,30,0.7,\"red\"\n97,5.14,30,0.7,\"red\"\n98,5.93,30,0.7,\"red\"\n99,5.84,30,0.7,\"red\"\n100,6.26,30,0.7,\"red\"\n101,5.07,30,0.7,\"red\"\n102,4.5,30,0.7,\"red\"\n103,4.96,30,0.7,\"red\"\n104,4.75,30,0.7,\"red\"\n105,5.22,30,0.7,\"red\"\n1,7.21,30,0.7,\"red\"\n2,5.23,30,0.7,\"red\"\n3,5.67,30,0.7,\"red\"\n4,6.1,30,0.7,\"red\"\n5,5.54,30,0.7,\"red\"\n6,5.85,30,0.7,\"red\"\n7,6.08,30,0.7,\"red\"\n8,7.95,30,0.7,\"red\"\n9,7.27,30,0.7,\"red\"\n10,6.64,30,0.7,\"red\"\n11,6.33,30,0.7,\"red\"\n12,6.09,30,0.7,\"red\"\n13,7.01,30,0.7,\"red\"\n14,6.33,30,0.7,\"red\"\n15,6.78,30,0.7,\"red\"\n16,7.04,30,0.7,\"red\"\n17,10.1,30,0.7,\"red\"\n18,6.91,30,0.7,\"red\"\n19,5.74,30,0.7,\"red\"\n20,6.17,30,0.7,\"red\"\n21,6.79,30,0.7,\"red\"\n22,5.45,30,0.7,\"red\"\n23,4.95,30,0.7,\"red\"\n24,5.36,30,0.7,\"red\"\n25,6.18,30,0.7,\"red\"\n26,5.68,30,0.7,\"red\"\n27,4.69,30,0.7,\"red\"\n28,4.78,30,0.7,\"red\"\n29,6.47,30,0.7,\"red\"\n30,8.2,30,0.7,\"red\"\n31,5.28,30,0.7,\"red\"\n32,6.05,30,0.7,\"red\"\n33,5.34,30,0.7,\"red\"\n34,5.71,30,0.7,\"red\"\n35,6.16,30,0.7,\"red\"\n36,4.4,30,0.7,\"red\"\n37,5.99,30,0.7,\"red\"\n38,4.66,30,0.7,\"red\"\n39,4.91,30,0.7,\"red\"\n40,4.12,30,0.7,\"red\"\n41,4.54,30,0.7,\"red\"\n42,6.97,30,0.7,\"red\"\n43,7.23,30,0.7,\"red\"\n44,6.14,30,0.7,\"red\"\n45,4.93,30,0.7,\"red\"\n46,7.27,30,0.7,\"red\"\n47,7.72,30,0.7,\"red\"\n48,9.49,30,0.7,\"red\"\n49,5.3,30,0.7,\"red\"\n50,6.35,30,0.7,\"red\"\n51,6.55,30,0.7,\"red\"\n52,4.99,30,0.7,\"red\"\n53,6.09,30,0.7,\"red\"\n54,5.4,30,0.7,\"red\"\n55,6.14,30,0.7,\"red\"\n56,7.26,30,0.7,\"red\"\n57,5.11,30,0.7,\"red\"\n58,9.42,30,0.7,\"red\"\n59,6.26,30,0.7,\"red\"\n60,6.64,30,0.7,\"red\"\n61,6.41,30,0.7,\"red\"\n62,5.68,30,0.7,\"red\"\n63,5.54,30,0.7,\"red\"\n64,6.3,30,0.7,\"red\"\n65,5.7,30,0.7,\"red\"\n66,5.18,30,0.7,\"red\"\n67,5.51,30,0.7,\"red\"\n68,4.85,30,0.7,\"red\"\n69,5.58,30,0.7,\"red\"\n70,4.89,30,0.7,\"red\"\n71,4.22,30,0.7,\"red\"\n72,5.2,30,0.7,\"red\"\n73,5.92,30,0.7,\"red\"\n74,5.16,30,0.7,\"red\"\n75,4.29,30,0.7,\"red\"\n76,5.09,30,0.7,\"red\"\n77,6.34,30,0.7,\"red\"\n78,5.83,30,0.7,\"red\"\n79,4.83,30,0.7,\"red\"\n80,4.62,30,0.7,\"red\"\n81,8.41,30,0.7,\"red\"\n82,4.79,30,0.7,\"red\"\n83,4.65,30,0.7,\"red\"\n84,4.49,30,0.7,\"red\"\n85,5.18,30,0.7,\"red\"\n86,5.69,30,0.7,\"red\"\n87,6.07,30,0.7,\"red\"\n88,4.81,30,0.7,\"red\"\n89,4.95,30,0.7,\"red\"\n90,6.15,30,0.7,\"red\"\n91,5.23,30,0.7,\"red\"\n92,5.35,30,0.7,\"red\"\n93,5.63,30,0.7,\"red\"\n94,5.41,30,0.7,\"red\"\n95,5.55,30,0.7,\"red\"\n96,4.68,30,0.7,\"red\"\n97,8.12,30,0.7,\"red\"\n98,8.36,30,0.7,\"red\"\n99,7.87,30,0.7,\"red\"\n100,8.42,30,0.7,\"red\"\n101,5.54,30,0.7,\"red\"\n102,5.95,30,0.7,\"red\"\n103,6.17,30,0.7,\"red\"\n104,5.94,30,0.7,\"red\"\n105,6.3,30,0.7,\"red\"\n1,7.5,30,0.7,\"red\"\n2,7.92,30,0.7,\"red\"\n3,8.46,30,0.7,\"red\"\n4,6.94,30,0.7,\"red\"\n5,7.76,30,0.7,\"red\"\n6,8.19,30,0.7,\"red\"\n7,8.03,30,0.7,\"red\"\n8,8.13,30,0.7,\"red\"\n9,8.42,30,0.7,\"red\"\n10,8.49,30,0.7,\"red\"\n11,7.16,30,0.7,\"red\"\n12,7.49,30,0.7,\"red\"\n13,7.15,30,0.7,\"red\"\n14,7.53,30,0.7,\"red\"\n15,6.61,30,0.7,\"red\"\n16,6.63,30,0.7,\"red\"\n17,7.14,30,0.7,\"red\"\n18,6.52,30,0.7,\"red\"\n19,6.23,30,0.7,\"red\"\n20,7.3,30,0.7,\"red\"\n21,7.59,30,0.7,\"red\"\n22,7.01,30,0.7,\"red\"\n23,6.92,30,0.7,\"red\"\n24,6.62,30,0.7,\"red\"\n25,7.47,30,0.7,\"red\"\n26,6.74,30,0.7,\"red\"\n27,6.28,30,0.7,\"red\"\n28,6.62,30,0.7,\"red\"\n29,5.99,30,0.7,\"red\"\n30,16.08,30,0.7,\"red\"\n31,11.38,30,0.7,\"red\"\n32,6.88,30,0.7,\"red\"\n33,6.73,30,0.7,\"red\"\n34,6.95,30,0.7,\"red\"\n35,6.85,30,0.7,\"red\"\n36,6.83,30,0.7,\"red\"\n37,5.84,30,0.7,\"red\"\n38,6.03,30,0.7,\"red\"\n39,6.65,30,0.7,\"red\"\n40,6.48,30,0.7,\"red\"\n41,7.59,30,0.7,\"red\"\n42,7.33,30,0.7,\"red\"\n43,8.36,30,0.7,\"red\"\n44,7.17,30,0.7,\"red\"\n45,6.49,30,0.7,\"red\"\n46,8.39,30,0.7,\"red\"\n47,8.04,30,0.7,\"red\"\n48,8.39,30,0.7,\"red\"\n49,7.33,30,0.7,\"red\"\n50,8.79,30,0.7,\"red\"\n51,8.27,30,0.7,\"red\"\n52,7.44,30,0.7,\"red\"\n53,6.39,30,0.7,\"red\"\n54,6.26,30,0.7,\"red\"\n55,6.51,30,0.7,\"red\"\n56,7.8,30,0.7,\"red\"\n57,8.19,30,0.7,\"red\"\n58,7.93,30,0.7,\"red\"\n59,7.08,30,0.7,\"red\"\n60,7.07,30,0.7,\"red\"\n61,8.7,30,0.7,\"red\"\n62,7.17,30,0.7,\"red\"\n63,7.29,30,0.7,\"red\"\n64,8.2,30,0.7,\"red\"\n65,8.05,30,0.7,\"red\"\n66,7.51,30,0.7,\"red\"\n67,7.67,30,0.7,\"red\"\n68,7.93,30,0.7,\"red\"\n69,7.6,30,0.7,\"red\"\n70,7.63,30,0.7,\"red\"\n71,6.84,30,0.7,\"red\"\n72,7.89,30,0.7,\"red\"\n73,7.79,30,0.7,\"red\"\n74,7.29,30,0.7,\"red\"\n75,6.47,30,0.7,\"red\"\n76,6.56,30,0.7,\"red\"\n77,7.73,30,0.7,\"red\"\n78,6.32,30,0.7,\"red\"\n79,6.16,30,0.7,\"red\"\n80,5.2,30,0.7,\"red\"\n81,7.2,30,0.7,\"red\"\n82,6.54,30,0.7,\"red\"\n83,6.31,30,0.7,\"red\"\n84,6.19,30,0.7,\"red\"\n85,6.83,30,0.7,\"red\"\n86,6.01,30,0.7,\"red\"\n87,7.28,30,0.7,\"red\"\n88,5.4,30,0.7,\"red\"\n89,6.88,30,0.7,\"red\"\n90,7.32,30,0.7,\"red\"\n91,6.37,30,0.7,\"red\"\n92,5.81,30,0.7,\"red\"\n93,4.68,30,0.7,\"red\"\n94,5.69,30,0.7,\"red\"\n95,7.35,30,0.7,\"red\"\n96,4.48,30,0.7,\"red\"\n97,6.65,30,0.7,\"red\"\n98,6.35,30,0.7,\"red\"\n99,7.69,30,0.7,\"red\"\n100,6.86,30,0.7,\"red\"\n101,5.84,30,0.7,\"red\"\n102,6.26,30,0.7,\"red\"\n103,6.48,30,0.7,\"red\"\n104,5.54,30,0.7,\"red\"\n105,6.07,30,0.7,\"red\"\n1,4.74,30,0.7,\"red\"\n2,5.06,30,0.7,\"red\"\n3,6.02,30,0.7,\"red\"\n4,5.56,30,0.7,\"red\"\n5,4.86,30,0.7,\"red\"\n6,4.79,30,0.7,\"red\"\n7,5,30,0.7,\"red\"\n8,4.96,30,0.7,\"red\"\n9,6.27,30,0.7,\"red\"\n10,4.99,30,0.7,\"red\"\n11,5.38,30,0.7,\"red\"\n12,5.44,30,0.7,\"red\"\n13,5.45,30,0.7,\"red\"\n14,6.01,30,0.7,\"red\"\n15,5.76,30,0.7,\"red\"\n16,4.51,30,0.7,\"red\"\n17,6.4,30,0.7,\"red\"\n18,5.29,30,0.7,\"red\"\n19,5.2,30,0.7,\"red\"\n20,5.05,30,0.7,\"red\"\n21,5.92,30,0.7,\"red\"\n22,5.78,30,0.7,\"red\"\n23,3.89,30,0.7,\"red\"\n24,5.73,30,0.7,\"red\"\n25,6.96,30,0.7,\"red\"\n26,5.73,30,0.7,\"red\"\n27,5.67,30,0.7,\"red\"\n28,5.26,30,0.7,\"red\"\n29,6.7,30,0.7,\"red\"\n30,7.61,30,0.7,\"red\"\n31,5.37,30,0.7,\"red\"\n32,5.4,30,0.7,\"red\"\n33,5.09,30,0.7,\"red\"\n34,5.17,30,0.7,\"red\"\n35,7.09,30,0.7,\"red\"\n36,5.01,30,0.7,\"red\"\n37,5.65,30,0.7,\"red\"\n38,6.26,30,0.7,\"red\"\n39,6.32,30,0.7,\"red\"\n40,5.47,30,0.7,\"red\"\n41,6.91,30,0.7,\"red\"\n42,6.25,30,0.7,\"red\"\n43,6.87,30,0.7,\"red\"\n44,5.62,30,0.7,\"red\"\n45,4.99,30,0.7,\"red\"\n46,6.94,30,0.7,\"red\"\n47,6.95,30,0.7,\"red\"\n48,7.74,30,0.7,\"red\"\n49,4.84,30,0.7,\"red\"\n50,7.35,30,0.7,\"red\"\n51,6.72,30,0.7,\"red\"\n52,7.01,30,0.7,\"red\"\n53,5.61,30,0.7,\"red\"\n54,6,30,0.7,\"red\"\n55,7.1,30,0.7,\"red\"\n56,6.03,30,0.7,\"red\"\n57,6.09,30,0.7,\"red\"\n58,8.69,30,0.7,\"red\"\n59,6.57,30,0.7,\"red\"\n60,6.58,30,0.7,\"red\"\n61,6.72,30,0.7,\"red\"\n62,4.15,30,0.7,\"red\"\n63,6.98,30,0.7,\"red\"\n64,5.39,30,0.7,\"red\"\n65,5.48,30,0.7,\"red\"\n66,4.27,30,0.7,\"red\"\n67,4.4,30,0.7,\"red\"\n68,4.91,30,0.7,\"red\"\n69,6.14,30,0.7,\"red\"\n70,5.58,30,0.7,\"red\"\n71,4.46,30,0.7,\"red\"\n72,5.66,30,0.7,\"red\"\n73,5.36,30,0.7,\"red\"\n74,5.8,30,0.7,\"red\"\n75,3.76,30,0.7,\"red\"\n76,4.8,30,0.7,\"red\"\n77,7.57,30,0.7,\"red\"\n78,5.42,30,0.7,\"red\"\n79,6.23,30,0.7,\"red\"\n80,5.34,30,0.7,\"red\"\n81,6.68,30,0.7,\"red\"\n82,4.77,30,0.7,\"red\"\n83,5.27,30,0.7,\"red\"\n84,4.87,30,0.7,\"red\"\n85,4.95,30,0.7,\"red\"\n86,5.47,30,0.7,\"red\"\n87,5.98,30,0.7,\"red\"\n88,3.05,30,0.7,\"red\"\n89,4.06,30,0.7,\"red\"\n90,3.93,30,0.7,\"red\"\n91,4.44,30,0.7,\"red\"\n92,4,30,0.7,\"red\"\n93,3.87,30,0.7,\"red\"\n94,3.92,30,0.7,\"red\"\n95,4.38,30,0.7,\"red\"\n96,3.52,30,0.7,\"red\"\n97,4.92,30,0.7,\"red\"\n98,4.98,30,0.7,\"red\"\n99,4.51,30,0.7,\"red\"\n100,4.36,30,0.7,\"red\"\n101,4.51,30,0.7,\"red\"\n102,4.59,30,0.7,\"red\"\n103,3.87,30,0.7,\"red\"\n104,4.24,30,0.7,\"red\"\n105,4.75,30,0.7,\"red\"\n1,5.19,30,0.7,\"red\"\n2,4.86,30,0.7,\"red\"\n3,5.15,30,0.7,\"red\"\n4,5.07,30,0.7,\"red\"\n5,6.46,30,0.7,\"red\"\n6,5.15,30,0.7,\"red\"\n7,5.98,30,0.7,\"red\"\n8,6.93,30,0.7,\"red\"\n9,5.74,30,0.7,\"red\"\n10,6.07,30,0.7,\"red\"\n11,5.64,30,0.7,\"red\"\n12,4.06,30,0.7,\"red\"\n13,4.02,30,0.7,\"red\"\n14,5.05,30,0.7,\"red\"\n15,4.91,30,0.7,\"red\"\n16,5.7,30,0.7,\"red\"\n17,6.19,30,0.7,\"red\"\n18,4.39,30,0.7,\"red\"\n19,4.11,30,0.7,\"red\"\n20,5.48,30,0.7,\"red\"\n21,5.53,30,0.7,\"red\"\n22,6.71,30,0.7,\"red\"\n23,5.27,30,0.7,\"red\"\n24,6.14,30,0.7,\"red\"\n25,7.56,30,0.7,\"red\"\n26,6.91,30,0.7,\"red\"\n27,5.71,30,0.7,\"red\"\n28,6.65,30,0.7,\"red\"\n29,6.6,30,0.7,\"red\"\n30,6.29,30,0.7,\"red\"\n31,5.47,30,0.7,\"red\"\n32,4.9,30,0.7,\"red\"\n33,5.58,30,0.7,\"red\"\n34,5.76,30,0.7,\"red\"\n35,5.99,30,0.7,\"red\"\n36,6.07,30,0.7,\"red\"\n37,5.12,30,0.7,\"red\"\n38,7.12,30,0.7,\"red\"\n39,5.94,30,0.7,\"red\"\n40,5.04,30,0.7,\"red\"\n41,6.14,30,0.7,\"red\"\n42,5.99,30,0.7,\"red\"\n43,6.46,30,0.7,\"red\"\n44,5.4,30,0.7,\"red\"\n45,5.56,30,0.7,\"red\"\n46,5.85,30,0.7,\"red\"\n47,7.56,30,0.7,\"red\"\n48,6.52,30,0.7,\"red\"\n49,4.66,30,0.7,\"red\"\n50,6.08,30,0.7,\"red\"\n51,7.23,30,0.7,\"red\"\n52,6.83,30,0.7,\"red\"\n53,5.45,30,0.7,\"red\"\n54,5.81,30,0.7,\"red\"\n55,6,30,0.7,\"red\"\n56,5.29,30,0.7,\"red\"\n57,6.33,30,0.7,\"red\"\n58,4.86,30,0.7,\"red\"\n59,7.15,30,0.7,\"red\"\n60,6.4,30,0.7,\"red\"\n61,6.58,30,0.7,\"red\"\n62,5.24,30,0.7,\"red\"\n63,7.62,30,0.7,\"red\"\n64,7.14,30,0.7,\"red\"\n65,6.1,30,0.7,\"red\"\n66,5.51,30,0.7,\"red\"\n67,5.06,30,0.7,\"red\"\n68,5.51,30,0.7,\"red\"\n69,6.47,30,0.7,\"red\"\n70,5.6,30,0.7,\"red\"\n71,5.43,30,0.7,\"red\"\n72,5.32,30,0.7,\"red\"\n73,6.29,30,0.7,\"red\"\n74,6.53,30,0.7,\"red\"\n75,4.37,30,0.7,\"red\"\n76,6.5,30,0.7,\"red\"\n77,6.71,30,0.7,\"red\"\n78,6.11,30,0.7,\"red\"\n79,5.95,30,0.7,\"red\"\n80,5.87,30,0.7,\"red\"\n81,6.12,30,0.7,\"red\"\n82,5.61,30,0.7,\"red\"\n83,5.73,30,0.7,\"red\"\n84,5.14,30,0.7,\"red\"\n85,5.75,30,0.7,\"red\"\n86,6.3,30,0.7,\"red\"\n87,6.1,30,0.7,\"red\"\n88,5.15,30,0.7,\"red\"\n89,5.77,30,0.7,\"red\"\n90,5.37,30,0.7,\"red\"\n91,5.57,30,0.7,\"red\"\n92,5.09,30,0.7,\"red\"\n93,4.77,30,0.7,\"red\"\n94,4.96,30,0.7,\"red\"\n95,5.56,30,0.7,\"red\"\n96,4.63,30,0.7,\"red\"\n97,6.37,30,0.7,\"red\"\n98,6.07,30,0.7,\"red\"\n99,7.75,30,0.7,\"red\"\n100,6.62,30,0.7,\"red\"\n101,6.4,30,0.7,\"red\"\n102,6.64,30,0.7,\"red\"\n103,5.03,30,0.7,\"red\"\n104,4.65,30,0.7,\"red\"\n105,4.83,30,0.7,\"red\"\n1,8.61,30,0.7,\"red\"\n2,9.73,30,0.7,\"red\"\n3,7.02,30,0.7,\"red\"\n4,6.26,30,0.7,\"red\"\n5,8.67,30,0.7,\"red\"\n6,10.23,30,0.7,\"red\"\n7,9.37,30,0.7,\"red\"\n8,7.6,30,0.7,\"red\"\n9,7.9,30,0.7,\"red\"\n10,6.67,30,0.7,\"red\"\n11,6.86,30,0.7,\"red\"\n12,8.51,30,0.7,\"red\"\n13,6.99,30,0.7,\"red\"\n14,6.36,30,0.7,\"red\"\n15,7.53,30,0.7,\"red\"\n16,7.42,30,0.7,\"red\"\n17,7.35,30,0.7,\"red\"\n18,7.9,30,0.7,\"red\"\n19,5.43,30,0.7,\"red\"\n20,6.79,30,0.7,\"red\"\n21,9.76,30,0.7,\"red\"\n22,8.83,30,0.7,\"red\"\n23,8.5,30,0.7,\"red\"\n24,7.17,30,0.7,\"red\"\n25,9.06,30,0.7,\"red\"\n26,8,30,0.7,\"red\"\n27,8.65,30,0.7,\"red\"\n28,8.75,30,0.7,\"red\"\n29,7.56,30,0.7,\"red\"\n30,17.6,30,0.7,\"red\"\n31,7.94,30,0.7,\"red\"\n32,7,30,0.7,\"red\"\n33,9.19,30,0.7,\"red\"\n34,8.22,30,0.7,\"red\"\n35,9.79,30,0.7,\"red\"\n36,7.16,30,0.7,\"red\"\n37,9.36,30,0.7,\"red\"\n38,9.82,30,0.7,\"red\"\n39,9.29,30,0.7,\"red\"\n40,10.84,30,0.7,\"red\"\n41,12.3,30,0.7,\"red\"\n42,8.53,30,0.7,\"red\"\n43,11.9,30,0.7,\"red\"\n44,10.78,30,0.7,\"red\"\n45,10.89,30,0.7,\"red\"\n46,8.44,30,0.7,\"red\"\n47,9.12,30,0.7,\"red\"\n48,9.77,30,0.7,\"red\"\n49,7.18,30,0.7,\"red\"\n50,9.96,30,0.7,\"red\"\n51,10.04,30,0.7,\"red\"\n52,9.13,30,0.7,\"red\"\n53,8.09,30,0.7,\"red\"\n54,7.77,30,0.7,\"red\"\n55,8.02,30,0.7,\"red\"\n56,8.39,30,0.7,\"red\"\n57,8.04,30,0.7,\"red\"\n58,9.49,30,0.7,\"red\"\n59,8.55,30,0.7,\"red\"\n60,9.51,30,0.7,\"red\"\n61,10.15,30,0.7,\"red\"\n62,8.01,30,0.7,\"red\"\n63,11.64,30,0.7,\"red\"\n64,8.22,30,0.7,\"red\"\n65,10.56,30,0.7,\"red\"\n66,7.69,30,0.7,\"red\"\n67,8.3,30,0.7,\"red\"\n68,9.98,30,0.7,\"red\"\n69,8.01,30,0.7,\"red\"\n70,8.15,30,0.7,\"red\"\n71,6.97,30,0.7,\"red\"\n72,8.11,30,0.7,\"red\"\n73,9.72,30,0.7,\"red\"\n74,9.74,30,0.7,\"red\"\n75,7.91,30,0.7,\"red\"\n76,10.31,30,0.7,\"red\"\n77,11.97,30,0.7,\"red\"\n78,8.47,30,0.7,\"red\"\n79,9.43,30,0.7,\"red\"\n80,7.48,30,0.7,\"red\"\n81,10.28,30,0.7,\"red\"\n82,6.76,30,0.7,\"red\"\n83,7.07,30,0.7,\"red\"\n84,7.55,30,0.7,\"red\"\n85,8.31,30,0.7,\"red\"\n86,9.78,30,0.7,\"red\"\n87,10.83,30,0.7,\"red\"\n88,6.33,30,0.7,\"red\"\n89,8.36,30,0.7,\"red\"\n90,7.73,30,0.7,\"red\"\n91,6.73,30,0.7,\"red\"\n92,6.36,30,0.7,\"red\"\n93,6.22,30,0.7,\"red\"\n94,7.4,30,0.7,\"red\"\n95,7.79,30,0.7,\"red\"\n96,6.42,30,0.7,\"red\"\n97,7.29,30,0.7,\"red\"\n98,8.3,30,0.7,\"red\"\n99,9.29,30,0.7,\"red\"\n100,9.26,30,0.7,\"red\"\n101,7.89,30,0.7,\"red\"\n102,8.42,30,0.7,\"red\"\n103,7.61,30,0.7,\"red\"\n104,6.91,30,0.7,\"red\"\n105,6.77,30,0.7,\"red\"\n1,4.98,30,0.7,\"red\"\n2,5.44,30,0.7,\"red\"\n3,5.32,30,0.7,\"red\"\n4,5.74,30,0.7,\"red\"\n5,4.93,30,0.7,\"red\"\n6,5.12,30,0.7,\"red\"\n7,5.93,30,0.7,\"red\"\n8,22.25,30,0.7,\"red\"\n9,6.05,30,0.7,\"red\"\n10,5.99,30,0.7,\"red\"\n11,4.98,30,0.7,\"red\"\n12,5.15,30,0.7,\"red\"\n13,6.29,30,0.7,\"red\"\n14,5.42,30,0.7,\"red\"\n15,6.43,30,0.7,\"red\"\n16,5.45,30,0.7,\"red\"\n17,7.79,30,0.7,\"red\"\n18,6.74,30,0.7,\"red\"\n19,6.19,30,0.7,\"red\"\n20,6.28,30,0.7,\"red\"\n21,6.6,30,0.7,\"red\"\n22,6.62,30,0.7,\"red\"\n23,5.8,30,0.7,\"red\"\n24,6.06,30,0.7,\"red\"\n25,7.6,30,0.7,\"red\"\n26,6.5,30,0.7,\"red\"\n27,5.87,30,0.7,\"red\"\n28,5.79,30,0.7,\"red\"\n29,4.51,30,0.7,\"red\"\n30,8.25,30,0.7,\"red\"\n31,4.75,30,0.7,\"red\"\n32,5.2,30,0.7,\"red\"\n33,11.63,30,0.7,\"red\"\n34,6.93,30,0.7,\"red\"\n35,7.51,30,0.7,\"red\"\n36,5.93,30,0.7,\"red\"\n37,7.57,30,0.7,\"red\"\n38,6.79,30,0.7,\"red\"\n39,5.8,30,0.7,\"red\"\n40,7.05,30,0.7,\"red\"\n41,7.53,30,0.7,\"red\"\n42,7.18,30,0.7,\"red\"\n43,7.32,30,0.7,\"red\"\n44,6.34,30,0.7,\"red\"\n45,6.27,30,0.7,\"red\"\n46,5.88,30,0.7,\"red\"\n47,7.21,30,0.7,\"red\"\n48,8.41,30,0.7,\"red\"\n49,6.11,30,0.7,\"red\"\n50,7.74,30,0.7,\"red\"\n51,7.53,30,0.7,\"red\"\n52,6.92,30,0.7,\"red\"\n53,6.44,30,0.7,\"red\"\n54,6.09,30,0.7,\"red\"\n55,7,30,0.7,\"red\"\n56,6.66,30,0.7,\"red\"\n57,5.74,30,0.7,\"red\"\n58,5.87,30,0.7,\"red\"\n59,6.04,30,0.7,\"red\"\n60,6.96,30,0.7,\"red\"\n61,6.53,30,0.7,\"red\"\n62,4.83,30,0.7,\"red\"\n63,6.31,30,0.7,\"red\"\n64,4.93,30,0.7,\"red\"\n65,3.79,30,0.7,\"red\"\n66,4.21,30,0.7,\"red\"\n67,4,30,0.7,\"red\"\n68,3.94,30,0.7,\"red\"\n69,3.53,30,0.7,\"red\"\n70,3.94,30,0.7,\"red\"\n71,3.39,30,0.7,\"red\"\n72,4.49,30,0.7,\"red\"\n73,5.18,30,0.7,\"red\"\n74,4.97,30,0.7,\"red\"\n75,3.28,30,0.7,\"red\"\n76,3.93,30,0.7,\"red\"\n77,5.41,30,0.7,\"red\"\n78,4.12,30,0.7,\"red\"\n79,3.94,30,0.7,\"red\"\n80,3.91,30,0.7,\"red\"\n81,4.47,30,0.7,\"red\"\n82,4.16,30,0.7,\"red\"\n83,3.85,30,0.7,\"red\"\n84,4.45,30,0.7,\"red\"\n85,4.95,30,0.7,\"red\"\n86,4.77,30,0.7,\"red\"\n87,4.96,30,0.7,\"red\"\n88,3.5,30,0.7,\"red\"\n89,4.86,30,0.7,\"red\"\n90,4.9,30,0.7,\"red\"\n91,4.07,30,0.7,\"red\"\n92,3.74,30,0.7,\"red\"\n93,4.59,30,0.7,\"red\"\n94,4.22,30,0.7,\"red\"\n95,4.59,30,0.7,\"red\"\n96,4.22,30,0.7,\"red\"\n97,4.04,30,0.7,\"red\"\n98,5,30,0.7,\"red\"\n99,5.23,30,0.7,\"red\"\n100,5.49,30,0.7,\"red\"\n101,3.73,30,0.7,\"red\"\n102,4.21,30,0.7,\"red\"\n103,4.51,30,0.7,\"red\"\n104,4.26,30,0.7,\"red\"\n105,4.11,30,0.7,\"red\"\n1,4.97,30,0.7,\"red\"\n2,4.96,30,0.7,\"red\"\n3,5.55,30,0.7,\"red\"\n4,4.94,30,0.7,\"red\"\n5,5.81,30,0.7,\"red\"\n6,5.05,30,0.7,\"red\"\n7,5,30,0.7,\"red\"\n8,5.68,30,0.7,\"red\"\n9,4.51,30,0.7,\"red\"\n10,5.43,30,0.7,\"red\"\n11,6.33,30,0.7,\"red\"\n12,6.17,30,0.7,\"red\"\n13,7.18,30,0.7,\"red\"\n14,5.16,30,0.7,\"red\"\n15,4.24,30,0.7,\"red\"\n16,4.92,30,0.7,\"red\"\n17,6.24,30,0.7,\"red\"\n18,5.52,30,0.7,\"red\"\n19,4.21,30,0.7,\"red\"\n20,4.94,30,0.7,\"red\"\n21,6.17,30,0.7,\"red\"\n22,6.35,30,0.7,\"red\"\n23,5.92,30,0.7,\"red\"\n24,5.35,30,0.7,\"red\"\n25,5.43,30,0.7,\"red\"\n26,5.35,30,0.7,\"red\"\n27,4.69,30,0.7,\"red\"\n28,4.99,30,0.7,\"red\"\n29,4.75,30,0.7,\"red\"\n30,19.71,30,0.7,\"red\"\n31,12.07,30,0.7,\"red\"\n32,5.38,30,0.7,\"red\"\n33,6.17,30,0.7,\"red\"\n34,7.24,30,0.7,\"red\"\n35,5.65,30,0.7,\"red\"\n36,5.51,30,0.7,\"red\"\n37,6.88,30,0.7,\"red\"\n38,6.24,30,0.7,\"red\"\n39,6.21,30,0.7,\"red\"\n40,5.93,30,0.7,\"red\"\n41,6.3,30,0.7,\"red\"\n42,7.47,30,0.7,\"red\"\n43,6.89,30,0.7,\"red\"\n44,6.58,30,0.7,\"red\"\n45,6.02,30,0.7,\"red\"\n46,6.96,30,0.7,\"red\"\n47,6.96,30,0.7,\"red\"\n48,8.17,30,0.7,\"red\"\n49,6.1,30,0.7,\"red\"\n50,6.95,30,0.7,\"red\"\n51,7.71,30,0.7,\"red\"\n52,6.58,30,0.7,\"red\"\n53,6.77,30,0.7,\"red\"\n54,6.19,30,0.7,\"red\"\n55,6.08,30,0.7,\"red\"\n56,6.84,30,0.7,\"red\"\n57,6.17,30,0.7,\"red\"\n58,6.99,30,0.7,\"red\"\n59,6.88,30,0.7,\"red\"\n60,7.37,30,0.7,\"red\"\n61,8.68,30,0.7,\"red\"\n62,6.35,30,0.7,\"red\"\n63,6.59,30,0.7,\"red\"\n64,7.47,30,0.7,\"red\"\n65,7.07,30,0.7,\"red\"\n66,5.03,30,0.7,\"red\"\n67,5.25,30,0.7,\"red\"\n68,5.29,30,0.7,\"red\"\n69,5.89,30,0.7,\"red\"\n70,5.78,30,0.7,\"red\"\n71,5.07,30,0.7,\"red\"\n72,5.61,30,0.7,\"red\"\n73,5.72,30,0.7,\"red\"\n74,5.73,30,0.7,\"red\"\n75,4.78,30,0.7,\"red\"\n76,4.67,30,0.7,\"red\"\n77,6.07,30,0.7,\"red\"\n78,5.04,30,0.7,\"red\"\n79,4.55,30,0.7,\"red\"\n80,4.7,30,0.7,\"red\"\n81,7.24,30,0.7,\"red\"\n82,6.3,30,0.7,\"red\"\n83,4.7,30,0.7,\"red\"\n84,4.2,30,0.7,\"red\"\n85,4.86,30,0.7,\"red\"\n86,5.64,30,0.7,\"red\"\n87,5.92,30,0.7,\"red\"\n88,5.15,30,0.7,\"red\"\n89,4.81,30,0.7,\"red\"\n90,4.74,30,0.7,\"red\"\n91,5.18,30,0.7,\"red\"\n92,4.35,30,0.7,\"red\"\n93,5.41,30,0.7,\"red\"\n94,4.69,30,0.7,\"red\"\n95,4.57,30,0.7,\"red\"\n96,4.03,30,0.7,\"red\"\n97,4.77,30,0.7,\"red\"\n98,6.48,30,0.7,\"red\"\n99,7.76,30,0.7,\"red\"\n100,6.34,30,0.7,\"red\"\n101,5.35,30,0.7,\"red\"\n102,3.86,30,0.7,\"red\"\n103,4.97,30,0.7,\"red\"\n104,4.26,30,0.7,\"red\"\n105,4.22,30,0.7,\"red\"\n1,6.13,30,0.7,\"red\"\n2,5.77,30,0.7,\"red\"\n3,5.9,30,0.7,\"red\"\n4,5.49,30,0.7,\"red\"\n5,6.89,30,0.7,\"red\"\n6,6.15,30,0.7,\"red\"\n7,6.24,30,0.7,\"red\"\n8,6.72,30,0.7,\"red\"\n9,6.23,30,0.7,\"red\"\n10,8.45,30,0.7,\"red\"\n11,5.09,30,0.7,\"red\"\n12,5.72,30,0.7,\"red\"\n13,7.54,30,0.7,\"red\"\n14,5.23,30,0.7,\"red\"\n15,4.66,30,0.7,\"red\"\n16,5.68,30,0.7,\"red\"\n17,5.64,30,0.7,\"red\"\n18,5.48,30,0.7,\"red\"\n19,4.72,30,0.7,\"red\"\n20,5.68,30,0.7,\"red\"\n21,6.22,30,0.7,\"red\"\n22,6.54,30,0.7,\"red\"\n23,4.89,30,0.7,\"red\"\n24,5.18,30,0.7,\"red\"\n25,5.61,30,0.7,\"red\"\n26,5.21,30,0.7,\"red\"\n27,5.28,30,0.7,\"red\"\n28,4.68,30,0.7,\"red\"\n29,4.63,30,0.7,\"red\"\n30,7.37,30,0.7,\"red\"\n31,5.19,30,0.7,\"red\"\n32,4.9,30,0.7,\"red\"\n33,4.28,30,0.7,\"red\"\n34,4.98,30,0.7,\"red\"\n35,6.04,30,0.7,\"red\"\n36,4.75,30,0.7,\"red\"\n37,6.1,30,0.7,\"red\"\n38,4.92,30,0.7,\"red\"\n39,5.45,30,0.7,\"red\"\n40,7.18,30,0.7,\"red\"\n41,6.39,30,0.7,\"red\"\n42,4.95,30,0.7,\"red\"\n43,8.02,30,0.7,\"red\"\n44,6.5,30,0.7,\"red\"\n45,6.06,30,0.7,\"red\"\n46,6.04,30,0.7,\"red\"\n47,5.65,30,0.7,\"red\"\n48,7.71,30,0.7,\"red\"\n49,5.36,30,0.7,\"red\"\n50,5.29,30,0.7,\"red\"\n51,5.66,30,0.7,\"red\"\n52,6.04,30,0.7,\"red\"\n53,6.33,30,0.7,\"red\"\n54,5.41,30,0.7,\"red\"\n55,5.81,30,0.7,\"red\"\n56,7.26,30,0.7,\"red\"\n57,6.34,30,0.7,\"red\"\n58,5.71,30,0.7,\"red\"\n59,6.52,30,0.7,\"red\"\n60,6.18,30,0.7,\"red\"\n61,6.48,30,0.7,\"red\"\n62,8.25,30,0.7,\"red\"\n63,6.28,30,0.7,\"red\"\n64,6.39,30,0.7,\"red\"\n65,7.1,30,0.7,\"red\"\n66,5.56,30,0.7,\"red\"\n67,5.82,30,0.7,\"red\"\n68,6.14,30,0.7,\"red\"\n69,5.07,30,0.7,\"red\"\n70,5.21,30,0.7,\"red\"\n71,5.4,30,0.7,\"red\"\n72,6.11,30,0.7,\"red\"\n73,5.79,30,0.7,\"red\"\n74,5.5,30,0.7,\"red\"\n75,4.07,30,0.7,\"red\"\n76,5.27,30,0.7,\"red\"\n77,5.91,30,0.7,\"red\"\n78,5.84,30,0.7,\"red\"\n79,5.88,30,0.7,\"red\"\n80,6.23,30,0.7,\"red\"\n81,7.33,30,0.7,\"red\"\n82,5.67,30,0.7,\"red\"\n83,6.25,30,0.7,\"red\"\n84,5.6,30,0.7,\"red\"\n85,6.24,30,0.7,\"red\"\n86,5.84,30,0.7,\"red\"\n87,5.19,30,0.7,\"red\"\n88,5.2,30,0.7,\"red\"\n89,5.27,30,0.7,\"red\"\n90,5.01,30,0.7,\"red\"\n91,5.08,30,0.7,\"red\"\n92,6.01,30,0.7,\"red\"\n93,5.5,30,0.7,\"red\"\n94,5.28,30,0.7,\"red\"\n95,6.92,30,0.7,\"red\"\n96,5.96,30,0.7,\"red\"\n97,6.37,30,0.7,\"red\"\n98,7.09,30,0.7,\"red\"\n99,6.86,30,0.7,\"red\"\n100,7.33,30,0.7,\"red\"\n101,5.4,30,0.7,\"red\"\n102,6.28,30,0.7,\"red\"\n103,6.91,30,0.7,\"red\"\n104,6.67,30,0.7,\"red\"\n105,5.39,30,0.7,\"red\"\n1,3.04,30,0.7,\"red\"\n2,1.87,30,0.7,\"red\"\n3,2.15,30,0.7,\"red\"\n4,2.65,30,0.7,\"red\"\n5,1.54,30,0.7,\"red\"\n6,1.47,30,0.7,\"red\"\n7,2.24,30,0.7,\"red\"\n8,1.44,30,0.7,\"red\"\n9,1.69,30,0.7,\"red\"\n10,1.57,30,0.7,\"red\"\n11,1.45,30,0.7,\"red\"\n12,1.58,30,0.7,\"red\"\n13,1.72,30,0.7,\"red\"\n14,1.33,30,0.7,\"red\"\n15,1.77,30,0.7,\"red\"\n16,1.32,30,0.7,\"red\"\n17,1.88,30,0.7,\"red\"\n18,3.26,30,0.7,\"red\"\n19,2.84,30,0.7,\"red\"\n20,2.92,30,0.7,\"red\"\n21,2.04,30,0.7,\"red\"\n22,2.09,30,0.7,\"red\"\n23,1.7,30,0.7,\"red\"\n24,1.84,30,0.7,\"red\"\n25,2.16,30,0.7,\"red\"\n26,2.66,30,0.7,\"red\"\n27,3.2,30,0.7,\"red\"\n28,1.94,30,0.7,\"red\"\n29,2.21,30,0.7,\"red\"\n30,3.18,30,0.7,\"red\"\n31,1.23,30,0.7,\"red\"\n32,1.74,30,0.7,\"red\"\n33,1.42,30,0.7,\"red\"\n34,2.16,30,0.7,\"red\"\n35,2.46,30,0.7,\"red\"\n36,1.71,30,0.7,\"red\"\n37,3.29,30,0.7,\"red\"\n38,1.71,30,0.7,\"red\"\n39,3.64,30,0.7,\"red\"\n40,0,30,0.7,\"red\"\n41,0,30,0.7,\"red\"\n42,0,30,0.7,\"red\"\n43,0,30,0.7,\"red\"\n44,0,30,0.7,\"red\"\n45,0.05,30,0.7,\"red\"\n46,2.73,30,0.7,\"red\"\n47,1.5,30,0.7,\"red\"\n48,2.34,30,0.7,\"red\"\n49,1.44,30,0.7,\"red\"\n50,1.59,30,0.7,\"red\"\n51,1.31,30,0.7,\"red\"\n52,1.46,30,0.7,\"red\"\n53,1.45,30,0.7,\"red\"\n54,1.73,30,0.7,\"red\"\n55,1.99,30,0.7,\"red\"\n56,1.65,30,0.7,\"red\"\n57,1.1,30,0.7,\"red\"\n58,4.36,30,0.7,\"red\"\n59,3.67,30,0.7,\"red\"\n60,1.76,30,0.7,\"red\"\n61,2.06,30,0.7,\"red\"\n62,1.11,30,0.7,\"red\"\n63,1.63,30,0.7,\"red\"\n64,1.31,30,0.7,\"red\"\n65,2.42,30,0.7,\"red\"\n66,2.77,30,0.7,\"red\"\n67,4.12,30,0.7,\"red\"\n68,2.42,30,0.7,\"red\"\n69,2.81,30,0.7,\"red\"\n70,3.8,30,0.7,\"red\"\n71,2.81,30,0.7,\"red\"\n72,2.33,30,0.7,\"red\"\n73,2.82,30,0.7,\"red\"\n74,3.09,30,0.7,\"red\"\n75,1.63,30,0.7,\"red\"\n76,3,30,0.7,\"red\"\n77,2.65,30,0.7,\"red\"\n78,3.06,30,0.7,\"red\"\n79,2.86,30,0.7,\"red\"\n80,1.65,30,0.7,\"red\"\n81,3.98,30,0.7,\"red\"\n82,1.25,30,0.7,\"red\"\n83,1.28,30,0.7,\"red\"\n84,1.39,30,0.7,\"red\"\n85,2.22,30,0.7,\"red\"\n86,2.35,30,0.7,\"red\"\n87,2.24,30,0.7,\"red\"\n88,1.62,30,0.7,\"red\"\n89,2.44,30,0.7,\"red\"\n90,2.05,30,0.7,\"red\"\n91,1.82,30,0.7,\"red\"\n92,2.36,30,0.7,\"red\"\n93,2.45,30,0.7,\"red\"\n94,2.26,30,0.7,\"red\"\n95,1.89,30,0.7,\"red\"\n96,1.2,30,0.7,\"red\"\n97,2.65,30,0.7,\"red\"\n98,1.57,30,0.7,\"red\"\n99,2.6,30,0.7,\"red\"\n100,3.43,30,0.7,\"red\"\n101,2.83,30,0.7,\"red\"\n102,2.05,30,0.7,\"red\"\n103,2.23,30,0.7,\"red\"\n104,1.96,30,0.7,\"red\"\n105,1.42,30,0.7,\"red\""
         },
         {
             "name": "scale/x",
@@ -4238,13 +4238,13 @@ var plot_id135799309_spec = {
                         "field": "data.Excess"
                     },
                     "size": {
-                        "field": "data.reactive_989414566"
+                        "field": "data.reactive_358693530"
                     },
                     "opacity": {
-                        "field": "data.reactive_256393042"
+                        "field": "data.reactive_608041502"
                     },
                     "fill": {
-                        "field": "data.reactive_407168011"
+                        "field": "data.reactive_786241368"
                     }
                 },
                 "ggvis": {
@@ -4297,7 +4297,7 @@ var plot_id135799309_spec = {
     "handlers": null
 }
 ;
-ggvis.getPlot("plot_id135799309").parseSpec(plot_id135799309_spec);
+ggvis.getPlot("plot_id443457428").parseSpec(plot_id443457428_spec);
 </script><!--/html_preserve-->
  
 ### Common plot functions
