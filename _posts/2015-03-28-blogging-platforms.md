@@ -3,7 +3,8 @@ layout: post
 title: "Finding the right blogging platform"
 excerpt: "Blogger, WordPress, Jekyll?"
 tags: [blogging, R, code, jekyll]
-date: "2015-03-28"
+authored: 2015-03-28
+modified: 2015-03-30
 comments: true
 ---
 

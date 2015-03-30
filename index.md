@@ -1,5 +1,5 @@
 ---
 layout: home
-excerpt: "A minimal Jekyll theme for your blog by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+excerpt: "Can you do a word copy? A blog abour R, LaTeX, and other Post-Phd musings."
+tags: [R, LaTeX, Machine Learning, Statistics, Tree climbing]
 ---
