@@ -35,3 +35,5 @@ Jekyll is a really simple platform that can be hosted for free on github, and gi
 If you want to convert from Rmd files there is a helper function by Jason Bryer and Andy South which I have [adapted ](https://github.com/ivyleavedtoadflax/ivyleavedtoadflax.github.io/blob/master/Rmd2md.R) which allows you to convert directly from Rmd to md. I used the really nice Minimal Mistakes [template](http://mmistakes.github.io/), which I first saw implement [here](http://byzantine.github.io/ByzanTineBlog//posts/).
 
 Seems to work OK so far, my only word of advice is that MathJax equations do not seem to render inline, and in the Rmd file you must specify all equations within double dollars (`$$...$$`), rather than single dollars (`$...$`) for inline LaTeX. This is a little bit of a pain if you want inline equations, but not unsurmountable, and perhaps I will find a way around it in the future.
+
+{% include disqus_comments.html %}
