@@ -4,7 +4,7 @@ date: "2015-03-30"
 excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
-published: no
+published: yes
 status: process
 comments: yes
 ---

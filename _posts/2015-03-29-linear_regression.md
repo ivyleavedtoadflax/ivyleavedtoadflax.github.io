@@ -206,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.025   0.000   0.024
+##   0.025   0.000   0.025
 {% endhighlight %}
 
 
@@ -236,7 +236,7 @@ model <- lm(ex1data1$y~ex1data1$x)
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.000   0.000   0.002
+##   0.002   0.000   0.002
 {% endhighlight %}
 
 

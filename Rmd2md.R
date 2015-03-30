@@ -122,7 +122,4 @@ rmd2md <- function( path_site = getwd(),
   invisible()
 }
 
-#rmd2md()
-  #dir_md = "~/ivyleavedtoadflax.github.io/_posts",
-  #dir_images = "~/ivyleavedtoadflax.github.io/figures"
-#  )
+rmd2md()
