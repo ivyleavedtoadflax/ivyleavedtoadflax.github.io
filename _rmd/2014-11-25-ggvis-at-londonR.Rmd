@@ -10,11 +10,23 @@ status: process
 comments: yes
 ---
 
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+library(dplyr)
+library(magrittr)
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE
+  )
+```
+
 # LondonR 
 
 I went to my first LondonR meeting tonight hosted by [Mango solutions](http://www.mango-solutions.com/wp/). Some really great talks - especially presentatiosn by Matt Sundquist of plotly.
 
-Mango solutions also presented a good introduction to `ggvis` and some of the interactive elements. I've included my notes from the event below.
+Mango solutions also presented a good introduction to `ggvis` and some of the interactive elements. I've included my notes from the event below. Note that the visualisations from ggvis will not render properly here. You will need to reproduce the document in RStudio to see them.
+
+
+*Note that much of the code used for ggvis had already become deprecated!*
 
 ```{r load_packages}
 
