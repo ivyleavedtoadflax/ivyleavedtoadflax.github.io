@@ -36,4 +36,4 @@ If you want to convert from Rmd files there is a helper function by Jason Bryer 
 
 Seems to work OK so far, my only word of advice is that MathJax equations do not seem to render inline, and in the Rmd file you must specify all equations within double dollars (`$$...$$`), rather than single dollars (`$...$`) for inline LaTeX. This is a little bit of a pain if you want inline equations, but not unsurmountable, and perhaps I will find a way around it in the future.
 
-{% include disqus_comments.html %}
+{% include _disqus_comments.html %}
