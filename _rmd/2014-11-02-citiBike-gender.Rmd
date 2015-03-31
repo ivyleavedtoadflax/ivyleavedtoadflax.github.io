@@ -1,13 +1,11 @@
 ---
 title: "Is CitiBike an old boy's club?"
-author: "Matthew Upson"
 date: 2014-11-02
 modified: 2015-03-31
 excerpt: "Gender differences in the New York cycle hire data"
-output: html_document
 layout: post
-published: no
-status: process
+published: yes
+status: done
 comments: true
 tags: [Citibike, gender, dplyr]
 ---

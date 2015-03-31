@@ -72,11 +72,8 @@ rmd2md <- function( path_site = getwd(),
     status <- unlist(strsplit(content[statusLine], ':'))[2]
     status <- sub('[[:space:]]+$', '', status)
     status <- sub('^[[:space:]]+', '', status)
-    
-    test_that(
-      "Status is not 'process'",
-      expect_true(tolower(status) == 'process')
-    )
+      
+    if (tolower(status) == 'process') {
     
     #This is a bit of a hack but if a line has zero length (i.e. a
     #black line), it will be removed in the resulting markdown file.
@@ -118,6 +115,13 @@ rmd2md <- function( path_site = getwd(),
     
     try(knit(text=content, output=outFile), silent=FALSE)
     
+    } else {
+    
+      print(
+        paste("Ignoring",file.path(path_site,dir_rmd,f))
+        )
+      
+    }
   }
   invisible()
 }

@@ -5,7 +5,7 @@ excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post
 published: yes
-status: process
+status: done
 comments: yes
 ---
 

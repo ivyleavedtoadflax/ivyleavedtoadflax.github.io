@@ -4,17 +4,17 @@ date: 2014-11-16
 modified: 2015-03-31
 excerpt: "Gender differences in the New York cycle hire data"
 layout: post
-published: yes
+published: no
 status: process
 comments: true
-tags: [Citibike, gender, dplyr]
+tags: [Citibike, gender, dplyr, ggmap]
 ---
 
-```{r,include=FALSE,echo=FALSE,message=FALSE,warning=FALSE}
+```{r,set_knitr_opts,include=FALSE,echo=FALSE,message=FALSE,warning=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
   warning = FALSE,
-  cache = TRUE
+  cache = FALSE
   )
 
 knitr::opts_knit$set(
@@ -30,15 +30,7 @@ require(dplyr)
 require(lubridate)
 require(ggplot2)
 require(ggmap)
-
-library(dplyr)
 library(magrittr)
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE,
-  cache = TRUE,
-  eval = FALSE
-  )
 
 # Because there was a lot of processing time involved with dealing with this dataset, I chunked up the data into smaller pieces which could be loaded individually to save time!
 
@@ -60,7 +52,7 @@ The google maps api (accessed using the excellemt [ggmap](http://cran.r-project.
 
 Aggregate all observation by the journey made, and the hour when it was made:
 
-```{r,eval=FALSE}
+```{r,create_bikes_agg_dataframe,eval=FALSE}
 
 bikes_agg <- bikes %>%
   dplyr::mutate(
@@ -108,7 +100,6 @@ save(
 
 Load the stations data.
 
-
 ```{r,load_stns}
 
 
@@ -126,7 +117,8 @@ names(stns) <- c("hash","id","name","lat","lon")
 
 * Create a table of all the unique journeys
 
-```{r}
+```{r,create_journeys_dataframe,eval=TRUE}
+
 journeys <- bikes_agg %>% 
   dplyr::group_by() %>%
   dplyr::filter(start_hash != end_hash) %>%
@@ -148,7 +140,7 @@ This gives `r nrow(journeys)` journeys out of a possible `r journeys$start_hash 
 
 * merge `journeys` and `stns` dataframes to give a table with the complete station and journey data. 
 
-```{r,eval=FALSE}
+```{r,create_journeys1_dataframe,eval=FALSE}
 
 journeys1 <- merge(
   journeys,
@@ -182,7 +174,7 @@ journeys1 <- merge(
 
 The google api limits you to 2500 queries a day, so 2500 seems like a good subset of queries to make. Note that since we can just query the journey dataframe we created in the previous step, not the individual journeys themselves, so we will actually be looking at many more journeys. 
 
-```{r,eval=FALSE}
+```{r,create_journeys_merge,eval=FALSE}
 
 # First pick a random subset of the dataset. Best to test this with just a few examples, so you know it is working, then query a larger amount when you are confident that you are not going to use all of your free queries in one go!!
 
@@ -235,7 +227,7 @@ journeys_merge
 
 It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really cool!
 
-```{r}
+```{r,define_get_route}
 
 # Write a wrapper function to deal with requests to the google routing api
 
@@ -293,7 +285,7 @@ get_route <- function(x) {
 
 ```
 
-```{r,eval=FALSE}
+```{r,create_journey_route,eval=FALSE}
 
 # Again i've just used 10 unique journeys here.
 
@@ -426,7 +418,7 @@ So it looks like we have a reasonable coverage of Manhatten island. You could al
 * Join `journeys_merge` data with actual journey data from `bikes_agg`.
 
 
-```{r,eval=FALSE}
+```{r,create_bikes_journey_join,eval=FALSE}
 
 bikes_journey_join <- bikes_agg %>%
   inner_join(
@@ -509,7 +501,7 @@ The second thing that comes out is that for men, it appears that for journeys of
 
 The regression lines tend to suggest that mens' journey time on the same journeys are simply shorter than womens'. We can see this more clearly in a boxplot:
 
-```{r}
+```{r,nybikes_boxplot}
 
 ggplot(
   data = bikes_journey_join %>%
@@ -548,7 +540,7 @@ ggplot(
 
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
 
-```{r}
+```{r,create_bikes_journey_mean}
 
 bikes_journey_mean <- bikes_journey_join %>%
   dplyr::filter(
@@ -657,7 +649,7 @@ ggplot(
 
 So that's quite interesting... what's goin on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
 
-```{r}
+```{r,create_bla}
 
 bla <- bikes_journey_join %>%
   dplyr::filter(

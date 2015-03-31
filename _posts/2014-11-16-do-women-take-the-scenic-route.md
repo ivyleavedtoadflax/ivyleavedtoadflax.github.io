@@ -7,7 +7,7 @@ layout: post
 published: true
 status: publish
 comments: true
-tags: [Citibike, gender, dplyr]
+tags: [Citibike, gender, dplyr, ggmap]
 ---
  
 
@@ -18,15 +18,7 @@ require(dplyr)
 require(lubridate)
 require(ggplot2)
 require(ggmap)
- 
-library(dplyr)
 library(magrittr)
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE,
-  cache = TRUE,
-  eval = FALSE
-  )
  
 # Because there was a lot of processing time involved with dealing with this dataset, I chunked up the data into smaller pieces which could be loaded individually to save time!
  
@@ -94,7 +86,6 @@ save(
  
 Load the stations data.
  
- 
 
 {% highlight r %}
 stns <- "stns.csv" %>% 
@@ -129,7 +120,7 @@ journeys <- bikes_agg %>%
 )
 {% endhighlight %}
  
-This gives ?? journeys out of a possible ??; plus it is possible for a journey to start and end at the same station, but we are not interested in those, as there is no way to know where someone has been.
+This gives 105606 journeys out of a possible 1.16281 &times; 10<sup>5</sup>; plus it is possible for a journey to start and end at the same station, but we are not interested in those, as there is no way to know where someone has been.
  
 * merge `journeys` and `stns` dataframes to give a table with the complete station and journey data. 
  
@@ -354,6 +345,8 @@ ggplot(
     col = "red"
     )
 {% endhighlight %}
+
+![plot of chunk journey_route_ggplot](/figures/journey_route_ggplot-1.png) 
  
 
 {% highlight r %}
@@ -399,6 +392,8 @@ ggmap(
     col = "red"
     )
 {% endhighlight %}
+
+![plot of chunk journey_plot_ggmap](/figures/journey_plot_ggmap-1.png) 
  
 So it looks like we have a reasonable coverage of Manhatten island. You could always query the api on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
  
@@ -479,6 +474,8 @@ ggplot(
   xlab("Predicted journey duration (s)")+
   ylab("Actual journey duration (s)")
 {% endhighlight %}
+
+![plot of chunk nybikes_pred_vs_actual](/figures/nybikes_pred_vs_actual-1.png) 
  
  
 The first thing we can take away from this plot is that the google api is quite optimistic about its predictions of cycling journey time sin New York City: most journeys take longer than it predicts; although of course, it is not clear whether this is simply because people are not taking the most direct route.
@@ -522,6 +519,8 @@ ggplot(
     ylim = c(0,2200)
     )
 {% endhighlight %}
+
+![plot of chunk nybikes_boxplot](/figures/nybikes_boxplot-1.png) 
  
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
  
@@ -602,6 +601,8 @@ ggplot(
   xlab("Journey time (s)")+
   ylab("Unique journey")
 {% endhighlight %}
+
+![plot of chunk nybikes_time_by_journey](/figures/nybikes_time_by_journey-1.png) 
  
 
 {% highlight r %}
@@ -626,6 +627,8 @@ ggplot(
   xlab(expression(km~h^-1))+
   ylab("Unique journey")
 {% endhighlight %}
+
+![plot of chunk nybikes_speed_by_journey](/figures/nybikes_speed_by_journey-1.png) 
  
 So that's quite interesting... what's goin on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
  
@@ -649,6 +652,19 @@ bla %>%
     speed = median(speed),
     dur = median(dur)
     )
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Source: local data frame [4 x 6]
+## Groups: journey
+## 
+##        journey gender   n    m     speed   dur
+## 1 3014023d582f      M 121 8449 105.24706 289.0
+## 2 3014023d582f      F  66 8449  92.03168 330.5
+## 3 301402dac06a      M 102 8039  64.09842 451.5
+## 4 301402dac06a      F  18 8039  54.12143 535.0
 {% endhighlight %}
  
 So that is a bit bizarre...according to google, two journeys of over 8km are being completed in between 200 and 600 seconds, that's less than 10 minutes to do 8km!
@@ -711,5 +727,7 @@ ggmap(
     col = "red"
     )
 {% endhighlight %}
+
+![plot of chunk journey_plot_ggmap1](/figures/journey_plot_ggmap1-1.png) 
  
 It's not immediately clear what's going on here. This is probably an issue with the way I hashed the data, as it appears to affect journeys from one particular station. I'll investigate another day.
