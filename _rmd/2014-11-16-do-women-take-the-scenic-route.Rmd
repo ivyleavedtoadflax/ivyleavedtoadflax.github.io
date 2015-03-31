@@ -50,7 +50,7 @@ The google maps api (accessed using the excellemt [ggmap](http://cran.r-project.
 
 ### Step One
 
-Aggregate all observation by the journey made, and the hour when it was made:
+* Aggregate all observation by the journey made, and the hour when it was made:
 
 ```{r,create_bikes_agg_dataframe,eval=FALSE}
 
@@ -94,11 +94,11 @@ save(
 
 ```
 
-### Step Two:
+### Step Two
 
-* Create a dataframe of all unique journeys
+* Calculate all the possible journeys, and pick a subset of those.
 
-Load the stations data.
+Load the stations data:
 
 ```{r,load_stns}
 
@@ -115,7 +115,7 @@ names(stns) <- c("hash","id","name","lat","lon")
 
 ```
 
-* Create a table of all the unique journeys
+Create a table of all the unique journeys:
 
 ```{r,create_journeys_dataframe,eval=TRUE}
 
@@ -138,7 +138,7 @@ journeys <- bikes_agg %>%
 
 This gives `r nrow(journeys)` journeys out of a possible `r journeys$start_hash %>% unique(.) %>% length(.) %>% .^2`; plus it is possible for a journey to start and end at the same station, but we are not interested in those, as there is no way to know where someone has been.
 
-* merge `journeys` and `stns` dataframes to give a table with the complete station and journey data. 
+Now merge `journeys` and `stns` dataframes to give a table with the complete station and journey data:
 
 ```{r,create_journeys1_dataframe,eval=FALSE}
 
@@ -169,6 +169,8 @@ journeys1 <- merge(
   tbl_df
 
 ```
+
+### Step Three
 
 * Query the google api and get journey times and distance for a subset of journeys.
 
@@ -221,7 +223,7 @@ journeys_merge
 
 ```
 
-It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really cool!
+It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really nice.
 
 ```{r,define_get_route}
 
@@ -281,7 +283,7 @@ get_route <- function(x) {
 
 ```
 
-Now apply it
+Now apply it...
 
 ```{r,create_journey_route,eval=FALSE}
 
@@ -323,9 +325,8 @@ for (i in 1:length(fromx)) {
 journey_route
 ```
 
-Now plot it out using a standard `ggplot`.
 
-```{r,journey_route_ggplot,fig.width=9,fig.height=9}
+```{r,journey_route_ggplot,fig.width=9,fig.height=9,eval=FALSE,include=FALSE}
 
 ggplot(
   journey_route %>%
@@ -370,7 +371,7 @@ ggplot(
 
 ```
 
-But it's much interesting to see this superimposed over a map of NYC using `ggmap`
+And plot it out superimposed over a map of NYC using `ggmap`.
 
 ```{r,journey_plot_ggmap}
 
@@ -423,9 +424,9 @@ ggmap(
 
 ```
 
-Much better.
-
 So it looks like we have a reasonable coverage of Manhatten island. You could always query the api on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
+
+### Step Four 
 
 * Join `journeys_merge` data with actual journey data from `bikes_agg`.
 
@@ -456,15 +457,20 @@ bikes_journey_join <- bikes_agg %>%
     e_speed = (m/seconds)*3.6
     )
 
+```
+
+```{r,echo=TRUE,include=FALSE}
 bikes_journey_join
 ```
 
 
-Now that we have that data combined, we can produce some plots
+### Step Five
 
-First, how does all this data look when separated by gender? In  the following plot the solid line is a 1:1 lined between the journey time predicetd by teh google api, and the actual journey time in seconds. The dashed line is an actual regression line from the data.
+Now that we have that data combined, we can produce some plots and start to answer the question of whether women are really riding slower than men.
 
-```{r,nybikes_pred_vs_actual,fig.width=9,fig.height=9}
+First, how does all this data look when separated by gender? In the following plot the solid line is a 1:1 lined between the journey time predicetd by the google api, and the actual journey time in seconds. The dashed line is an actual regression line from the data.
+
+```{r,nybikes_pred_vs_actual,fig.width=9,fig.height=9,echo=FALSE}
 
 ggplot(
   data = bikes_journey_join %>%
@@ -506,14 +512,13 @@ ggplot(
 
 ```
 
-
 The first thing we can take away from this plot is that the google api is quite optimistic about its predictions of cycling journey time sin New York City: most journeys take longer than it predicts; although of course, it is not clear whether this is simply because people are not taking the most direct route.
 
 The second thing that comes out is that for men, it appears that for journeys of longer than 2000 seconds during the week, actual journey times are shorter than the google prediction. Note that this is just a guide, this model would not satisfy the usual assumptions of a linear model.
 
 The regression lines tend to suggest that mens' journey time on the same journeys are simply shorter than womens'. We can see this more clearly in a boxplot:
 
-```{r,nybikes_boxplot}
+```{r,nybikes_boxplot,echo=FALSE}
 
 ggplot(
   data = bikes_journey_join %>%
@@ -604,7 +609,7 @@ bikes_journey_mean <- bikes_journey_join %>%
     )
 ```
 
-```{r,nybikes_time_by_journey,fig.width=10,fig.height=20}
+```{r,nybikes_time_by_journey,fig.width=10,fig.height=20,echo=FALSE}
 
 # This thrwos up a warning...and there may be a better way of doing this...
 
@@ -633,7 +638,7 @@ ggplot(
 ```
 
 
-```{r,nybikes_speed_by_journey,fig.width=10,fig.height=20}
+```{r,nybikes_speed_by_journey,fig.width=10,fig.height=20,echo=FALSE}
 
 ggplot(
   bikes_journey_mean %>%
@@ -686,7 +691,7 @@ bla %>%
 
 So that is a bit bizarre...according to google, two journeys of over 8km are being completed in between 200 and 600 seconds, that's less than 10 minutes to do 8km!
 
-```{r,journey_plot_ggmap1}
+```{r,journey_plot_ggmap1,echo=FALSE}
 
 centre <- c(
   lon = mean(c(bla$start_lon,bla$end_lon)),

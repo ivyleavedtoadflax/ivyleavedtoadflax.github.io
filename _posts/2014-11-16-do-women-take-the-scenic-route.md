@@ -22,7 +22,7 @@ The google maps api (accessed using the excellemt [ggmap](http://cran.r-project.
  
 ### Step One
  
-Aggregate all observation by the journey made, and the hour when it was made:
+* Aggregate all observation by the journey made, and the hour when it was made:
  
 
 {% highlight r %}
@@ -64,11 +64,11 @@ save(
   )
 {% endhighlight %}
  
-### Step Two:
+### Step Two
  
-* Create a dataframe of all unique journeys
+* Calculate all the possible journeys, and pick a subset of those.
  
-Load the stations data.
+Load the stations data:
  
 
 {% highlight r %}
@@ -83,7 +83,7 @@ stns <- "stns.csv" %>%
 names(stns) <- c("hash","id","name","lat","lon")
 {% endhighlight %}
  
-* Create a table of all the unique journeys
+Create a table of all the unique journeys:
  
 
 {% highlight r %}
@@ -106,7 +106,7 @@ journeys <- bikes_agg %>%
  
 This gives 105606 journeys out of a possible 1.16281 &times; 10<sup>5</sup>; plus it is possible for a journey to start and end at the same station, but we are not interested in those, as there is no way to know where someone has been.
  
-* merge `journeys` and `stns` dataframes to give a table with the complete station and journey data. 
+Now merge `journeys` and `stns` dataframes to give a table with the complete station and journey data:
  
 
 {% highlight r %}
@@ -136,6 +136,8 @@ journeys1 <- merge(
     ) %>%
   tbl_df
 {% endhighlight %}
+ 
+### Step Three
  
 * Query the google api and get journey times and distance for a subset of journeys.
  
@@ -187,7 +189,7 @@ journeys_merge <- tbl_df(
 journeys_merge
 {% endhighlight %}
  
-It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really cool!
+It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really nice.
  
 
 {% highlight r %}
@@ -246,7 +248,7 @@ get_route <- function(x) {
   }
 {% endhighlight %}
  
-Now apply it
+Now apply it...
  
 
 {% highlight r %}
@@ -283,55 +285,10 @@ for (i in 1:length(fromx)) {
  
 
  
-Now plot it out using a standard `ggplot`.
  
 
-{% highlight r %}
-ggplot(
-  journey_route %>%
-    dplyr::mutate(
-      no_legs = ave(
-        leg,
-        i,
-        FUN = length
-        ),
-      final = ifelse(
-        leg == no_legs,
-        TRUE,
-        FALSE
-        )
-      ),
-  aes(
-    x = startLon,
-    y = startLat,
-    group = i
-    )
-  )+
-  geom_point(
-    data = journey_route %>%
-      dplyr::filter(leg == 1),
-    aes(
-      x = startLon,
-      y = startLat
-      ),
-    col = "darkblue"
-    )+
-  geom_path(
-    data = journey_route,
-    aes(
-      x = startLon,
-      y = startLat,
-      group = i
-      ),
-    lwd = 1.5,
-    alpha = 0.2,
-    col = "red"
-    )
-{% endhighlight %}
-
-![plot of chunk journey_route_ggplot](/figures/journey_route_ggplot-1.png) 
  
-But it's much interesting to see this superimposed over a map of NYC using `ggmap`
+And plot it out superimposed over a map of NYC using `ggmap`.
  
 
 {% highlight r %}
@@ -385,9 +342,9 @@ ggmap(
 
 ![plot of chunk journey_plot_ggmap](/figures/journey_plot_ggmap-1.png) 
  
-Much better.
- 
 So it looks like we have a reasonable coverage of Manhatten island. You could always query the api on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
+ 
+### Step Four 
  
 * Join `journeys_merge` data with actual journey data from `bikes_agg`.
  
@@ -417,58 +374,18 @@ bikes_journey_join <- bikes_agg %>%
     speed = (m/dur)*3.6,
     e_speed = (m/seconds)*3.6
     )
- 
-bikes_journey_join
 {% endhighlight %}
  
- 
-Now that we have that data combined, we can produce some plots
- 
-First, how does all this data look when separated by gender? In  the following plot the solid line is a 1:1 lined between the journey time predicetd by teh google api, and the actual journey time in seconds. The dashed line is an actual regression line from the data.
- 
 
-{% highlight r %}
-ggplot(
-  data = bikes_journey_join %>%
-    filter(
-      !is.na(gender)
-      ),
-  aes(
-    x = seconds,
-    y = dur,
-    color = gender
-    )
-  )+
-  geom_point(
-    alpha = 0.05
-    )+
-  geom_smooth(
-    method = "lm",
-    se = FALSE,
-    col = "darkblue",
-    lty = 2
-    )+
-  geom_abline(
-    aes(
-      a = 1,
-      b = 1
-      )
-    )+
-  facet_grid(
-    we~gender
-    )+
-  coord_cartesian(
-    ylim = c(0,3000)
-    )+
-  scale_color_discrete(
-    guide = "none"
-    )+
-  xlab("Predicted journey duration (s)")+
-  ylab("Actual journey duration (s)")
-{% endhighlight %}
-
+ 
+ 
+### Step Five
+ 
+Now that we have that data combined, we can produce some plots and start to answer the question of whether women are really riding slower than men.
+ 
+First, how does all this data look when separated by gender? In the following plot the solid line is a 1:1 lined between the journey time predicetd by the google api, and the actual journey time in seconds. The dashed line is an actual regression line from the data.
+ 
 ![plot of chunk nybikes_pred_vs_actual](/figures/nybikes_pred_vs_actual-1.png) 
- 
  
 The first thing we can take away from this plot is that the google api is quite optimistic about its predictions of cycling journey time sin New York City: most journeys take longer than it predicts; although of course, it is not clear whether this is simply because people are not taking the most direct route.
  
@@ -476,42 +393,6 @@ The second thing that comes out is that for men, it appears that for journeys of
  
 The regression lines tend to suggest that mens' journey time on the same journeys are simply shorter than womens'. We can see this more clearly in a boxplot:
  
-
-{% highlight r %}
-ggplot(
-  data = bikes_journey_join %>%
-    filter(
-      !is.na(gender)#,
-      #dur < 3000
-      ) %>%
-    mutate(
-      hour = hour(time),
-      we = ifelse(
-        (wday(time) %in% c(1,7)),
-        "Weekend",
-        "Weekday"
-        )
-      ),
-  aes(
-    x = gender,
-    y = dur,
-    color = gender,
-    fill = gender,
-    group = gender
-    )
-  )+
-  geom_boxplot(
-    alpha = 0.3,
-    outlier.size = 0
-    )+
-  facet_wrap(
-    ~we
-    )+
-  coord_cartesian(
-    ylim = c(0,2200)
-    )
-{% endhighlight %}
-
 ![plot of chunk nybikes_boxplot](/figures/nybikes_boxplot-1.png) 
  
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
@@ -568,58 +449,9 @@ bikes_journey_mean <- bikes_journey_join %>%
     )
 {% endhighlight %}
  
-
-{% highlight r %}
-# This thrwos up a warning...and there may be a better way of doing this...
- 
-ggplot(
-  bikes_journey_mean %>%
-    group_by() %>%
-    mutate(
-      journey = factor(
-        journey, 
-        levels = bikes_journey_mean$journey[order(bikes_journey_mean$dur)]
-        )
-      ),
-  aes(
-    x = dur,
-    y = journey,
-    colour = gender,
-    #group = journey,
-    order = dur
-    )
-  )+
-  geom_point()+
-  xlab("Journey time (s)")+
-  ylab("Unique journey")
-{% endhighlight %}
-
 ![plot of chunk nybikes_time_by_journey](/figures/nybikes_time_by_journey-1.png) 
  
-
-{% highlight r %}
-ggplot(
-  bikes_journey_mean %>%
-    group_by() %>%
-    mutate(
-      journey = factor(
-        journey, 
-        levels = bikes_journey_mean$journey[order(bikes_journey_mean$speed)]
-        )
-      ),
-  aes(
-    x = speed,
-    y = journey,
-    colour = gender,
-    #group = journey,
-    order = dur
-    )
-  )+
-  geom_point()+
-  xlab(expression(km~h^-1))+
-  ylab("Unique journey")
-{% endhighlight %}
-
+ 
 ![plot of chunk nybikes_speed_by_journey](/figures/nybikes_speed_by_journey-1.png) 
  
 So that's quite interesting... what's goin on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
@@ -661,65 +493,6 @@ bla %>%
  
 So that is a bit bizarre...according to google, two journeys of over 8km are being completed in between 200 and 600 seconds, that's less than 10 minutes to do 8km!
  
-
-{% highlight r %}
-centre <- c(
-  lon = mean(c(bla$start_lon,bla$end_lon)),
-  lat = mean(c(bla$start_lat,bla$end_lat))
-  )
- 
- 
-bla_route <- get_route(bla)
- 
-nymap_stamen_to <- get_map(
-  location = centre, 
-  source = "stamen", 
-  maptype = "toner", 
-  zoom = 13
-  )
- 
-ggmap(
-  nymap_stamen_to, 
-  extent = 'device',
-  legend="bottomright"
-  )+
-  geom_point(
-    data = bla_route %>%
-      dplyr::filter(
-        leg == 1
-        ),
-    aes(
-      x = startLon,
-      y = startLat
-      ),
-    col = "blue",
-    size = 4
-    )+
-  geom_point(
-    data = stns %>%
-      filter(
-        hash %in% c("301402","3d582f","dac06a")
-        ),
-    aes(
-      x = lon,
-      y = lat
-      ),
-    col = "green",
-    size = 2
-    )+
-  geom_path(
-    data = bla_route,
-    aes(
-      x = startLon,
-      y = startLat,
-      group = i
-      ),
-    lwd = 1.5,
-    alpha = 0.3,
-    col = "red"
-    )
-{% endhighlight %}
-
 ![plot of chunk journey_plot_ggmap1](/figures/journey_plot_ggmap1-1.png) 
  
 It's not immediately clear what's going on here. This is probably an issue with the way I hashed the data, as it appears to affect journeys from one particular station. I'll investigate another day.
