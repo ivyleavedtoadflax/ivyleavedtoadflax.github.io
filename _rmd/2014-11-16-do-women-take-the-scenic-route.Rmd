@@ -632,8 +632,8 @@ ggplot(
 
 ```
 
-```{r,nybikes_speed_by_journey,fig.width=10,fig.height=20}
 
+```{r,nybikes_speed_by_journey,fig.width=10,fig.height=20}
 
 ggplot(
   bikes_journey_mean %>%
