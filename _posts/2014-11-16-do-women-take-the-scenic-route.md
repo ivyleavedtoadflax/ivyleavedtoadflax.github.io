@@ -1,8 +1,8 @@
 ---
-title: "Is CitiBike an old boy's club?"
+title: "Do women take the scenic route or do men cycle faster?"
 date: 2014-11-16
 modified: 2015-03-31
-excerpt: "Gender differences in the New York cycle hire data"
+excerpt: "Using the google routing API via ggmap"
 layout: post
 published: true
 status: publish
@@ -13,22 +13,6 @@ tags: [Citibike, gender, dplyr, ggmap]
 
  
 
-{% highlight r %}
-require(dplyr)
-require(lubridate)
-require(ggplot2)
-require(ggmap)
-library(magrittr)
- 
-# Because there was a lot of processing time involved with dealing with this dataset, I chunked up the data into smaller pieces which could be loaded individually to save time!
- 
-load("bikes.RData")
-load("bikes_agg.RData")
-load("journey_route.RData")
-load("bikes_journey_join.RData")
-load("journeys1.RData")
-load("journey_times.Rdata")
-{% endhighlight %}
  
 In my previous post I started looking at the NY CitiBike data, and the differences between the way men and women use the service. It's clear men use the service more, and that women's journeys are generally longer; however it's not clear if this is because they simply travel slower, or because they aren't always taking teh most direct route.
  
@@ -203,10 +187,6 @@ journeys_merge <- tbl_df(
 journeys_merge
 {% endhighlight %}
  
-#```{r}
-#journeys_merge <- journeys1
-#```
- 
 It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really cool!
  
 
@@ -266,6 +246,8 @@ get_route <- function(x) {
   }
 {% endhighlight %}
  
+Now apply it
+ 
 
 {% highlight r %}
 # Again i've just used 10 unique journeys here.
@@ -297,10 +279,11 @@ for (i in 1:length(fromx)) {
     )
   rm(journey_route1)  
   }
- 
-journey_route
 {% endhighlight %}
  
+
+ 
+Now plot it out using a standard `ggplot`.
  
 
 {% highlight r %}
@@ -348,13 +331,18 @@ ggplot(
 
 ![plot of chunk journey_route_ggplot](/figures/journey_route_ggplot-1.png) 
  
+But it's much interesting to see this superimposed over a map of NYC using `ggmap`
+ 
 
 {% highlight r %}
+# Set the centre of the plot
+ 
 centre <- c(
   lon = mean(stns$lon),
   lat = mean(stns$lat)
   )
  
+# Use the aesthetically pleasing stamen maps
  
 nymap_stamen_to <- get_map(
   location = centre, 
@@ -362,6 +350,8 @@ nymap_stamen_to <- get_map(
   maptype = "toner", 
   zoom = 13
   )
+ 
+# Apply ggplot layers onto ggmap
  
 ggmap(
   nymap_stamen_to, 
@@ -394,6 +384,8 @@ ggmap(
 {% endhighlight %}
 
 ![plot of chunk journey_plot_ggmap](/figures/journey_plot_ggmap-1.png) 
+ 
+Much better.
  
 So it looks like we have a reasonable coverage of Manhatten island. You could always query the api on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
  

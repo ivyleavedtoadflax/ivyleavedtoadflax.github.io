@@ -1,8 +1,8 @@
 ---
-title: "Is CitiBike an old boy's club?"
+title: "Do women take the scenic route or do men cycle faster?"
 date: 2014-11-16
 modified: 2015-03-31
-excerpt: "Gender differences in the New York cycle hire data"
+excerpt: "Using the google routing API via ggmap"
 layout: post
 published: no
 status: process
@@ -24,13 +24,13 @@ knitr::opts_knit$set(
 setwd("~/Dropbox/newJamesShare/NewYorkBikes/")
 ```
 
-```{r,load_libraries}
+```{r,load_libraries,include=FALSE}
 
 require(dplyr)
 require(lubridate)
 require(ggplot2)
 require(ggmap)
-library(magrittr)
+require(magrittr)
 
 # Because there was a lot of processing time involved with dealing with this dataset, I chunked up the data into smaller pieces which could be loaded individually to save time!
 
@@ -221,10 +221,6 @@ journeys_merge
 
 ```
 
-#```{r}
-#journeys_merge <- journeys1
-#```
-
 It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really cool!
 
 ```{r,define_get_route}
@@ -285,6 +281,8 @@ get_route <- function(x) {
 
 ```
 
+Now apply it
+
 ```{r,create_journey_route,eval=FALSE}
 
 # Again i've just used 10 unique journeys here.
@@ -317,10 +315,15 @@ for (i in 1:length(fromx)) {
   rm(journey_route1)  
   }
 
-journey_route
+
 
 ```
 
+```{r,include=FALSE,echo=TRUE}
+journey_route
+```
+
+Now plot it out using a standard `ggplot`.
 
 ```{r,journey_route_ggplot,fig.width=9,fig.height=9}
 
@@ -367,13 +370,18 @@ ggplot(
 
 ```
 
+But it's much interesting to see this superimposed over a map of NYC using `ggmap`
+
 ```{r,journey_plot_ggmap}
+
+# Set the centre of the plot
 
 centre <- c(
   lon = mean(stns$lon),
   lat = mean(stns$lat)
   )
 
+# Use the aesthetically pleasing stamen maps
 
 nymap_stamen_to <- get_map(
   location = centre, 
@@ -381,6 +389,8 @@ nymap_stamen_to <- get_map(
   maptype = "toner", 
   zoom = 13
   )
+
+# Apply ggplot layers onto ggmap
 
 ggmap(
   nymap_stamen_to, 
@@ -412,6 +422,8 @@ ggmap(
     )
 
 ```
+
+Much better.
 
 So it looks like we have a reasonable coverage of Manhatten island. You could always query the api on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
 
@@ -592,7 +604,7 @@ bikes_journey_mean <- bikes_journey_join %>%
     )
 ```
 
-```{r,nybikes_time_by_journey,fig.height=10,fig.width=6}
+```{r,nybikes_time_by_journey,fig.width=10}
 
 # This thrwos up a warning...and there may be a better way of doing this...
 
@@ -620,7 +632,7 @@ ggplot(
 
 ```
 
-```{r,nybikes_speed_by_journey,fig.height=10,fig.width=6}
+```{r,nybikes_speed_by_journey,fig.width=10}
 
 
 ggplot(
@@ -674,7 +686,7 @@ bla %>%
 
 So that is a bit bizarre...according to google, two journeys of over 8km are being completed in between 200 and 600 seconds, that's less than 10 minutes to do 8km!
 
-```{r,journey_plot_ggmap1,fig.width=9,fig.height=9}
+```{r,journey_plot_ggmap1}
 
 centre <- c(
   lon = mean(c(bla$start_lon,bla$end_lon)),
