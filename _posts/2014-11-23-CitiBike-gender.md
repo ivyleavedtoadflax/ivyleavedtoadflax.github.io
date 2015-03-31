@@ -18,7 +18,7 @@ One of the first things you notice when drilling down into the New York Citibike
  
 There are two types of Citibike users: long-term `Subscribers` to the service, and short term `Customers` who might only buy a weekly pass. Limited information is collected from pass buyers, but `Subscribers` are asked for their gender and `birth_year`, so it is possible to drill into this question a little.
  
-#### Proportion of users
+### Proportion of users
  
 Let's start with the basics. Of the 10407546 journeys recorded so-far, men made more than three times as many journeys as women.
  
@@ -151,7 +151,7 @@ bikes %>%
  
 While there looks to be an increase in the proportion of `Customers` -- short term pass holders -- at the weekend, especially in the summer months, the overall proportion of female riders remains fairly constant at around 20%.
  
-#### Journey times
+### Journey times
  
 So we now know that men use Citibikes proportionally more than women, but is the way that they are using the bikes different? One of the other variables in the dataset, is journey time (`tripduration`) in seconds, this is a good start. Let's start with the numbers:
  

@@ -1,6 +1,6 @@
 ---
 title: "Gradient descent in R"
-date: "2015-03-29"
+date: 2015-03-29
 excerpt: "Implementing gradient decsent in R"
 output: pdf_document
 layout: post

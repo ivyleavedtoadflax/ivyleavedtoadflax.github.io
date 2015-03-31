@@ -1,6 +1,6 @@
 ---
 title: "Linear regression with gradient descent"
-date: "2015-03-29"
+date: 2015-03-29
 excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post

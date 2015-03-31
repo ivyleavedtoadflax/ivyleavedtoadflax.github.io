@@ -1,6 +1,6 @@
 ---
 title: "Linear regression with gradient descent"
-date: "2015-03-29"
+date: 2015-03-29
 excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post
@@ -206,7 +206,7 @@ for (i in 1:num_iters) {
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.043   0.000   0.042
+##    0.04    0.00    0.04
 {% endhighlight %}
 
 
@@ -236,7 +236,7 @@ model <- lm(ex1data1$y~ex1data1$x)
 
 {% highlight text %}
 ##    user  system elapsed 
-##   0.003   0.000   0.003
+##   0.002   0.000   0.002
 {% endhighlight %}
 
 
