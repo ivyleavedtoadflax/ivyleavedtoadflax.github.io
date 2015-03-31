@@ -398,87 +398,15 @@ The regression lines tend to suggest that mens' journey time on the same journey
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
  
 
-{% highlight r %}
-bikes_journey_mean <- bikes_journey_join %>%
-  dplyr::filter(
-    dur < seconds,
-    !is.na(gender)
-    ) %>%
-  dplyr::group_by(
-    seconds,
-    start_hash.x,
-    end_hash,
-    gender,
-    journey
-    ) %>%
-  dplyr::summarise(
-    m = median(m),
-    speed = median(speed),
-    dur = median(dur),
-    n = n()
-    ) %>%
-  dplyr::filter(
-    n > 10
-    ) %>%
-  dplyr::arrange(
-    journey,
-    gender
-    ) %>%
-  dplyr::group_by() %>%
-  dplyr::mutate(
-    gender1 = lag(as.numeric(gender),1),
-    gender2 = abs(as.numeric(gender) - gender1)
-    ) %>%
-  dplyr::filter(
-    gender2 == 1
-    ) %>%
-  dplyr::group_by(
-    journey
-    ) %>%
-  dplyr::mutate(
-    n = n(),
-    diff = abs(seconds - dur)
-    ) %>%
-  dplyr::filter(
-    n == 2
-    ) %>% 
-  dplyr::select(
-    -gender1,
-    -gender2,
-    -n
-    )
-{% endhighlight %}
  
 ![plot of chunk nybikes_time_by_journey](/figures/nybikes_time_by_journey-1.png) 
  
  
 ![plot of chunk nybikes_speed_by_journey](/figures/nybikes_speed_by_journey-1.png) 
  
-So that's quite interesting... what's goin on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
+So that's quite interesting. Almost across the board men simply are riding faster than women for the given journeys. But what's going on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
  
-
-{% highlight r %}
-bla <- bikes_journey_join %>%
-  dplyr::filter(
-    journey %in% c("3014023d582f","301402dac06a")
-    )
  
-bla %>%
-  dplyr::group_by(
-    #start_name,
-    #end_name,
-    journey,
-    gender
-    ) %>%
-  dplyr::summarise(
-    n = n(),
-    m = median(m),
-    speed = median(speed),
-    dur = median(dur)
-    )
-{% endhighlight %}
-
-
 
 {% highlight text %}
 ## Source: local data frame [4 x 6]

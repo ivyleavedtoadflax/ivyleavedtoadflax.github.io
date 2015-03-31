@@ -557,7 +557,7 @@ ggplot(
 
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
 
-```{r,create_bikes_journey_mean}
+```{r,create_bikes_journey_mean,echo=FALSE}
 
 bikes_journey_mean <- bikes_journey_join %>%
   dplyr::filter(
@@ -664,9 +664,10 @@ ggplot(
 
 ```
 
-So that's quite interesting... what's goin on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
+So that's quite interesting. Almost across the board men simply are riding faster than women for the given journeys. But what's going on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
 
-```{r,create_bla}
+
+```{r,create_bla,echo=FALSE}
 
 bla <- bikes_journey_join %>%
   dplyr::filter(
