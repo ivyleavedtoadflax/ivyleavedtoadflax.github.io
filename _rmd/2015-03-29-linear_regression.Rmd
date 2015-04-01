@@ -1,12 +1,13 @@
 ---
 title: "Linear regression with gradient descent"
 date: 2015-03-29
+modified: `r format(Sys.time(), '%Y-%M-%d')`
 excerpt: "Linear regression the machine learning way"
 output: pdf_document
 layout: post
 published: yes
-status: done
-comments: yes
+status: process
+comments: true
 ---
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}

@@ -1,13 +1,13 @@
 ---
 title: "LondonR 2014 - ggvis"
 date: 2014-11-25
-modified: 2015-03-30
+modified: `r format(Sys.time(), '%Y-%M-%d')`
 output: html_document
 layout: post
 excerpt: ggvis workshop at LondonR by Aimee Gott
 published: yes
-status: done
-comments: yes
+status: process
+comments: true
 ---
 
 
