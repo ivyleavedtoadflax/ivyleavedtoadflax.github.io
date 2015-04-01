@@ -5,7 +5,7 @@ modified: 2015-03-31
 excerpt: "Gender differences in the New York cycle hire data"
 layout: post
 published: yes
-status: done
+status: process
 comments: true
 tags: [Citibike, gender, dplyr]
 ---
@@ -347,3 +347,6 @@ bikes %>%
 
 ```
 
+```{r}
+sessionInfo()
+```
