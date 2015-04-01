@@ -48,6 +48,9 @@ This is a difficult question to answer. Whilst it is easier to know whether the 
 
 The google maps api (accessed using the excellemt [ggmap](http://cran.r-project.org/web/packages/ggmap/index.html)) can be queried for distance and cycling journey time between two points. By using this method for a subsample of journeys, we can filter those journeys which take less time than google suggests it should take, hence we can be more sure (although not absolutely so) that these journeys were direct. We can then have a look at the differences between journey times for men and women.
 
+
+*Note that this turned into a bit of a code heavy post. All the source code to produce this page is available [here](https://github.com/ivyleavedtoadflax/ivyleavedtoadflax.github.io/edit/master/_rmd/2014-11-16-do-women-take-the-scenic-route.Rmd). You'll see that I chunked up the steps and saved them out to multiple .RData files to make compilation of the .Rmd quicker.*
+
 ### Step One
 
 * Aggregate all observation by the journey made, and the hour when it was made:
@@ -204,8 +207,11 @@ journey_times <- mapdist(
   to = toy,
   mode = "bicycling"
   )
+```
 
+```{r,echo=FALSE}
 journey_times
+```
 
 # Ok so then bind this to the journeys1 dataframe
 
@@ -218,9 +224,10 @@ journeys_merge <- tbl_df(
   dplyr::select(
     -from,-to,-km,-miles,-minutes,-hours
     )
+```
 
+```{r,echo=FALSE}
 journeys_merge
-
 ```
 
 It's also possible to query to google routing api to get a route for each of these journeys. We can plot this to ensure that we have a good coverage across Manhatten Island, but it can also look really nice.
@@ -317,11 +324,11 @@ for (i in 1:length(fromx)) {
   rm(journey_route1)  
   }
 
-
+journey_route
 
 ```
 
-```{r,include=FALSE,echo=TRUE}
+```{r,echo=FALSE}
 journey_route
 ```
 
@@ -459,7 +466,7 @@ bikes_journey_join <- bikes_agg %>%
 
 ```
 
-```{r,echo=TRUE,include=FALSE}
+```{r,echo=FALSE}
 bikes_journey_join
 ```
 
@@ -555,7 +562,7 @@ ggplot(
 
 ```
 
-However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex.
+However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex. We can look at the distance taken, or the speed:
 
 ```{r,create_bikes_journey_mean,echo=FALSE}
 
@@ -664,8 +671,7 @@ ggplot(
 
 ```
 
-So that's quite interesting. Almost across the board men simply are riding faster than women for the given journeys. But what's going on at the top two journeys. Why is it that they appear to be taking place at speends of greater than 50 or 100 km/h? Let's look more closely at those two stations.
-
+Almost across the board men simply are riding faster than women for the given journeys. But I was also finding something strange with a couple of journeys (cropped out of the above plot). Both appear to be taking place at speends of greater than 50 or 100 km/h...
 
 ```{r,create_bla,echo=FALSE}
 
@@ -690,7 +696,7 @@ bla %>%
 
 ```
 
-So that is a bit bizarre...according to google, two journeys of over 8km are being completed in between 200 and 600 seconds, that's less than 10 minutes to do 8km!
+So that is a bit bizarre...according to google, two journeys of over 8 km are being completed in between 200 and 600 seconds. These are the journeys:
 
 ```{r,journey_plot_ggmap1,echo=FALSE}
 
@@ -753,3 +759,9 @@ ggmap(
 ```
 
 It's not immediately clear what's going on here. This is probably an issue with the way I hashed the data, as it appears to affect journeys from one particular station. I'll investigate another day.
+
+```{r}
+sessionInfo()
+```
+
+
