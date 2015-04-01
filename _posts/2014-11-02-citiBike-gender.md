@@ -1,7 +1,7 @@
 ---
 title: "Is CitiBike an old boy's club?"
 date: 2014-11-02
-modified: 2015-03-31
+modified: 2015-04-01
 excerpt: "Gender differences in the New York cycle hire data"
 layout: post
 published: true
@@ -391,3 +391,43 @@ bikes %>%
 ## 12  (60,100]      F   55703
 {% endhighlight %}
  
+
+{% highlight r %}
+sessionInfo()
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## R version 3.1.3 (2015-03-09)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 14.04.2 LTS
+## 
+## locale:
+##  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
+##  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
+##  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] ggmap_2.4       ggplot2_1.0.0   lubridate_1.3.3 magrittr_1.5   
+## [5] dplyr_0.4.1     testthat_0.8.1  knitr_1.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] assertthat_0.1      codetools_0.2-11    colorspace_1.2-5   
+##  [4] DBI_0.3.1           digest_0.6.4        evaluate_0.5.5     
+##  [7] formatR_1.0         geosphere_1.3-11    grid_3.1.3         
+## [10] gtable_0.1.2        jpeg_0.1-8          lattice_0.20-30    
+## [13] lazyeval_0.1.10     mapproj_1.2-2       maps_2.3-9         
+## [16] MASS_7.3-39         memoise_0.2.1       munsell_0.4.2      
+## [19] parallel_3.1.3      plyr_1.8.1          png_0.1-7          
+## [22] proto_0.3-10        Rcpp_0.11.5         reshape2_1.4.1     
+## [25] RgoogleMaps_1.2.0.7 rjson_0.2.15        RJSONIO_1.3-0      
+## [28] scales_0.2.4        sp_1.0-17           stringr_0.6.2      
+## [31] tcltk_3.1.3         tools_3.1.3
+{% endhighlight %}

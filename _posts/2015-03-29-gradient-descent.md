@@ -1,12 +1,13 @@
 ---
 title: "Gradient descent in R"
 date: 2015-03-29
+modified: 2015-04-01
 excerpt: "Implementing gradient decsent in R"
 output: pdf_document
 layout: post
 published: true
 status: publish
-comments: yes
+comments: true
 ---
  
 

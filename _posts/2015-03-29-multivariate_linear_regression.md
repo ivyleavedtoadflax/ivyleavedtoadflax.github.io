@@ -1,13 +1,13 @@
 ---
 title: "Multivariate linear regression"
 date: 2015-03-30
-modified: 2015-03-31
+modified: 2015-04-01
 excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
 published: true
 status: publish
-comments: yes
+comments: true
 ---
  
 
