@@ -1,7 +1,7 @@
 ---
 title: "Do women take the scenic route or do men cycle faster?"
 date: 2014-11-16
-modified: 2015-04-01
+modified: 2015-04-07
 excerpt: "Using the google routing API via ggmap"
 layout: post
 published: true

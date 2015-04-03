@@ -1,7 +1,7 @@
 ---
 title: "LondonR 2014 - ggvis"
 date: 2014-11-25
-modified: 2015-04-01
+modified: 2015-04-07
 output: html_document
 layout: post
 excerpt: ggvis workshop at LondonR by Aimee Gott

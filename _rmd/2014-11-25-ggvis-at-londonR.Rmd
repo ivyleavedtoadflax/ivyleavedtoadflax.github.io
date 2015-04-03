@@ -6,7 +6,7 @@ output: html_document
 layout: post
 excerpt: ggvis workshop at LondonR by Aimee Gott
 published: yes
-status: process
+status: processed
 comments: true
 ---
 

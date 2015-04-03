@@ -6,7 +6,7 @@ excerpt: "Implementing gradient decsent in R"
 output: pdf_document
 layout: post
 published: yes
-status: process
+status: processed
 comments: true
 ---
 

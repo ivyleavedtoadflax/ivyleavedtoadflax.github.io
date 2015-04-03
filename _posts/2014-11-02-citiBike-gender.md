@@ -1,7 +1,7 @@
 ---
 title: "Is CitiBike an old boy's club?"
 date: 2014-11-02
-modified: 2015-04-01
+modified: 2015-04-07
 excerpt: "Gender differences in the New York cycle hire data"
 layout: post
 published: true
