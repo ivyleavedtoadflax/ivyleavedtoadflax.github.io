@@ -11,12 +11,11 @@ tags: [machine learning, logistic regression, fminunc]
 ---
  
  
- 
 
  
 I've been doing Andrew Ng's excellent Machine Learning course on [coursera](www.coursera.org). The second exercise is to implement from scratch vectorised logistic regression for classification. Submissions to the exercises have to be made in Octave or Matlab; in this post I give the solution using R.
  
-Andrew Ng using the optimisation algorithm `fminunc` to optimise the logistic regression solution. In R you can use the `optim` function, but I have been using the `ucminf` function provided in the package `ucminf`. `uncminf` takes the following arguments:
+Andrew Ng uses the algorithm `fminunc` in Matlab/Octave to optimise the logistic regression solution. In R you can use the `optim` function, but I have been using the `ucminf` function provided in the package `ucminf`. `uncminf` takes the following arguments:
  
 `ucminf(par, fn, gr = NULL, ..., control = list(), hessian=0)`
  
@@ -48,7 +47,7 @@ $$
 J(\theta)=\frac{1}{m}\sum^m_{i=1}[-y^{(i)}\log(h_\theta(x^{(i)}))-(1-y^{(i)})\log(1-h_\theta(x^{(i)}))]
 $$
  
-The gradient of the cost is a vector of the same length as $\theta$ where the $j^{th}$ element (for $j = 0,1,\cdots,n$) is defined as:
+And the gradient of the cost is a vector of the same length as $\theta$ where the $j^{th}$ element (for $j = 0,1,\cdots,n$) is defined as:
  
 $$
 \frac{\delta J(\theta)}{\delta\theta_{j}}=\frac{1}{m}\sum^{m}_{i=1}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j
@@ -75,39 +74,7 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-2](/figures/unnamed-chunk-2-1.png) 
- 
-Ok so far so good...and this should be able to work on a matrix too...
- 
-
-{% highlight r %}
-test_matrix <- matrix(runif(9,max = 10,min =-10),ncol=3)
-test_matrix
-{% endhighlight %}
-
-
-
-{% highlight text %}
-##           [,1]      [,2]      [,3]
-## [1,] -6.287084 -1.350222  2.183125
-## [2,] -6.123583 -3.330114 -4.057013
-## [3,]  3.800755 -7.816960  7.705904
-{% endhighlight %}
-
-
-
-{% highlight r %}
-g(test_matrix)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-##             [,1]         [,2]      [,3]
-## [1,] 0.001856723 0.2058340020 0.8987239
-## [2,] 0.002185805 0.0345524333 0.0170064
-## [3,] 0.978134884 0.0004026822 0.9995500
-{% endhighlight %}
+![plot of chunk 2015-04-06-sigmoid-function](/figures/2015-04-06-sigmoid-function-1.png) 
  
 ...and with this function, implementing $h_{\theta}$ is easy:
  
@@ -122,7 +89,7 @@ h <- function(theta,X) {
  
 ### Cost function and gradient
  
-With the cost function $J(\theta)$: I'll start by implementing a non-vectorised version:
+I'll start by implementing a non-vectorised version of the cost function $J(\theta)$: 
  
 
 {% highlight r %}
@@ -221,7 +188,9 @@ ucminf_out
 ## 4.236716e-07 2.095353e-05 3.307500e+00 3.200000e+01
 {% endhighlight %}
  
-So this gives a lot of output. But importantly it gives us three coefficients (`$par`), the final cost (`$value`), that convergence was reached (`$convergence`). Andrew Ng suggests that the final cost should be 0.203, which is what I get, so it seems to be working, and using `$par` to plot the decision voundary, we get a pretty good fit:
+So this gives a lot of output. But importantly it gives us three coefficients (`$par`), the final cost (`$value`), and that convergence was reached (`$convergence`).
+ 
+Andrew Ng suggests that the final cost should be 0.203, which is what I get, so it seems to be working, and using `$par` to plot the decision voundary, we get a pretty good fit:
  
 
 {% highlight r %}
@@ -260,9 +229,15 @@ First we create two vectors `c(y, 1 - y)` and `c(log(h(theta,X)), log(1 - h(thet
  
 $$J(\theta)\frac{1}{m}\sum^m_{i=1}[-y^{(i)}\log(h_\theta(x^{(i)}))-(1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$$
  
-The second vector concatenates the remaining terms $\text{log}(h_{\theta(x^{(i)})})$ and $\text{log}(1-h_{\theta(x^{(i)})})$.
+The second vector concatenates the remaining terms:
  
-The crossproduct of these two vectors is essentially the same as $\vec{a}^T\vec{b}$; basically the sum of every value of $\vec{a}$ multiplied by the corresponding value of $\vec{b}$. i.e.:  (note not all of the first vector equal zero: $\vec{a_{(i)}}\neq0$, $\vec{a}\in\{0,1\}$).
+$$\text{log}(h_{\theta(x^{(i)})})$$ 
+ 
+and 
+ 
+$$\text{log}(1-h_{\theta(x^{(i)})})$$
+ 
+The crossproduct of these two vectors is essentially the same as $\vec{a}^T\vec{b}$; basically the sum of every value of $\vec{a}$ multiplied by the corresponding value of $\vec{b}$. i.e.:  (note that not all of the first vector equal zero: $\vec{a_{(i)}}\neq0$, $\vec{a}\in\{0,1\}$).
  
 $$
 \begin{bmatrix}
@@ -367,24 +342,21 @@ benchmark(
     fn = function(t) Jv(X, y, t),
     gr = function(t) gRv(X, y, t)
     ),
-  replications = 1000
+  replications = 1000,
+  columns = c("test","replications","elapsed")
   )
 {% endhighlight %}
 
 
 
 {% highlight text %}
-##                test replications elapsed relative user.self sys.self
-## 1               glm         1000   3.986   16.008     3.903    0.102
-## 2            ucminf         1000   0.279    1.120     0.255    0.028
-## 3 ucminf_vectorised         1000   0.249    1.000     0.236    0.016
-##   user.child sys.child
-## 1          0         0
-## 2          0         0
-## 3          0         0
+##                test replications elapsed
+## 1               glm         1000   4.089
+## 2            ucminf         1000   0.308
+## 3 ucminf_vectorised         1000   0.251
 {% endhighlight %}
  
-So even with a relatively small dataset of just 100 rows, we find that a vectorised linear regression solved using an optimisation algorithm is many times quicker than applying a generalised linear model.
+So even with a relatively small dataset of just 100 rows, we find that a vectorised linear regression solved using an optimisation algorithm is many times quicker than applying a generalised linear model. Kinda makes it all worthwhile!
  
 Next time I'll look at implementing regularisation to fit more complicated decision boundaries.
  
