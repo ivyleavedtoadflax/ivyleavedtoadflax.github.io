@@ -60,7 +60,7 @@ $$
 \frac{\delta J(\theta)}{\delta\theta_{j}}=\frac{1}{m}\sum^{m}_{i=1}(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j
 $$
 
-### Vectorised logistoc regression
+### Vectorised logistic regression
 
 The first step is to implement a sigmoid function:
 
