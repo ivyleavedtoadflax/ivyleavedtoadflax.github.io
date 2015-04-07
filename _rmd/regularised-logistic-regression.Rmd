@@ -1,0 +1,834 @@
+---
+title: "Non-linear classification with logistic regression"
+date: 2015-04-07
+modified: `r format(Sys.time(), '%Y-%m-%d')`
+excerpt: "Implementing regularisation and feature mapping."
+layout: post
+published: no
+status: draft
+comments: true
+tags: [classification, logistic regression, fminunc, feature mapping, regularisation]
+---
+
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+library(ucminf)
+library(testthat)
+knitr::opts_chunk$set(message=FALSE,warning=FALSE)
+
+setwd("~/Dropbox/coursera/machine_learning/mlclass-ex2/")
+
+# Load functions from my previous post
+
+g <- function(z) {
+  
+  1 / (1 + exp(-z))
+  
+  }
+
+
+h <- function(theta,X) {
+  
+  g(X %*% theta)
+  
+  }
+
+Jv <- function(X, y, theta) {
+  -(1/length(y)) * crossprod(
+    c(y, 1 - y), 
+    c(log(h(theta,X)), log(1 - h(theta,X)))
+    )
+  }
+
+gRv <- function(X,y,theta) {
+  
+  (1 / length(y)) * crossprod(X, h(theta,X) - y)
+  
+  }
+
+
+```
+
+
+In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm folling the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
+
+### Visualising the data
+
+First I plot the data...and it's pretty clear that to create an accurate decision boundary will probably require some level of polynomials in order to account for its spherical nature.
+
+```{r}
+
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+library(ucminf)
+library(testthat)
+
+ex2data2 <- "ex2data2.txt" %>%
+  read.csv(header=FALSE) %>%
+  set_colnames(c("test_1","test_2","passed"))
+
+p <- ex2data2 %>%
+  ggplot(
+    aes(
+      x = test_1,
+      y = test_2
+      )
+    ) +
+  geom_point(
+    aes(
+      shape = factor(passed),
+      colour = factor(passed)
+      )
+    )+
+  xlab("Microchip test 1")+
+  ylab("Microchip test 2")
+
+p
+
+```
+
+### Feature mapping
+
+In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the sixth power. Hence:
+
+$$
+mF(x)=\begin{bmatrix}
+1 \\
+x_1 \\
+x_2 \\
+x_1^2 \\
+x_1 x_2 \\
+x_2^2 \\
+x_1^3 \\
+\vdots \\
+x_1x_2^5 \\
+x_2^6
+\end{bmatrix}
+$$
+
+These polynomials can be calculated with the following code. The first rather inelegant nested `for` loop could probably be replaced with something more mathematically elegant. In future I will update this to take more than two input features.
+
+
+```{r}
+
+map_feature <- function(X1,X2,degree) {
+  
+  # There's probably a more mathematically succinct way of doing this...
+  
+  counter = 0
+  for (i in 1:degree){
+    for (j in 0:i) {
+      counter <- counter + 1
+      }
+    }
+  
+  
+  out_matrix <- matrix(
+    nrow = length(X1),
+    ncol = counter
+    )
+  
+  names_vec <- vector(
+    length = counter
+    )
+  
+  counter = 0
+  for (i in 1:degree) {
+    for (j in 0:i) {
+      counter <- counter + 1
+      out_matrix[,counter] <- ((X1^(i-j))*(X2^j))
+      names_vec[counter] <- paste("X1^",i-j,"*X2^",j,sep="")
+      }
+    }
+  
+  colnames(out_matrix) <- names_vec
+  return(out_matrix)
+  
+  }
+
+poly <- map_feature(
+  ex2data2$test_1,
+  ex2data2$test_2,
+  6
+  )
+poly %>% colnames
+
+```
+
+Chances are that using all these features will result in overfitting. Let's see the result of this:
+
+```{r}
+
+theta <- runif(1:27)
+y <- ex2data2$passed
+
+ucminf_out <- ucminf(
+  par = theta,
+  fn = function(t) Jv(poly, y, t),
+  gr = function(t) gRv(poly, y, t)
+  )
+
+ucminf_out$convergence
+ucminf_out$message
+
+```
+
+So...it did converge, and if I was to call `ucminf_out$par`, it will return our `r ucminf_out$par %>% length` coefficients.
+
+With just two features, we can also quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from th egrid of points in a contour plot.
+
+The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges - although it would probably be fine if feature scaling is used.
+
+
+```{r}
+
+draw_boundary <- function(xy,theta) {
+  
+  u <- rep(xy, times = length(xy))
+  v <- rep(xy, each = length(xy))
+  
+  cbind(u,v,z = NA) %>% 
+    as.data.frame %>%
+    tbl_df %>%
+    dplyr::mutate(
+      z = h(theta, map_feature(u,v,6)) %>% round
+      )
+  }
+
+```
+
+Create the grid of points:
+
+```{r}
+
+boundary <- draw_boundary(
+  seq(-1.5, 1.5, length = 500),
+  ucminf_out$par
+  )
+
+```
+
+Now I add my prediction to the dataframe...
+
+```{r}
+
+ex2data2 %<>% 
+  dplyr::mutate(
+    pred = h(theta,poly) %>% round
+    )
+
+```
+
+At this point it is probably worth defining some sort of measure of accuracy. A simple percentage error will suffice in this case.
+
+```{r,eval=FALSE,include=FALSE}
+
+perc_error <- function(y,pred) {
+  
+  # Should really be implementing more unit tests throughout...,meh
+  
+  test_that(
+    "Prediction and actual are the same length",
+    expect_equal(length(y),length(pred))
+    )
+  
+  error <- 1/length(y) * sum((y - pred)^2)
+  error <- round(error,2)
+  return(error)
+  
+  }
+
+
+```
+
+And now for the decision boundary:
+
+```{r}
+
+p + geom_contour(
+  data = boundary,
+  aes(
+    x = u,
+    y = v,
+    z = z
+    ),
+  bins = 1
+  )+
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+```
+
+So this looks pretty good, and correctly classifies `r perc_error(ex2data2$passed,ex2data2$pred)`% of the training set. The decision boundary is rather doughnut shaped, and any values within the 'hole' will be misclassified, as will any values to the top left.
+
+### Regularisation - cost function and gradient
+
+To improve on the boundary above we can implement regularisation; this should reduce some of the overfitting seen in the last plot.
+
+Andrew Ng gives us the regularised cost function as:
+
+$$
+J(\theta)=\frac{1}{m}\sum^m_{i=1}[-y^{(i)}\log(h_\theta(x^{(i)}))-(1-y^{(i)})\log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum^n_{j=1}\theta^2_j
+$$
+
+Note that the parameter $\theta_0$ is not regularised as this corresponds to the intercept.
+
+```{r}
+
+Jv_reg <- function(X, y, theta, lambda) {
+  
+  m <- length(y)
+  
+  # Use identity matrix to remove first value from theta so that it is not regularised.
+  
+  # Remove first value i.e. theta_0
+  
+  theta1 <- theta
+  theta1[1] <- 0
+  
+  # Crossproduct is equivaelnt to theta[-1]^2
+  
+  reg <- (lambda/(2*m)) * crossprod(theta1,theta1)
+  
+  # Create regularisation term
+  
+  -(1/m) * crossprod(
+    c(y, 1 - y), 
+    c(log(h(theta,X)), log(1 - h(theta,X)))
+    ) + reg
+  }
+
+```
+
+So let's test this in comparison with the cost function that I defined in the previous post by setting the parameter $\lamda=0$, i.e. no regularisation.
+
+
+```{r}
+
+identical(
+  Jv(poly,y,theta),
+  Jv_reg(poly,y,theta,0)
+  )
+
+```
+
+Great, the function passes this basic test.
+
+Now for the gradient function. As noted, we don't regularise $\theta_0$, so we need a more complicated gradient function.
+
+$$
+\left\{
+\begin{array}{ll}  
+    \displaystyle\frac{\delta J(\theta)}{\delta\theta_0}=\frac{1}{m}\sum_{i=1}^m(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j & \text{for}\ j=0 \\
+    & \\
+    \displaystyle\frac{\delta J(\theta)}{\delta\theta_j}=\left(\frac{1}{m}\sum_{i=1}^n(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j\right) + \frac{\lambda}{m}\theta_j & \text{for}\ j\geq1
+\end{array}\right .
+$$
+
+
+This can be implemented in vectorised fashion:
+
+```{r}
+gRv_reg <- function(X,y,theta,lambda) {
+  
+  m <- length(y)
+  
+  reg <- (lambda/m) * theta
+  error <- h(theta,X) - y
+  delta <- crossprod(X,error) / m
+  return(delta + reg)
+  
+  }
+
+```
+
+The cost function for all values of $\theta$ initialised to zero should be around $0.693$.
+
+```{r}
+
+theta <- matrix(rep(0,27),ncol=1)
+X <- map_feature(
+  X1 = ex2data2$test_1,
+  X2 = ex2data2$test_2,
+  degree = 6
+  )
+y <- ex2data2$passed
+lambda <- 1
+
+
+reg_J(X,y,theta,lambda)
+
+```
+
+Ok so lets try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
+
+```{r}
+
+reg_lr <- function(X,y,theta,lambda) {
+  
+  ucminf_out <- ucminf(
+    par = theta,
+    fn = function(t) reg_J(X, y, t, lambda),
+    gr = function(t) reg_gR(X, y, t, lambda)
+    )
+  
+  return(ucminf_out$par)
+  
+  }
+
+```
+
+So we can try this...
+
+```{r}
+
+theta <- reg_lr(
+  X = X,
+  y = y,
+  theta = theta,
+  lambda = lambda
+  )
+
+theta
+
+```
+
+And it seems to be working.
+
+Now lets take the outputs from the regularised, vectorised logistic regression, and use them to plot the decision boundary.
+
+```{r,warning=TRUE,message=TRUE,error=TRUE}
+
+boundary <- draw_boundary(
+  seq(-1.5, 1.5, length = 200),
+  theta
+  )
+
+p + geom_contour(
+  data = boundary,
+  aes(
+    x = u,
+    y = v,
+    z = z
+    ),
+  bins = 1
+  )+
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+
+```
+
+Great, so lets try this for a range of $\lambda$.
+
+```{r,fig.width=9,fig.height=12}
+
+lambda <- c(0,0,0.00001,0.0001,0.001,0.005,0.01,0.05,0.1,0.5,1)
+out_mat <- matrix(nrow = 50,ncol=9)
+colnames(out_mat) <- paste(lambda[-c(1:2)],sep = "")
+out_mat <- cbind(boundary[,1:2],out_mat) %>% as.matrix
+
+for (i in 3:ncol(out_mat)) {
+  
+  out <- draw_boundary(
+    seq(-1.5, 1.5, length = 200),
+    reg_lr(
+      X = X,
+      y = y,
+      theta = theta,
+      lambda = lambda[i]
+      )
+    ) %$% z %>% as.vector
+  
+  out_mat[,i] <- out
+  
+  }
+
+
+
+out_mat %>%
+  data.frame %>%
+  tidyr::gather(
+    key,value,3:11
+    ) %>%
+  tbl_df  %>%
+  ggplot(
+    aes(
+      x = u,
+      y = v
+      )
+    ) +
+  geom_contour(
+    aes(
+      z = value
+      ),
+    bins = 1
+    ) + 
+  facet_wrap(
+    ~key
+    ) +
+  geom_point(
+    data = ex2data2,
+    aes(
+      x = test_1,
+      y = test_2,
+      colour = factor(passed),
+      shape = factor(passed)
+      )
+    ) +
+  xlab("Microchip test 1") +
+  ylab("Microchip test 2") +
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+
+
+
+```
+
+## Is this right?
+
+Looking at some of the online tutorial on this ([here](http://www.r-bloggers.com/machine-learning-ex5-2-regularized-logistic-regression/) and [here](http://ygc.name/2011/10/26/machine-learning-5-2-regularized-logistic-regression/)), I'm a little sceptical that what I have implemented above is correct.
+
+Neither of the above examples use `ucminf`, but instead rely on calculating the 'Hessian' and then solving it iteratively. I'll reprpduce the code from [http://ygc.name/2011/10/26/machine-learning-5-2-regularized-logistic-regression/](http://ygc.name/2011/10/26/machine-learning-5-2-regularized-logistic-regression/)
+
+
+```{r}
+
+# Adapted from http://ygc.name/2011/10/26/machine-learning-5-2-regularized-logistic-regression/
+
+Hessian <- function(theta, X, lambda=1) {
+  m <- nrow(X)
+  n <- ncol(X)
+  reg <- lambda/m * diag(n)
+  reg[1] <- 0
+  H <- 1/m * crossprod(X,X) * diag(h(theta,X)) * diag(1-h(theta,X)) + reg
+  return(H)
+  }
+
+# Set theta to 0
+
+theta <- rep(0, ncol(X))
+j <- rep(0,10)
+lambda = 1
+
+for (i in 1:10) {
+  theta <- theta - solve(Hessian(theta,X,lambda)) %*% reg_gR(X,y,theta,lambda)
+  j[i] <- reg_J(X,y,theta,lambda)
+  }
+
+```
+
+And it seems to be converging...
+
+```{r}
+
+ggplot()+ 
+  aes(
+    x = 1:10, 
+    y = j
+    ) + 
+  geom_point(
+    colour = "red"
+    ) + 
+  geom_line() +
+  xlab(
+    "Iteration"
+    ) + 
+  ylab(
+    expression(J(theta))
+    )
+
+```
+
+Sp lets roll this intoa  function, and then try it again...
+
+```{r}
+
+solve_Hessian <- function(X,y,theta,lambda,j) {
+  
+  j <- rep(0,j)
+  
+  for (i in 1:10) {
+    theta <- theta - solve(Hessian(theta,X,lambda)) %*% reg_gR(X,y,theta,lambda)
+    j[i] <- reg_J(X,y,theta,lambda)
+    }
+  
+  out <- list(
+    theta = theta,
+    j = j
+    )
+  
+  return(out)
+  }
+
+solve_Hessian(X,y,theta,1,10)
+
+```
+
+So I'll redraw the decision boundary here using the Hessian method, for $\lambda=1$:
+
+```{r}
+
+
+boundary <- draw_boundary(
+  seq(-1.5, 1.5, length = 200),
+  solve_Hessian(X,y,theta,1,10)$theta
+  )
+
+
+p + geom_contour(
+  data = boundary,
+  aes(
+    x = u,
+    y = v,
+    z = z
+    ),
+  bins = 1
+  )+
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+```
+
+And for $\lambda = {0.00001,0.0001,0.001,0.005,0.01,0.05,0.1,0.5,1}$...
+
+```{r,fig.width=9,fig.height=12}
+
+lambda <- c(0,0,0.00001,0.0001,0.001,0.005,0.01,0.05,0.1,0.5,1)
+out_mat <- matrix(nrow = 200,ncol=9)
+colnames(out_mat) <- paste(lambda[-c(1:2)],sep = "")
+out_mat <- cbind(boundary[,1:2],out_mat) %>% as.matrix
+
+for (i in 3:ncol(out_mat)) {
+  
+  out <- draw_boundary(
+    seq(-1.5, 1.5, length = 200),
+    solve_Hessian(
+      X = X,
+      y = y,
+      theta = theta,
+      lambda = lambda[i],
+      j = 100
+      )$theta
+    ) %$% z %>% as.vector
+  
+  out_mat[,i] <- out
+  
+  }
+
+out_mat %>%
+  data.frame %>%
+  tidyr::gather(
+    key,value,3:11
+    ) %>%
+  tbl_df  %>%
+  ggplot(
+    aes(
+      x = u,
+      y = v
+      )
+    ) +
+  geom_contour(
+    aes(
+      z = value
+      ),
+    bins = 1
+    ) + 
+  facet_wrap(
+    ~key
+    ) +
+  geom_point(
+    data = ex2data2,
+    aes(
+      x = test_1,
+      y = test_2,
+      colour = factor(passed),
+      shape = factor(passed)
+      )
+    ) +
+  xlab("Microchip test 1") +
+  ylab("Microchip test 2") +
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+```
+
+This still doesn't match up with results presented [here](http://ygc.name/2011/10/26/machine-learning-5-2-regularized-logistic-regression/). I'm going to try again reproducing ALL of their code...
+
+```{r}
+
+x <- as.matrix(ex2data2[,1:2])
+y <- ex2data2$passed
+
+##sigmod function
+
+g <- function(z) { 
+  toReturn <- 1/(1+exp(-z))
+  return(toReturn) 
+  }
+
+##hypothesis function
+
+h <- function(theta, x) { g(x %*% theta) }
+
+## cost function
+
+J <- function(theta,x,y,lambda=1) {
+  m <- length(y) 
+  j <- -1/m * ( y %*% log( h(theta,x) ) + (1-y) %*% log( 1- h(theta,x) ) ) 
+  r <- theta^2 
+  r[1] <- 0 
+  j <- j + lambda/(2*m) * sum(r)
+  return(j) 
+  } 
+
+## gradient
+
+grad <- function(theta, x, y, lambda = 1) {
+  m <- length(y)
+  r <- lambda/m * theta
+  r[1] <- 0
+  g <- 1/m * t(x) %*% (h(theta,x)-y) + r
+  return(g)
+  }
+
+## Hessian
+
+Hessian <- function(theta, x, lambda=1) {
+  m <- nrow(x)
+  n <- ncol(x)
+  r <- lambda/m * diag(n)
+  r[1] <- 0
+  H <- 1/m * t(x) %*% x *diag(h(theta,x)) * diag(1-h(theta,x)) + r
+  return(H)
+  }
+
+colnames(x) <- c("u", "v") 
+x <- map_feature(x[,1],x[,2], 6)
+
+#x <- x[,c(-1,-2)]
+x <- as.matrix(x)
+theta <- matrix(rep(0, ncol(x)), ncol=1)
+lambda <- 1
+j <- rep(0,10)
+
+for (i in 1:10) { 
+  theta <- theta - solve(Hessian(theta,x, lambda)) %*% grad(theta,x,y,lambda)
+  j[i] <- J(theta,x,y, lambda)
+  }
+
+```
+
+Again let's roll this into a function for the sake of ease
+
+```{r}
+
+theta <- matrix(rep(0, ncol(x)), ncol=1)
+
+solve_Hessian <- function(X,y,theta,lambda,j) {
+  
+  j <- rep(0,j)
+  
+  for (i in 1:length(j)) { 
+    theta <- theta - solve(Hessian(theta,x, lambda=lambda)) %*% grad(theta,x,y,lambda=lambda) 
+    j[i] <- J(theta,x,y, lambda)
+    } 
+  
+  out <- list(
+    theta = theta,
+    j = j
+    )
+  
+  return(out)
+  }
+
+
+#solve_Hessian(x,y,theta,lambda,10)
+
+```
+
+I decided not to implment the boundary drawing function as it was a bit too painful, and have used mine instead.
+
+```{r,fig.width=9,fig.height=12}
+
+lambda <- c(0,0,0.00001,0.0001,0.001,0.005,0.01,0.05,0.1,0.5,1)
+out_mat <- matrix(nrow = 200,ncol=9)
+colnames(out_mat) <- paste(lambda[-c(1:2)],sep = "")
+out_mat <- cbind(boundary[,1:2],out_mat) %>% as.matrix
+
+for (i in 3:ncol(out_mat)) {
+  
+  out <- draw_boundary(
+    seq(-1.5, 1.5, length = 200),
+    solve_Hessian(
+      X = x,
+      y = y,
+      theta = theta,
+      lambda = lambda[i],
+      j = 100
+      )$theta
+    ) %$% z %>% as.vector
+  
+  out_mat[,i] <- out
+  
+  }
+
+out_mat %>%
+  data.frame %>%
+  tidyr::gather(
+    key,value,3:11
+    ) %>%
+  tbl_df  %>%
+  ggplot(
+    aes(
+      x = u,
+      y = v
+      )
+    ) +
+  geom_contour(
+    aes(
+      z = value
+      ),
+    bins = 1
+    ) + 
+  facet_wrap(
+    ~key
+    ) +
+  geom_point(
+    data = ex2data2,
+    aes(
+      x = test_1,
+      y = test_2,
+      colour = factor(passed),
+      shape = factor(passed)
+      )
+    ) +
+  xlab("Microchip test 1") +
+  ylab("Microchip test 2") +
+  coord_cartesian(
+    xlim = c(-0.9,1.2),
+    ylim = c(-0.9,1.2)
+    )
+
+```
+
+Well there are definitely some minor differences going on, but I'm none the wiser as to what they are!
+
+```{r}
+sessionInfo()
+```
