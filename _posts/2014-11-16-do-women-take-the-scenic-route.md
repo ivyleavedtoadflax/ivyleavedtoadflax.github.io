@@ -194,6 +194,8 @@ journey_times <- mapdist(
 ## ..          ...     ...   ...  ...
 {% endhighlight %}
  
+
+{% highlight r %}
 # Ok so then bind this to the journeys1 dataframe
  
 journeys_merge <- tbl_df(
@@ -205,7 +207,13 @@ journeys_merge <- tbl_df(
   dplyr::select(
     -from,-to,-km,-miles,-minutes,-hours
     )
-```
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in cbind(journeys_subset, journey_times): object 'journeys_subset' not found
+{% endhighlight %}
  
 
 {% highlight text %}
@@ -510,8 +518,8 @@ sessionInfo()
 ## [1] methods   stats     graphics  grDevices utils     datasets  base     
 ## 
 ## other attached packages:
-## [1] mapproj_1.2-2   maps_2.3-9      ggmap_2.4       ggplot2_1.0.0  
-## [5] lubridate_1.3.3 magrittr_1.5    dplyr_0.4.1     testthat_0.8.1 
+## [1] mapproj_1.2-2   maps_2.3-9      magrittr_1.5    ggmap_2.4      
+## [5] ggplot2_1.0.0   lubridate_1.3.3 dplyr_0.4.1     testthat_0.8.1 
 ## [9] knitr_1.9      
 ## 
 ## loaded via a namespace (and not attached):

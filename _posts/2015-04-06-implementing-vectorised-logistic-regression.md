@@ -351,9 +351,9 @@ benchmark(
 
 {% highlight text %}
 ##                test replications elapsed
-## 1               glm         1000   4.089
-## 2            ucminf         1000   0.308
-## 3 ucminf_vectorised         1000   0.251
+## 1               glm         1000   4.068
+## 2            ucminf         1000   0.313
+## 3 ucminf_vectorised         1000   0.276
 {% endhighlight %}
  
 So even with a relatively small dataset of just 100 rows, we find that a vectorised linear regression solved using an optimisation algorithm is many times quicker than applying a generalised linear model. Kinda makes it all worthwhile!
@@ -384,15 +384,20 @@ sessionInfo()
 ## [1] methods   stats     graphics  grDevices utils     datasets  base     
 ## 
 ## other attached packages:
-## [1] rbenchmark_1.0.0 ucminf_1.1-3     ggplot2_1.0.0    magrittr_1.5    
-## [5] dplyr_0.4.1      testthat_0.8.1   knitr_1.9       
+##  [1] rbenchmark_1.0.0 ucminf_1.1-3     mapproj_1.2-2    maps_2.3-9      
+##  [5] magrittr_1.5     ggmap_2.4        ggplot2_1.0.0    lubridate_1.3.3 
+##  [9] dplyr_0.4.1      testthat_0.8.1   knitr_1.9       
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] assertthat_0.1   colorspace_1.2-5 DBI_0.3.1        digest_0.6.4    
-##  [5] evaluate_0.5.5   formatR_1.0      grid_3.1.3       gtable_0.1.2    
-##  [9] labeling_0.3     lazyeval_0.1.10  MASS_7.3-39      munsell_0.4.2   
-## [13] parallel_3.1.3   plyr_1.8.1       proto_0.3-10     Rcpp_0.11.5     
-## [17] reshape2_1.4.1   scales_0.2.4     stringr_0.6.2    tcltk_3.1.3     
-## [21] tools_3.1.3
+##  [1] assertthat_0.1      colorspace_1.2-5    DBI_0.3.1          
+##  [4] digest_0.6.4        evaluate_0.5.5      formatR_1.0        
+##  [7] geosphere_1.3-11    grid_3.1.3          gtable_0.1.2       
+## [10] jpeg_0.1-8          labeling_0.3        lattice_0.20-30    
+## [13] lazyeval_0.1.10     MASS_7.3-39         memoise_0.2.1      
+## [16] munsell_0.4.2       parallel_3.1.3      plyr_1.8.1         
+## [19] png_0.1-7           proto_0.3-10        Rcpp_0.11.5        
+## [22] reshape2_1.4.1      RgoogleMaps_1.2.0.7 rjson_0.2.15       
+## [25] RJSONIO_1.3-0       scales_0.2.4        sp_1.0-17          
+## [28] stringr_0.6.2       tcltk_3.1.3         tools_3.1.3
 {% endhighlight %}
  

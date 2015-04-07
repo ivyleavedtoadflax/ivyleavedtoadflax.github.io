@@ -64,7 +64,7 @@ $$
 
 The first step is to implement a sigmoid function:
 
-```{r,2015-04-06-sigmoid-function}
+```{r,2015-04-06-sigmoid-function,fig.width=10}
 
 g <- function(z) {
   
