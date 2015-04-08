@@ -4,8 +4,8 @@ date: 2015-04-06
 modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: "Comparing vectorised methods with general linear models"
 layout: post
-published: no
-status: process
+published: yes
+status: processed
 comments: true
 tags: [machine learning, logistic regression, fminunc]
 ---
@@ -97,7 +97,7 @@ h <- function(theta,X) {
 
 ### Cost function and gradient
 
-I'll start by implementing a non-vectorised version of the cost function $J(\theta)$: 
+I'll start by implementing an only partially vectorised version of the cost function $J(\theta)$: 
 
 ```{r}
 
