@@ -1,7 +1,7 @@
 ---
 title: "Non-linear classification with logistic regression"
 date: 2015-04-10
-modified: `r format(Sys.time(), '%Y-%m-%d')`
+#modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: "Implementing regularisation and feature mapping."
 layout: post
 published: no
@@ -51,11 +51,11 @@ gRv <- function(X,y,theta) {
 ```
 
 
-In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm folling the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
+In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm following the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
 
 ### Visualising the data
 
-First I plot the data...and it's pretty clear that to create an accurate decision boundary will probably require some level of polynomials in order to account for its spherical nature.
+First I plot the data...and it's pretty clear that to create an accurate decision boundary will require some degree of polynomial features in order to account for its spherical nature.
 
 ```{r,2015-04-10-initial-data-plot}
 
@@ -91,7 +91,7 @@ p
 
 ### Feature mapping
 
-In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the fifth power. Hence:
+In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the twelfth power giving a crazy amount of input features. Hence:
 
 $$
 mF(x)=\begin{bmatrix}
@@ -103,12 +103,12 @@ x_1 x_2 \\
 x_2^2 \\
 x_1^3 \\
 \vdots \\
-x_1x_2^5 \\
-x_2^6
+x_1x_2^{11} \\
+x_2^{12}
 \end{bmatrix}
 $$
 
-These polynomials can be calculated with the following code. The first rather inelegant nested `for` loop could probably be replaced with something more mathematically elegant. In future I will update this to take more than two input features.
+These polynomials can be calculated with the following code. In future I will update this to take more than two input features.
 
 
 ```{r}
@@ -154,10 +154,10 @@ map_feature <- function(X1,X2,degree) {
 
 ```
 
-For this example, I will use an overly high degree of polynomial so that the effect of the regularisation is more pronounced.
+And tthe list of 91 features:
 
 ```{r}
-degree <- 5
+degree <- 12
 
 poly <- map_feature(
   ex2data2$test_1,
@@ -170,7 +170,7 @@ poly %>% colnames
 
 ```
 
-Chances are that using all these features will result in overfitting. Let's see the result of this:
+Now run the linear regression I implemented in my [previous post](http://ivyleavedtoadflax.github.io//implementing-vectorised-logistic-regression/).
 
 ```{r}
 
@@ -188,7 +188,7 @@ ucminf_out$message
 
 ```
 
-So...it did converge, and if I was to call `ucminf_out$par`, it will return our `r ucminf_out$par %>% length` parameters.
+So the optimisation algorithm converged successfully, and if I was to call `ucminf_out$par`, it would return our `r ucminf_out$par %>% length` parameters.
 
 At this point it is probably worth defining some sort of measure of accuracy. A simple proportion error will suffice in this case.
 
@@ -196,7 +196,7 @@ At this point it is probably worth defining some sort of measure of accuracy. A 
 
 err <- function(y,pred) {
   
-  # Should really be implementing more unit tests throughout...,meh
+  # Should really be implementing more unit tests throughout...
   
   test_that(
     "Prediction and actual are the same length",
@@ -209,13 +209,6 @@ err <- function(y,pred) {
   
   }
 
-
-```
-
-So the present model accurately predicts `r (1 - err(ex2data2$passed,h(ucminf_out$par,poly))) * 100`% of the training data, but it is a pretty specific shape that is likely to be overfitted.
-
-```{r}
-
 # Proportion of data that is incorrectly classified
 
 err(
@@ -225,9 +218,12 @@ err(
 
 ```
 
-With just two features, we can also quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from the grid of points in a contour plot.
+So the present model accurately predicts `r (1 - err(ex2data2$passed,h(ucminf_out$par,poly))) * 100`% of the training data, but it is a pretty specific shape that is likely to be overfitted.
 
-The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges - although it would probably be fine if feature scaling is used.
+
+With just two original input features, we can quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from the grid of points in a contour plot.
+
+The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges (although it would probably be fine if feature scaling is used)
 
 
 ```{r}
@@ -247,7 +243,7 @@ draw_boundary <- function(xy,theta,degree) {
 
 ```
 
-Create the grid of points:
+Create the grid of predictions:
 
 ```{r}
 
@@ -279,7 +275,7 @@ p + geom_contour(
 
 ```
 
-So this looks pretty good, but it could probably be improved especially in the top left where new cases are likely to be mis-classified.
+So this looks is capturing the positive values pretty well, but it could probably be improved especially in the top and bottom left where new cases are likely to be mis-classified.
 
 ### Regularisation - cost function and gradient
 
@@ -374,7 +370,7 @@ all.equal(
 
 ```
 
-So far so good. Ok so lets try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
+So far so good. Now I'll try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
 
 ```{r}
 
@@ -446,7 +442,7 @@ p + geom_contour(
 
 Regularisation has smoothed away much of the overfitting. We can't tell how succesful this will be without evaluating the model on the a set, but we can also try a range of values for $\lambda$ and see what effect this has.
 
-First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.005,0.01,0.05,0.1,0.5\}$.
+First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.01,0.1,1\}$.
 
 ```{r}
 
@@ -545,7 +541,8 @@ out_mat %>%
 
 ```
 
-So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would probably perform better against a test set.
+So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would certainly perform better against a test set.
+
 
 ```{r}
 sessionInfo()

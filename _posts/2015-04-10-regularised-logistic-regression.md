@@ -1,7 +1,7 @@
 ---
 title: "Non-linear classification with logistic regression"
 date: 2015-04-10
-modified: 2015-04-10
+#modified: 2015-04-10
 excerpt: "Implementing regularisation and feature mapping."
 layout: post
 published: true
@@ -14,11 +14,11 @@ tags: [classification, logistic regression, fminunc, feature mapping, regularisa
 
  
  
-In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm folling the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
+In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm following the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
  
 ### Visualising the data
  
-First I plot the data...and it's pretty clear that to create an accurate decision boundary will probably require some level of polynomials in order to account for its spherical nature.
+First I plot the data...and it's pretty clear that to create an accurate decision boundary will require some degree of polynomial features in order to account for its spherical nature.
  
 
 {% highlight r %}
@@ -55,7 +55,7 @@ p
  
 ### Feature mapping
  
-In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the fifth power. Hence:
+In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the twelfth power giving a crazy amount of input features. Hence:
  
 $$
 mF(x)=\begin{bmatrix}
@@ -67,12 +67,12 @@ x_1 x_2 \\
 x_2^2 \\
 x_1^3 \\
 \vdots \\
-x_1x_2^5 \\
-x_2^6
+x_1x_2^{11} \\
+x_2^{12}
 \end{bmatrix}
 $$
  
-These polynomials can be calculated with the following code. The first rather inelegant nested `for` loop could probably be replaced with something more mathematically elegant. In future I will update this to take more than two input features.
+These polynomials can be calculated with the following code. In future I will update this to take more than two input features.
  
  
 
@@ -117,11 +117,11 @@ map_feature <- function(X1,X2,degree) {
   }
 {% endhighlight %}
  
-For this example, I will use an overly high degree of polynomial so that the effect of the regularisation is more pronounced.
+And tthe list of 91 features:
  
 
 {% highlight r %}
-degree <- 5
+degree <- 12
  
 poly <- map_feature(
   ex2data2$test_1,
@@ -135,14 +135,28 @@ poly %>% colnames
 
 
 {% highlight text %}
-##  [1] "1"         "X1^1*X2^0" "X1^0*X2^1" "X1^2*X2^0" "X1^1*X2^1"
-##  [6] "X1^0*X2^2" "X1^3*X2^0" "X1^2*X2^1" "X1^1*X2^2" "X1^0*X2^3"
-## [11] "X1^4*X2^0" "X1^3*X2^1" "X1^2*X2^2" "X1^1*X2^3" "X1^0*X2^4"
-## [16] "X1^5*X2^0" "X1^4*X2^1" "X1^3*X2^2" "X1^2*X2^3" "X1^1*X2^4"
-## [21] "X1^0*X2^5"
+##  [1] "1"          "X1^1*X2^0"  "X1^0*X2^1"  "X1^2*X2^0"  "X1^1*X2^1" 
+##  [6] "X1^0*X2^2"  "X1^3*X2^0"  "X1^2*X2^1"  "X1^1*X2^2"  "X1^0*X2^3" 
+## [11] "X1^4*X2^0"  "X1^3*X2^1"  "X1^2*X2^2"  "X1^1*X2^3"  "X1^0*X2^4" 
+## [16] "X1^5*X2^0"  "X1^4*X2^1"  "X1^3*X2^2"  "X1^2*X2^3"  "X1^1*X2^4" 
+## [21] "X1^0*X2^5"  "X1^6*X2^0"  "X1^5*X2^1"  "X1^4*X2^2"  "X1^3*X2^3" 
+## [26] "X1^2*X2^4"  "X1^1*X2^5"  "X1^0*X2^6"  "X1^7*X2^0"  "X1^6*X2^1" 
+## [31] "X1^5*X2^2"  "X1^4*X2^3"  "X1^3*X2^4"  "X1^2*X2^5"  "X1^1*X2^6" 
+## [36] "X1^0*X2^7"  "X1^8*X2^0"  "X1^7*X2^1"  "X1^6*X2^2"  "X1^5*X2^3" 
+## [41] "X1^4*X2^4"  "X1^3*X2^5"  "X1^2*X2^6"  "X1^1*X2^7"  "X1^0*X2^8" 
+## [46] "X1^9*X2^0"  "X1^8*X2^1"  "X1^7*X2^2"  "X1^6*X2^3"  "X1^5*X2^4" 
+## [51] "X1^4*X2^5"  "X1^3*X2^6"  "X1^2*X2^7"  "X1^1*X2^8"  "X1^0*X2^9" 
+## [56] "X1^10*X2^0" "X1^9*X2^1"  "X1^8*X2^2"  "X1^7*X2^3"  "X1^6*X2^4" 
+## [61] "X1^5*X2^5"  "X1^4*X2^6"  "X1^3*X2^7"  "X1^2*X2^8"  "X1^1*X2^9" 
+## [66] "X1^0*X2^10" "X1^11*X2^0" "X1^10*X2^1" "X1^9*X2^2"  "X1^8*X2^3" 
+## [71] "X1^7*X2^4"  "X1^6*X2^5"  "X1^5*X2^6"  "X1^4*X2^7"  "X1^3*X2^8" 
+## [76] "X1^2*X2^9"  "X1^1*X2^10" "X1^0*X2^11" "X1^12*X2^0" "X1^11*X2^1"
+## [81] "X1^10*X2^2" "X1^9*X2^3"  "X1^8*X2^4"  "X1^7*X2^5"  "X1^6*X2^6" 
+## [86] "X1^5*X2^7"  "X1^4*X2^8"  "X1^3*X2^9"  "X1^2*X2^10" "X1^1*X2^11"
+## [91] "X1^0*X2^12"
 {% endhighlight %}
  
-Chances are that using all these features will result in overfitting. Let's see the result of this:
+Now run the linear regression I implemented in my [previous post](http://ivyleavedtoadflax.github.io//implementing-vectorised-logistic-regression/).
  
 
 {% highlight r %}
@@ -161,7 +175,7 @@ ucminf_out$convergence
 
 
 {% highlight text %}
-## [1] 1
+## [1] 4
 {% endhighlight %}
 
 
@@ -173,10 +187,10 @@ ucminf_out$message
 
 
 {% highlight text %}
-## [1] "Stopped by small gradient (grtol)."
+## [1] "Stopped by zero step from line search"
 {% endhighlight %}
  
-So...it did converge, and if I was to call `ucminf_out$par`, it will return our 21 parameters.
+So the optimisation algorithm converged successfully, and if I was to call `ucminf_out$par`, it would return our 91 parameters.
  
 At this point it is probably worth defining some sort of measure of accuracy. A simple proportion error will suffice in this case.
  
@@ -184,7 +198,7 @@ At this point it is probably worth defining some sort of measure of accuracy. A 
 {% highlight r %}
 err <- function(y,pred) {
   
-  # Should really be implementing more unit tests throughout...,meh
+  # Should really be implementing more unit tests throughout...
   
   test_that(
     "Prediction and actual are the same length",
@@ -196,12 +210,7 @@ err <- function(y,pred) {
   return(error)
   
   }
-{% endhighlight %}
  
-So the present model accurately predicts 91% of the training data, but it is a pretty specific shape that is likely to be overfitted.
- 
-
-{% highlight r %}
 # Proportion of data that is incorrectly classified
  
 err(
@@ -213,12 +222,15 @@ err(
 
 
 {% highlight text %}
-## [1] 0.09
+## [1] 0.07
 {% endhighlight %}
  
-With just two features, we can also quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from the grid of points in a contour plot.
+So the present model accurately predicts 93% of the training data, but it is a pretty specific shape that is likely to be overfitted.
  
-The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges - although it would probably be fine if feature scaling is used.
+ 
+With just two original input features, we can quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from the grid of points in a contour plot.
+ 
+The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges (although it would probably be fine if feature scaling is used)
  
  
 
@@ -237,7 +249,7 @@ draw_boundary <- function(xy,theta,degree) {
   }
 {% endhighlight %}
  
-Create the grid of points:
+Create the grid of predictions:
  
 
 {% highlight r %}
@@ -269,7 +281,7 @@ p + geom_contour(
 
 ![plot of chunk 2015-04-10-no-regularisation](/figures/2015-04-10-no-regularisation-1.png) 
  
-So this looks pretty good, but it could probably be improved especially in the top left where new cases are likely to be mis-classified.
+So this looks is capturing the positive values pretty well, but it could probably be improved especially in the top and bottom left where new cases are likely to be mis-classified.
  
 ### Regularisation - cost function and gradient
  
@@ -382,7 +394,7 @@ all.equal(
 ## [1] TRUE
 {% endhighlight %}
  
-So far so good. Ok so lets try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
+So far so good. Now I'll try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
  
 
 {% highlight r %}
@@ -427,11 +439,25 @@ reg_lr_out
 
 {% highlight text %}
 ## $theta
-##  [1]  1.14597671  0.58591828  1.17257049 -2.03072975 -0.87807833
-##  [6] -1.39411398  0.04982992 -0.37314127 -0.34099052 -0.29228499
-## [11] -1.59733906 -0.04894558 -0.61912854 -0.24544800 -1.37455636
-## [16] -0.34468084 -0.22036240 -0.05015388 -0.28349689 -0.27887222
-## [21] -0.67081958
+##  [1]  1.116795888  0.622142490  1.144381441 -1.760214959 -0.893246508
+##  [6] -1.210119424  0.259287641 -0.385567512 -0.378582876 -0.002113363
+## [11] -1.262116648 -0.043880154 -0.627506940 -0.275767731 -0.954816713
+## [16] -0.087929375 -0.206783162 -0.049800103 -0.279764342 -0.311163184
+## [21] -0.209464841 -0.871690233  0.034226746 -0.295848645  0.015258988
+## [26] -0.328545231 -0.153747438 -0.652765344 -0.212586493 -0.094079448
+## [31] -0.042243458 -0.115997122 -0.034127849 -0.169591334 -0.213073869
+## [36] -0.226615812 -0.618312146  0.040374942 -0.154958018  0.014430220
+## [41] -0.130840414  0.013658394 -0.187500334 -0.105806945 -0.447151822
+## [46] -0.238780084 -0.042082893 -0.036744504 -0.045987498 -0.018756874
+## [51] -0.065146211 -0.013666503 -0.105994705 -0.146706656 -0.203949401
+## [56] -0.451351638  0.032798742 -0.089688693  0.009685109 -0.057863261
+## [61]  0.006237453 -0.068507640  0.012199324 -0.114344440 -0.080982886
+## [66] -0.317099323 -0.226550777 -0.019006589 -0.029703171 -0.018856708
+## [71] -0.012996508 -0.024383193 -0.006704414 -0.039146008 -0.002644283
+## [76] -0.070252488 -0.105101718 -0.177581222 -0.338552450  0.023408734
+## [81] -0.055668058  0.006591905 -0.028903065  0.002398368 -0.026917924
+## [86]  0.004309776 -0.040090466  0.010951520 -0.074018464 -0.065810602
+## [91] -0.236770557
 ## 
 ## $error
 ## [1] 0.15
@@ -466,7 +492,7 @@ p + geom_contour(
  
 Regularisation has smoothed away much of the overfitting. We can't tell how succesful this will be without evaluating the model on the a set, but we can also try a range of values for $\lambda$ and see what effect this has.
  
-First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.005,0.01,0.05,0.1,0.5\}$.
+First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.01,0.1,1\}$.
  
 
 {% highlight r %}
@@ -491,9 +517,9 @@ reg_error %>% set_colnames(c("i","error"))
 
 {% highlight text %}
 ##          i error
-## [1,] 0e+00  0.09
-## [2,] 1e-04  0.09
-## [3,] 1e-03  0.10
+## [1,] 0e+00  0.07
+## [2,] 1e-04  0.08
+## [3,] 1e-03  0.09
 ## [4,] 1e-02  0.10
 ## [5,] 1e-01  0.11
 ## [6,] 1e+00  0.15
@@ -577,7 +603,8 @@ out_mat %>%
 
 ![plot of chunk 2015-04-10-various-lambdas](/figures/2015-04-10-various-lambdas-1.png) 
  
-So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would probably perform better against a test set.
+So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would certainly perform better against a test set.
+ 
  
 
 {% highlight r %}
