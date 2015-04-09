@@ -1,7 +1,7 @@
 ---
 title: "Non-linear classification with logistic regression"
-date: 2015-04-07
-modified: 2015-04-08
+date: 2015-04-10
+modified: 2015-04-10
 excerpt: "Implementing regularisation and feature mapping."
 layout: post
 published: true
@@ -51,11 +51,11 @@ p <- ex2data2 %>%
 p
 {% endhighlight %}
 
-![plot of chunk 2015-04-07-initial-data-plot](/figures/2015-04-07-initial-data-plot-1.png) 
+![plot of chunk 2015-04-10-initial-data-plot](/figures/2015-04-10-initial-data-plot-1.png) 
  
 ### Feature mapping
  
-In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the sixth power. Hence:
+In this example I'll map the features into all polynomial terms of $x_1$ and $x_2$ up to the fifth power. Hence:
  
 $$
 mF(x)=\begin{bmatrix}
@@ -79,7 +79,8 @@ These polynomials can be calculated with the following code. The first rather in
 {% highlight r %}
 map_feature <- function(X1,X2,degree) {
   
-  # There's probably a more mathematically succinct way of doing this...
+  # There's probably a more mathematically succinct way of doing this... 
+  # Calculate the required ncol of the matrix
   
   counter = 0
   for (i in 1:degree){
@@ -87,7 +88,6 @@ map_feature <- function(X1,X2,degree) {
       counter <- counter + 1
       }
     }
-  
   
   out_matrix <- matrix(
     nrow = length(X1),
@@ -103,39 +103,50 @@ map_feature <- function(X1,X2,degree) {
     for (j in 0:i) {
       counter <- counter + 1
       out_matrix[,counter] <- ((X1^(i-j))*(X2^j))
+      
+      # Work out the names for the matrix
+      
       names_vec[counter] <- paste("X1^",i-j,"*X2^",j,sep="")
       }
     }
   
-  colnames(out_matrix) <- names_vec
+  out_matrix <- cbind(1, out_matrix)
+  colnames(out_matrix) <- c(1,names_vec)
   return(out_matrix)
   
   }
+{% endhighlight %}
+ 
+For this example, I will use an overly high degree of polynomial so that the effect of the regularisation is more pronounced.
+ 
+
+{% highlight r %}
+degree <- 5
  
 poly <- map_feature(
   ex2data2$test_1,
   ex2data2$test_2,
-  6
+  degree
   )
+ 
 poly %>% colnames
 {% endhighlight %}
 
 
 
 {% highlight text %}
-##  [1] "X1^1*X2^0" "X1^0*X2^1" "X1^2*X2^0" "X1^1*X2^1" "X1^0*X2^2"
-##  [6] "X1^3*X2^0" "X1^2*X2^1" "X1^1*X2^2" "X1^0*X2^3" "X1^4*X2^0"
-## [11] "X1^3*X2^1" "X1^2*X2^2" "X1^1*X2^3" "X1^0*X2^4" "X1^5*X2^0"
-## [16] "X1^4*X2^1" "X1^3*X2^2" "X1^2*X2^3" "X1^1*X2^4" "X1^0*X2^5"
-## [21] "X1^6*X2^0" "X1^5*X2^1" "X1^4*X2^2" "X1^3*X2^3" "X1^2*X2^4"
-## [26] "X1^1*X2^5" "X1^0*X2^6"
+##  [1] "1"         "X1^1*X2^0" "X1^0*X2^1" "X1^2*X2^0" "X1^1*X2^1"
+##  [6] "X1^0*X2^2" "X1^3*X2^0" "X1^2*X2^1" "X1^1*X2^2" "X1^0*X2^3"
+## [11] "X1^4*X2^0" "X1^3*X2^1" "X1^2*X2^2" "X1^1*X2^3" "X1^0*X2^4"
+## [16] "X1^5*X2^0" "X1^4*X2^1" "X1^3*X2^2" "X1^2*X2^3" "X1^1*X2^4"
+## [21] "X1^0*X2^5"
 {% endhighlight %}
  
 Chances are that using all these features will result in overfitting. Let's see the result of this:
  
 
 {% highlight r %}
-theta <- runif(1:27)
+theta <- rep(0, ncol(poly))
 y <- ex2data2$passed
  
 ucminf_out <- ucminf(
@@ -165,54 +176,13 @@ ucminf_out$message
 ## [1] "Stopped by small gradient (grtol)."
 {% endhighlight %}
  
-So...it did converge, and if I was to call `ucminf_out$par`, it will return our 27 parameters.
+So...it did converge, and if I was to call `ucminf_out$par`, it will return our 21 parameters.
  
-With just two features, we can also quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from th egrid of points in a contour plot.
- 
-The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges - although it would probably be fine if feature scaling is used.
- 
+At this point it is probably worth defining some sort of measure of accuracy. A simple proportion error will suffice in this case.
  
 
 {% highlight r %}
-draw_boundary <- function(xy,theta) {
-  
-  u <- rep(xy, times = length(xy))
-  v <- rep(xy, each = length(xy))
-  
-  cbind(u,v,z = NA) %>% 
-    as.data.frame %>%
-    tbl_df %>%
-    dplyr::mutate(
-      z = h(theta, map_feature(u,v,6)) %>% round
-      )
-  }
-{% endhighlight %}
- 
-Create the grid of points:
- 
-
-{% highlight r %}
-boundary <- draw_boundary(
-  seq(-1.5, 1.5, length = 500),
-  ucminf_out$par
-  )
-{% endhighlight %}
- 
-Now I add my prediction to the dataframe...
- 
-
-{% highlight r %}
-ex2data2 %<>% 
-  dplyr::mutate(
-    pred = h(theta,poly) %>% round
-    )
-{% endhighlight %}
- 
-At this point it is probably worth defining some sort of measure of accuracy. A simple percentage error will suffice in this case.
- 
-
-{% highlight r %}
-perc_error <- function(y,pred) {
+err <- function(y,pred) {
   
   # Should really be implementing more unit tests throughout...,meh
   
@@ -226,6 +196,56 @@ perc_error <- function(y,pred) {
   return(error)
   
   }
+{% endhighlight %}
+ 
+So the present model accurately predicts 91% of the training data, but it is a pretty specific shape that is likely to be overfitted.
+ 
+
+{% highlight r %}
+# Proportion of data that is incorrectly classified
+ 
+err(
+  ex2data2$passed,
+  h(ucminf_out$par,poly)
+  )
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## [1] 0.09
+{% endhighlight %}
+ 
+With just two features, we can also quite easily plot the decision boundary. To do so I create a matrix $X$ of $m$ rows which corresponds to a grid of points for which we can then generate a prediction. We use the output $\theta$ derived from the model fit from the `ex2data1` data. We then combine the predictions from the grid of points in a contour plot.
+ 
+The function to create the boundary thus takes two inputs: a sequence of numbers `xy` delineating the limits of the plot. This works for situations where the ranges of the two features are similar, but would need to be adapted for features with different ranges - although it would probably be fine if feature scaling is used.
+ 
+ 
+
+{% highlight r %}
+draw_boundary <- function(xy,theta,degree) {
+  
+  u <- rep(xy, times = length(xy))
+  v <- rep(xy, each = length(xy))
+  
+  cbind(u,v,z = NA) %>% 
+    as.data.frame %>%
+    tbl_df %>%
+    dplyr::mutate(
+      z = h(theta, map_feature(u,v,degree)) %>% round
+      )
+  }
+{% endhighlight %}
+ 
+Create the grid of points:
+ 
+
+{% highlight r %}
+boundary <- draw_boundary(
+  seq(-1.5, 1.5, length = 500),
+  ucminf_out$par,
+  degree
+  )
 {% endhighlight %}
  
 And now for the decision boundary:
@@ -247,9 +267,9 @@ p + geom_contour(
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-07-no-regularisation](/figures/2015-04-07-no-regularisation-1.png) 
+![plot of chunk 2015-04-10-no-regularisation](/figures/2015-04-10-no-regularisation-1.png) 
  
-So this looks pretty good, and correctly classifies 0.53% of the training set. The decision boundary is rather doughnut shaped, and any values within the 'hole' will be misclassified, as will any values to the top left.
+So this looks pretty good, but it could probably be improved especially in the top left where new cases are likely to be mis-classified.
  
 ### Regularisation - cost function and gradient
  
@@ -269,8 +289,6 @@ Jv_reg <- function(X, y, theta, lambda) {
   
   m <- length(y)
   
-  # Use identity matrix to remove first value from theta so that it is not regularised.
-  
   # Remove first value i.e. theta_0
   
   theta1 <- theta
@@ -289,12 +307,12 @@ Jv_reg <- function(X, y, theta, lambda) {
   }
 {% endhighlight %}
  
-So let's test this in comparison with the cost function that I defined in the previous post by setting the parameter $\lamda=0$, i.e. no regularisation.
+So let's test this in comparison with the cost function that I defined in the previous post by setting the parameter $\lambda=0$, i.e. no regularisation.
  
  
 
 {% highlight r %}
-identical(
+all.equal(
   Jv(poly,y,theta),
   Jv_reg(poly,y,theta,0)
   )
@@ -306,7 +324,19 @@ identical(
 ## [1] TRUE
 {% endhighlight %}
  
-Great, the function passes this basic test.
+Great, the function passes this basic test. And the cost for all values of $\theta$ initialised to zero should be around $0.693$.
+ 
+
+{% highlight r %}
+Jv_reg(poly,y,theta,0)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+##           [,1]
+## [1,] 0.6931472
+{% endhighlight %}
  
 Now for the gradient function. As noted, we don't regularise $\theta_0$, so we need a more complicated gradient function.
  
@@ -336,20 +366,20 @@ gRv_reg <- function(X,y,theta,lambda) {
   }
 {% endhighlight %}
  
-The cost function for all values of $\theta$ initialised to zero should be around $0.693$.
+Now check that this gives the same result for the implementation without regularisation.
  
 
 {% highlight r %}
-theta <- matrix(rep(0,27),ncol=1)
- 
-Jv_reg(poly,y,theta,1)
+all.equal(
+  gRv(poly,y,theta),
+  gRv_reg(poly,y,theta,0)  
+  )
 {% endhighlight %}
 
 
 
 {% highlight text %}
-##           [,1]
-## [1,] 0.6931472
+## [1] TRUE
 {% endhighlight %}
  
 So far so good. Ok so lets try running regularised logistic regression for the polynomial example, but first I'll wrap this into a function to save having to explicitly declare the parameters each time.
@@ -364,8 +394,16 @@ reg_lr <- function(X,y,theta,lambda) {
     gr = function(t) gRv_reg(X, y, t, lambda)
     )
   
+  error <- err(
+    y,
+    h(ucminf_out$par,X)
+    )
+  
   return(
-    as.vector(ucminf_out$par)
+    list(
+      theta = as.vector(ucminf_out$par),
+      error = error
+      )
     )
   
   }
@@ -375,36 +413,38 @@ So we can try this...
  
 
 {% highlight r %}
-theta <- reg_lr(
+reg_lr_out <- reg_lr(
   X = poly,
   y = y,
   theta = theta,
   lambda = 1
   )
  
-theta
+reg_lr_out
 {% endhighlight %}
 
 
 
 {% highlight text %}
-##  [1]  0.40040130  1.08581327 -0.58313506 -0.89248267  0.18577839
-##  [6]  0.14312054 -0.41436225 -0.22607027 -0.18442126 -1.13785873
-## [11] -0.03617746 -0.52503927 -0.21641213 -0.91956820 -0.26316285
-## [16] -0.22954929 -0.02964624 -0.31014556 -0.20154274 -0.63159874
-## [21] -0.99086697  0.03349645 -0.29406307  0.02907866 -0.34580124
-## [26] -0.08087845 -1.04253455
+## $theta
+##  [1]  1.14597671  0.58591828  1.17257049 -2.03072975 -0.87807833
+##  [6] -1.39411398  0.04982992 -0.37314127 -0.34099052 -0.29228499
+## [11] -1.59733906 -0.04894558 -0.61912854 -0.24544800 -1.37455636
+## [16] -0.34468084 -0.22036240 -0.05015388 -0.28349689 -0.27887222
+## [21] -0.67081958
+## 
+## $error
+## [1] 0.15
 {% endhighlight %}
  
-And it seems to be working.
- 
-Now lets take the outputs from the regularised, vectorised logistic regression, and use them to plot the decision boundary.
+And it seems to be working, but notice that with $\lambda=1$ the error has increased to 0.15. This doesn't tell the whole story though as looking at the previous decision boundary suggests overfitting. So what about the decision boundary for $\lambda=1$?
  
 
 {% highlight r %}
-boundary <- draw_boundary(
-  seq(-1.5, 1.5, length = 200),
-  theta
+boundary <- draw_boundary(  
+  seq(-1.5, 1.5, length = 500),
+  reg_lr_out$theta,
+  degree
   )
  
 p + geom_contour(
@@ -422,35 +462,80 @@ p + geom_contour(
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-07-lambda-equals-1](/figures/2015-04-07-lambda-equals-1-1.png) 
+![plot of chunk 2015-04-10-lambda-equals-1](/figures/2015-04-10-lambda-equals-1-1.png) 
  
-Great, so lets try this for a range of $\lambda$.
+Regularisation has smoothed away much of the overfitting. We can't tell how succesful this will be without evaluating the model on the a set, but we can also try a range of values for $\lambda$ and see what effect this has.
+ 
+First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.005,0.01,0.05,0.1,0.5\}$.
  
 
 {% highlight r %}
-lambda <- c(0,0,0.00001,0.0001,0.001,0.005,0.01,0.05,0.1,0.5)
-out_mat <- matrix(nrow = 50, ncol = length(lambda)-2)
-colnames(out_mat) <- paste(lambda[-c(1:2)],sep = "")
+lambda <- c(0,0.0001,0.001,0.01,0.1,1)
+ 
+reg_error <- matrix(ncol = 2, nrow = length(lambda))
+for (i in 1:length(lambda)) {
+  
+  reg_error[i,1] <- lambda[i]
+  reg_error[i,2] <- reg_lr(
+    X = poly,
+    y = y,
+    theta = theta,
+    lambda = lambda[i]
+    ) %$% error  
+  }
+ 
+reg_error %>% set_colnames(c("i","error"))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+##          i error
+## [1,] 0e+00  0.09
+## [2,] 1e-04  0.09
+## [3,] 1e-03  0.10
+## [4,] 1e-02  0.10
+## [5,] 1e-01  0.11
+## [6,] 1e+00  0.15
+{% endhighlight %}
+ 
+So it looks like increasing $\lambda$ is reducing the accuracy of the model on the training set. But again, this isn't the whole story. What about the decision boundaries?
+ 
+
+{% highlight r %}
+# Generate boundaries for a number of lambdas
+ 
+out_mat <- matrix(nrow = 500, ncol = length(lambda))
+colnames(out_mat) <- paste(lambda, sep = "")
 out_mat <- cbind(boundary[,1:2],out_mat) %>% as.matrix
+ 
+# Add two 0s to the beginning of the vector to make life easier in the for loop
+# when referencing lambda
+ 
+lambda <- c(0,0,lambda)
  
 for (i in 3:ncol(out_mat)) {
   
   out <- draw_boundary(
-    seq(-1.5, 1.5, length = 200),
+    seq(-1.5, 1.5, length = 500),
     reg_lr(
       X = poly,
       y = y,
       theta = theta,
       lambda = lambda[i]
-      )
+      )$theta,
+    degree
     ) %$% z %>% as.vector
   
   out_mat[,i] <- out
   
   }
+{% endhighlight %}
  
+Now use `tidyr::gather` to turn this wide data into long data so it can be passed to `ggplot2::facet_wrap`.
  
- 
+
+{% highlight r %}
 out_mat %>%
   data.frame %>%
   tidyr::gather(
@@ -490,8 +575,9 @@ out_mat %>%
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-07-various-lambdas](/figures/2015-04-07-various-lambdas-1.png) 
+![plot of chunk 2015-04-10-various-lambdas](/figures/2015-04-10-various-lambdas-1.png) 
  
+So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would probably perform better against a test set.
  
 
 {% highlight r %}
@@ -528,3 +614,4 @@ sessionInfo()
 ## [17] reshape2_1.4.1   scales_0.2.4     stringr_0.6.2    tcltk_3.1.3     
 ## [21] tidyr_0.2.0      tools_3.1.3
 {% endhighlight %}
+ 
