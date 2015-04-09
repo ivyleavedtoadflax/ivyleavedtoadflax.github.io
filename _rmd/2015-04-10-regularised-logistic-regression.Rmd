@@ -10,7 +10,6 @@ comments: true
 tags: [classification, logistic regression, fminunc, feature mapping, regularisation]
 ---
 
-
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 library(dplyr)
 library(magrittr)
