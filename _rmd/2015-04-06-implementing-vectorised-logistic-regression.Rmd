@@ -222,7 +222,7 @@ and
 
 $$\text{log}(1-h_{\theta(x^{(i)})})$$
 
-The crossproduct of these two vectors is essentially the same as $\vec{a}^T\vec{b}$; basically the sum of every value of $\vec{a}$ multiplied by the corresponding value of $\vec{b}$. i.e.:  (note that not all of the first vector equal zero: $\vec{a_{(i)}}\neq0$, $\vec{a}\in\{0,1\}$).
+The crossproduct of these two vectors is essentially the same as $\vec{a}^T\vec{b}$; basically the sum of every value of $\vec{a}$ multiplied by the corresponding value of $\vec{b}$. i.e.:  (note that not all of the first vector equal zero: $\vec{a_{(i)}}\neq0$, $\vec{a}\in\textbraceleft0,1\textbraceright$).
 
 $$
 \begin{bmatrix}
