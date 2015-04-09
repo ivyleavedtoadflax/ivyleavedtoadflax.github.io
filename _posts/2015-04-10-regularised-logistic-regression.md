@@ -2,7 +2,7 @@
 title: "Non-linear classification with logistic regression"
 date: 2015-04-10
 modified: 2015-04-10
-excerpt: "Implementing regularisation and feature mapping."
+excerpt: "Implementing regularisation and feature mapping"
 layout: post
 published: true
 status: publish
