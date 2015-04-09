@@ -15,6 +15,8 @@ tags: [classification, logistic regression, fminunc, feature mapping, regularisa
  
 In my last post I compared vectorised logistic regression solved with an optimisation algorithm with a generalised linear model. I tested it out on a very simple dataset which could be classified using a linear boundary. In this post I'm following the next part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org) and implementing regularisation and feature mapping to allow me to map non-linear decision boundaries using logistic regression. And of course, I'm doing it in R, not Matlab or Octave.
  
+As ever the full code to produce this page is available on [github](https://github.com/ivyleavedtoadflax/ivyleavedtoadflax.github.io).
+ 
 ### Visualising the data
  
 First I plot the data...and it's pretty clear that to create an accurate decision boundary will require some degree of polynomial features in order to account for its spherical nature.
@@ -116,7 +118,7 @@ map_feature <- function(X1,X2,degree) {
   }
 {% endhighlight %}
  
-And tthe list of 91 features:
+And to the list the 91 features:
  
 
 {% highlight r %}
