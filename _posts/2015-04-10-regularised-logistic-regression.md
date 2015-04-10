@@ -493,7 +493,7 @@ p + geom_contour(
  
 Regularisation has smoothed away much of the overfitting. We can't tell how succesful this will be without evaluating the model on the a set, but we can also try a range of values for $\lambda$ and see what effect this has.
  
-First compute the percentage errors for $\lambda=\textbraceleft0,0.0001,0.001,0.01,0.1,1\textbraceright$.
+First compute the percentage errors for $\lambda=\{0,0.0001,0.001,0.01,0.1,1\}$.
  
 
 {% highlight r %}
