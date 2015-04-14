@@ -278,7 +278,6 @@ That was pretty straightforward. Let's check the first few predictions against t
 
 ```{r}
 out_class[1:10]
-
 ```
 
 
