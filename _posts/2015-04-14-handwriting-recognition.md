@@ -2,7 +2,7 @@
 title: "Handwriting recognition with logistic regression"
 date: 2015-04-14
 modified: 2015-04-14
-excerpt: "Multiclass classification"
+excerpt: "Simple multiclass classification"
 layout: post
 published: true
 status: publish
@@ -177,7 +177,7 @@ for (i in 1:10) {
   }
 {% endhighlight %}
  
-Now we run a logistic regression model using these parameters, which is simply $g(\theta^TX)$ where $g$ is the sigmoid function $\frac{1}{1 + \exp^-z}$.
+Now we run a logistic regression model using these parameters, which is simply $h_\theta=g(\theta^TX)$ where $g$ is the sigmoid function $g(z)=\frac{1}{1 + e^{-z}}$.
  
 
 {% highlight r %}
@@ -197,7 +197,9 @@ out_class <- (rowMaxs(out) == out) %>%
   rowMaxs
 {% endhighlight %}
  
-How easy was that!? Let's check the first few predictions against the bitmap plotted earlier:
+### The result
+ 
+That was pretty straightforward. Let's check the first few predictions against the bitmap plotted earlier:
  
 
 {% highlight r %}
@@ -207,8 +209,11 @@ out_class[1:10]
 
 
 {% highlight text %}
-##  [1] 10  2  9  1  5  4  4  4  7  6
+##  [1]  7  3 10  3  9  1  1  7  3 10
 {% endhighlight %}
+ 
+ 
+![Digit matrix](figures/2015-04-15-digit-matrix.png)
  
 So far so good. Note that zeros are classified as tens to avoid confusion.
  
@@ -227,7 +232,7 @@ sum(out_class == train_y)/100
  
 So currently the model achieved 100% accuracy with $\lambda = 0$ (the regularisation parameter), i.e. no regularisation at all.
  
-### Classifying the test set
+### What about a test set?
  
 I'll wrap this all in a function, then try it on a different subset of the $X$ matrix.
  
@@ -265,6 +270,9 @@ hw_rec <- function(train,test,train_y,test_y,lambda,classes) {
   
   acc <- sum(out_class == test_y)/100
   
+  # Gives output of the predicted classes, the parameters (theta), and the
+  # percentage accuracy
+  
   return(
     list(
       class = out_class,
@@ -279,7 +287,7 @@ hw_rec <- function(train,test,train_y,test_y,lambda,classes) {
  
 
  
-So repeating the earlier code, I will select a different random subset of 100 rows from the $X$ matrix.
+So repeating the earlier code, I select a different random subset of 100 rows from the $X$ matrix.
  
 
 {% highlight r %}
@@ -322,12 +330,12 @@ test_lambda_y
 
 
 {% highlight text %}
-## [1] 0.69 0.68 0.68 0.66 0.65 0.61
+## [1] 0.71 0.74 0.75 0.73 0.74 0.75
 {% endhighlight %}
  
-So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 61 and 69 accuracy.
+So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 71% and 75% accuracy.
  
-Next time I'll try again defining training, test, and cross validation sets with a 60:20:20 split, to improve classification, and better inform my choice of $\lambda$.
+Next time I'll define training, test, and cross validation sets with a 60:20:20 split, to improve classification, and better inform my choice of $\lambda$.
  
 
 {% highlight r %}
