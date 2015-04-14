@@ -199,7 +199,11 @@ out_class <- (rowMaxs(out) == out) %>%
  
 ### The result
  
+<<<<<<< HEAD
 That was pretty straightforward. Let's check the first few predictions against the bitmap plotted earlier:
+=======
+How easy was that!? Let's check the first few predictions against the bitmap plotted earlier:
+>>>>>>> c92576ac6d7fbc6bcc4d5739fdd639865096819e
  
 
 {% highlight r %}
@@ -209,7 +213,11 @@ out_class[1:10]
 
 
 {% highlight text %}
+<<<<<<< HEAD
 ##  [1]  7  3 10  3  9  1  1  7  3 10
+=======
+##  [1]  3 10  6 10  6  4  6  9 10  3
+>>>>>>> c92576ac6d7fbc6bcc4d5739fdd639865096819e
 {% endhighlight %}
  
  
@@ -330,10 +338,17 @@ test_lambda_y
 
 
 {% highlight text %}
+<<<<<<< HEAD
 ## [1] 0.71 0.74 0.75 0.73 0.74 0.75
 {% endhighlight %}
  
 So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 71% and 75% accuracy.
+=======
+## [1] 0.67 0.68 0.69 0.74 0.74 0.72
+{% endhighlight %}
+ 
+So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 67% and 74% accuracy.
+>>>>>>> c92576ac6d7fbc6bcc4d5739fdd639865096819e
  
 Next time I'll define training, test, and cross validation sets with a 60:20:20 split, to improve classification, and better inform my choice of $\lambda$.
  
