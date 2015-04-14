@@ -280,12 +280,7 @@ That was pretty straightforward. Let's check the first few predictions against t
 out_class[1:10]
 ```
 
-
-![Digit matrix](/figures/2015-04-14-digit-matrix.png)
-
-So far so good. Note that zeros are classified as tens to avoid confusion.
-
-So how well does the model work on the training data?
+So far so good. Note that zeros are classified as tens to avoid confusion. So how well does the model work on the training data overall?
 
 ```{r}
 

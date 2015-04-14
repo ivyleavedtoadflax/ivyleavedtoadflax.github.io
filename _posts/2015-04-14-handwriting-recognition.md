@@ -209,15 +209,10 @@ out_class[1:10]
 
 
 {% highlight text %}
-##  [1] 10  9  5  7  1  6  1  2  3  8
+##  [1]  9  2  9  6  6  7  8  3 10  7
 {% endhighlight %}
  
- 
-![Digit matrix](/figures/2015-04-14-digit-matrix.png)
- 
-So far so good. Note that zeros are classified as tens to avoid confusion.
- 
-So how well does the model work on the training data?
+So far so good. Note that zeros are classified as tens to avoid confusion. So how well does the model work on the training data overall?
  
 
 {% highlight r %}
@@ -330,10 +325,10 @@ test_lambda_y
 
 
 {% highlight text %}
-## [1] 0.64 0.66 0.64 0.66 0.65 0.64
+## [1] 0.76 0.75 0.76 0.77 0.76 0.74
 {% endhighlight %}
  
-So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 64% and 66% accuracy.
+So not bad considering the model was trained on a dataset the same size as the test set. With varying levels of regularisation ($\lambda$) the model has between 74% and 77% accuracy.
  
 Next time I'll define training, test, and cross validation sets with a 60:20:20 split, to improve classification, and better inform my choice of $\lambda$.
  
