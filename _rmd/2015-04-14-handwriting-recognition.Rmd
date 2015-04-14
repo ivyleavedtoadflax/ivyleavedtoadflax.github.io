@@ -282,7 +282,7 @@ out_class[1:10]
 ```
 
 
-![Digit matrix](figures/2015-04-15-digit-matrix.png)
+![Digit matrix](/figures/2015-04-15-digit-matrix.png)
 
 So far so good. Note that zeros are classified as tens to avoid confusion.
 
