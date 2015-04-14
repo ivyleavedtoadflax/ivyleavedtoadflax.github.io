@@ -6,7 +6,7 @@ excerpt: "Feature scaling and gradient descent"
 output: pdf_document
 layout: post
 published: yes
-status: process
+status: processed
 comments: true
 ---
 
