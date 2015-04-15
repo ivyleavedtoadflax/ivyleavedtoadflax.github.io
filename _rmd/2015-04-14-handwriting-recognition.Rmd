@@ -223,7 +223,7 @@ reg_lr <- function(X,y,theta,lambda) {
 
 For multiclass classification with logistic regression we simply run a mdoel for each possible class, then combine this ensemble of mdoels, and pick the value that has the highest likelihood based on the several models.
 
-Now because the code is well vectorised running ten models together is an absolute breaze. First we define the parameter matrix $\theta$.
+Now because the code is well vectorised running ten models together is an absolute breeze. First we define the parameter matrix $\theta$.
 
 ```{r}
 
