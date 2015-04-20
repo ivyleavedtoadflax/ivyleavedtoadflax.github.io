@@ -1,0 +1,62 @@
+---
+title: "Writing a PhD in LaTeX and R"
+date: 2015-04-20
+modified: `r format(Sys.time(), '%Y-%m-%d')`
+excerpt: "Some lessons learned the hard way"
+layout: post
+published: no
+status: process
+comments: true
+tags: [PhD, thesis, R, knitr, LaTeX, student, reproducible, research,]
+---
+
+About a year into the PhD thesis writing process, I decided to make a switch from a widely known WhatYouSeeisWhatYouGet word processor, into LaTeX.
+It all started with a black line at the bottom of the page.
+It appeared one day while I was writing a riveting chapter on soil carbon, and looked like a border on top of the footer.
+I don't know where it came from, and no matter what I tried, I couldn't get rid of it.
+No amount of fiddling, copying and pasting into new documents, or inappropriate language worked- I was stuck with this line on every single page of my Thesis.
+So, having written a couple of project reports in LaTeX, I decided to take the plunge, and began to write in LaTeX, using the package [knitr](http://yihui.name/knitr/) by Yihui Xie to blend my R code with $\LaTeX$ in one document.
+
+## Some lessons learnt
+
+So several months down the line, thesis submitted, corrected, degree granted, I feel that I'm in a good position to give some advice to those considering setting out on a similar $\LaTeX$ journey. I made a lot of early mistakes, which I was subsequently stuck with; writing them here is a kind of catharsis, that perhaps someone will be able to learn from.
+
+### Lesson 1: Don't use someone else's template
+
+(or at least, use the simplest template you can find)
+
+Ok, so I'm aware that this is perhaps counter-intuitive advice, so I'll explain my reasons.
+I started out early on using the [classicthesis](http://www.miede.de/index.php?page=classicthesis) template by Andre Miede (Andre, I owe you a postcard).
+It looks great, and its designed to follow all sort of typographical rules that we, as scientists, are likely to be oblivious to.
+The problem is, that it is quite complicated.
+There is a lot of code, and there are a lot of package dependencies that are called in as standard, and even having written a thesis with this template I have to confess, I don't know what they all do.
+That's fine if it all works (although I don't like the blackbox idea - this after all is why I want to use LaTeX), but occasionally you will run into errors.
+This isn't the fault of the author, but may be due to updates in package dependencies and resulting conflicts - frankly in many cases I still don't know what the causes were because in those last frantic weeks of getting things together I had time only to hack through and get things working, not to diagnose and fix the problems.
+
+If I was doing it again, I would have written my own template from scratch, or started with the simplest template I could find written by someone else, and adapted it to my own means, rather than jumping into a more complicated (if lovely) template like classicthesis.
+Bear in mind - this was my *first* significant $\LaTeX$ document; and it is to people in a similar situation that I offer this advice!
+
+
+### Lesson 2: Use knitr
+
+If you are going down the reproducible route like I was, and blending your R code with your $\LaTeX$, use [knitr](http://yihui.name/knitr/), not sweave. 
+
+If you are working with R and LaTeX as I was, 
+Again, if this is your first big LaTeX document, I would suggest that you think very carefully before using knitr.
+ Now don't get me wrong, knitr is awesome, and the ability to compile your thesis from just a single document, blending R code and LaTeX together is brilliant. However, it adds a lot of complexities that might not otherwise be there, and they are probably complexities you could do without if you are learning LaTeX, R, or both.
+First off, successful compilation now rests on two languages, not one, so a misplaced bracket in an R code chunk will stop the whole process dead. When your supervisor is asking for that all important draft chapter, you don't want to be saying 'sorry professor, I need to debug my code first' (more on this later).
+The second complexity it adds, is that you need to start thinking carefully about the continuity of R objects (e.g. data or models) running through the thesis, especially if you are compiling from several files - say one per chapter, which are added to the parent document. It's not that much of an issue, but you need to develop a system, and stick to it; but it may just be that this is an extra layer of complexity you can do without.
+You can always achieve very similar effects with a makefile, although without the beauty of being able to include inline R code.
+I always work with knitr now, so perhaps I'm being hypocritical here, but it's something you should think about before rushing headlong into it (as I did), and discovering the issues later.
+And if you do go down a completely reproducible route, xtable is extremely useful.
+Lesson 3:
+Use bibtex and get a reference manager.
+In simple terms, you add your defences to a bibtex file with a unique key, and call this key every time you want to insert that reference. LaTeX then compiles a complete reference list automatically according to the style type you specify. 
+
+
+```{r,include=FALSE,message=FALSE,warning=FALSE}
+
+knitr::opts_chunk$set(message=FALSE,warning=FALSE)
+
+
+```
