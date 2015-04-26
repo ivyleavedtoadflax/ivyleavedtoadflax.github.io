@@ -1,0 +1,187 @@
+---
+title: "How to make a fool of yourself with p-values"
+date: 2015-04-14
+#modified: `r format(Sys.time(), '%Y-%m-%d')`
+excerpt: "Why you should never trust your p-value"
+layout: post
+published: no
+status: process
+comments: true
+tags: [p values, R, statistics, research]
+---
+
+Part of my research has been to do with measuring soil carbon after planting trees. This poses a bit of a difficulty because soil carbon is incredibly variable, but the absolute changes in the percentage of carbon are very small.
+Thus, especially when you start sampling to any depth, you are very likely to suffer from low experimental power i.e. an unacceptably large chance of wrongly concluding that there are no differences between treatments.
+This is a problem because there is more carbon stored in the soil than all the plants and trees on earth, and so correctly assessing the impact of land use changes on soil carbon is essential to our understanding of greenhouse gas balances.
+
+But in some respects, low power, and wrongfully saying that there is no effect when there is one, is the least of our worries.
+It's much more concerning when we say that there is a difference when in fact there is not one.
+Traditionally we conduct our tests at $\alpha=0.05$ and $\beta=0.2$, i.e. the probability falsely concluding a difference when there is not one is $5\%$, and the probability of falsely asserting that there is no difference when there is one is $20\%$.
+
+When I speak to other researchers and PhD students, everyone has heard of $\alpha$, and everyone thinks they know what a *p*-value is (small: good, big: bad, right?), but almost nobody seems to know about $\beta$, and the implications of low power, despite this being the other side of the $\alpha$ coin[^1]. 
+
+[^1]: If you find yourself in this boat, these refs should give you a good grounding: 1) Cohen, J. (1962) “The statistical power of abnormal-social psychological research: a review.”, *Journal of abnormal and social psychology*, 65(3), pp. 145–153. 2) Cohen, J. (1992) “A power primer”, *Psychological bulletin*, 112(1), pp. 155–159. 3) Hoenig, J.M. and Heisey, D.M. (2001) “The Abuse of Power : The Pervasive Fallacy of Power Calculations for Data Analysis”, *The American Statistician*, 55(1), pp. 19–24. 4) Thomas, L. (1997) “Retrospective power analysis: when?”, Conservation Biology, 11(1), pp. 276–280. 5) Thomas, L. and Krebs, C. (1997) “A review of statistical power analysis software”, *Bulletin of the Ecological Society of America*, 78(2), pp. 128–139.
+
+What is most concerning of all, is that *p*-values aren't the end of the story in detecting false positives. This problem is explored by David Colquhoun in his 2014 paper 'An investigation of the false discovery rate and the misinterpretation of P values'[^2]. Very helpfully he provides the R code from his simulations[^3], which I'm going to play with in this post - trying very hard not to make a fool out of myself.
+
+[^2]: Colquhoun, D. (2014) “An investigation of the false discovery rate and the misinterpretation of P values”, *Royal Society Open Science*, 1(140216), pp. 1–15. Available at: 10.1098/rsos.140216 (Accessed: March 23, 2015).
+[^3]: Colquhoun D. 2014 Files for running simulated t tests Instructions: [http://www.dcscience.net/](http://www.dcscience.net/) Downloaded from [http://rsos.royalsocietypublishing.org/](http://rsos.royalsocietypublishing.org/) on March 23, 2015; Rscript: [http://www.dcscience.net/files/two_sample-simulation.R](http://www.dcscience.net/files/ two_sample-simulation.R); Excel file with results used in paper: [http://www.dcscience.net/files/t-test-simulations.xlsx](http://www.dcscience.net/files/t-test-simulations.xlsx).
+
+### A *p*-value recap
+
+So what exactly is the *p*-value? This is not the interesting bit, so I'll talk about this in brief, and I'm certain there are much more eloquent explanations all over the internet. I'll save time by adapting some code from Kristoffer Magnusson's blog[^4] [RPsychologist.com](http://RPsychologist.com).
+
+[^4]:Magnusson, K. (2013) Creating a typical textbook illustration of statistical power using either ggplot or base graphics, RPsychologist.com Available at: [http://rpsychologist.com/creating-a-typical-textbook-illustration-of-statistical-power-using-either-ggplot-or-base-graphics](http://rpsychologist.com/creating-a-typical-textbook-illustration-of-statistical-power-using-either-ggplot-or-base-graphics) (Accessed: May 27, 2014). I've not reproduced the code here, but as ever the full code behind this page is available on [github](https://github.com/ivyleavedtoadflax/ivyleavedtoadflax.github.io/tree/master/_rmd).
+
+So imagine a classical hypothesis test.
+We want to know if there is a difference in some measurement between two treatments.
+Running a hypothesis test, we can summarise our expected outcomes in terms of the null hypothesis ($H_0$) as follows:
+
+|            |$H_0$ True    |$H_0$ False  |
+|------------|--------------|-------------|
+|Accept $H_0$|No error      |Type II Error|
+|            |True Positive |False Negative|  
+|Reject $H_0$|Type I Error  |No error     |
+|            |False Positive|True Negative| 
+
+
+We can define our null ($H_0$) and alternative hypotheses ($H_a$) as follows:
+
+$$
+\left\{
+\begin{array}{ll}  
+    H_0: & \mu_0 = 0\\
+    H_a:  & \mu_0 \neq 0
+\end{array}\right .
+$$
+
+And this can be presented in a graphical form:
+
+```{r,echo = FALSE}
+
+# Code adapted from http://rpsychologist.com/creating-a-typical-textbook-illustration-of-statistical-power-using-either-ggplot-or-base-graphics
+
+m1 <- 0  # mu H0
+sd1 <- 1.5 # sigma H0
+m2 <- 3.5 # mu HA
+sd2 <- 1.5 # sigma HA
+
+z_crit <- qnorm(1-(0.05/2), m1, sd1)
+
+# set length of tails
+min1 <- m1 - sd1 * 4
+max1 <- m1 + sd1 * 4
+min2 <- m2 - sd2 * 4
+max2 <- m2 + sd2 * 4          
+
+# create x sequence
+x <- seq(min(min1,min2), max(max1, max2), .01)
+# generate normal dist #1
+y1 <- dnorm(x, m1, sd1)
+# put in data frame
+df1 <- data.frame("x" = x, "y" = y1)
+# generate normal dist #2
+y2 <- dnorm(x, m2, sd2)
+# put in data frame
+df2 <- data.frame("x" = x, "y" = y2)
+
+# Alpha polygon
+y.poly <- pmin(y1,y2)
+poly1 <- data.frame(x = x, y = y.poly)
+poly1 <- poly1[poly1$x >= z_crit, ] 
+poly1 <- rbind(poly1, c(z_crit, 0))  # add lower-left corner
+
+# Beta polygon
+poly2 <- df2
+poly2 <- poly2[poly2$x <= z_crit,] 
+poly2 <- rbind(poly2, c(z_crit, 0))  # add lower-left corner
+
+# power polygon; 1-beta
+poly3 <- df2
+poly3 <- poly3[poly3$x >= z_crit,] 
+poly3 <- rbind(poly3, c(z_crit, 0))  # add lower-left corner
+
+# combine polygons. 
+poly1$id <- 3 # alpha, give it the highest number to make it the top layer
+poly2$id <- 2 # beta
+poly3$id <- 1 # power; 1 - beta
+poly <- rbind(poly1, poly2, poly3)
+poly$id <- factor(poly$id, labels = c("power","beta","alpha"))
+
+# Create plot
+
+plot(
+  x,
+  xlim = range(x), 
+  ylim = c(-0.01,0.3),
+  type = "n"
+  )
+
+# add polygons
+polygon(poly3,  density = 10) # 1-beta
+polygon(poly2, density = 3, angle = -45, lty="dashed") # beta
+polygon(poly1, col = "skyblue") # alpha
+# add h_a dist
+lines(df2,lwd = 1)
+# add h_0 dist
+lines(df1,lwd = 1)
+### annotations
+# h_0 title
+text(m1, 0.28, expression(H[0]), cex = 1.5)
+# h_a title
+text(m2, 0.28, expression(H[a]), cex = 1.5)
+# beta annotation
+arrows(x0 = -1, y0 = 0.045, x1 = 1, y1 = 0.01, lwd = 2, length=0.15)
+text(-1.3, 0.045, expression(beta), cex = 1.5)
+# beta annotation
+arrows(x0 = 7, y0 = 0.1, x1 = 3.4, y1 = 0.008, lwd = 2, length = 0.15)
+text(x = 8, y = 0.1, expression(alpha/2), cex = 1.5)
+# 1-beta 
+arrows(x0 = 7, y0 = 0.15, x1 = 5, y1 = 0.1, lwd = 2,length=0.15)
+text(x = 8, y = 0.15, expression(1-beta), cex = 1.5)
+# show z_crit; start of rejection region
+abline(v=z_crit, lwd = 2, col = "red", lty = 2)
+# add bottom line
+abline(h=0)
+
+```
+
+The left hand curve represents the theoretical sampling distribution if $H_0$ ($\mu=0$) is true, while the right hand curve represents the sampling distribution if $H_a$ is true, more specifically: if $\mu=3.5$.
+So these curves show us what happens if we were to conduct the same experiment many times if either of our two hypotheses are true, and the mean of any one individual experiment ($\bar{x}$) would lie somewhere on these two curves.
+
+If the value of $\bar{x}$ arrives further to the right than the critical value (denoted by the red line), we will always assume that $H_a$ is true, but there is a $2.5\%$ ($\alpha/2$) chance that we are wrong, and our sample mean $\bar{x}$ really belongs to the $H_0$ curve, i.e. the value is within the blue polygon; hence a Type I error - a false discovery.
+So this is where the *p*-value comes in.
+If $p<0.05$, then $\bar{x}$ has occured within the rejection zone $\alpha$.
+
+Conversely, $\bar{x}$ might arrive at a value lower than (to the left of) the critical value, and we would assume that this is part of the curve $H_0$.
+But we could be wrong - the value might belong to the curve $H_a$ in the area denoted by $\beta$, in which case we commit a Type II error - a false negative.
+
+### So why is there a problem?
+
+So the issue that David Colquhoun raises in his 2014 paper is that we don't know *a priori* whether $H_0$ is true or not.
+Hence if we get a 'significant result' we can never be sure if this is because there was a real effect, and we had sufficient power to detect it, or there isn't really an effect and this is one of the $5\%$ of cases where our statistics make the wrong choice.
+
+So in fact, the true 'false discovery rate' (as distinct from both the multiple hypothesis testing adjustment, and the Type I error rate) actually can be calculated as a conditional probability following Bayes' theorem:
+
+$$
+P(A|B)=\frac{P(A)P(B|A)}{P(B)}
+$$
+
+Where $P(A|B)$ represents the probability of $A$ given $B$.
+In our case, this would be:
+
+$$
+P(H_0\ \text{is false}|H_0\ \text{rejected}) = \frac{k \times 0.8}{k \times 0.8 + 0.05 \times (1-k)}
+$$
+
+* Where $k$ is the prevalence of $H_0$ being false among a number of tests.
+* 0.8 is the power ($1-\beta$) of the test.
+* 0.05 is the Type I error rate ($\alpha$)
+
+Of course we don't really know the value of $k$, but this doesn't matter, because we can simply calculate the answer for a range of values, and this is what David Colquhoun does.
+
+
+```{r}
+sessionInfo()
+```
+

@@ -6,7 +6,7 @@ excerpt: "Some lessons learned the hard way"
 output: html_document
 layout: post
 published: no
-status: process
+status: processed
 tags: [PhD, thesis, R, knitr, LaTeX, student, reproducible, research]
 comments: yes
 ---
