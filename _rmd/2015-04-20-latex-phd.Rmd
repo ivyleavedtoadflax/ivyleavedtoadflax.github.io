@@ -158,6 +158,8 @@ It's not a major issue, but it does require some thought early on.
 So if you are going to do it - get your workflow right.
 Get in the habit of loading data from files as normal, then saving out intermediate analysis steps to .Rdata or .Rds files, so that these can quickly be recalled to other chunks if required.
 
+*Update 2015-05-10: Yihui gives some solutions to this problem by allowing you specify dependencies between chunks in the chunk options. [This](http://yihui.name/knitr/options/#chunk_options) page is very worth a read.*
+
 ### Lesson 4: Manage your dependencies
 
 Despite having produced my thesis in a 'fully reproducible' format, less than a year later, I am now unable to reproduce it.
