@@ -19,7 +19,6 @@ opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 About a year into the PhD thesis writing process, I decided to make a switch from a widely known WhatYouSeeisWhatYouGet word processor, into $\LaTeX$.
-
 It all started with a black line at the bottom of the page.
 It appeared one day while I was writing a riveting chapter on soil carbon, and looked like a border on top of the footer.
 I don't know where it came from, and no matter what I tried, I couldn't get rid of it.
@@ -54,7 +53,7 @@ Bear in mind - this was my *first* significant $\LaTeX$ document; and it is to p
 
 If you are going down the reproducible route like I was, and blending your R code with your $\LaTeX$, use [knitr](http://yihui.name/knitr/), not sweave. 
 
-Knitr is awesome. Spend the time learning the features like hooks. These allow you to write commands that can automatically be executed whenever you create a code chunk, which can be great for things you do repetitively, like plotting:
+Knitr is awesome. Spend the time learning the features like hooks. These allow you to write commands that will can automatically be executed whenever you create a code chunk, which can be great for things you do repetitively, like plotting:
 
 ```{r}
 
@@ -167,6 +166,8 @@ Part of the problem is that the flow of your code may no longer be linear. It mi
 It's not a major issue, but it does require some thought early on.
 So if you are going to do it - get your workflow right.
 Get in the habit of loading data from files as normal, then saving out intermediate analysis steps to .Rdata or .Rds files, so that these can quickly be recalled to other chunks if required.
+
+*Update 2015-05-10: Yihui gives some solutions to this problem by allowing you specify dependencies between chunks in the chunk options. [This](http://yihui.name/knitr/options/#chunk_options) page is very worth a read.*
 
 ### Lesson 4: Manage your dependencies
 
