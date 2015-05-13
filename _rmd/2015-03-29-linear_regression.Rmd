@@ -8,6 +8,7 @@ layout: post
 published: yes
 status: done
 comments: true
+categories: [Rstats]
 ---
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}

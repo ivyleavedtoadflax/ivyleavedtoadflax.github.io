@@ -8,6 +8,7 @@ published: no
 status: draft
 comments: true
 tags: [Citibike, gender, dplyr, ggmap]
+categories: [Rstats]
 ---
 
 ```{r,set_knitr_opts,include=FALSE,echo=FALSE,message=FALSE,warning=FALSE}

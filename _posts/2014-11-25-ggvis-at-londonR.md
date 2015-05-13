@@ -8,6 +8,7 @@ excerpt: ggvis workshop at LondonR by Aimee Gott
 published: true
 status: publish
 comments: true
+categories: [Rstats]
 ---
  
  

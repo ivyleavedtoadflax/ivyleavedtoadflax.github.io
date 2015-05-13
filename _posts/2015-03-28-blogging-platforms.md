@@ -6,6 +6,7 @@ tags: [blogging, R, code, jekyll]
 authored: 2015-03-28
 modified: 2015-03-30
 comments: true
+categories: [Rstats]
 ---
 
 I've had a blog on [blogger](http://ivyleavedtoadflax.blogspot.com) for a while now, where I have been wanting to document some of the things I have been doing in `R` recently. I write in RMarkDown a lot, and it would make sense if I could post directly to my blog from the .html files that are output from RStudio, but I've been struggling for a way to do it well. 

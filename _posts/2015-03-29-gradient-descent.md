@@ -8,6 +8,7 @@ layout: post
 published: true
 status: publish
 comments: true
+categories: [Rstats]
 ---
  
 

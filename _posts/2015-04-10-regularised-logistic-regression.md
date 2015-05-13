@@ -8,6 +8,7 @@ published: true
 status: publish
 comments: true
 tags: [classification, logistic regression, fminunc, feature mapping, regularisation]
+categories: [Rstats]
 ---
  
 

@@ -8,6 +8,7 @@ published: yes
 status: processed
 comments: true
 tags: [Citibike, gender, dplyr]
+categories: [Rstats]
 ---
 
 ```{r load_libraries,include=TRUE,echo=FALSE,message=FALSE,warning=FALSE,include=TRUE}

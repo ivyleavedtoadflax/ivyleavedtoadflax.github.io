@@ -8,6 +8,7 @@ published: true
 status: publish
 comments: true
 tags: [machine learning, logistic regression, fminunc]
+categories: [Rstats]
 ---
  
  

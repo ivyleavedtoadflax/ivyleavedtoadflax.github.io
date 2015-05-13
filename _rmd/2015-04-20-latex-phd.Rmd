@@ -9,9 +9,13 @@ published: no
 status: process
 tags: [PhD, thesis, R, knitr, LaTeX, student, reproducible, research]
 comments: yes
+categories: [Rstats]
 ---
 
 ```{r,include = FALSE}
+
+library(checkpoint)
+checkpoint("2015-05-15")
 
 library(knitr)
 opts_chunk$set(warning = FALSE, message = FALSE)
@@ -73,7 +77,7 @@ knit_hooks$set(
 
 Calling this command in the header of the code chunk with `plot.mar = TRUE` will apply the function to the chunk:
 
-```{r,2015-04-20-plot.mar-example,plot.mar=TRUE}
+```{r,2015-04-20-plot.mar-example,plot.mar=TRUE,fig.height=4}
 
 foo <- rnorm(1:1000)
 hist(foo)

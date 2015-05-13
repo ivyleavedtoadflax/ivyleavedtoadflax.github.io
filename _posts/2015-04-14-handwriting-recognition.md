@@ -8,6 +8,7 @@ published: true
 status: publish
 comments: true
 tags: [machine learning, logistic regression, fminunc]
+categories: [Rstats]
 ---
  
 In my previous [post](http://ivyleavedtoadflax.github.io//regularised-logistic-regression/) I completed an exercise using logistic regression to generate complicated non-linear decision boundaries. In this exercise I'm going to use much of the same code for handwriting recognition. These exercises are all part of Andrew Ng's Machine Learning course on [coursera](http://www.coursera.org). All the exercises are done in Matlab/Octave, but I've been stubborn and have worked solutions in R instead.

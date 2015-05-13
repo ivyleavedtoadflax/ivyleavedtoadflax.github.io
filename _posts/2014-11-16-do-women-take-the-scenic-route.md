@@ -8,6 +8,7 @@ published: true
 status: publish
 comments: true
 tags: [Citibike, gender, dplyr, ggmap]
+categories: [Rstats]
 ---
  
 
