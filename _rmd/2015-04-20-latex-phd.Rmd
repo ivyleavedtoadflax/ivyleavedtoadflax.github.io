@@ -5,8 +5,8 @@ modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: "Some lessons learned the hard way"
 output: html_document
 layout: post
-published: no
-status: process
+published: yes
+status: processed
 tags: [PhD, thesis, R, knitr, LaTeX, student, reproducible, research]
 comments: yes
 categories: [Rstats]

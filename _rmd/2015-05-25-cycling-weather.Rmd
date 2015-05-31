@@ -6,8 +6,8 @@ output: pdf_document
 layout: post
 modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: Do Londoners and New Yorkers disagree?
-published: no
-status: process
+published: yes
+status: processed
 tags:
 - R
 - knitr
