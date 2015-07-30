@@ -1,7 +1,7 @@
 ---
 title: 'Regularised linear regression'
 date: '2015-07-26'
-modified: 2015-07-26
+modified: 2015-07-30
 excerpt: "Adding regularisation to vectorised linear regression"
 layout: post
 published: true

@@ -124,6 +124,11 @@ rmd2md <- function( path_site = getwd(),
     }
   }
   invisible()
+  
+  # Last thing = remove exif tags from jpgs in figures folder
+  # Requires linux too exiv2
+  
+  system("exiv2 rm figures/*.jpg")
 }
 
 rmd2md()
