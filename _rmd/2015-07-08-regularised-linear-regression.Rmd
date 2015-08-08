@@ -830,7 +830,7 @@ test_error <- function(degree,lambda) {
 
 So the final question remains. How will these two models perform against each other: a more complicated model with a very high $\lambda$, or a simpler model with a lower $\lambda$?
 
-There is almost no difference between the performance of the models on the test set; both do a reasonable jobt; the third order polynomial model gives an error of `r test_error(degree = 3, lambda = 10^7) %>% sprintf("%.2f",.)`, which is very similar to the error given by the simpler model `r test_error(degree = 2, lambda = 10^1.6) %>% sprintf("%.2f",.)`.
+There is almost no difference between the performance of the models on the test set; both do a reasonable job; the third order polynomial model gives an error of `r test_error(degree = 3, lambda = 10^7) %>% sprintf("%.2f",.)`, which is very similar to the error given by the simpler model `r test_error(degree = 2, lambda = 10^1.6) %>% sprintf("%.2f",.)`.
 
 
 ```{r 2015-07-08-test-regularisation,fig.width=12}

@@ -1,7 +1,7 @@
 ---
 title: 'Regularised linear regression'
 date: '2015-07-26'
-modified: 2015-07-30
+modified: 2015-08-09
 excerpt: "Adding regularisation to vectorised linear regression"
 layout: post
 published: true
@@ -293,7 +293,7 @@ As predicted, $\lambda$ needs to be set much lower, between $10$ and $100$ to ob
  
 So the final question remains. How will these two models perform against each other: a more complicated model with a very high $\lambda$, or a simpler model with a lower $\lambda$?
  
-There is almost no difference between the performance of the models on the test set; both do a reasonable jobt; the third order polynomial model gives an error of 1.03, which is very similar to the error given by the simpler model 1.00.
+There is almost no difference between the performance of the models on the test set; both do a reasonable job; the third order polynomial model gives an error of 1.03, which is very similar to the error given by the simpler model 1.00.
  
  
 ![plot of chunk 2015-07-08-test-regularisation](/figures/2015-07-08-test-regularisation-1.png) 

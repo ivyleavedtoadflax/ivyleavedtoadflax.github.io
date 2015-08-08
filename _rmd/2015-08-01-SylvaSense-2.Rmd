@@ -5,7 +5,7 @@ modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: "Adding temperature monitoring to the equation"
 layout: post
 published: yes
-status: process
+status: processed
 comments: true
 categories: [arduino]
 tags: [arduino, agroforestry, environment, soil moisture]

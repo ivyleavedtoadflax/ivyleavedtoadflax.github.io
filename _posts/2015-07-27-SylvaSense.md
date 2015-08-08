@@ -1,7 +1,7 @@
 ---
-title: 'SylvaSense'
+title: 'SylvaSense Part I'
 date: '2015-07-28'
-modified: 2015-08-05
+modified: 2015-08-09
 excerpt: "Using an arduino for environmental sensing"
 layout: post
 published: true

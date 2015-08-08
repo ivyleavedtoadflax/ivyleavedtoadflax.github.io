@@ -1,7 +1,7 @@
 ---
 title: 'SylvaSense Part II'
 date: '2015-08-01'
-modified: 2015-08-05
+modified: 2015-08-09
 excerpt: "Adding temperature monitoring to the equation"
 layout: post
 published: true
