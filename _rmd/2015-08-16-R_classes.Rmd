@@ -4,8 +4,8 @@ date: '2015-08-16'
 #modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: 'Using classes in R'
 layout: post
-published: no
-status: process
+published: yes
+status: processed
 comments: true
 categories: [Rstats]
 tags: [R, machine learning, linear regression, regularisation]
@@ -24,8 +24,8 @@ checkpoint::setSnapshot("2015-08-01")
 
 library(dplyr)
 library(magrittr)
-library(boot)
-library(ucminf)
+#library(boot)
+#library(ucminf)
 library(ggplot2)
 library(tidyr)
 library(MASS)
