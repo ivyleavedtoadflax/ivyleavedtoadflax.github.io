@@ -1,7 +1,7 @@
 ---
 title: 'Visualising FAO data'
 date: '2015-08-30'
-#modified: 2015-09-01
+#modified: 2015-10-11
 excerpt: 'Making bubble maps in R'
 layout: post
 published: true
@@ -235,12 +235,12 @@ sessionInfo()
 ## other attached packages:
 ##  [1] rworldmap_1.3-1 FAOSTAT_2.0     ggmap_2.4       ggplot2_1.0.1  
 ##  [5] sp_1.1-1        readr_0.1.1     magrittr_1.5    dplyr_0.4.2    
-##  [9] testthat_0.9.1  knitr_1.9      
+##  [9] testthat_0.9.1  knitr_1.11     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.0         git2r_0.10.1        formatR_1.0        
 ##  [4] plyr_1.8.3          class_7.3-13        tools_3.2.2        
-##  [7] digest_0.6.8        memoise_0.2.1       evaluate_0.5.5     
+##  [7] digest_0.6.8        memoise_0.2.1       evaluate_0.7.2     
 ## [10] gtable_0.1.2        lattice_0.20-33     png_0.1-7          
 ## [13] DBI_0.3.1           mapproj_1.2-3       curl_0.9.1         
 ## [16] parallel_3.2.2      spam_1.0-1          proto_0.3-10       

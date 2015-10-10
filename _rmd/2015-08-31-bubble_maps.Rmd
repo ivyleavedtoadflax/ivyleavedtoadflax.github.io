@@ -5,7 +5,7 @@ date: '2015-08-30'
 excerpt: 'Making bubble maps in R'
 layout: post
 published: no
-status: process
+status: processed
 comments: true
 categories: [Rstats]
 tags: [R, GIS]
