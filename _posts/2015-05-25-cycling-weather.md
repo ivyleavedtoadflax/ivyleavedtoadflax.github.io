@@ -22,7 +22,7 @@ categories: Rstats
  
 
  
-Last year I played around a bit with the New York [Citibike](http://www.citibikenyc.com/system-data) data, and looked a little bit at the [different use patterns](http://ivyleavedtoadflax.github.io//citiBike-gender/) among among the sexes, and between [subscribers and ad hoc users](http://ivyleavedtoadflax.github.io//do-women-take-the-scenic-route/) of the service.
+Last year I played around a bit with the New York [Citibike](http://www.citibikenyc.com/system-data) data, and looked a little bit at the [different use patterns](http://ivyleavedtoadflax.github.io/rstats/citiBike-gender/) among among the sexes, and between [subscribers and ad hoc users](http://ivyleavedtoadflax.github.io/rstats/do-women-take-the-scenic-route/) of the service.
  
 Being an Englishman, I was also wondering if there were differences between the patterns of bike usage on different sides of the Atlantic, so I recently got hold of the 20 million odd records of Barclay Bike data from the Transport for London [open data portal](http://www.tfl.gov.uk/info-for/open-data-users/our-open-data).
  
