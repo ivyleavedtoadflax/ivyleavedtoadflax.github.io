@@ -2,12 +2,11 @@
 title: "Reproducible journal articles"
 comments: yes
 date: '2015-10-10'
-output: html_document
 layout: post
 modified: `r format(Sys.time(), '%Y-%m-%d')`
 excerpt: Writing papers for peer review with knitr
-published: no
-status: process
+published: yes
+status: processed
 tags:
 - R
 - knitr

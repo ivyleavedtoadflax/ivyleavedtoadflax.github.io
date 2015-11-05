@@ -4,7 +4,7 @@ comments: yes
 date: '2015-10-10'
 output: html_document
 layout: post
-modified: 2015-10-11
+modified: 2015-11-11
 excerpt: Writing papers for peer review with knitr
 published: true
 status: publish
@@ -70,10 +70,10 @@ Once run, this hook will create a file called `.git/gitHeadInfo.gin` from which 
 If you're on Linux, you can install this file quickly from your repo using the code below.
 Note that you also need to make it executable by giving it the `+x` flag.
  
+
 {% highlight sh %}
-wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/post-xxx-sample.txt
-mv post-xxx-sample.txt .git/hooks/post-commit
-sudo chmod +x .git/hooks/post-commit
+wget https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/post-xxx-sample.txt .git/hooks/post-commit
+sudo chmod +x post-commit
 {% endhighlight %}
  
 Note that to install gitinfo2 on Ubuntu 14.04 I needed to remove the version of teXlive installed from the Ubuntu repository, and do a vanilla install ([full post on this here](http://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu)) 
