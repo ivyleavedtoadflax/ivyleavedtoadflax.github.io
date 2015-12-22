@@ -1,0 +1,676 @@
+---
+title: "Regularised multiple regression"
+author: "Matthew Upson"
+date: "22/06/2015"
+modified: `r format(Sys.time(), '%Y-%m-%d')`
+execerpt: "Adding regularisation to vectorised multiple linear regression"
+layout: post
+published: no
+status: process
+comments: true
+categories: [Rstats]
+---
+
+```{r,load packages,echo=FALSE,message=FALSE,warning=FALSE}
+
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  echo = FALSE
+  )
+
+#checkpoint::setSnapshot("2015-05-15")
+#checkpoint::checkpoint("2015-05-15", use.knitr = TRUE)
+
+library(dplyr)
+library(magrittr)
+library(boot)
+
+library(ggplot2)
+
+library(testthat)
+library(RColorBrewer)
+
+pal <- brewer.pal(6,"Set1")
+
+```
+
+In this post I reproduce an example similar to an exercise I did for the [coursera](http://www.coursera.org) [MOOC](http://en.wikipedia.org/wiki/Massive_open_online_course) course in machine learning written by Andrew Ng. I'm desperately trying to complete this course, having started it twice now, with the intention of completing all the exercises in R. In the next couple of posts I'm going to complete the equivalent of exercise 5.
+
+The exercise was about creating a vectorised implementation of regularised linear regression, and using this to test some theory relating to the diagnosis of what Ng terms bias (underfitting) and variance (overfitting). Solutions to this exercise area required in matlab, whereas I am working in R, plus I will use a different, but similar dataset to avoid publishing the solutions here.
+
+### Getting some data
+
+In this example I'm using data from the `trees` dataset which is included in the datasets package, instead of the data given in the course. These data are measurents of girth, height, and volume for 31 felled black cherry trees. I'm pretty used to working with this sort of data from my PhD. I spent quite a long time developing these so-called 'allometric' relationships from tree measurements for ash (*Fraxinus excelsior*) and poplar (*Populus* spp.) in Bedfordshire, England.
+
+```{r}
+trees %>% str
+
+trees %>% head(n = 3)
+```
+
+What foresters really want are easy ways to assess tree yield (i.e. volume) from a more easy-to-measure proxy. It turns out that girth (often measured as diameter at breast height or $D_{bh}$) tends to have a pretty strong relationship with height and volume. It's the relationship with `Height` that I will be looking at here - I would use `Volume`, but the relationship is a little too good already, without having to do too much modelling.
+
+The `trees` dataset is a all in imperial measurements, so `Girth` is in inches, and `Height` is in cubic feet.
+
+There are `r nrow(trees)` rows in the data set, and for this example I will make a 60/20/20 split on the dataset for train/cross-validate/test.
+
+```{r,Setup_data}
+
+set.seed(133)
+
+orig_data <- trees %>%
+  select(
+    Girth, Height
+  ) %>%
+  mutate(
+    n = row_number()
+  )
+
+train <- orig_data %>%
+  sample_frac(
+    .6
+  )
+
+test <- orig_data %>%
+  filter(
+    !n %in% train$n
+    )
+
+cross <- test %>%
+  sample_frac(
+    .5
+  )
+
+test <- test %>%
+  filter(
+    !n %in% cross$n
+  )
+
+# Plot out the subsets ----
+
+p <- train %>% 
+  ggplot +
+  aes(
+    x = Girth,
+    y = Height
+  ) +
+  geom_point()  +
+  xlab(
+    expression(Girth~("in"))
+    ) +
+  ylab(
+    expression(Height~(ft))
+    )
+
+p + 
+  geom_point(
+    data = test, 
+    col = "red"
+  ) +
+  geom_point(
+    data = cross, 
+    col = "green"
+  )
+
+```
+
+### Regularised linear regression
+
+To run the linear regression, I'll build on the vectorised linear regression implementation I implemented [here](http://ivyleavedtoadflax.github.io//rstats/linear_regression/), but this time including a regularisation term.
+
+Regularisation helps us to deal with the problem of overfitting by reducing the magnitude of the parameters $\theta_j$, allowing us to retain all the features, but not giving undue weight to one in particular. Regularisation is mediated by a parameter $\lambda$, as can be seen in the cost function:
+
+\[
+J(\theta)=\frac{1}{2m}\Big(\sum^{m}_{i=1}(h_{\theta}(x^{(i)}-y^{(i)})^2\Big)+\frac{\lambda}{2m}\Big(\sum^{n}_{j=1}\theta^2_j\Big)
+\]
+
+Since the objective is to minimise $J(\theta)$ (more formally: $\underset{\theta}{\text{min}}J(\theta)$) using a large $\lambda$ will require small values of $\theta_j$ in order to acheive a minima.
+
+A vectorised implementation of the cost function is given below. Note I've used `tcrossprod(theta, X)` as this function was about 1.5 times quicker than the equivalent `X %*% theta` in my tests, and both return the result of $\theta^TX$.
+
+The cost function is not applied to $\theta_0$ as this relates to the intercept parameter.
+
+```{r,echo=TRUE}
+
+J <- function(X, y, theta, lambda) {
+  
+  m <- length(y)
+  
+  theta1 <- theta
+  
+  # Ensure that regularisation is not operating on \theta_0
+  
+  theta1[1] <- 0
+  
+  error <- tcrossprod(theta,X)
+  error <- as.vector(error) - y
+  error1 <- crossprod(error,error)
+  
+  reg <- (lambda/(2*m)) * crossprod(theta1, theta1)
+  
+  cost <- (1/(2 * m)) * error1 + reg
+  
+  return(cost)
+  
+  }
+
+```
+
+The gradient function is given below, and is the same as that given in my previous post on [regularised logistic regression](./regularised-logistic-regression/) Note that once again the regularisation term excludes $\theta_0$.
+
+$$
+\left\{
+\begin{array}{ll}  
+    \displaystyle\frac{\delta J(\theta)}{\delta\theta_0}=\frac{1}{m}\sum_{i=1}^m(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j & \text{for}\ j=0 \\
+    & \\
+    \displaystyle\frac{\delta J(\theta)}{\delta\theta_j}=\left(\frac{1}{m}\sum_{i=1}^n(h_{\theta}(x^{(i)})-y^{(i)})x^{(i)}_j\right) + \frac{\lambda}{m}\theta_j & \text{for}\ j\geq1
+\end{array}\right .
+$$
+
+
+```{r,echo=TRUE}
+
+gR <- function(X, y, theta, lambda) {
+  
+  theta1 <- theta
+  theta1[1] <- 0
+  
+  m <- length(y)
+  
+  error <- tcrossprod(theta,X)
+  error <- as.vector(error) - y
+  error <- (1/m) * crossprod(error,X)
+  
+  reg <- (lambda/(m)) * theta1
+  
+  delta <- error + reg
+  
+  return(delta)
+  
+  }
+
+
+```
+
+### Optimisation algorithm
+
+As an optimisation algorithm, I use the `optim` function that ships with the stats package. This takes the same arguments as the `ucminf` function which I have used previously, so switching out the algorithms in the code is very simple. As default I have stuck to the [BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) method, and to $\lambda=0$, i.e. no regularisation.
+
+```{r,echo=TRUE}
+
+theta <- c(1,1)
+lambda <- 0
+X <- cbind(1,train$Girth)
+y <- train$Height
+
+optim_out <- optim(
+  par = theta,
+  fn = function(t) J(X, y, t, lambda),
+  gr = function(t) gR(X, y, t, lambda),
+  method = "BFGS"
+)
+
+
+```
+
+So far so good, this seems to work:
+
+```{r}
+optim_out
+```
+
+The output from `optim` differs slightly from `ucminf`; here a convergence of $0$ indicates success, and includes the number of times the cost function and gradient functions were called (`$counts`). The output also gives the final cost (`$value`) associated with the parameters (`$par`). For the most part, we are only interested in the parameters themselves, which we can plug into `ggplot` to overlay the model onto the training set.
+
+```{r}
+
+p + stat_abline(
+  aes(
+    intercept = optim_out$par[1],
+    slope = optim_out$par[2]
+    ),
+  col = "blue"
+  )
+
+```
+
+We can calculate the error related to this model using the sum of the squared differences between the expected and the observed:
+
+\[
+J_{train}(\theta)=\frac{1}{2m}\sqrt{\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2}
+\]
+
+Note that I added the square root term to put the errors back into the same units as the original measurements, which also makes them much easier to understand. This simple definition does not take into account regularisation, so for the time being, while I am calculating errors, I will set $\lambda = 0$.
+
+```{r,echo=TRUE}
+
+J_train <- function(X, y, theta) {
+  
+  m <- length(y)
+  
+  error <- tcrossprod(theta, X)
+  error <- as.vector(error) - y
+  error <- crossprod(error, error)
+  
+  # Note that here I have deviated from Andrew Ng by including the sqrt term.
+  # Including it reduces the size of the errors to something a little more human
+  # understandable
+  
+  return(
+      (1/m) * sqrt(error)
+  )
+  
+}
+
+```
+
+Applying this function to the existing model gives a training error of `r sprintf("%.0f",J_train(train$Girth, train$Height, optim_out$par))`.
+
+## Polynomials 
+
+Looking at the data so far, it's not immediately clear what the best model for the data is. A linear model does the job passably well, but it might be improved by including some non-linearity. We can do this simply by adding polynomials of the input $x$.
+
+Part of the coursera exercise is to create a function to produce polynomials of different features (explanatory variables), but R has a built in polynomial function in the stats package: `poly` which is $50\%$ faster than the equivalent function that I wrote, so I'll stick to the built-in function.
+
+So here I run models of up to nine degrees of polynomial.
+
+```{r}
+
+optim_w <- function(X, y, degree = 1, lambda = 0) {
+  
+  X <- poly(X, degree = degree, raw = TRUE) %>%
+    cbind(1,.)
+  
+  test_that(
+    "Output of mapfeature()/poly() makes sense",
+    {
+      expect_is(X,"matrix")
+      expect_equal(ncol(X),degree + 1)
+    }    
+  )
+  
+  theta <- rep(1,ncol(X))
+  
+  optim_out <- optim(
+    par = theta,
+    fn = function(t) J(X, y, t, lambda),
+    gr = function(t) gR(X, y, t, lambda),
+    method = "BFGS",
+    control = list(maxit = 400)
+  )
+  
+  test_that(
+    "Check optim_out$par makes sense",
+    {
+      expect_equal(
+        optim_out$par %>% length,
+        ncol(X)
+      )
+    }
+  )
+  
+  return(
+    list(
+      con = optim_out$convergence,
+      par = optim_out$par,
+      y = data.frame(
+        x = X[,2],
+        y = tcrossprod(optim_out$par, X) %>% as.vector
+      )
+    )
+  )
+}
+
+```
+
+```{r}
+
+# Create dataframe of several degrees to make plotting easier
+
+bla <- optim_w(train$Girth,train$Height,1)$y
+bla$degree <- 1
+
+for (i in 2:9) {
+  
+  polynomials <- optim_w(train$Girth,train$Height,i)$y
+  polynomials$degree <- i
+  
+  bla %<>% rbind_list(
+    polynomials
+  )
+  
+}
+
+# Plot df
+
+p +
+  geom_line(
+    data = bla %>% mutate(degree = factor(degree)),
+    aes(
+      x = x,
+      y = y,
+      colour = degree,
+      group = degree
+    )
+  ) +
+  facet_wrap(
+    ~degree
+  )
+
+```
+
+It's not immediately clear which model provides the best fit without looking at the errors, but you can see straight away that the higher the degree of polynomial included, the more jagged the line, and the more it tends to conform to individual points.
+This is likely to cause a problem when we apply the models trained here on the cross-validation dataset, as it won't generalise so well as a smoother model.
+
+```{r}
+
+train_error <- sapply(1:9, function(x) {
+  
+  train_out <- optim_w(X = train$Girth, y = train$Height, degree = x,lambda = 0)
+  
+  theta <- train_out$par
+  X <- train$Girth
+  y <- train$Height
+  
+  out <- J_train(X,y,theta)
+  
+  round(out)
+  
+}
+)
+
+cross_error <- sapply(1:9, function(x) {
+  
+  theta <- optim_w(X = train$Girth, y = train$Height, degree = x,lambda = 0)$par
+  X <- cross$Girth
+  y <- cross$Height
+  
+  out <- J_train(X,y,theta)
+  
+  round(out)
+  
+}
+)
+
+```
+
+As it turns out, the model which includes the fourth order polynomial features offers the best fit for the data.
+
+```{r}
+
+data.frame(
+  degree = 1:9,
+  train = train_error
+)
+
+```
+
+So what happens when we apply these models to the cross-validation set?
+
+```{r,cross_validation_facet}
+
+# Create dataframe of several degrees to make plotting easier
+
+theta <- optim_w(train$Girth, train$Height, 1)$par
+X <- cbind(1, cross$Girth)
+
+bla <- data.frame(
+  x = cross$Girth,
+  y = c(tcrossprod(theta, X)),
+  degree = 1
+)
+
+for (i in 2:9) {
+  
+  theta <- optim_w(train$Girth, train$Height, i)$par
+  X <- cbind(1, poly(cross$Girth, raw = TRUE, degree = i))
+  
+  bla1 <- data.frame(
+    x = cross$Girth,
+    y = c(tcrossprod(theta, X)),
+    degree = i
+  )
+  
+  bla %<>% rbind_list(
+    bla1
+  )
+  
+}
+
+# Plot df
+
+p %+% 
+  cross +
+  geom_line(
+    data = bla %>% mutate(degree = factor(degree)),
+    aes(
+      x = x,
+      y = y,
+      colour = degree,
+      group = degree
+    )
+  ) +
+  facet_wrap(
+    ~degree
+  )
+
+```
+
+Again, difficult to tell exactly which model is performing the best until we calulate the errors:
+
+```{r}
+
+data.frame(
+  degree = 1:9,
+  cross = cross_error
+)
+
+```
+
+So, once again, the fourth order polynomial model provides the best fit for the data.
+
+That's all for now. Next time I will look at the effect that $\lambda$, the regularisation parameter can have on the models, and explore further the diagnosis of variance and bias.
+
+
+
+
+
+Now that we have established this, what about the parameter $\lambda$, will tweaking this have an effect on the fit of the model?
+
+
+
+
+
+```{r,message=TRUE,eval=FALSE}
+
+# Plotting the learning curves
+
+train_curve <- function(degree = 1, lambda = 0) {
+
+
+train_error <- sapply(1:nrow(train), function(x) {
+  
+  bla <- 1:x
+  train_out <- optim_w(X = train$Girth[bla], y = train$Height[bla], degree = degree,lambda = lambda) 
+  X <- train_out$y$y[bla]
+  y <- train$Height[bla]
+  theta <- train_out$par
+  
+  out <- J_train(X,y,theta)
+  #message(paste("n =",x,"error =",out))
+  return(out)
+}
+)
+
+cross_error <- sapply(1:nrow(cross), function(x) {
+  
+  bla <- 1:x
+  cross_out <- optim_w(X = cross$Girth[bla], y = cross$Height[bla], degree = degree,lambda = lambda)  
+  X <- cross_out$y$y[bla]
+  y <- cross$Height[bla]
+  theta <- cross_out$par
+  
+  out <- J_train(X,y,theta)
+  #message(paste("n =",x,"error =",out))
+  return(out)
+  
+}
+)
+
+make_df <- function(x,label) {
+  data.frame(
+  i = 1:length(x),
+  error = x,
+  degree = degree,
+  data = label,
+  lambda = lambda
+  )
+}
+
+return(
+  rbind_list(
+  make_df(train_error, "train"),
+  make_df(cross_error, "cross")
+  )
+)
+
+}
+
+train_curve_df <- train_curve(1)
+
+for (i in 2:9) {
+  
+  train_curve_df <- rbind_list(
+    train_curve_df,
+    train_curve(i)
+  )
+  
+}
+
+```
+
+
+```{r,eval=FALSE}
+
+# Plotting the learnign curves
+
+train_curve_df %>%
+  filter(
+    i == 19 & data == "train" | i == 6 & data == "cross" 
+    ) %>%
+  mutate(
+    degree = as.factor(degree)
+    ) %>%
+ggplot +
+  aes(
+    x = degree,
+    y = error,
+    group = data,
+    colour = data
+    ) + 
+  geom_path()
+
+```
+
+```{r,eval=FALSE}
+
+# Plotting the learnign curves
+
+train_curve_df %>%
+ggplot +
+  aes(
+    x = i,
+    y = error,
+    group = data,
+    colour = data
+    ) + 
+  geom_path() +
+  facet_wrap(
+    ~degree,
+    scales = "free"
+    )
+
+```
+
+
+```{r}
+
+# Create dataframe of several degrees to make plotting easier
+
+lambdas <- c(0,100,50,10,1,0.1,0.5,0.01)
+
+bla <- optim_w(train$Girth,train$Height,degree = 4,lambda = 0)$y
+bla$lambda <- 0
+
+for (i in lambdas[2:length(lambdas)]) {
+  
+  polynomials <- optim_w(train$Girth,train$Height,degree = 4,lambda = i)$y
+  polynomials$lambda <- i
+  
+  bla %<>% rbind_list(
+    polynomials
+  )
+  
+}
+
+# Plot df
+
+p %+% 
+  cross +
+  geom_line(
+    data = bla %>% mutate(lambda = factor(lambda)),
+    aes(
+      x = x,
+      y = y,
+      colour = lambda,
+      group = lambda
+    )
+  ) +
+  facet_wrap(
+    ~lambda
+  )
+
+```
+
+```{r}
+
+cross_error <- sapply(lambdas, function(x) {
+  
+  train_out <- optim_w(X = train$Girth, y = train$Height, degree = 4, lambda = x)
+  
+  theta <- train_out$par
+  X <- train$Girth
+  y <- train$Height
+  
+  out <- J_train(X,y,theta)
+  
+  round(out)
+  
+}
+)
+
+data.frame(
+  lambda = sprintf("%.2f",lambdas),
+  cross = cross_error
+)
+
+```
+
+So it turns out that tweaking the 
+
+
+```{r,eval=FALSE}
+
+train_curve_df <- train_curve(degree = 4, lambda = lambdas[1])
+
+for (i in lambdas[2:length(lambdas)]) {
+  
+  train_curve_df <- rbind_list(
+    train_curve_df,
+    train_curve(degree = 4, lambda = i)
+  )
+  
+}
+
+```
+

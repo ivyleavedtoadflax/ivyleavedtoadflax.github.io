@@ -1,0 +1,48 @@
+---
+title: "Finding balance"
+comments: yes
+date: '2015-12-18'
+modified: `r format(Sys.time(), '%Y-%m-%d')`
+layout: post
+excerpt: "Post-hoc causal inference by matching"
+published: no
+status: draft
+tags:
+- R
+- propensity score matching
+- Matching
+- logistic regression
+- statistics
+categories: Rstats
+---
+
+```{r,include = FALSE}
+
+#library(checkpoint)
+#checkpoint("2015-05-15")
+
+library(dplyr)
+library(Matching)
+
+opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+
+In the ideal world, when we want to test the efficacy of a treatment against a control, we apply the treatment randomly to our sample.
+In doing so, it shouldn't matter to the outcome of the experiment whether sample $n$ was assigned to the control or to the treatment group.
+In effect we are assuming that the potential outcome of the treatment is dependent solely on the application of the treatment, and not on any underlying differences in our treatment groups.
+
+Simple enough, but what do we do when we were not able to select randomly.
+In my ecological research this was a fairly common occurence, and there are various statistical methods than we can employ to control for this issue.
+On some occasions, we might have even less control than this, and our experiment is based on the application of a treatment on a non-random sample over which we had entirely no control.
+Or (more likely: and) if we are dealing with human subjects, it would not have been ethical to design a randomised control experiment of this sort in the first place.
+
+This is where the suite of matching techniques can be useful.
+By looking at a range of covariates which describe the individuals within our experiments, we can start to match the individuals within our treatment group with individuals within the control, and 
+
+Following Sekhon, we can formalise some of these
+
+
+```{r}
+sessionInfo()
+```

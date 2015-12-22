@@ -1,0 +1,178 @@
+---
+title: "Measuring obsession"
+comments: yes
+date: '2015-12-21'
+#modified: `r format(Sys.time(), '%Y-%m-%d')`
+layout: post
+excerpt: "Home monitoring with raspberry pi."
+published: no
+status: draft
+tags:
+- R
+- raspberry pi
+- monitoring
+- electricity
+- infographic
+categories: Rstats
+---
+
+```{r,include = FALSE}
+
+#library(checkpoint)
+#checkpoint("2015-05-15")
+
+library(dplyr)
+library(lubridate)
+library(magrittr)
+library(knitr)
+library(ggplot2)
+
+knitr::opts_chunk$set(
+  warning = FALSE, 
+  message = FALSE,
+  echo = FALSE,
+  include = FALSE
+  )
+
+```
+
+I like measuring things. There's something about distilling life's patterns into numbers which is deeply satisfying. I can't explain it. But this is, at least in part, why I became a scientist.
+
+About a year ago, I started exercising this obsession on my everyday life, and built a number of sensors out of raspberry pis to monitor the goings on in my house. This has variously fluctuated between one and three Pis, but at present I have two, one monitoring internal and external temperature, and internal light and humidity levels, and one measuring electricity usage by counting the pulses of the led on my proprietary electricity meter.
+
+So in the spirit of the end of the year, and our collective obsession with summarising the last year's goings on, in this post I am going to start to analyse the fruits of one of my obsessions: a whole year of data I have collected by raspberry pi. I'm planning to delve deeply into this data, and to summarise the main features in an infographic, having been inspired recently by [The information capital](), which I can highly recommend, and was in part produced in R.
+
+### The setup
+
+So what are the technical details?
+
+insert photos and links to github here
+
+### The data
+
+```{r}
+
+sensorpi <- readRDS("../data/2015-12-21-sensorpi_raw.Rds")
+elec <- readRDS("../data/2015-12-21-elec_raw.Rds")
+
+raw_join <- rbind_list(
+  sensorpi %>%
+    tidyr::gather(key, value, int_temp1:int_humidity),
+  elec %>% 
+    select(timestamp,key,value)
+)
+
+```
+
+```{r}
+
+start_date <- min(sensorpi$timestamp)
+end_date <- max(sensorpi$timestamp)
+dur <- as.integer(max(sensorpi$timestamp)-min(sensorpi$timestamp))
+n_obs <- prettyNum(nrow(raw_join),big.mark=",")
+
+```
+
+So the basics. This excerpt is about 11 months' worth of data, with just over a million observations in the raw datasets.
+
+|Start date|End date|Duration (days)|Number of observations|
+|:---|:---|:---|---:|
+|`r start_date`|`r end_date`|`r dur`|`r n_obs`|
+
+```{r}
+
+tab_raw <- raw_join %>%
+  mutate(
+    key = plyr::mapvalues(
+      key, 
+      from = c("elec","ext_temp1","int_humidity", "int_light", "int_temp1", "int_temp2"),
+      to = c("Electricity","External temperature","Internal humidity", "Internal light", "Internal temperature 1", "Internal temperature 2")
+    )
+  ) %>%
+  group_by(
+    key
+  ) %>%
+  tally %>%
+  mutate(
+    max = ifelse(key == "Electricity", ddays(dur) %>% as.integer %>% divide_by(60), ddays(dur) %>% as.integer %>% divide_by(180)),
+    "actual (%)" = n %>% divide_by(max) %>% multiply_by(100) %>% round(1),
+    n = prettyNum(n, big.mark = ","),
+    max = prettyNum(max, big.mark = ",")
+    )
+
+```
+
+```{r,include=TRUE}
+
+tab_raw %>%
+  kable
+
+```
+
+
+```{r,include=TRUE}
+
+raw_join %>% 
+#   mutate(
+#     lubridate::ymd_hms(timestamp)
+#     ) %>%
+  ggplot +
+  aes(
+    x = timestamp,
+    y = value,
+    col = key
+  ) +
+  geom_path() +
+  facet_wrap(
+    ~key, 
+    scales = "free_y"
+  ) +
+  theme(
+    legend.position = "none"
+    ) +
+  ylab("Timestamp") +
+  xlab("Value")  +
+  scale_x_date(
+    breaks = seq.Date(from = as.Date("2015-01-01"), to = as.Date("2015-12-01"), by = "2 month"),
+    labels = month.abb[seq(1,11,2)]
+  )
+
+```
+
+This equates to about 69% of the possible electricity measurements, and 94% of measurements from the other sensors. Following cleaning to remove 
+
+```{r}
+
+sensor_cleaned <- readRDS("../data/2015-12-21-sensorpi_join.Rds")
+
+tab_cleaned <- sensor_cleaned %>%
+  mutate(
+    key = plyr::mapvalues(
+      key, 
+      from = c("elec","ext_temp1","int_humidity", "int_light", "int_temp1", "int_temp2"),
+      to = c("Electricity","External temperature","Internal humidity", "Internal light", "Internal temperature 1", "Internal temperature 2")
+    )
+  ) %>%
+  group_by(
+    key
+  ) %>%
+  tally %>%
+  mutate(
+    max = ifelse(key == "Electricity", ddays(dur) %>% as.integer %>% divide_by(60), ddays(dur) %>% as.integer %>% divide_by(180)),
+    "actual (%)" = n %>% divide_by(max) %>% multiply_by(100) %>% round(1),
+    n = prettyNum(n, big.mark = ","),
+    max = prettyNum(max, big.mark = ",")
+  )
+
+```
+
+
+```{r,include=TRUE}
+tab_cleaned %>%
+  kable
+```
+
+
+```{r}
+sessionInfo()
+```
