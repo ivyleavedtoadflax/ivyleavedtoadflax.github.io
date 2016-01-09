@@ -2,7 +2,7 @@
 title: "Regularised multiple regression"
 author: "Matthew Upson"
 date: "22/06/2015"
-modified: `r format(Sys.time(), '%Y-%m-%d')`
+#modified: `r format(Sys.time(), '%Y-%m-%d')`
 execerpt: "Adding regularisation to vectorised multiple linear regression"
 layout: post
 published: no
@@ -224,7 +224,7 @@ The output from `optim` differs slightly from `ucminf`; here a convergence of $0
 
 ```{r}
 
-p + stat_abline(
+p + geom_abline(
   aes(
     intercept = optim_out$par[1],
     slope = optim_out$par[2]
