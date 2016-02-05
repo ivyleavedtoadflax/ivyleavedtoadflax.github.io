@@ -2,4 +2,6 @@
 .Rhistory
 .RData
 .httr-oauth
-figures/unnamed-chunk-10-1.png figures/unnamed-chunk-11-1.png figures/unnamed-chunk-6-1.png figures/unnamed-chunk-9-1.png
+_drafts/*
+figures/unnamed*
+data/bubble_maps/*
