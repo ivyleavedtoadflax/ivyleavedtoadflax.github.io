@@ -53,7 +53,7 @@ p <- ex2data2 %>%
 p
 {% endhighlight %}
 
-![plot of chunk 2015-04-10-initial-data-plot](/figures/2015-04-10-initial-data-plot-1.png) 
+[![plot of chunk 2015-04-10-initial-data-plot](/figures/2015-04-10-initial-data-plot-1.png)](/figures/2015-04-10-initial-data-plot-1.png) 
  
 ### Feature mapping
  
@@ -281,7 +281,7 @@ p + geom_contour(
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-10-no-regularisation](/figures/2015-04-10-no-regularisation-1.png) 
+[![plot of chunk 2015-04-10-no-regularisation](/figures/2015-04-10-no-regularisation-1.png)](/figures/2015-04-10-no-regularisation-1.png) 
  
 So this looks is capturing the positive values pretty well, but it could probably be improved especially in the top and bottom left where new cases are likely to be mis-classified.
  
@@ -490,7 +490,7 @@ p + geom_contour(
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-10-lambda-equals-1](/figures/2015-04-10-lambda-equals-1-1.png) 
+[![plot of chunk 2015-04-10-lambda-equals-1](/figures/2015-04-10-lambda-equals-1-1.png)](/figures/2015-04-10-lambda-equals-1-1.png) 
  
 Regularisation has smoothed away much of the overfitting. We can't tell how succesful this will be without evaluating the model on the a set, but we can also try a range of values for $\lambda$ and see what effect this has.
  
@@ -603,7 +603,7 @@ out_mat %>%
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-10-various-lambdas](/figures/2015-04-10-various-lambdas-1.png) 
+[![plot of chunk 2015-04-10-various-lambdas](/figures/2015-04-10-various-lambdas-1.png)](/figures/2015-04-10-various-lambdas-1.png) 
  
 So it's clear that increasing $\lambda$ leads to progressively greater smoothing of the decision boundary. And despite decreasing accuracy on the training set, these regularised decision boundaries would certainly perform better against a test set.
  

@@ -141,7 +141,7 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png) 
+[![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-1.png)](/figures/gradient_descent_plots-1.png) 
 
 {% highlight r %}
 create_plot(expression(alpha~just~right))
@@ -161,7 +161,7 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-2.png) 
+[![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-2.png)](/figures/gradient_descent_plots-2.png) 
 
 {% highlight r %}
 create_plot(expression(High~alpha))
@@ -181,7 +181,7 @@ with(
   )
 {% endhighlight %}
 
-![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-3.png) 
+[![plot of chunk gradient_descent_plots](/figures/gradient_descent_plots-3.png)](/figures/gradient_descent_plots-3.png) 
  
 Another way to look at the rate of convergence is to plot the number of iterations against the output of $f(x)$. Vertical lines show when convergence occurs. When $\alpha$ is set very low, it takes much longer than necessary (although it does converge). When $\alpha$ is too high, convergence doesn't occur at all within a hundred iterations.
  
@@ -199,4 +199,4 @@ plot(alpha_too_high$x, type = "l", col = "red")
 abline(v = (round(alpha_too_high$x,4) != 2) %>% which %>% length)
 {% endhighlight %}
 
-![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png) 
+[![plot of chunk gradient_descent_iterations](/figures/gradient_descent_iterations-1.png)](/figures/gradient_descent_iterations-1.png) 

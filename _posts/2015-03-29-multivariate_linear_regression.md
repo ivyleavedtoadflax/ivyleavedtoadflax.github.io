@@ -78,7 +78,7 @@ p <- house_prices %>%
 p
 {% endhighlight %}
 
-![plot of chunk plot_multiple_regression](/figures/plot_multiple_regression-1.png) 
+[![plot of chunk plot_multiple_regression](/figures/plot_multiple_regression-1.png)](/figures/plot_multiple_regression-1.png) 
  
 ### Feature normalisation/scaling
  
@@ -340,7 +340,7 @@ Hmm ok so that didn't seem to work. Just out of interest, let's plot the history
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk plot_theta_history](/figures/plot_theta_history-1.png) 
+[![plot of chunk plot_theta_history](/figures/plot_theta_history-1.png)](/figures/plot_theta_history-1.png) 
  
 Definitely something not working there. Ok so now I'll try it *with* feature scaling.
  
@@ -380,7 +380,7 @@ And to plot it:
 plot(theta_history[,4],type="l")
 {% endhighlight %}
 
-![plot of chunk plot_theta_history1](/figures/plot_theta_history1-1.png) 
+[![plot of chunk plot_theta_history1](/figures/plot_theta_history1-1.png)](/figures/plot_theta_history1-1.png) 
  
 Great, convergence after 389 iterations. All seems well, but I want to compare this with a multiple linear regression the traditional way:
  
@@ -480,7 +480,7 @@ house_prices %>%
     )
 {% endhighlight %}
 
-![plot of chunk plot_multiple_regression_predictions](/figures/plot_multiple_regression_predictions-1.png) 
+[![plot of chunk plot_multiple_regression_predictions](/figures/plot_multiple_regression_predictions-1.png)](/figures/plot_multiple_regression_predictions-1.png) 
  
 Pretty close to a single regression model, but you can see that there are slightly different slopes for each number of rooms.
  

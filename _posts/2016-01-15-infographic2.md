@@ -54,7 +54,7 @@ So first I'd like to see how the daily patterns have varied across the year.
 In the plot below I have plotted the $q_{0.25}$ and $q_{0.75}$ as the darker band in the centre of each ribbon, and the $q_{0.1}$ and $q_{0.9}$ as the more transparent ribbon outside of this.
 The trend line is a locally weight regression (`loess`).
  
-![plot of chunk 2016-01-15-daily-ribbon-plot](/figures/2016-01-15-daily-ribbon-plot-1.png) 
+[![plot of chunk 2016-01-15-daily-ribbon-plot](/figures/2016-01-15-daily-ribbon-plot-1.png)](/figures/2016-01-15-daily-ribbon-plot-1.png) 
  
 So this plot doesn't hold too many surprises. internal temperature is generally pretty stable around 20 degrees, whilst external temperature rises with the sun and drops in the evening.
  
@@ -75,7 +75,7 @@ This plot is aggregated by the hour however, and it would be good to see this in
  
 The plot below shows the monthly distribution of the difference between the internal and the external temperature ($\delta$) for every measurement - which for this sensor is every three minutes.
  
-![plot of chunk 2016-01-15-delta-distribution-plot](/figures/2016-01-15-delta-distribution-plot-1.png) 
+[![plot of chunk 2016-01-15-delta-distribution-plot](/figures/2016-01-15-delta-distribution-plot-1.png)](/figures/2016-01-15-delta-distribution-plot-1.png) 
  
 This gives us a much clearer indication of the sort of temperature differential I have been maintaining, and how this varies throughout the year (note that the dashed line shows the grand median of $\delta$: 7.7 Celsius).
  
@@ -112,14 +112,14 @@ I re-used some old code to clean the data[^1], which resulted in no values being
 [^1]: I used a monthly window function to exclude termperature values which were more than 1.5 times the interquartile range above or below the mean; i.e. any values that would appear as 'outliers' in a regular [boxplot](https://en.wikipedia.org/wiki/Box_plot).
  
  
-![plot of chunk 2016-01-15-GSOD-DS18B20-full_series](/figures/2016-01-15-GSOD-DS18B20-full_series-1.png) 
+[![plot of chunk 2016-01-15-GSOD-DS18B20-full_series](/figures/2016-01-15-GSOD-DS18B20-full_series-1.png)](/figures/2016-01-15-GSOD-DS18B20-full_series-1.png) 
  
 From a first glance, the daily means from the data that I have collected follow the pattern of the Bedford weather data well, but tend to be a few degrees warmer, and more so in the summer than the winter months.
  
 I've produced a more informative plot below, with each GSOD observation compared to the daily aggregationg from my measurements.
 I've also applied a `loess` model to each measure, not a linear model, although you would be forgiven for thinking so, as the patterns are incredibly linear. 
  
-![plot of chunk 2016-01-15-GSOD-DS18B20-regression](/figures/2016-01-15-GSOD-DS18B20-regression-1.png) 
+[![plot of chunk 2016-01-15-GSOD-DS18B20-regression](/figures/2016-01-15-GSOD-DS18B20-regression-1.png)](/figures/2016-01-15-GSOD-DS18B20-regression-1.png) 
  
 It looks like these fits diverge from the 1:1 line (dashed) slightly more at the higher end of the temperature scale, so I'd expect the slope ($\alpha$) to be $~\alpha>1$ if I were to fit a linear model instead of using `loess`.
  

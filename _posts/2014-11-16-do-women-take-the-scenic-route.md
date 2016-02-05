@@ -365,7 +365,7 @@ ggmap(
     )
 {% endhighlight %}
 
-![plot of chunk journey_plot_ggmap](/figures/journey_plot_ggmap-1.png)
+[![plot of chunk journey_plot_ggmap](/figures/journey_plot_ggmap-1.png)](/figures/journey_plot_ggmap-1.png)
 
 So it looks like we have a reasonable coverage of Manhattan island. You could always query the API on multiple days and combine the output if you wanted to include more than 2500 of the 110,000 possible journeys.
 
@@ -427,7 +427,7 @@ Now that we have that data combined, we can produce some plots and start to answ
 
 First, how does all this data look when separated by gender? In the following plot the solid line is a 1:1 lined between the journey time predicted by the Google API, and the actual journey time in seconds. The dashed line is an actual regression line from the data.
 
-![plot of chunk nybikes_pred_vs_actual](/figures/nybikes_pred_vs_actual-1.png)
+[![plot of chunk nybikes_pred_vs_actual](/figures/nybikes_pred_vs_actual-1.png)](/figures/nybikes_pred_vs_actual-1.png)
 
 The first thing we can take away from this plot is that the Google API is quite optimistic about its predictions of cycling journey time sin New York City: most journeys take longer than it predicts; although of course, it is not clear whether this is simply because people are not taking the most direct route.
 
@@ -435,13 +435,13 @@ The second thing that comes out is that for men, it appears that for journeys of
 
 The regression lines tend to suggest that mens' journey time on the same journeys are simply shorter than womens'. We can see this more clearly in a boxplot:
 
-![plot of chunk nybikes_boxplot](/figures/nybikes_boxplot-1.png)
+[![plot of chunk nybikes_boxplot](/figures/nybikes_boxplot-1.png)](/figures/nybikes_boxplot-1.png)
 
 However, it would better if we could look at the average of each journey time for each journey against each other for men and women, as the plots above are not from a uniform number of journeys for each sex. We can look at the distance taken, or the speed:
 
-![plot of chunk nybikes_time_by_journey](/figures/nybikes_time_by_journey-1.png)
+[![plot of chunk nybikes_time_by_journey](/figures/nybikes_time_by_journey-1.png)](/figures/nybikes_time_by_journey-1.png)
 
-![plot of chunk nybikes_speed_by_journey](/figures/nybikes_speed_by_journey-1.png)
+[![plot of chunk nybikes_speed_by_journey](/figures/nybikes_speed_by_journey-1.png)](/figures/nybikes_speed_by_journey-1.png)
 
 Almost across the board men simply are riding faster than women for the given journeys. But I was also finding something strange with a couple of journeys (cropped out of the above plot). Both appear to be taking place at spends of greater than 50 or 100 km/h...
 
@@ -458,7 +458,7 @@ Almost across the board men simply are riding faster than women for the given jo
 
 So that is a bit bizarre...according to Google, two journeys of over 8 km are being completed in between 200 and 600 seconds. These are the journeys:
 
-![plot of chunk journey_plot_ggmap1](/figures/journey_plot_ggmap1-1.png)
+[![plot of chunk journey_plot_ggmap1](/figures/journey_plot_ggmap1-1.png)](/figures/journey_plot_ggmap1-1.png)
 
 It's not immediately clear what's going on here. This is probably an issue with the way I hashed the data, as it appears to affect journeys from one particular station. I'll investigate another day.
 

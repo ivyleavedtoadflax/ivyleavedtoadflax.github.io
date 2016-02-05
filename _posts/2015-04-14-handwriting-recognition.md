@@ -95,7 +95,7 @@ grid.raster(
   )
 {% endhighlight %}
 
-![plot of chunk 2015-04-14-single-digit](/figures/2015-04-14-single-digit.png) 
+[![plot of chunk 2015-04-14-single-digit](/figures/2015-04-14-single-digit.png)](/figures/2015-04-14-single-digit.png) 
  
 So that's great for a single row, or a single training example. But it would be nice to plot the entire 100 row dataset that we are working from as a matrix. The following code loops through each row, and parks the $20 \times 20$ pixel grid into a matrix of $100$ bitmaps.
  
@@ -139,7 +139,7 @@ grid.raster(
   )
 {% endhighlight %}
 
-![plot of chunk 2015-04-14-digit-matrix](/figures/2015-04-14-digit-matrix.png) 
+[![plot of chunk 2015-04-14-digit-matrix](/figures/2015-04-14-digit-matrix.png)](/figures/2015-04-14-digit-matrix.png) 
  
 So great, this is what we are trying to classify. 
  

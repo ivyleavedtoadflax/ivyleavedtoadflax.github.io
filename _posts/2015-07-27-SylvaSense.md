@@ -17,7 +17,7 @@ tags: [arduino, agroforestry, environment, soil moisture]
  
 I've been playing a lot with [raspberry pi](https://www.raspberrypi.org/)s over the last couple of years. I'm now the proud owner of an original Raspberry Pi B, A, two A+s, and a brand spanking new Pi 2. Currently I have one sitting next to my electricity meter reading LED pulses from the meter, charting my electricity consumption, and a second running an external and internal temperature sensor, light, and humidity sensors. The data is then pushed to an online server and postgres database, so that I can get access to it wherever I am. 
  
-![](/figures/2015-07-27-psql.png)
+[![](/figures/2015-07-27-psql.png)](/figures/2015-07-27-psql.png)
  
 *Plots from a raspberry pi driven environmental sensor linked to an online postgres server.*
  
@@ -35,13 +35,13 @@ There's a great alternative to their design of soil moisture sensor using 3D pri
  
 This is the design that I'm going to play with, so over the last week I have been assembling components with the help of [@MCeeP](https://twitter.com/mceep) who was kind enough to print the caps for my first three sensors.
  
-![](/figures/2015-07-27-3dprinter.jpg) 
+[![](/figures/2015-07-27-3dprinter.jpg)](/figures/2015-07-27-3dprinter.jpg) 
  
 *Parts freshly extruded on the printer.*
  
 I'm just waiting for some new studding to arrive so that I can finish the construction and cast the sensor from gypsum, which is cheaply available as 'plaster of Paris'.
  
-![](/figures/2015-07-27-assembly.jpg)
+[![](/figures/2015-07-27-assembly.jpg)](/figures/2015-07-27-assembly.jpg)
  
 *Starting to assemble a sensor before casting with gypsum.*
  
@@ -49,7 +49,7 @@ In the meantime, I have also been doing some experiments to work out how long I 
  
 With a measurement frequency of once every minute, and logging values to a microSD card, though not at present with a real time clock unit, on an arduino Uno, I've managed to get around 70 hours of life from the arduino, without any special effort to save battery power
  
-![plot of chunk 2015-07-27-datalog](/figures/2015-07-27-datalog-1.png) 
+[![plot of chunk 2015-07-27-datalog](/figures/2015-07-27-datalog-1.png)](/figures/2015-07-27-datalog-1.png) 
  
 Field based readings are likely to be much less frequent, so even with a relatively small battery I anticipate getting several days worth of readings.
  

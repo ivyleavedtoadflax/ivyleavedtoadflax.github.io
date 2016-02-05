@@ -61,11 +61,11 @@ The lines in the plot below originate at the centroid of all the bike hire stati
  
 
  
-![plot of chunk 2015-05-25-ny_bike_map](/figures/2015-05-25-ny_bike_map-1.png) 
+[![plot of chunk 2015-05-25-ny_bike_map](/figures/2015-05-25-ny_bike_map-1.png)](/figures/2015-05-25-ny_bike_map-1.png) 
  
 So it turns out that there are four weather stations in close proximity to the bike hire stations in New York. One (THE_BATTERY) appears to be at the end of a pier, so these measurements may not be completely representative of conditions within the city. 
  
-![plot of chunk 2015-05-25-ny_battery_map](/figures/2015-05-25-ny_battery_map-1.png) 
+[![plot of chunk 2015-05-25-ny_battery_map](/figures/2015-05-25-ny_battery_map-1.png)](/figures/2015-05-25-ny_battery_map-1.png) 
  
 That said, the other two likely candidates are within central park, and the final one is round 7 km from the middle point of the Citibike stations at La Guardia airport, so again, this may not be particularly representative.
  
@@ -98,9 +98,9 @@ So what about London? There are two stations in the locality, one at St. James's
  
 And London City airport...
  
-![plot of chunk 2015-05-25-london_bike_map](/figures/2015-05-25-london_bike_map-1.png) 
+[![plot of chunk 2015-05-25-london_bike_map](/figures/2015-05-25-london_bike_map-1.png)](/figures/2015-05-25-london_bike_map-1.png) 
  
-![plot of chunk 2015-05-25-london_bike_map_zoom](/figures/2015-05-25-london_bike_map_zoom-1.png) 
+[![plot of chunk 2015-05-25-london_bike_map_zoom](/figures/2015-05-25-london_bike_map_zoom-1.png)](/figures/2015-05-25-london_bike_map_zoom-1.png) 
  
 ### Checking the data
  
@@ -111,11 +111,11 @@ Next thing is to have a look at the integrity of the data coming from these stat
 It's pretty clear that we can discard one of the NY met stations pretty quickly - the Nantucket memorial station has a very incomplete record indeed. And whilst the pattern is very similar, it looks as if the records from the the riverside battery station are a few degrees cooler than the Central Park measurements, so it may not be wise to include measurements from it either.
  
  
-![plot of chunk 2015-05-25-ny_weather_check](/figures/2015-05-25-ny_weather_check-1.png) 
+[![plot of chunk 2015-05-25-ny_weather_check](/figures/2015-05-25-ny_weather_check-1.png)](/figures/2015-05-25-ny_weather_check-1.png) 
  
 And what about London? Records from the St. James's Park and London City airport stations look pretty similar, but the latter is a few kms away from the bike stations. Since the St. James's Park station is so close to the centroid, it makes sense just to use measurements from this station.
  
-![plot of chunk 2015-05-25-london_weather_check](/figures/2015-05-25-london_weather_check-1.png) 
+[![plot of chunk 2015-05-25-london_weather_check](/figures/2015-05-25-london_weather_check-1.png)](/figures/2015-05-25-london_weather_check-1.png) 
  
 
  
@@ -125,7 +125,7 @@ And what about London? Records from the St. James's Park and London City airport
  
 So having combined the weather data with daily journey counts, this is what comes out:
  
-![plot of chunk 2015-05-25-daily_journeys](/figures/2015-05-25-daily_journeys-1.png) 
+[![plot of chunk 2015-05-25-daily_journeys](/figures/2015-05-25-daily_journeys-1.png)](/figures/2015-05-25-daily_journeys-1.png) 
  
 
  
@@ -135,7 +135,7 @@ The response of the bike users to these extremes is much more interesting. In Ne
  
 Since the NY data also records some information about the type of user, we can drill down a little further.
  
-![plot of chunk 2015-05-25-daily_gender_journeys](/figures/2015-05-25-daily_gender_journeys-1.png) 
+[![plot of chunk 2015-05-25-daily_gender_journeys](/figures/2015-05-25-daily_gender_journeys-1.png)](/figures/2015-05-25-daily_gender_journeys-1.png) 
  
 The male and female subscribers both show a pretty similar pattern which is obviously driving the shape of the curve we saw in the plot before. The NAs, which are made up of occasional users without subscriptions (for which we might assume tourists) show a very different pattern.
  
@@ -149,7 +149,7 @@ So this is a probably an oversimplistic way of looking at things. Some of the ot
  
 Trying to work out what is behind some of these outliers is an interesting question - like 19 August 2012 in London:
  
-![plot of chunk 2015-05-25-outlier](/figures/2015-05-25-outlier-1.png) 
+[![plot of chunk 2015-05-25-outlier](/figures/2015-05-25-outlier-1.png)](/figures/2015-05-25-outlier-1.png) 
  
 A cursory Google search reveals nothing of note, but there were only a third of users on bikes compared to the two subsequent years.
  

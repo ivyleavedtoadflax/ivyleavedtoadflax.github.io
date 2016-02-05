@@ -99,7 +99,7 @@ qplot(
   )
 {% endhighlight %}
 
-![plot of chunk ggplot2 recap](/figures/ggplot2 recap-1.png) 
+[![plot of chunk ggplot2 recap](/figures/ggplot2 recap-1.png)](/figures/ggplot2 recap-1.png) 
 
 {% highlight r %}
 qplot(
@@ -110,7 +110,7 @@ qplot(
   )
 {% endhighlight %}
 
-![plot of chunk ggplot2 recap](/figures/ggplot2 recap-2.png) 
+[![plot of chunk ggplot2 recap](/figures/ggplot2 recap-2.png)](/figures/ggplot2 recap-2.png) 
 
 {% highlight r %}
 qplot(
@@ -124,7 +124,7 @@ qplot(
     )
 {% endhighlight %}
 
-![plot of chunk ggplot2 recap](/figures/ggplot2 recap-3.png) 
+[![plot of chunk ggplot2 recap](/figures/ggplot2 recap-3.png)](/figures/ggplot2 recap-3.png) 
 
 {% highlight r %}
 qplot(
@@ -142,7 +142,7 @@ qplot(
     )
 {% endhighlight %}
 
-![plot of chunk ggplot2 recap](/figures/ggplot2 recap-4.png) 
+[![plot of chunk ggplot2 recap](/figures/ggplot2 recap-4.png)](/figures/ggplot2 recap-4.png) 
  
 #### The 'geoms'
  
@@ -200,7 +200,7 @@ qplot(
   theme_bw()
 {% endhighlight %}
 
-![plot of chunk themes](/figures/themes-1.png) 
+[![plot of chunk themes](/figures/themes-1.png)](/figures/themes-1.png) 
  
 ### Getting started with ggvis
  
@@ -753,7 +753,7 @@ tubeData %>%
   qplot(Line, mean, data = ., geom="bar", stat = "identity", fill = Line)
 {% endhighlight %}
 
-![plot of chunk the_pipe](/figures/the_pipe-1.png) 
+[![plot of chunk the_pipe](/figures/the_pipe-1.png)](/figures/the_pipe-1.png) 
  
 #### %>% in ggvis
  

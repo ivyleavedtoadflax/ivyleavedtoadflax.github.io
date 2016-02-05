@@ -268,7 +268,7 @@ abline(a=theta[1],b=theta[2])
 abline(model,col="red",lty=2)
 {% endhighlight %}
 
-![plot of chunk plot_linear_regression_model](/figures/plot_linear_regression_model-1.png) 
+[![plot of chunk plot_linear_regression_model](/figures/plot_linear_regression_model-1.png)](/figures/plot_linear_regression_model-1.png) 
  
 Plotting $J(\theta_0,\theta_1)$ for each iteration would indicate that we had not yet minimised $J(\theta_0,\theta_1)$, and that it is continuing to fall with each further iteration:
  
@@ -293,7 +293,7 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk plot_convergence](/figures/plot_convergence-1.png) 
+[![plot of chunk plot_convergence](/figures/plot_convergence-1.png)](/figures/plot_convergence-1.png) 
  
 The right hand plot just zooms in on the left hand plot, at the very end of the curve, so we can see that it is still dropping at quite a pace.
  
@@ -398,6 +398,6 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk plot_convergence2](/figures/plot_convergence2-1.png) 
+[![plot of chunk plot_convergence2](/figures/plot_convergence2-1.png)](/figures/plot_convergence2-1.png) 
  
 So this time it appears to converge, although it took many iterations to get here. Some adjustment of the learning rate would probably bring this down.

@@ -2,14 +2,14 @@
 title: "IoT with the ESP8266"
 comments: yes
 date: '2016-02-01'
-modified: 2016-02-01
+modified: `r format(Sys.time(), '%Y-%m-%d')`
 layout: post
-excerpt: "A low cost Wi-Fi serial module"
-published: true
-status: publish
+excerpt: "A low cost WiFi serial module"
+published: no
+status: process
 tags:
 - raspberry pi
-- Arduino
+- arduino
 - esp8266
 - lua
 - Internet of things
@@ -18,23 +18,23 @@ tags:
 categories: IoT
 ---
 
-I've been playing around with Arduinos and Raspberry Pis (mostly the latter) for a couple of years now.
-I've mostly been interested in producing Wi-Fi enables sensors that can measure things like temperature, and electricity usage throughout the home.
-I'm currently part way through a number of posts in which I have been analysing a year's worth of data collected using some of these sensors, in the last post I dealt with a year's worth of [temperature measurements]().
+I've been playing aroudn with Arduinos and Raspberry Pis (mostly the latter) for a couple fo yeasr now.
+I've mostly been interested in producing WiFi enables sensors that can measure things like temperature, and electricity usage throughout the home.
+I'm currently part way through a number of posts in which I have been analysing a year's worth of data collected using some of these sensors, in the last post I dealt with a year's worth of [temperature measurements](/rstats/infographic2/).
 
 ### The connectivity problem
 
-One of the problems I have had is finding the best way to get these sensors connected to my Wi-Fi.
+One of the problems I have had is finding the best way to get these sensors connected to my WiFi. 
 Let's face it, polling sensors is not a very complex task, and in some respects a Raspberry Pi is overkill: I don't really need a full fledged Linux computer to get temperature measurements from a couple of sensors.
-It would make sense to use and Arduino, a microcontroller capable of doing simple tasks more reliably. The problem is that if you want to get an Arduino to talk to the internet, you are looking at [Arduino yun](http://www.amazon.co.uk/Arduino-A000008-Yun-Microcontroller/dp/B00MBCGWQQ), Wi-Fi, or etehrnet shield, all of which are upwards of £30.
+It would make sense to use and arduino, a microcontroller capable of doing simple tasks more reliably. The problem is that if you want to get an arduino to talk to the internet, you are looking at [arduino yun](http://www.amazon.co.uk/Arduino-A000008-Yun-Microcontroller/dp/B00MBCGWQQ), Wifi, or etehrnet shield, all of which are upwards of £30.
 
-On the other hand, a [Raspberry Pi zero](https://www.raspberrypi.org/products/pi-zero/) (if you can ever get hold of one) costs just £4, but you will need to invest in a [USB Wi-Fi dongle](https://www.raspberrypi.org/products/usb-wifi-dongle/) for upwards of £5. This isn't a big outlay, but having noticed how frequently my Pis tend to miss measurements, or crash (probably due to a lack of error handling in my code), It's left me thinking that I would have to go for an expensive in an Arduino solution.
+On the other hand, a [Raspberry Pi zero](https://www.raspberrypi.org/products/pi-zero/) (if you can ever get hold of one) costs just £4, but you will need to invest in a [USB WiFi dongle]() for upwards of £5. This isn't a big outlay, but having noticed how frequently my Pis tend to miss measurements, or crash (probably due to a lack of error handling in my code), It's left me thinking that I would have to go for an expensive in an arduino solution.
 
-I thought the best of both worlds might be the [Raspio-duino](http://rasp.io/duino/), which is essentially an Arduino mounted on a Raspberry Pi hat. The problem here is that you still need to maintain some sort of connection between the Pi and the Arduino, and some sort of infinite loop keeping an eye on updates coming from the Arduino.
+I thought the best of both worlds might be the [Raspio-duino](http://rasp.io/duino/), which is essentially an arduino mounted on a Raspberry Pi hat. The problem here is that you still need to maintain some sort of connection between the Pi and the Arduino, and some sort of infinite loop keeping an eye on updates coming from the arduino.
 
 ### Enter the ESP8266
 
-Recently I discovered (and a very casual glance at [hackaday](https://hackaday.com/tag/esp8266/) will show that I come very late to the party) that there is a solution to this problem in a small serial Wi-Fi board called the [ESP8266](https://en.wikipedia.org/wiki/ESP8266). This board can add Wi-Fi connectivity to either a Raspberry Pi or an Arduino via serial, but what is really attractive about this board is that it comes with a 32bit microcontroller on board, and a number of GPIO pins - *so you don't need a separate Arduino*.
+Recently I discovered (and a very casual glance at [hackaday]() will show that I come very late to the party) that there is a solution to this problem in a small serial WiFi board called the [ESP8266](https://hackaday.com/tag/esp8266/). This board can add WiFi connectivity to either a Raspberry Pi or an Arduino via serial, but what is really attractive about this board is that it comes with a 32bit microcontroller on board, and a number of GPIO pins - *so you don't need a separate arduino*.
 
 In this blog post I'm documenting my first steps with the ESP8266, going from getting a board in the post to producing a super quick http server.
 
@@ -46,14 +46,14 @@ The latter is not essential, but does make life easier, as the board is produced
 [^1]: Note that I have used the ESP8266 ESP12F module. If you look for the older versions ESP1 for instance, these can be a little bit cheaper, and still provide very similar functionality.
 
 [![](/figures/2016-02-01-ESP8266.png)](/figures/2016-02-01-ESP8266.png)  
-*ESP8266 and breakout board*
+*ESP8266 and breakout board.*
 
 So the first job is to solder the two together. I recommend using a bit of insulation tape for the first couple of pads, just to hold everything in position.
 
-[![](/figures/2016-02-01-ESP8266-soldered.png)](/figures/2016-02-01-ESP8266-soldered.png)
-*ESP8266 soldered to breakout board*
+[![](/figures/2016-02-01-ESP8266-soldered.png)](/figures/2016-02-01-ESP8266-soldered.png)  
+*ESP8266 soldered to breakout board.*
 
-One of the nice things about this breakout board that you will notice, is that there are already $10\text{k}\Omega$ surface mount resistors bridging GPIO15 to GND, and CH_PD to GPIO16. These are required if you want to talk to
+One of the nice things about this breakout board that you will notice, is that there are already $10\text{k}\Omega$ surface mount resistors bridging GPIO15 to GND, and CH_PD to GPIO16. These are required if you want to talk to 
 
 ### Talking to the ESP8266
 
@@ -83,23 +83,23 @@ You will need a serial terminal emulator to talk to your ESP8266. I started out 
 On rebooting the module, you should see:
 
 ```
-l`rln't use rtc mem data
-r##rl
-Ai-Thinker Technology Co.,Ltd.
-
+l`rln't use rtc mem data  
+r##rl  
+Ai-Thinker Technology Co.,Ltd.  
+  
 ready
 ```
 
-### Connecting to Wi-Fi
+### Connecting to WiFi
 
-Now that the module is running, we can try to connect it to the local Wi-Fi connection. I followed the instructions [here](http://www.instructables.com/id/Getting-Started-with-the-ESP8266-ESP-12/?ALLSTEPS):
+Now that the module is running, we can try to connect it to the local WiFi connection. I followed the instructions [here](http://www.instructables.com/id/Getting-Started-with-the-ESP8266-ESP-12/?ALLSTEPS):
 
 |Command|Response|
 |:------|:-------|
 |AT     |OK      |
 |AT+GMR |Return current firmware version of the chip|
 |AT+CWLAP|List wireless access points|
-|AT+CWJAP="SSID","password"|Join your Wi-Fi network|
+|AT+CWJAP="SSID","password"|Join your WiFi network|
 |AT+CIFSR|Return local and gateway IP address|
 
 ### Flashing the module
@@ -114,7 +114,9 @@ First we need to flash this firmware onto the module. I used the excellent [Node
 Then I tied GPIO to ground to enter the flash mode, and used a python script available on [github ](https://github.com/4refr0nt/luatool) to flash the binary. I used the code:
 
 ```
-sudo ./esptool.py -p /dev/ttyUSB0 -b 921600 write_flash 0x00000 ~/Dropbox/NodeMCU/nodemcu-master-8-modules-2016-01-30-18-30-32-float.bin
+sudo ./esptool.py -p /dev/ttyUSB0 \ 
+  -b 921600 write_flash 0x00000 \
+  /nodemcu-master-8-modules-2016-01-30-18-30-32-float.bin
 
 ```
 
@@ -127,29 +129,29 @@ NodeMCU custom build by frightanic.com
 	branch: master
 	commit: c8037568571edb5c568c2f8231e4f8ce0683b883
 	SSL: false
-	modules: file,gpio,net,node,ow,tmr,uart,Wi-Fi
+	modules: file,gpio,net,node,ow,tmr,uart,wifi
  build 	built on: 2016-01-30 18:29
  powered by Lua 5.1.4 on SDK 1.4.0
 ```
 
-### Connecting to Wi-Fi with Lua
+### Connecting to WiFi with Lua
 
-We can then get the module to connect to Wi-Fi using Lua using:
-
-```
-=Wi-Fi.sta.config("SSID","password")
-```
-
-and get the IP address with:
+We can then get the module to connect to WiFi using Lua using:
 
 ```
-=Wi-Fi.sta.getip()
+=wifi.sta.config("SSID","password")
+```
+
+and get the IP address with: 
+
+```
+=wifi.sta.getip()
 ```
 
 If I now scan my local network, I can see the device has connected to my router's access point, and has an IP address, in this case: 192.168.1.167. If I do a port scan however, there are no open ports.
 
-[![](/figures/2016-02-01-network_scan.png)](/figures/2016-02-01-network_scan.png)
-*Running a network scan using [Fing](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en_GB)*
+[![](/figures/2016-02-01-network_scan.png)](/figures/2016-02-01-network_scan.png)  
+*Running a network scan using [Fing](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en_GB).*
 
 ### A simple Lua http server
 
@@ -157,12 +159,12 @@ Taking one of the examples from the [NodeMCU](http://nodemcu.com/index_en.html) 
 
 ```
 -- a simple http server
-srv=net.createServer(net.TCP)
-srv:listen(80,function(conn)
-    conn:on("receive",function(conn,payload)
-    print(payload)
-    conn:send("<h1> Hello, NodeMCU.</h1>")
-    end)
+srv=net.createServer(net.TCP) 
+srv:listen(80,function(conn) 
+   conn:on("receive",function(conn,payload) 
+   print(payload) 
+   conn:send("<h1> Hello, NodeMCU.</h1>")
+   end) 
 end)
 ```
 
@@ -174,7 +176,7 @@ Then I ran a portscan again. Sure enough, port 80 on 192.168.1.167 appeared open
 When I opened it with a browser I got the simple message `Hello, NodeMCU`.
 
 [![](/figures/2016-02-01-lua_host.png)](/figures/2016-02-01-lua_host.png)  
-*The view from chrome on my phone when accessing the Wi-Fi module. We get back the code `<h1> Hello, NodeMCU.</h1>` rendered as a webpage.*
+*The view from chrome on my phone when accessing the WiFi module. We get back the code <h1> Hello, NodeMCU.</h1> rendered as a webpage.*
 
 Looking back to the console I have kept open, I can see the http GET request being sent by my browser.  
 
@@ -205,9 +207,13 @@ In the former, I need to do a bit of reading. For the latter, I'm planning on bu
 This can even be achieved relatively simply with [nginx](http://rny.io/nginx/postgresql/2013/07/26/simple-api-with-nginx-and-postgresql.html).
 
 
-#### Useful resources
+#### Some other useful resources
 
 * <http://www.instructables.com/id/Using-the-ESP8266-module/?ALLSTEPS>
 * <http://www.instructables.com/id/Getting-Started-with-the-ESP8266-ESP-12/?ALLSTEPS>
 * <http://nodemcu.com/index_en.html>
 * <https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-nodemcu-lua>
+
+
+
+

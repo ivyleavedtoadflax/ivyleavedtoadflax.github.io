@@ -95,7 +95,7 @@ bikes %>%
   xlab("Year and Month")
 {% endhighlight %}
 
-![plot of chunk gender_month_plot](/figures/gender_month_plot-1.png) 
+[![plot of chunk gender_month_plot](/figures/gender_month_plot-1.png)](/figures/gender_month_plot-1.png) 
  
 Since many people seem to use Citibikes to get to work Monday - Friday, usage patterns may change at the weekend...
  
@@ -146,7 +146,7 @@ bikes %>%
     )
 {% endhighlight %}
 
-![plot of chunk gender_month_plot1](/figures/gender_month_plot1-1.png) 
+[![plot of chunk gender_month_plot1](/figures/gender_month_plot1-1.png)](/figures/gender_month_plot1-1.png) 
  
 While there looks to be an increase in the proportion of `Customers` -- short term pass holders -- at the weekend, especially in the summer months, the overall proportion of female riders remains fairly constant at around 20%.
  
@@ -201,7 +201,7 @@ ggplot() +
   xlab("Trip duration (s)")
 {% endhighlight %}
 
-![plot of chunk trip_duration_density1](/figures/trip_duration_density1-1.png) 
+[![plot of chunk trip_duration_density1](/figures/trip_duration_density1-1.png)](/figures/trip_duration_density1-1.png) 
  
 OK...so this is looking a bit more interesting. Two things come out of this plot. Firstly it is clear that the distribution of female journey times matches fairly closely to the distribution of male journey times: most journeys take less than around 500 seconds (about 8 minutes and 20 seconds) - although most female journeys take longer than most male journeys:
  
@@ -228,7 +228,7 @@ bikes %>%
     )
 {% endhighlight %}
 
-![plot of chunk trip_duration_density](/figures/trip_duration_density-1.png) 
+[![plot of chunk trip_duration_density](/figures/trip_duration_density-1.png)](/figures/trip_duration_density-1.png) 
  
  
 There is much more of a lag to the curve compared to the male curve, and in general, female journey times are longer than male journey times. Of equal interest is the fact that the unknowns - represented by the grey shading - show a markedly different distribution. Although skewed, the distribution is much more symmetrical, with the most common journey time around 1250 seconds.
@@ -300,7 +300,7 @@ bikes %>%
     )
 {% endhighlight %}
 
-![plot of chunk trip_duration_density_we](/figures/trip_duration_density_we-1.png) 
+[![plot of chunk trip_duration_density_we](/figures/trip_duration_density_we-1.png)](/figures/trip_duration_density_we-1.png) 
  
 So yes, at the weekend, the peaks are lower but distributed further to the right. This is what we might expect  as we might expect, people tend to either take longer journeys, or travel at a more leisurely pace at the weekend, or both.
  
@@ -343,7 +343,7 @@ bikes %>%
   ylab("Count")
 {% endhighlight %}
 
-![plot of chunk tripdensity_we_age](/figures/tripdensity_we_age-1.png) 
+[![plot of chunk tripdensity_we_age](/figures/tripdensity_we_age-1.png)](/figures/tripdensity_we_age-1.png) 
  
 At the weekend, many fewer people travel, and the distribution of journey times is less strongly peaked. All commonsense if we accept the idea that most people who use citibike are doing so to commute.
  

@@ -75,7 +75,7 @@ plot(
   )
 {% endhighlight %}
 
-![plot of chunk 2015-04-06-sigmoid-function](/figures/2015-04-06-sigmoid-function-1.png) 
+[![plot of chunk 2015-04-06-sigmoid-function](/figures/2015-04-06-sigmoid-function-1.png)](/figures/2015-04-06-sigmoid-function-1.png) 
  
 ...and with this function, implementing $h_{\theta}$ is easy:
  
@@ -142,7 +142,7 @@ p <- ex2data1 %>%
 p
 {% endhighlight %}
 
-![plot of chunk 2015-04-06-log-reg](/figures/2015-04-06-log-reg-1.png) 
+[![plot of chunk 2015-04-06-log-reg](/figures/2015-04-06-log-reg-1.png)](/figures/2015-04-06-log-reg-1.png) 
  
 And now try out logistic regression with `ucminf`:
  
@@ -207,7 +207,7 @@ p + stat_function(
     )
 {% endhighlight %}
 
-![plot of chunk 2015-04-06-log-reg-boundary](/figures/2015-04-06-log-reg-boundary-1.png) 
+[![plot of chunk 2015-04-06-log-reg-boundary](/figures/2015-04-06-log-reg-boundary-1.png)](/figures/2015-04-06-log-reg-boundary-1.png) 
  
 ### Vectorising 
  

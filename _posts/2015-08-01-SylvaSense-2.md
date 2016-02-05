@@ -19,13 +19,13 @@ In my previous post I was looking into building my own gypsum block soil moistur
  
 I'm using 3 mm A3 stainless steel studding to form the electrodes across which the arduino will measure resistance. Once this arrived, I cut two rods 75 mm in length, and spaced the plastic 3d printed components at a slightly shorter distance than the height of the hair curlers.
  
-![](/figures/2015-08-01-assembly.jpg)
+[![](/figures/2015-08-01-assembly.jpg)](/figures/2015-08-01-assembly.jpg)
  
 *Assembled 3d printed components and stainless steel studding next to a 35 mm hair curler.*
  
 Once assembled, I then wrapped the whole contraption in silver foil, leaving a gap at the top to allow me to fill it with plaster of Paris.
  
-![](/figures/2015-08-01-casting1.jpg)
+[![](/figures/2015-08-01-casting1.jpg)](/figures/2015-08-01-casting1.jpg)
  
 *Starting to cast the sensor.*
  
@@ -35,7 +35,7 @@ The first time I did this I just let the plaster pour out over the top. Once thi
  
 Having removed the excess you are left with a nice looking block. It takes a good few hours for plaster to fully harden, but within an hour you can start to pick the thing up and manipulate it, and remove the excess plaster.
  
-![](/figures/2015-08-01-completed-sensor1.jpg)
+[![](/figures/2015-08-01-completed-sensor1.jpg)](/figures/2015-08-01-completed-sensor1.jpg)
  
 *A completed sensor having been cleaned up, and allowed to dry out.*
  
@@ -45,13 +45,13 @@ So somewhere about now, having cast my first sensor, I had a conversation with a
  
 So, in order to get a handle on this, I decided to try to embed a temperature sensor within the new sensors I was producing. Actually, I decided to go the whole hog and embed two temperature sensors into each gypsum block. I have some ds18b20 sensors, which are great little digital temperature sensors that work on the 1-wire system. I'm no expert here - just Google it, there are plenty of tutorials for these sensors.
  
-![](/figures/2015-08-01-ds18b20.jpg)
+[![](/figures/2015-08-01-ds18b20.jpg)](/figures/2015-08-01-ds18b20.jpg)
  
 *The ds18b20, a versatile three legged digital onewire temperature sensor. Each unit costs about £1.*
  
 The first things is to make sure that the ds18b20s are completely waterproof. You can buy stainless steel cased ds18b20s, but they tend to be in the region of a few pounds, when a single un-shielded sensor should cost around a pound, and it is easy enough to waterproof them. I started by soldering on wires onto each leg of the sensor, then wrapping these with an individual layer of heat shrink, and then a further layer of heat shrink to wrap the three legs together. Then I coated the entire sensor in epoxy resin, just to ensure that any gaps between the heat shrink are totally covered. This may be overkill, but I am going to bury this thing underground where it is likely to get saturated with water - I don't want to take the risk of the sensor shorting out and packing up.
  
-![](/figures/2015-08-01-ds18b20-position.jpg)
+[![](/figures/2015-08-01-ds18b20-position.jpg)](/figures/2015-08-01-ds18b20-position.jpg)
  
 *Holding temperature sensors in place with croccodile clips ready for casting in plaster of Paris.*
  
@@ -64,7 +64,7 @@ So that was yesterday. One of the nice things about making soil moisture sensors
  
 So what can my first 40 hours on these sensors say? We first of all, I know that the first gypsum sensor I cast had reached some sort of equilibrium resistance when I started sensing, and has now been steady for the last 40 hours sitting next to a dehumidifier. The other two sensors show much lower resistance, until about 12 hours in, when I decided to sit them next to the dehumidifier. After that, resistance increased as the sensors began to dry out, and climbed steadily towards the resistance of the dry sensor, reaching it around 21 hours in.
  
-![plot of chunk 2015-08-01-datalog](/figures/2015-08-01-datalog-1.png) 
+[![plot of chunk 2015-08-01-datalog](/figures/2015-08-01-datalog-1.png)](/figures/2015-08-01-datalog-1.png) 
  
 *The first 40 hours of data, showing two freshly cast sensors slowly drying out over 20 hours to reach an equilibrium resistance.*
  

@@ -77,7 +77,7 @@ The code is a lot more precarious for the electricity meter reader. The code for
  
 Plotted out, the raw data look like this (in fact I have removed a few values from the temperature and light readings to get sensible scales for the y-axis).
  
-![plot of chunk 2015-12-24-raw-data](/figures/2015-12-24-raw-data-1.png) 
+[![plot of chunk 2015-12-24-raw-data](/figures/2015-12-24-raw-data-1.png)](/figures/2015-12-24-raw-data-1.png) 
  
 The gaps in measurements are pretty obvious, as are some erroneous looking values.
 In this plot the light values are essentially counts of how long it took to fill the capacitor (thus allowing a digital input from an analogue sensor).
@@ -111,17 +111,17 @@ After removing these records, I was still able to retain at least 77% of possibl
  
 Plotting this out, the data look a lot more consistent.
  
-![plot of chunk 2015-12-24-clean-data](/figures/2015-12-24-clean-data-1.png) 
+[![plot of chunk 2015-12-24-clean-data](/figures/2015-12-24-clean-data-1.png)](/figures/2015-12-24-clean-data-1.png) 
  
 Note that there are still some periods which raise some concern - e.g. light measurements and internal temperature in January/February.
  
-![plot of chunk 2015-12-24-jan-feb](/figures/2015-12-24-jan-feb-1.png) 
+[![plot of chunk 2015-12-24-jan-feb](/figures/2015-12-24-jan-feb-1.png)](/figures/2015-12-24-jan-feb-1.png) 
  
 In the former case, this was because I moved the location of the sensor in early February to a darker location (leading to longer capacitor timings). In the latter, I went on holiday for a couple of weeks, hence external temperature remained unaffected, but internal temperature dropped by almost 10 degrees Celsius. In fact these holiday periods could become a useful benchmark for identifying patterns from my activities in the data.
  
 So what does a single day look like? Picking a day (almost) at random: 17 May 2015:
  
-![plot of chunk 2015-12-24-single-day](/figures/2015-12-24-single-day-1.png) 
+[![plot of chunk 2015-12-24-single-day](/figures/2015-12-24-single-day-1.png)](/figures/2015-12-24-single-day-1.png) 
  
  
 #### Electricity
