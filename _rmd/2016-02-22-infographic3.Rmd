@@ -137,7 +137,7 @@ This transformation has three benefits:
 
 * It reverses the values, so that high numbers relate to more light, which is more intuitive.
 * It reduces the differences between low and high values, making patterns easier to discern, and reducing the impact of outliers.
-* It sets the light values on a scale on 0 to 1, with 0 being most dark, and 1 being most light (across the whole year).
+* It sets the light values on a scale of 0 to 1, with 0 being most dark, and 1 being most light (across the whole year).
 
 After applying this transformation, 5 further values were highlighted as outliers that were not removed in the initial cleaning described in a [previous post](../infographic1/), so any light value $<50$ was removed.
 
